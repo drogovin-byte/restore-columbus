@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Check, Zap } from "lucide-react";
 import { memberships } from "@/lib/data";
 
 export default function Memberships() {
@@ -21,60 +20,56 @@ export default function Memberships() {
 
       {/* Memberships Grid */}
       <div className="container py-20">
-        <div className="grid gap-8 lg:grid-cols-3 relative">
+        <div className="grid gap-8 lg:grid-cols-3 relative pb-8">
           {memberships.map((membership, index) => {
             const isPopular = membership.isPopular;
             
             // Color scheme matching Restore reference image
             let cardBg = "";
-            let headerBg = "";
-            let textColor = "text-white";
-            let priceColor = "text-white";
-            let dividerColor = "border-white/30";
-            let buttonBg = "bg-white hover:bg-gray-100 text-[#1B5E7F]";
+            let cardGradient = "";
             
             if (index === 0) {
               // Level Up - Light Teal
-              cardBg = "bg-[#5DADE2]"; // Light teal
-              headerBg = "bg-[#5DADE2]";
+              cardBg = "bg-[#5DADE2]";
+              cardGradient = "from-[#5DADE2] to-[#5DADE2]";
             } else if (index === 1) {
               // Elevate - Dark Teal (Most Popular)
-              cardBg = "bg-[#1B5E7F]"; // Dark teal
-              headerBg = "bg-[#1B5E7F]";
+              cardBg = "bg-[#1B5E7F]";
+              cardGradient = "from-[#1B5E7F] to-[#1B5E7F]";
             } else {
               // Core - Medium Teal
-              cardBg = "bg-[#2E8B9E]"; // Medium teal
-              headerBg = "bg-[#2E8B9E]";
+              cardBg = "bg-[#2E8B9E]";
+              cardGradient = "from-[#2E8B9E] to-[#2E8B9E]";
             }
 
             return (
               <div key={index} className="relative">
                 {isPopular && (
-                  <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 z-10">
-                    <div className="bg-[#5DADE2] rounded-full w-24 h-24 flex items-center justify-center border-4 border-white shadow-lg">
+                  <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 z-20">
+                    <div className="bg-[#5DADE2] rounded-full w-28 h-28 flex items-center justify-center border-4 border-white shadow-xl">
                       <div className="text-center">
-                        <div className="text-xs font-bold text-white">BEST</div>
-                        <div className="text-xs font-bold text-white">VALUE</div>
+                        <div className="text-xs font-bold text-white leading-tight">BEST</div>
+                        <div className="text-xs font-bold text-white leading-tight">VALUE</div>
                       </div>
                     </div>
                   </div>
                 )}
                 
                 <Card
-                  className={`flex flex-col overflow-hidden transition-all duration-300 h-full border-0 rounded-2xl ${
-                    isPopular ? "lg:scale-105 shadow-2xl" : "shadow-lg"
+                  className={`flex flex-col overflow-hidden transition-all duration-300 h-full border-0 rounded-3xl shadow-xl ${
+                    isPopular ? "lg:scale-105 lg:shadow-2xl" : ""
                   } ${cardBg}`}
                 >
                   <div className="space-y-0 p-0 flex-1 flex flex-col">
-                    {/* Header */}
-                    <div className={`space-y-6 px-8 pt-12 pb-8 ${headerBg}`}>
+                    {/* Header with Title and Pricing */}
+                    <div className={`space-y-6 px-8 ${isPopular ? 'pt-16 pb-8' : 'pt-8 pb-8'}`}>
                       <h3 className="text-3xl font-bold text-white tracking-wide">{membership.name}</h3>
                       
-                      {/* Pricing */}
-                      <div className="space-y-3 border-b border-white/30 pb-8">
+                      {/* Pricing Section */}
+                      <div className="space-y-3">
                         <div className="flex items-baseline gap-2">
-                          <span className="text-4xl font-bold text-white">${membership.price}</span>
-                          <span className="text-white/90">/month</span>
+                          <span className="text-5xl font-bold text-white">${membership.price}</span>
+                          <span className="text-lg text-white/90">/month</span>
                         </div>
                         <div className="space-y-1 text-sm">
                           <p className="text-white/90">
@@ -86,40 +81,41 @@ export default function Memberships() {
                         </div>
                       </div>
 
-                      {/* Credits */}
+                      {/* Divider */}
+                      <div className="border-b border-white/30"></div>
+
+                      {/* Credits Section */}
                       <div className="space-y-2">
-                        <div className="text-5xl font-bold text-white">{membership.credits}</div>
+                        <div className="text-6xl font-bold text-white">{membership.credits}</div>
                         <p className="text-lg text-white/90">Credits / Month</p>
                         <p className="text-sm text-white/80">
                           ${membership.perTherapy.toFixed(2)} per Therapy
                         </p>
-                        <div className="border-b border-white/30 pt-4"></div>
                       </div>
+
+                      {/* Divider */}
+                      <div className="border-b border-white/30"></div>
                     </div>
 
-                    {/* Benefits */}
+                    {/* Benefits Section */}
                     <div className="space-y-4 px-8 py-8 flex-1 flex flex-col">
-                      <div className="space-y-3">
-                        {membership.benefits.slice(0, 3).map((benefit, i) => (
-                          <p key={i} className="text-white/90 text-sm leading-relaxed">
+                      <div className="space-y-3 flex-1">
+                        {membership.benefits.slice(0, 4).map((benefit, i) => (
+                          <p key={i} className="text-white/95 text-sm leading-relaxed">
                             {benefit}
                           </p>
                         ))}
                       </div>
-                      
-                      <div className="border-b border-white/30 my-4"></div>
-                      
-                      <div className="flex-1"></div>
 
-                      {/* CTA */}
+                      {/* CTA Button */}
                       <a
                         href="https://www.restore.com/book-now"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-full"
+                        className="w-full mt-6"
                       >
                         <Button
-                          className={`w-full font-bold text-base py-6 rounded-lg ${buttonBg}`}
+                          className="w-full font-bold text-base py-6 rounded-lg bg-white hover:bg-gray-100 text-[#1B5E7F] transition-all duration-200 shadow-md hover:shadow-lg"
                           size="lg"
                         >
                           Get Started
