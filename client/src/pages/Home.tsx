@@ -110,7 +110,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.slice(0, 6).map((service) => (
-              <Link key={service.id} href={`/services#${service.id}`}>
+              <Link key={service.id} href="/services">
                 <Card className="group h-full overflow-hidden border-none shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 bg-card">
                   <div className="relative h-48 overflow-hidden">
                     <img 
