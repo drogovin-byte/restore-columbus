@@ -241,7 +241,7 @@ export default function LocationDetail() {
               <CardContent className="pt-6 space-y-4">
                 <h3 className="font-bold text-lg">Ready to Visit?</h3>
                 <Button asChild className="w-full bg-accent text-accent-foreground hover:bg-white hover:text-primary font-bold h-12 rounded-full">
-                  <Link href="/book">Book Your Session</Link>
+                  <Link href="https://www.restore.com/book-now">Book Your Session</Link>
                 </Button>
                 <Button asChild variant="outline" className="w-full border-white text-white hover:bg-white hover:text-primary font-bold h-12 rounded-full">
                   <a href={`tel:${location.phone}`}>Call Now</a>
@@ -308,7 +308,7 @@ export default function LocationDetail() {
             Experience the difference that science-backed wellness can make. Book your first session at our {location.city} location.
           </p>
           <Button asChild size="lg" className="bg-white text-primary hover:bg-gray-100 font-bold text-lg h-14 px-10 rounded-full">
-            <Link href="/book">Book Now</Link>
+            <Link href="https://www.restore.com/book-now">Book Now</Link>
           </Button>
         </div>
       </section>

@@ -155,7 +155,7 @@ export default function ServiceDetail() {
                   <p className="text-3xl font-bold text-primary">{service.pricing}</p>
                 </div>
                 <Button asChild className="w-full bg-accent text-accent-foreground hover:bg-accent/90 font-bold h-12">
-                  <Link href="/book">Book Now</Link>
+                  <Link href="https://www.restore.com/book-now">Book Now</Link>
                 </Button>
                 <Button asChild variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-white font-bold h-12">
                   <Link href="/services#memberships">View Memberships</Link>
@@ -212,7 +212,7 @@ export default function ServiceDetail() {
             Book your first session today and discover how {service.title} can transform your health and performance.
           </p>
           <Button asChild size="lg" className="bg-white text-primary hover:bg-gray-100 font-bold text-lg h-14 px-10 rounded-full">
-            <Link href="/book">Book Your Session</Link>
+            <Link href="https://www.restore.com/book-now">Book Your Session</Link>
           </Button>
         </div>
       </section>

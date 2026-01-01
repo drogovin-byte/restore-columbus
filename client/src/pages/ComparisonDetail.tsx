@@ -61,7 +61,7 @@ export default function ComparisonDetail() {
             Book your first session today and experience the difference for yourself.
           </p>
           <Button asChild size="lg" className="bg-white text-primary hover:bg-gray-100 font-bold text-lg h-14 px-10 rounded-full">
-            <Link href="/book">Book Now</Link>
+            <Link href="https://www.restore.com/book-now">Book Now</Link>
           </Button>
         </div>
       </section>

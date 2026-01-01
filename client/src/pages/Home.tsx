@@ -33,7 +33,7 @@ export default function Home() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-white hover:text-primary font-bold text-lg h-14 px-8 rounded-full shadow-lg transition-all hover:scale-105">
-                <Link href="/book">Book Appointment</Link>
+                <Link href="https://www.restore.com/book-now">Book Appointment</Link>
               </Button>
               <Button asChild variant="outline" size="lg" className="border-white text-primary hover:bg-white/10 hover:text-white font-bold text-lg h-14 px-8 rounded-full backdrop-blur-sm">
                 <Link href="/services">Explore Therapies</Link>
@@ -187,7 +187,7 @@ export default function Home() {
                     ))}
                   </ul>
                   <Button asChild className={`w-full font-bold ${tier.isPopular ? 'bg-primary text-white hover:bg-primary/90' : 'bg-white text-primary hover:bg-white/90'}`}>
-                    <Link href="/book">Choose {tier.name}</Link>
+                    <Link href="https://www.restore.com/book-now">Choose {tier.name}</Link>
                   </Button>
                 </CardContent>
               </Card>
@@ -293,7 +293,7 @@ export default function Home() {
             Join thousands of Columbus residents who have made Restore a part of their weekly wellness routine.
           </p>
           <Button asChild size="lg" className="bg-white text-primary hover:bg-gray-100 font-bold text-lg h-16 px-10 rounded-full shadow-xl">
-            <Link href="/book">Book Your First Session</Link>
+            <Link href="https://www.restore.com/book-now">Book Your First Session</Link>
           </Button>
         </div>
       </section>

@@ -67,7 +67,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               Locations
             </Link>
             <Button asChild size="sm" className="bg-primary hover:bg-primary/90 text-white font-bold rounded-full px-6">
-              <Link href="/book">Book Now</Link>
+              <Link href="https://www.restore.com/book-now">Book Now</Link>
             </Button>
           </nav>
 
@@ -98,7 +98,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 Locations
               </Link>
               <Button asChild className="bg-primary hover:bg-primary/90 text-white font-bold rounded-full w-full">
-                <Link href="/book">Book Now</Link>
+                <Link href="https://www.restore.com/book-now">Book Now</Link>
               </Button>
             </nav>
           </div>
@@ -108,7 +108,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       {/* Sticky Mobile Book Now Button */}
       <div className="fixed bottom-0 left-0 right-0 md:hidden z-40 bg-gradient-to-t from-background via-background to-transparent pt-4 pb-4 px-4 border-t border-border">
         <Button asChild className="w-full bg-primary hover:bg-primary/90 text-white font-bold rounded-lg py-6 text-base shadow-lg">
-          <Link href="/book">Book Now</Link>
+          <Link href="https://www.restore.com/book-now">Book Now</Link>
         </Button>
       </div>
 
@@ -163,7 +163,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <div className="space-y-2 text-sm">
                 <a href="tel:6145550101" className="hover:opacity-80 transition-opacity block">Call: 614-555-0101</a>
                 <a href="mailto:info@restorecolumbus.com" className="hover:opacity-80 transition-opacity block">Email: info@restorecolumbus.com</a>
-                <Link href="/book" className="hover:opacity-80 transition-opacity block font-medium text-accent">Book Appointment</Link>
+                <Link href="https://www.restore.com/book-now" className="hover:opacity-80 transition-opacity block font-medium text-accent">Book Appointment</Link>
               </div>
             </div>
           </div>
