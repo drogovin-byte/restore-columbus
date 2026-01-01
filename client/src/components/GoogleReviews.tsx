@@ -135,20 +135,7 @@ export default function GoogleReviews({
           ))}
         </div>
 
-        {/* CTA */}
-        <div className="mt-8 text-center">
-          <p className="text-muted-foreground mb-4">
-            Share your experience and help others discover the benefits of Restore
-          </p>
-          <a 
-            href={`https://www.google.com/search?q=${encodeURIComponent(locationName + ' Restore Hyper Wellness')}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block px-6 py-2 bg-primary text-primary-foreground rounded-full font-medium hover:bg-primary/90 transition-colors"
-          >
-            Leave a Review on Google
-          </a>
-        </div>
+
       </div>
     </section>
   );
