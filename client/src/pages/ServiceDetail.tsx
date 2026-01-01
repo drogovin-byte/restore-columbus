@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout";
+import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -9,6 +10,10 @@ import { services, problemStates } from "@/lib/data";
 export default function ServiceDetail() {
   const [match, params] = useRoute("/service/:id");
   const service = services.find(s => s.id === params?.id);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [params?.id]);
 
   if (!match || !service) {
     return (
