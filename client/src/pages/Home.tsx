@@ -10,17 +10,7 @@ import GoogleReviews from "@/components/GoogleReviews";
 export default function Home() {
   return (
     <Layout>
-      {/* Google Reviews Section */}
-      {locations[0].reviews && (
-        <GoogleReviews 
-          locationName={locations[0].name}
-          reviews={locations[0].reviews}
-          averageRating={locations[0].averageRating}
-          totalReviews={locations[0].totalReviews}
-        />
-      )}
-
-      {/* Blog Section */}
+      {/* Hero Section */}
       <section className="relative h-[600px] md:h-[700px] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
@@ -308,6 +298,21 @@ export default function Home() {
           </Button>
         </div>
       </section>
+
+      {/* Google Reviews Section - Combined from all locations */}
+      {(() => {
+        const allReviews = locations.flatMap(loc => loc.reviews);
+        const totalReviews = locations.reduce((sum, loc) => sum + loc.totalReviews, 0);
+        const avgRating = (locations.reduce((sum, loc) => sum + loc.averageRating, 0) / locations.length).toFixed(1);
+        return (
+          <GoogleReviews 
+            locationName="Restore Hyper Wellness Columbus"
+            reviews={allReviews}
+            averageRating={parseFloat(avgRating)}
+            totalReviews={totalReviews}
+          />
+        );
+      })()}
     </Layout>
   );
 }

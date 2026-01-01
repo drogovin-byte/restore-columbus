@@ -13,7 +13,7 @@ export const locations = [
     mapUrl: "https://goo.gl/maps/easton",
     image: "/images/hero-wellness-columbus.jpg",
     averageRating: 4.8,
-    totalReviews: 127,
+    totalReviews: 320,
     reviews: [
       { author: "Sarah M.", rating: 5, text: "Amazing experience! The staff is incredibly knowledgeable and the cryotherapy session left me feeling energized. Highly recommend Restore!", date: "2 weeks ago" },
       { author: "James T.", rating: 5, text: "Best recovery tool I've found. After my workouts, the compression therapy at Restore has made a huge difference in my performance.", date: "1 month ago" },
@@ -35,7 +35,7 @@ export const locations = [
     mapUrl: "https://goo.gl/maps/dublin",
     image: "/images/cryotherapy-session.jpg",
     averageRating: 4.9,
-    totalReviews: 143,
+    totalReviews: 290,
     reviews: [
       { author: "Emily W.", rating: 5, text: "The Dublin location is fantastic! Clean, modern facility with staff that truly cares about your wellness journey.", date: "1 week ago" },
       { author: "Robert G.", rating: 5, text: "I've tried multiple recovery methods, but nothing compares to Restore's combination of therapies. Worth every penny!", date: "2 weeks ago" },
@@ -57,7 +57,7 @@ export const locations = [
     mapUrl: "https://goo.gl/maps/ua",
     image: "/images/iv-drip-lounge.jpg",
     averageRating: 4.7,
-    totalReviews: 98,
+    totalReviews: 290,
     reviews: [
       { author: "Nicole S.", rating: 5, text: "Upper Arlington location is perfect for my schedule. The IV therapy sessions have boosted my energy levels significantly!", date: "1 week ago" },
       { author: "Kevin M.", rating: 5, text: "Exceptional service and results. The staff goes above and beyond to make you feel welcome.", date: "2 weeks ago" },
