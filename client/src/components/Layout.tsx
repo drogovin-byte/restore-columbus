@@ -49,7 +49,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       >
         <div className="container flex h-14 items-center justify-between">
           <Link href="/" className="flex items-center gap-2 font-heading font-bold text-xl md:text-2xl tracking-tight text-primary">
-            RESTORE <span className="text-secondary-foreground font-light">COLUMBUS</span>
+            RESTORE
           </Link>
 
           {/* Desktop Nav */}
