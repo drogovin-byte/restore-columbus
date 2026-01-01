@@ -57,11 +57,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <Link href="/services" className={`transition-colors hover:text-primary ${location === '/services' ? 'text-primary font-bold' : 'text-muted-foreground'}`}>
               Services
             </Link>
-            <Link href="/science" className={`transition-colors hover:text-primary ${location === '/science' ? 'text-primary font-bold' : 'text-muted-foreground'}`}>
-              The Science
+            <Link href="/comparisons" className={`transition-colors hover:text-primary ${location === '/comparisons' ? 'text-primary font-bold' : 'text-muted-foreground'}`}>
+              Comparisons
             </Link>
-            <Link href="/blog" className={`transition-colors hover:text-primary ${location.startsWith('/blog') ? 'text-primary font-bold' : 'text-muted-foreground'}`}>
-              Local Blog
+            <Link href="/faq" className={`transition-colors hover:text-primary ${location === '/faq' ? 'text-primary font-bold' : 'text-muted-foreground'}`}>
+              FAQ
             </Link>
             <Link href="/locations" className={`transition-colors hover:text-primary ${location === '/locations' ? 'text-primary font-bold' : 'text-muted-foreground'}`}>
               Locations
@@ -86,9 +86,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <div className="md:hidden absolute top-full left-0 w-full bg-background border-b shadow-lg animate-in slide-in-from-top-5">
             <nav className="container flex flex-col gap-4 py-6">
               <Link href="/services" className="text-lg font-medium py-2 border-b border-border/50">Services</Link>
-              <Link href="/science" className="text-lg font-medium py-2 border-b border-border/50">The Science</Link>
-              <Link href="/blog" className="text-lg font-medium py-2 border-b border-border/50">Local Blog</Link>
+              <Link href="/comparisons" className="text-lg font-medium py-2 border-b border-border/50">Comparisons</Link>
+              <Link href="/faq" className="text-lg font-medium py-2 border-b border-border/50">FAQ</Link>
               <Link href="/locations" className="text-lg font-medium py-2 border-b border-border/50">Locations</Link>
+              <Link href="/about" className="text-lg font-medium py-2 border-b border-border/50">About</Link>
               <Button asChild className="w-full mt-4 bg-primary text-white">
                 <Link href="/book">Book Appointment</Link>
               </Button>
