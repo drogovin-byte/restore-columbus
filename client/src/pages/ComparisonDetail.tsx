@@ -47,7 +47,7 @@ export default function ComparisonDetail() {
         <div className="container max-w-3xl">
           <Card className="border-none shadow-lg bg-card">
             <CardContent className="p-8 prose prose-invert max-w-none">
-              <Streamdown>{comparison.content}</Streamdown>
+              <Streamdown>{comparison.description}</Streamdown>
             </CardContent>
           </Card>
         </div>

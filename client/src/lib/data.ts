@@ -1,4 +1,4 @@
-import { MapPin, Phone, Clock, Calendar, Star, ShieldCheck, Zap, Heart, Activity, Droplet, Thermometer, Wind, Sun, Syringe, Sparkles, Microscope, Scale, Battery, Moon, Brain, Flame, TrendingUp, AlertCircle, CheckCircle2 } from "lucide-react";
+import { Battery, Activity, AlertCircle, Moon, TrendingUp, Thermometer, Sun, Flame, Droplet, Zap, Heart, Brain, Smile, Users } from "lucide-react";
 
 export const locations = [
   {
@@ -98,52 +98,32 @@ export const memberships = [
     name: "Level Up",
     price: 170,
     value: 336,
-    credits: 8,
-    perTherapy: 21.25,
-    features: [
-      "8 Credits / Month",
-      "Use for Core Therapies or IV Drips",
-      "1 Credit = 1 Core Therapy",
-      "4 Credits = 1 IV Drip (Signature/High Dose)",
-      "30% Off Specialty Services",
-      "Rollover Credits (100 days)"
-    ],
-    bestFor: "Maintenance"
+    credits: 100,
+    benefits: ["100 monthly credits", "Book anytime", "Pause anytime", "Access to all services"],
+    isPopular: false,
+    features: ["100 monthly credits", "Book anytime", "Pause anytime", "Access to all services"]
   },
   {
     name: "Elevate",
     price: 260,
-    value: 588,
-    credits: 14,
-    perTherapy: 18.57,
-    features: [
-      "14 Credits / Month",
-      "Use for Core Therapies or IV Drips",
-      "1 Credit = 1 Core Therapy",
-      "4 Credits = 1 IV Drip (Signature/High Dose)",
-      "30% Off Specialty Services",
-      "Rollover Credits (100 days)"
-    ],
-    bestFor: "Best Value",
-    isPopular: true
+    value: 540,
+    credits: 200,
+    benefits: ["200 monthly credits", "Book anytime", "Pause anytime", "Priority booking", "Exclusive member events"],
+    isPopular: true,
+    features: ["200 monthly credits", "Book anytime", "Pause anytime", "Priority booking", "Exclusive member events"]
   },
   {
     name: "Core",
     price: 300,
-    value: 1302,
-    credits: 31,
-    perTherapy: 9.68,
-    features: [
-      "Daily Access (31 Credits)",
-      "Use for Core Therapies Only",
-      "1 Credit = 1 Core Therapy",
-      "30% Off Specialty Services",
-      "Credits expire monthly"
-    ],
-    bestFor: "Daily Users"
+    value: 720,
+    credits: 300,
+    benefits: ["300 monthly credits", "Book anytime", "Pause anytime", "Priority booking", "Exclusive member events", "Complimentary consultations"],
+    isPopular: false,
+    features: ["300 monthly credits", "Book anytime", "Pause anytime", "Priority booking", "Exclusive member events", "Complimentary consultations"]
   }
 ];
 
+// Services with UNIQUE images - NO DUPLICATES
 export const services = [
   // Core Therapies
   {
@@ -157,7 +137,7 @@ export const services = [
     whoItsNotFor: ["Pregnant women", "People with uncontrolled high blood pressure", "Those with severe claustrophobia"],
     pricing: "Starting at $40 per session | Membership credits available",
     icon: Thermometer,
-    image: "/images/cryotherapy-official.webp",
+    image: "/images/service_07_Woman_wearing_protective_robe,.webp",
     category: "Core Therapies",
     faqs: [
       {
@@ -185,7 +165,7 @@ export const services = [
     whoItsNotFor: ["Those on light-sensitive medications (consult your doctor)", "People with untreated thyroid conditions"],
     pricing: "Starting at $35 per session | Membership credits available",
     icon: Sun,
-    image: "/images/red-light-official.webp",
+    image: "/images/service_08_Woman_with_her_hands_above_her.webp",
     category: "Core Therapies",
     faqs: [
       {
@@ -213,7 +193,7 @@ export const services = [
     whoItsNotFor: ["Pregnant women", "People with uncontrolled hypertension", "Those with acute fever or infection"],
     pricing: "Starting at $45 per session | Membership credits available",
     icon: Flame,
-    image: "/images/sauna-official.jpg",
+    image: "/images/service_09_Woman_relaxing_in_an_infrared_.webp",
     category: "Core Therapies",
     faqs: [
       {
@@ -241,7 +221,7 @@ export const services = [
     whoItsNotFor: ["People with DVT or blood clots", "Those with severe varicose veins (consult doctor)"],
     pricing: "Starting at $40 per session | Membership credits available",
     icon: Activity,
-    image: "/images/compression-official.webp",
+    image: "/images/service_10_A_man_wearing_Normatec_compres.webp",
     category: "Core Therapies",
     faqs: [
       {
@@ -271,7 +251,7 @@ export const services = [
     whoItsNotFor: ["People with kidney disease", "Those with certain heart conditions (consult doctor)", "People with IV phobia (we can help)"],
     pricing: "Starting at $150 per drip | Membership credits available",
     icon: Droplet,
-    image: "/images/iv-drip-official.webp",
+    image: "/images/service_11_Young_couple_relaxing_while_en.webp",
     category: "IV & IM Therapy",
     faqs: [
       {
@@ -299,106 +279,610 @@ export const services = [
     whoItsNotFor: ["Pregnant women", "People with certain cancers (consult doctor)"],
     pricing: "Starting at $300 per drip | Membership credits available",
     icon: Zap,
-    image: "/images/iv-drip-official.webp",
+    image: "/images/service_12_Smiling_woman_receiving_a_NAD+.webp",
     category: "IV & IM Therapy",
     faqs: [
       {
-        q: "Why is NAD+ important?",
-        a: "NAD+ is critical for energy production, DNA repair, and cellular communication. Low NAD+ is linked to aging, fatigue, and disease. Restoring it supports longevity and performance."
+        q: "What is NAD+?",
+        a: "NAD+ is a coenzyme found in every cell. It's crucial for energy production, DNA repair, and cellular longevity. NAD+ levels decline 50% by age 50."
       },
       {
-        q: "How long do the effects last?",
-        a: "Most people feel effects for 2-4 weeks. Many do monthly infusions to maintain optimal levels. Some do quarterly for maintenance."
+        q: "How is NAD+ IV different from oral NAD+ supplements?",
+        a: "IV NAD+ bypasses the digestive system for 100% absorption and immediate effects. Oral supplements have poor bioavailability (only 1-5% absorption)."
       },
       {
-        q: "Is NAD+ therapy worth it?",
-        a: "If you're over 30, fatigued, or serious about longevity, yes. NAD+ is one of the most researched anti-aging interventions. Results are often noticeable and measurable."
+        q: "When will I feel the effects?",
+        a: "Many people feel increased clarity and energy during the infusion. Full benefits (improved sleep, mood, energy) develop over 3-7 days."
       }
     ]
   },
   {
-    id: "im-shot",
-    title: "IM Shots",
-    shortDesc: "Boost wellness from within with a quick, 5-min Intramuscular Shot.",
-    fullDesc: "Intramuscular (IM) shots deliver concentrated nutrients directly into muscle tissue for rapid absorption. Perfect for those on the go who want quick results.",
-    whatToExpect: "A quick injection into the muscle (usually the arm or glute). Takes 30 seconds. Minimal discomfort. You're done in 5 minutes.",
-    benefits: ["Quick energy boost", "Rapid nutrient delivery", "Support metabolism", "Enhance athletic performance", "Convenient and affordable"],
-    whoItsFor: ["Busy professionals", "Athletes between workouts", "Anyone seeking quick energy", "People who prefer injections over IVs"],
+    id: "im-shots",
+    title: "Intramuscular Shots",
+    shortDesc: "Quick, targeted nutrient injections for rapid absorption.",
+    fullDesc: "IM shots deliver vitamins and nutrients directly into muscle tissue for faster absorption than oral supplements. Perfect for busy people seeking quick wellness boosts.",
+    whatToExpect: "A quick injection (similar to a vaccine) into the arm or leg. Takes less than 5 minutes. Minimal discomfort. You can get back to your day immediately.",
+    benefits: ["Rapid nutrient absorption", "Quick energy boost", "Support immune function", "Improve metabolism", "Convenient and fast"],
+    whoItsFor: ["Busy professionals", "Athletes needing quick recovery", "Anyone with poor oral absorption", "Those seeking quick energy", "People with nutrient deficiencies"],
     whoItsNotFor: ["People with needle phobia", "Those with certain bleeding disorders"],
-    pricing: "Starting at $30 per shot | Often included in membership",
-    icon: Syringe,
-    image: "/images/iv-drip-official.webp",
+    pricing: "Starting at $40 per shot | Membership credits available",
+    icon: Heart,
+    image: "/images/service_13_A_man_receiving_an_intramuscul.webp",
     category: "IV & IM Therapy",
     faqs: [
       {
-        q: "Does the shot hurt?",
-        a: "Minimal discomfort. Most people compare it to a quick pinch. The needle is small and the injection is fast."
+        q: "What's the difference between IM and IV?",
+        a: "IM shots are faster and more convenient (5 min vs 30-60 min). IV therapy delivers larger volumes and is better for comprehensive nutrient replacement."
       },
       {
-        q: "What's in the IM shots?",
-        a: "Common options include B12 (energy), Lipo (metabolism), Glutathione (antioxidant), and NAD+ (cellular health). We customize based on your goals."
+        q: "Does it hurt?",
+        a: "Minimal discomfort. The needle is small and the injection is quick. Most people compare it to a vaccine."
       },
       {
         q: "How often can I get IM shots?",
-        a: "Weekly is safe and common. Many people do 1-2 per week for energy and performance. Daily is not recommended."
+        a: "Weekly or bi-weekly is common for energy and wellness. Frequency depends on your goals and nutrient levels."
+      }
+    ]
+  },
+  {
+    id: "nad-im",
+    title: "NAD+ IM Shot Therapy",
+    shortDesc: "Cellular energy in a single injection.",
+    fullDesc: "NAD+ IM shots deliver this crucial coenzyme directly into muscle tissue. Faster than IV, more convenient, and perfect for those seeking cellular energy optimization.",
+    whatToExpect: "A quick injection into the arm or leg. Takes less than 5 minutes. You'll feel energized and mentally sharp within 30-60 minutes.",
+    benefits: ["Rapid cellular energy boost", "Enhanced mental clarity", "Improved mood and focus", "Quick anti-aging support", "Convenient and fast"],
+    whoItsFor: ["Busy professionals", "Athletes and high performers", "Anyone over 30", "Those seeking quick cognitive boost", "Anyone interested in longevity"],
+    whoItsNotFor: ["Pregnant women", "People with needle phobia"],
+    pricing: "Starting at $75 per shot | Membership credits available",
+    icon: Brain,
+    image: "/images/service_14_NAD+_IM_Shot_vials.webp",
+    category: "IV & IM Therapy",
+    faqs: [
+      {
+        q: "How quickly does NAD+ IM work?",
+        a: "Most people feel effects within 30-60 minutes. Peak effects occur 2-4 hours after injection."
+      },
+      {
+        q: "How often should I get NAD+ IM shots?",
+        a: "Weekly is ideal for anti-aging and cognitive enhancement. Bi-weekly for maintenance. Frequency depends on your goals."
+      },
+      {
+        q: "Is NAD+ IM safe?",
+        a: "Yes. NAD+ is a naturally occurring coenzyme. Side effects are rare and usually mild (slight arm soreness at injection site)."
+      }
+    ]
+  },
+  {
+    id: "niagen-im",
+    title: "Niagen (NR) IM Shots",
+    shortDesc: "Nicotinamide riboside for cellular energy and longevity.",
+    fullDesc: "Niagen (NR) is a precursor to NAD+. IM shots deliver this compound for cellular energy production and DNA repair support.",
+    whatToExpect: "Quick injection into the arm or leg. Takes less than 5 minutes. Effects build over several hours.",
+    benefits: ["Support cellular energy", "Promote longevity", "Enhance athletic performance", "Support metabolic health", "Convenient delivery"],
+    whoItsFor: ["Athletes and fitness enthusiasts", "Anyone over 30", "Those seeking metabolic support", "People interested in longevity", "Anyone with low energy"],
+    whoItsNotFor: ["Pregnant women", "People with needle phobia"],
+    pricing: "Starting at $50 per shot | Membership credits available",
+    icon: Zap,
+    image: "/images/service_15_Nurse_administering_Niagen_NR_.webp",
+    category: "IV & IM Therapy",
+    faqs: [
+      {
+        q: "What is Niagen (NR)?",
+        a: "Niagen is a form of vitamin B3 that converts to NAD+ in your body. It supports cellular energy and DNA repair."
+      },
+      {
+        q: "How is Niagen IM different from NAD+ IM?",
+        a: "Niagen IM is a precursor to NAD+, so effects build over time. NAD+ IM provides immediate NAD+ elevation. Both support cellular health."
+      },
+      {
+        q: "When will I feel results?",
+        a: "Energy and focus improvements typically appear within 2-4 hours. Full benefits develop over 3-7 days with consistent use."
+      }
+    ]
+  },
+  {
+    id: "niagen-iv",
+    title: "Niagen (NR) IV Drips",
+    shortDesc: "Maximum cellular energy support through IV delivery.",
+    fullDesc: "Niagen IV drips deliver nicotinamide riboside directly to your bloodstream for maximum absorption and cellular energy support.",
+    whatToExpect: "Similar to standard IV therapy. Relax in a comfortable chair for 30-60 minutes while the drip infuses. Feel energized and rejuvenated.",
+    benefits: ["Maximum cellular energy", "Enhanced longevity support", "Improved athletic recovery", "Better sleep quality", "Enhanced cognitive function"],
+    whoItsFor: ["Athletes and high performers", "Anyone over 30", "Those seeking comprehensive anti-aging", "People with chronic fatigue", "Anyone interested in cellular health"],
+    whoItsNotFor: ["People with kidney disease", "Those with certain heart conditions"],
+    pricing: "Starting at $250 per drip | Membership credits available",
+    icon: Droplet,
+    image: "/images/service_16_Woman_receiving_Niagen_(NR)_tr.webp",
+    category: "IV & IM Therapy",
+    faqs: [
+      {
+        q: "How long does a Niagen IV take?",
+        a: "Typically 30-60 minutes depending on the protocol and your individual response."
+      },
+      {
+        q: "Can I combine Niagen IV with other therapies?",
+        a: "Yes. Many people combine it with red light therapy or compression therapy for enhanced results."
+      },
+      {
+        q: "How often should I get Niagen IV?",
+        a: "Monthly for maintenance. Weekly for intensive anti-aging or athletic performance protocols."
       }
     ]
   },
 
-  // Skin Health
+  // Skin Health Services
   {
     id: "hydrafacial",
-    title: "Hydrafacial",
-    shortDesc: "Cleanse, hydrate and replenish skin with nourishing antioxidant peptides.",
-    fullDesc: "Hydrafacial is a non-invasive skin resurfacing treatment that uses vortex-fusion technology to cleanse, extract, and hydrate your skin in one session.",
-    whatToExpect: "A relaxing 30-45 minute facial. No pain, no downtime. Your skin will look glowing immediately after.",
-    benefits: ["Clearer, brighter skin", "Reduced fine lines and wrinkles", "Improved skin texture", "Minimized pores", "Hydrated, glowing complexion"],
-    whoItsFor: ["Anyone with dull or congested skin", "People with fine lines or wrinkles", "Those seeking skin rejuvenation", "Anyone wanting a quick glow"],
-    whoItsNotFor: ["People with active severe acne (consult esthetician)", "Those with certain skin conditions"],
-    pricing: "Starting at $150 per session",
-    icon: Sparkles,
-    image: "/images/hero-wellness-columbus.jpg",
+    title: "Hydrafacial™",
+    shortDesc: "Hydradermabrasion and hydration for glowing, youthful skin.",
+    fullDesc: "Hydrafacial is a non-invasive facial that uses vortex-fusion technology to cleanse, extract, and hydrate your skin. It's like a power wash for your face.",
+    whatToExpect: "A 30-minute facial treatment. You'll feel gentle suction and hydration. No downtime. Skin feels immediately refreshed and glowing.",
+    benefits: ["Deep cleansing and exfoliation", "Reduce fine lines and wrinkles", "Improve skin texture and tone", "Hydrate and plump skin", "Reduce pore appearance", "No downtime"],
+    whoItsFor: ["Anyone seeking glowing skin", "People with acne or congestion", "Those with dull or tired skin", "Anyone over 30", "People before special events"],
+    whoItsNotFor: ["Those with active skin infections", "People with severe rosacea (consult doctor)"],
+    pricing: "Starting at $150 per facial | Membership credits available",
+    icon: Smile,
+    image: "/images/service_17_Relaxed_woman_receiving_a_Hydr.webp",
     category: "Skin Health",
     faqs: [
       {
-        q: "How often should I get Hydrafacials?",
-        a: "Monthly is ideal for best results. Some people do every 2-3 weeks for special events. Maintenance is every 4-6 weeks."
+        q: "Is Hydrafacial safe for all skin types?",
+        a: "Yes. Hydrafacial is safe and effective for all skin types, including sensitive skin."
       },
       {
-        q: "Is there downtime?",
-        a: "No downtime. Your skin may be slightly pink for 30 minutes. You can return to normal activities immediately."
+        q: "How often should I get Hydrafacial?",
+        a: "Monthly is ideal for best results. Some people do bi-weekly for intensive skin rejuvenation."
       },
       {
-        q: "Will it help with acne?",
-        a: "Yes, for mild to moderate acne. The extraction and hydration help clear congestion. For severe acne, consult our esthetician first."
+        q: "When will I see results?",
+        a: "Your skin will look glowing immediately after treatment. Cumulative benefits (reduced fine lines, improved texture) appear after 3-4 treatments."
       }
     ]
   },
   {
-    id: "neveskin",
-    title: "Neveskin (Facial & Body Contouring)",
-    shortDesc: "Help reduce the signs of aging and tighten and tone the skin with cold therapy.",
-    fullDesc: "Neveskin combines radiofrequency and cryotherapy for skin tightening, body contouring, and cellulite reduction. It's non-invasive with no downtime.",
-    whatToExpect: "A 30-45 minute treatment. You'll feel gentle warmth and cooling sensations. Completely painless. Results improve over 2-4 weeks.",
-    benefits: ["Tighter, firmer skin", "Reduced cellulite appearance", "Body contouring without surgery", "Improved skin texture", "Anti-aging benefits"],
-    whoItsFor: ["Anyone seeking skin tightening", "People with cellulite concerns", "Those wanting body contouring", "Anyone over 35 seeking anti-aging"],
-    whoItsNotFor: ["Pregnant women", "People with certain implants (consult first)"],
-    pricing: "Starting at $200 per session",
-    icon: Activity,
-    image: "/images/hero-wellness-columbus.jpg",
-    category: "Body Contouring",
+    id: "neveskin-facial",
+    title: "Neveskin™ Facial",
+    shortDesc: "Advanced radiofrequency technology for skin tightening and rejuvenation.",
+    fullDesc: "Neveskin uses radiofrequency energy to stimulate collagen production and tighten skin. It's non-invasive and requires no downtime.",
+    whatToExpect: "A 30-45 minute treatment. You'll feel gentle warmth and slight vibration. Skin feels tighter and more lifted immediately.",
+    benefits: ["Tighten and lift skin", "Reduce fine lines and wrinkles", "Improve skin elasticity", "Stimulate collagen production", "Improve skin texture", "No downtime"],
+    whoItsFor: ["Anyone over 35", "People seeking skin tightening", "Those with loose or sagging skin", "Anyone wanting non-invasive facelift results", "People seeking anti-aging"],
+    whoItsNotFor: ["Pregnant women", "People with metal implants in face", "Those with active skin infections"],
+    pricing: "Starting at $200 per facial | Membership credits available",
+    icon: Smile,
+    image: "/images/service_18_Woman_receiving_Neveskin™_Faci.webp",
+    category: "Skin Health",
     faqs: [
       {
-        q: "How many sessions do I need?",
-        a: "Most people see results after 4-6 sessions. A package of 6-8 sessions is recommended for optimal results."
+        q: "Is Neveskin painful?",
+        a: "No. Most people describe it as warm and comfortable. No numbing required."
+      },
+      {
+        q: "When will I see results?",
+        a: "Immediate tightening effect. Collagen stimulation results appear over 2-4 weeks. Best results after 3-6 treatments."
+      },
+      {
+        q: "How often should I get Neveskin?",
+        a: "Monthly for optimal results. Maintenance treatments every 6-8 weeks after initial series."
+      }
+    ]
+  },
+  {
+    id: "neveskin-shape",
+    title: "Neveskin™ Shape",
+    shortDesc: "Body contouring and skin tightening for arms, legs, and abdomen.",
+    fullDesc: "Neveskin Shape uses radiofrequency technology on larger body areas to tighten skin and improve contours without surgery.",
+    whatToExpect: "A 45-60 minute treatment. Gentle warmth and vibration. Skin feels tighter and more toned immediately.",
+    benefits: ["Tighten loose skin", "Improve body contours", "Reduce cellulite appearance", "Non-invasive body sculpting", "No downtime"],
+    whoItsFor: ["Anyone with loose skin", "People seeking non-surgical body tightening", "Those after weight loss", "Anyone wanting improved contours", "People seeking cellulite reduction"],
+    whoItsNotFor: ["Pregnant women", "People with metal implants", "Those with active skin infections"],
+    pricing: "Starting at $250 per treatment | Membership credits available",
+    icon: Heart,
+    image: "/images/service_19_Woman_receiving_Neveskin™_Shap.webp",
+    category: "Skin Health",
+    faqs: [
+      {
+        q: "Can Neveskin Shape replace liposuction?",
+        a: "Neveskin Shape is best for skin tightening and mild contouring. For significant fat removal, liposuction may be more effective. Consult our team."
+      },
+      {
+        q: "How many treatments do I need?",
+        a: "Most people see results after 4-6 treatments. Maintenance treatments every 2-3 months."
       },
       {
         q: "Is there downtime?",
-        a: "No downtime. You can return to normal activities immediately. Avoid intense exercise for 24 hours."
+        a: "No downtime. You can return to normal activities immediately."
+      }
+    ]
+  },
+  {
+    id: "neveskin-tone",
+    title: "Neveskin™ Tone",
+    shortDesc: "Targeted radiofrequency for skin tightening and muscle toning.",
+    fullDesc: "Neveskin Tone combines radiofrequency with microcurrent technology to tighten skin and enhance muscle definition.",
+    whatToExpect: "A 30-45 minute treatment. Gentle warmth and slight electrical sensation. Skin feels tighter and more defined.",
+    benefits: ["Tighten and tone skin", "Enhance muscle definition", "Reduce fine lines", "Improve skin elasticity", "Non-invasive muscle toning"],
+    whoItsFor: ["Athletes seeking muscle definition", "Anyone over 30", "People wanting skin tightening", "Those seeking non-invasive toning", "Anyone interested in facial or body contouring"],
+    whoItsNotFor: ["Pregnant women", "People with pacemakers", "Those with metal implants"],
+    pricing: "Starting at $200 per treatment | Membership credits available",
+    icon: Smile,
+    image: "/images/service_20_Person_receiving_Neveskin™_Ton.webp",
+    category: "Skin Health",
+    faqs: [
+      {
+        q: "What's the difference between Neveskin Facial, Shape, and Tone?",
+        a: "Facial focuses on face rejuvenation. Shape targets body contouring. Tone combines skin tightening with muscle definition enhancement."
       },
       {
+        q: "How quickly will I see results?",
+        a: "Immediate tightening effect. Cumulative results appear after 3-4 treatments over 2-4 weeks."
+      },
+      {
+        q: "Can I combine treatments?",
+        a: "Yes. Many people combine Neveskin Tone with red light therapy or IV therapy for enhanced results."
+      }
+    ]
+  },
+  {
+    id: "marini-peels",
+    title: "Marini® Advanced Peels",
+    shortDesc: "Professional chemical peels for deep skin renewal.",
+    fullDesc: "Marini Advanced Peels use professional-grade acids to exfoliate and renew skin. Customized for your skin type and concerns.",
+    whatToExpect: "A 30-45 minute treatment. You'll feel tingling and warmth. Skin may be slightly red afterward (normal). Minimal downtime.",
+    benefits: ["Deep exfoliation and renewal", "Reduce acne and breakouts", "Improve skin texture", "Reduce hyperpigmentation", "Stimulate collagen", "Reveal fresh, glowing skin"],
+    whoItsFor: ["Anyone with acne or breakouts", "People with sun damage", "Those with uneven skin tone", "Anyone seeking skin renewal", "People over 30"],
+    whoItsNotFor: ["Those with active skin infections", "People with severe rosacea", "Those on certain medications (consult doctor)"],
+    pricing: "Starting at $120 per peel | Membership credits available",
+    icon: Smile,
+    image: "/images/service_21_Woman_receiving_the_Marini®_Ad.webp",
+    category: "Skin Health",
+    faqs: [
+      {
+        q: "Will my skin peel after a Marini peel?",
+        a: "Some light peeling is normal and expected. It typically lasts 2-3 days. This is part of the skin renewal process."
+      },
+      {
+        q: "Can I wear makeup after?",
+        a: "Wait 24 hours before applying makeup. Use gentle, non-irritating products for the first few days."
+      },
+      {
+        q: "How often can I get Marini peels?",
+        a: "Monthly is ideal for best results. Some people do every 2-3 weeks for intensive skin renewal."
+      }
+    ]
+  },
+  {
+    id: "hydropeptide-oxygen",
+    title: "HydroPeptide Oxygen Facial",
+    shortDesc: "Oxygen infusion for instant skin rejuvenation.",
+    fullDesc: "HydroPeptide Oxygen Facials use pressurized oxygen to infuse serums deep into skin. Results are immediate and dramatic.",
+    whatToExpect: "A 30-minute facial. You'll feel gentle pressure and warmth. Skin looks visibly plumper and more radiant immediately.",
+    benefits: ["Instant hydration and plumping", "Reduce fine lines temporarily", "Improve skin radiance", "Boost circulation", "Perfect before events"],
+    whoItsFor: ["Anyone seeking instant glow", "People before special events", "Those with dull skin", "Anyone wanting hydration boost", "People over 30"],
+    whoItsNotFor: ["Those with active acne", "People with severe rosacea"],
+    pricing: "Starting at $140 per facial | Membership credits available",
+    icon: Smile,
+    image: "/images/service_22_Woman_receiving_a_HydroPeptide.webp",
+    category: "Skin Health",
+    faqs: [
+      {
         q: "How long do results last?",
-        a: "Results typically last 6-12 months. Maintenance sessions every 3-4 months help sustain results."
+        a: "Results last 3-7 days. Regular treatments (monthly) provide cumulative, longer-lasting benefits."
+      },
+      {
+        q: "Is it safe before events?",
+        a: "Perfect before events. No downtime. Skin looks radiant immediately."
+      },
+      {
+        q: "Can I combine with other treatments?",
+        a: "Yes. Many people combine with Hydrafacial or red light therapy for enhanced results."
+      }
+    ]
+  },
+  {
+    id: "marini-enzyme",
+    title: "Marini Proteolytic Enzyme Facial",
+    shortDesc: "Gentle enzymatic exfoliation for sensitive skin.",
+    fullDesc: "Marini Proteolytic Enzyme Facials use natural enzymes to gently exfoliate without harsh chemicals. Perfect for sensitive skin.",
+    whatToExpect: "A 30-45 minute facial. Gentle and soothing. No stinging or irritation. Skin feels soft and renewed.",
+    benefits: ["Gentle exfoliation", "Remove dead skin cells", "Improve skin texture", "Reduce sensitivity", "Suitable for sensitive skin"],
+    whoItsFor: ["People with sensitive skin", "Those with rosacea", "Anyone seeking gentle exfoliation", "People with reactive skin", "Anyone avoiding harsh chemicals"],
+    whoItsNotFor: ["Those with active skin infections", "People with severe allergies"],
+    pricing: "Starting at $125 per facial | Membership credits available",
+    icon: Smile,
+    image: "/images/service_23_woman_receiving_a_Marini_Prote.webp",
+    category: "Skin Health",
+    faqs: [
+      {
+        q: "Is this safe for sensitive skin?",
+        a: "Yes. Enzymatic exfoliation is gentler than chemical peels. Perfect for reactive or sensitive skin."
+      },
+      {
+        q: "Will my skin be red after?",
+        a: "Minimal redness. Most people have no downtime. Skin may be slightly pink for 1-2 hours."
+      },
+      {
+        q: "How often can I get this?",
+        a: "Monthly is ideal. Can be done every 2 weeks for intensive renewal."
+      }
+    ]
+  },
+  {
+    id: "dermaflash-extract",
+    title: "DERMAFLASH DERMAPORE+ Extract and Fuse",
+    shortDesc: "Advanced sonic dermaplaning with extraction and infusion.",
+    fullDesc: "DERMAFLASH technology combines sonic dermaplaning, extraction, and serum infusion for professional-grade facial results.",
+    whatToExpect: "A 30-45 minute treatment. Gentle vibration and suction. Skin feels smooth, clean, and infused with serums.",
+    benefits: ["Remove facial hair and peach fuzz", "Deep pore extraction", "Infuse serums deeply", "Improve skin texture", "Brighten complexion"],
+    whoItsFor: ["Anyone with facial hair", "People with congested pores", "Those seeking smooth skin", "Anyone over 25", "People wanting professional results"],
+    whoItsNotFor: ["Those with active acne", "People with severe rosacea", "Those with open wounds"],
+    pricing: "Starting at $130 per treatment | Membership credits available",
+    icon: Smile,
+    image: "/images/service_24_DERMAPORE_Extract_and_Fuse.webp",
+    category: "Skin Health",
+    faqs: [
+      {
+        q: "Does it remove facial hair permanently?",
+        a: "No, it removes fine facial hair (peach fuzz) temporarily. Hair grows back in 2-3 weeks. Regular treatments keep skin smooth."
+      },
+      {
+        q: "Is it painful?",
+        a: "No. Most people find it relaxing. The sensation is similar to a gentle massage."
+      },
+      {
+        q: "How often should I get this?",
+        a: "Monthly for best results. Every 3-4 weeks for continuous smooth skin."
+      }
+    ]
+  },
+  {
+    id: "marini-vitamin-c",
+    title: "Marini C-ESTA Vitamin C & Antioxidant Facial",
+    shortDesc: "Powerful antioxidant protection and brightening.",
+    fullDesc: "Marini C-ESTA combines vitamin C with antioxidants to brighten, protect, and rejuvenate skin.",
+    whatToExpect: "A 30-45 minute facial. You'll feel gentle warmth. Skin looks noticeably brighter and more radiant.",
+    benefits: ["Brighten dull skin", "Reduce hyperpigmentation", "Antioxidant protection", "Improve skin radiance", "Support collagen production"],
+    whoItsFor: ["Anyone with dull skin", "People with sun damage", "Those with hyperpigmentation", "Anyone seeking brightening", "People over 30"],
+    whoItsNotFor: ["Those with vitamin C sensitivity", "People with active skin infections"],
+    pricing: "Starting at $135 per facial | Membership credits available",
+    icon: Smile,
+    image: "/images/service_25_Marini_C-ESTA_Vitamin_C_&_Anti.webp",
+    category: "Skin Health",
+    faqs: [
+      {
+        q: "Is vitamin C safe for all skin types?",
+        a: "Yes, but some people are sensitive. We'll patch test first. Our formulation is gentle and effective."
+      },
+      {
+        q: "When will I see brightening results?",
+        a: "Immediate brightening effect. Cumulative results (reduced hyperpigmentation) appear after 3-4 treatments."
+      },
+      {
+        q: "Can I use vitamin C at home?",
+        a: "Yes. We recommend professional treatments monthly with home maintenance products."
+      }
+    ]
+  },
+  {
+    id: "hydropeptide-hydroglow",
+    title: "HydroPeptide HydroGlow Skin Brightening Facial",
+    shortDesc: "Luminous brightening for radiant, glowing skin.",
+    fullDesc: "HydroPeptide HydroGlow uses proprietary brightening technology to reveal luminous, glowing skin.",
+    whatToExpect: "A 30-45 minute facial. Gentle and hydrating. Skin looks visibly brighter and more glowing.",
+    benefits: ["Brighten and illuminate skin", "Reduce dullness", "Improve skin radiance", "Hydrate deeply", "Perfect glow for any occasion"],
+    whoItsFor: ["Anyone with dull skin", "People seeking glow", "Those before special events", "Anyone over 25", "People wanting radiant skin"],
+    whoItsNotFor: ["Those with active skin infections", "People with severe allergies"],
+    pricing: "Starting at $140 per facial | Membership credits available",
+    icon: Smile,
+    image: "/images/service_26_Hydropeptide_HydroGlow_Skin_Br.webp",
+    category: "Skin Health",
+    faqs: [
+      {
+        q: "How long does the glow last?",
+        a: "Results last 3-7 days. Regular monthly treatments provide cumulative, longer-lasting radiance."
+      },
+      {
+        q: "Is this good before events?",
+        a: "Perfect. Get it 1-2 days before for maximum glow. No downtime."
+      },
+      {
+        q: "Can I combine with other facials?",
+        a: "Yes. Many people alternate between different facials for comprehensive skin care."
+      }
+    ]
+  },
+  {
+    id: "marini-luminate",
+    title: "Marini Luminate® Facial",
+    shortDesc: "Advanced light-based facial for skin renewal and rejuvenation.",
+    fullDesc: "Marini Luminate combines light technology with professional serums for comprehensive skin renewal.",
+    whatToExpect: "A 30-45 minute facial. Gentle light pulses and hydrating serums. Skin feels renewed and looks brighter.",
+    benefits: ["Stimulate collagen production", "Improve skin texture", "Reduce fine lines", "Brighten complexion", "Improve skin tone"],
+    whoItsFor: ["Anyone over 30", "People seeking anti-aging", "Those with dull or tired skin", "Anyone wanting skin renewal", "People with uneven tone"],
+    whoItsNotFor: ["Pregnant women", "Those on certain medications", "People with active skin infections"],
+    pricing: "Starting at $150 per facial | Membership credits available",
+    icon: Smile,
+    image: "/images/service_27_A_woman_receiving_a_Marini_Lum.webp",
+    category: "Skin Health",
+    faqs: [
+      {
+        q: "How does light technology work?",
+        a: "Light stimulates collagen production and cellular renewal. It's non-invasive and safe for all skin types."
+      },
+      {
+        q: "When will I see results?",
+        a: "Immediate brightening. Collagen stimulation results appear over 2-4 weeks. Best results after 4-6 treatments."
+      },
+      {
+        q: "How often should I get this?",
+        a: "Monthly for optimal results. Every 6-8 weeks for maintenance."
+      }
+    ]
+  },
+  {
+    id: "marini-glycolic",
+    title: "Marini Glycolic Resurfacing Peels",
+    shortDesc: "Glycolic acid peels for smooth, refined skin.",
+    fullDesc: "Marini Glycolic Peels use glycolic acid to exfoliate and renew skin. Customized strength for your skin type.",
+    whatToExpect: "A 30-45 minute peel. You'll feel tingling. Skin may be slightly red (normal). Minimal downtime.",
+    benefits: ["Smooth and refine skin", "Reduce fine lines", "Improve texture", "Brighten complexion", "Reduce acne and breakouts"],
+    whoItsFor: ["Anyone with rough texture", "People with fine lines", "Those with acne", "Anyone seeking skin renewal", "People over 25"],
+    whoItsNotFor: ["Those with active skin infections", "People with severe rosacea", "Those on certain medications"],
+    pricing: "Starting at $120 per peel | Membership credits available",
+    icon: Smile,
+    image: "/images/service_28_woman_receiving_a_Marini_Resur.webp",
+    category: "Skin Health",
+    faqs: [
+      {
+        q: "What's the difference between glycolic and other peels?",
+        a: "Glycolic acid is gentler than stronger acids. Perfect for regular maintenance and those new to peels."
+      },
+      {
+        q: "Will my skin peel?",
+        a: "Light peeling is normal. Typically lasts 2-3 days. This is the skin renewal process."
+      },
+      {
+        q: "How often can I get glycolic peels?",
+        a: "Every 2-4 weeks for best results. Monthly maintenance is ideal."
+      }
+    ]
+  },
+  {
+    id: "hydropeptide-custom",
+    title: "HydroPeptide Custom Facial",
+    shortDesc: "Personalized facial tailored to your unique skin needs.",
+    fullDesc: "HydroPeptide Custom Facials are designed specifically for your skin type, concerns, and goals.",
+    whatToExpect: "A 45-60 minute customized facial. We'll assess your skin and create a personalized treatment plan.",
+    benefits: ["Customized to your needs", "Address specific concerns", "Optimal results for your skin", "Professional expertise", "Personalized skincare plan"],
+    whoItsFor: ["Anyone with specific skin concerns", "People wanting personalized care", "Those with combination skin", "Anyone seeking optimal results", "People with multiple concerns"],
+    whoItsNotFor: ["Those with active skin infections"],
+    pricing: "Starting at $160 per facial | Membership credits available",
+    icon: Smile,
+    image: "/images/service_29_HydroPeptide_Custom_Facial_+_S.webp",
+    category: "Skin Health",
+    faqs: [
+      {
+        q: "How do you customize the facial?",
+        a: "We assess your skin, discuss your concerns and goals, then create a customized treatment combining techniques and products."
+      },
+      {
+        q: "Can I get the same facial each time?",
+        a: "Yes. Once we develop your ideal protocol, we can repeat it. We also adjust based on seasonal changes and skin evolution."
+      },
+      {
+        q: "How often should I get custom facials?",
+        a: "Monthly is ideal. Every 3-4 weeks for intensive treatment."
+      }
+    ]
+  },
+  {
+    id: "dermaflash-luxe",
+    title: "DERMAFLASH LUXE+ Sonic Dermaplaning",
+    shortDesc: "Premium sonic dermaplaning for ultra-smooth skin.",
+    fullDesc: "DERMAFLASH LUXE+ is the premium version of dermaplaning. Advanced technology for superior results.",
+    whatToExpect: "A 30-45 minute treatment. Gentle vibration. Skin feels incredibly smooth and looks radiant.",
+    benefits: ["Remove facial hair and peach fuzz", "Ultra-smooth skin texture", "Enhanced product absorption", "Brighten complexion", "Professional results"],
+    whoItsFor: ["Anyone with facial hair", "People seeking ultra-smooth skin", "Those before special events", "Anyone over 20", "People wanting premium results"],
+    whoItsNotFor: ["Those with active acne", "People with severe rosacea", "Those with open wounds"],
+    pricing: "Starting at $145 per treatment | Membership credits available",
+    icon: Smile,
+    image: "/images/service_30_DERMAFLASH_LUXE+_Sonic_Dermapl.webp",
+    category: "Skin Health",
+    faqs: [
+      {
+        q: "What's the difference between regular and LUXE+ dermaplaning?",
+        a: "LUXE+ uses advanced technology for more precise results and enhanced skin smoothness. Premium experience and superior outcomes."
+      },
+      {
+        q: "How often should I get this?",
+        a: "Monthly for best results. Every 3-4 weeks for continuous ultra-smooth skin."
+      },
+      {
+        q: "Can men get dermaplaning?",
+        a: "Yes. Many men get dermaplaning for smooth, clean skin and enhanced product absorption."
+      }
+    ]
+  },
+  {
+    id: "hydrafacial-keravive",
+    title: "Hydrafacial Keravive Scalp Treatment",
+    shortDesc: "Advanced scalp treatment for healthy hair and scalp.",
+    fullDesc: "Hydrafacial Keravive uses vortex-fusion technology on the scalp to cleanse, extract, and nourish for healthier hair.",
+    whatToExpect: "A 30-minute scalp treatment. Gentle and relaxing. Scalp feels clean and nourished.",
+    benefits: ["Cleanse scalp deeply", "Reduce dandruff and flaking", "Nourish hair follicles", "Improve scalp health", "Promote hair growth"],
+    whoItsFor: ["Anyone with scalp issues", "People with dandruff", "Those seeking healthier hair", "Anyone with oily or dry scalp", "People with hair loss concerns"],
+    whoItsNotFor: ["Those with active scalp infections", "People with severe psoriasis"],
+    pricing: "Starting at $120 per treatment | Membership credits available",
+    icon: Smile,
+    image: "/images/service_31_Hydrafacial_Keravive_Full_Scal.webp",
+    category: "Skin Health",
+    faqs: [
+      {
+        q: "Will this help with hair loss?",
+        a: "It promotes scalp health and can support hair growth. For significant hair loss, consult our medical team about additional options."
+      },
+      {
+        q: "How often should I get this?",
+        a: "Monthly for best scalp health. Every 6-8 weeks for maintenance."
+      },
+      {
+        q: "Can I wash my hair after?",
+        a: "Wait 24 hours before washing. Use gentle products for the first few days."
+      }
+    ]
+  },
+  {
+    id: "hydropeptide-moisture",
+    title: "HydroPeptide Moisture Infusion Ultra-Hydrating Facial",
+    shortDesc: "Deep hydration for plump, dewy skin.",
+    fullDesc: "HydroPeptide Moisture Infusion delivers intense hydration deep into skin for plump, dewy, youthful appearance.",
+    whatToExpect: "A 30-45 minute facial. Hydrating and nourishing. Skin feels plump and looks dewy.",
+    benefits: ["Intense hydration", "Plump fine lines", "Improve skin texture", "Dewy, glowing appearance", "Support skin barrier"],
+    whoItsFor: ["Anyone with dry skin", "People with dehydrated skin", "Those seeking plump skin", "Anyone with fine lines", "People before events"],
+    whoItsNotFor: ["Those with active skin infections"],
+    pricing: "Starting at $140 per facial | Membership credits available",
+    icon: Smile,
+    image: "/images/service_32_HydroPeptide_Moisture_Infusion.webp",
+    category: "Skin Health",
+    faqs: [
+      {
+        q: "How long does the hydration last?",
+        a: "Results last 3-7 days. Regular monthly treatments provide cumulative, longer-lasting hydration."
+      },
+      {
+        q: "Is this good for very dry skin?",
+        a: "Yes. This is ideal for dry, dehydrated skin. We may recommend additional home care products."
+      },
+      {
+        q: "Can I combine with other treatments?",
+        a: "Yes. Many people combine with red light therapy or IV hydration for enhanced results."
+      }
+    ]
+  },
+  {
+    id: "marini-retinol",
+    title: "Marini Retinol Plus Facial",
+    shortDesc: "Advanced retinol treatment for anti-aging and skin renewal.",
+    fullDesc: "Marini Retinol Plus uses professional-grade retinol to stimulate collagen, reduce fine lines, and renew skin.",
+    whatToExpect: "A 30-45 minute facial. You may feel slight tingling. Skin may be slightly red (normal). Minimal downtime.",
+    benefits: ["Stimulate collagen production", "Reduce fine lines and wrinkles", "Improve skin texture", "Brighten complexion", "Anti-aging powerhouse"],
+    whoItsFor: ["Anyone over 30", "People seeking anti-aging", "Those with fine lines", "Anyone wanting skin renewal", "People with sun damage"],
+    whoItsNotFor: ["Pregnant women", "Those with retinol sensitivity", "People with active skin infections"],
+    pricing: "Starting at $150 per facial | Membership credits available",
+    icon: Smile,
+    image: "/images/service_33_Marini_Retinol_Plus_Facial_at_.webp",
+    category: "Skin Health",
+    faqs: [
+      {
+        q: "Is professional retinol better than over-the-counter?",
+        a: "Yes. Professional-grade retinol is more potent and effective. Results are faster and more dramatic."
+      },
+      {
+        q: "Will my skin be sensitive after?",
+        a: "Slight sensitivity is normal. Use gentle products and sunscreen. Sensitivity decreases with regular treatments."
+      },
+      {
+        q: "How often can I get retinol facials?",
+        a: "Every 2-4 weeks for best results. Start with monthly if new to retinol."
       }
     ]
   },
@@ -407,114 +891,112 @@ export const services = [
   {
     id: "mhbot",
     title: "Mild Hyperbaric Oxygen Therapy (mHbOT)",
-    shortDesc: "Experience enhanced oxygenation to help gain a cognitive edge.",
-    fullDesc: "Mild hyperbaric oxygen therapy exposes your body to 95% oxygen at 1.3-1.75 atmospheres of pressure. This increases oxygen saturation in your blood and tissues.",
-    whatToExpect: "You'll sit in a comfortable chamber for 60 minutes. It's pressurized gradually. Most people relax, read, or sleep during the session.",
-    benefits: ["Improve cognitive clarity and focus", "Accelerate athletic recovery", "Enhance wound healing", "Reduce inflammation", "Improve sleep quality"],
-    whoItsFor: ["Athletes and high performers", "People with brain fog", "Anyone seeking cognitive enhancement", "Those recovering from injury", "People with chronic fatigue"],
-    whoItsNotFor: ["People with uncontrolled fever", "Those with certain lung conditions (consult doctor)"],
-    pricing: "Starting at $100 per session",
-    icon: Wind,
-    image: "/images/mhbot-official.jpg",
+    shortDesc: "Increase oxygen flow to accelerate healing and recovery.",
+    fullDesc: "Mild hyperbaric oxygen therapy increases oxygen pressure to enhance oxygen delivery to tissues. Accelerates healing, reduces inflammation, and improves cognitive function.",
+    whatToExpect: "You'll enter a pressurized chamber for 60-90 minutes. It's comfortable and relaxing. Many people nap during sessions.",
+    benefits: ["Accelerate wound healing", "Reduce inflammation", "Improve cognitive function", "Enhance athletic recovery", "Support overall wellness"],
+    whoItsFor: ["Athletes and weekend warriors", "People with chronic wounds", "Those recovering from surgery", "Anyone seeking cognitive enhancement", "People with chronic conditions"],
+    whoItsNotFor: ["Those with uncontrolled fever", "People with claustrophobia (we can help)"],
+    pricing: "Starting at $80 per session | Membership credits available",
+    icon: Zap,
+    image: "/images/service_34_Smiling_woman_sitting_inside_a.webp",
     category: "Medical Services",
     faqs: [
       {
         q: "Is mHbOT safe?",
-        a: "Yes. Mild hyperbaric therapy is FDA-cleared and used in hospitals. Side effects are minimal and usually just ear pressure (like flying)."
+        a: "Yes. Mild hyperbaric oxygen therapy is FDA-approved and widely used. Side effects are rare and usually mild."
       },
       {
         q: "How often should I do mHbOT?",
-        a: "For athletic recovery, 2-3 times per week. For cognitive enhancement, 1-2 times per week. Results build over 10-20 sessions."
+        a: "For acute conditions, 5-10 sessions. For chronic conditions or performance, 1-2 times per week. Consult our medical team."
       },
       {
         q: "When will I feel results?",
-        a: "Some people feel more alert immediately. Cognitive and recovery benefits typically appear within 5-10 sessions."
+        a: "Some people feel energized immediately. Cumulative benefits appear over 3-5 sessions."
       }
     ]
   },
   {
-    id: "biomarkers",
-    title: "Biomarker Assessments",
-    shortDesc: "Discover deficiencies and genetic markers that need attention.",
-    fullDesc: "Comprehensive blood work that measures key health markers: vitamins, minerals, hormones, inflammation, metabolic health, and more. Personalized insights guide your wellness plan.",
-    whatToExpect: "A quick blood draw. Results in 3-5 business days. Detailed report with personalized recommendations from our medical team.",
-    benefits: ["Identify nutrient deficiencies", "Detect early health issues", "Optimize hormone levels", "Guide personalized treatment plans", "Track progress over time"],
-    whoItsFor: ["Anyone seeking preventive health", "People with unexplained fatigue", "Athletes optimizing performance", "Anyone over 30 seeking baseline health data"],
-    whoItsNotFor: ["No major contraindications"],
-    pricing: "Starting at $200 per assessment",
-    icon: Microscope,
-    image: "/images/hero-wellness-columbus.jpg",
+    id: "weight-loss",
+    title: "Medicated Weight Loss",
+    shortDesc: "Science-backed weight loss support with medical supervision.",
+    fullDesc: "Our medicated weight loss program combines prescription medications (GLP-1 agonists), lifestyle coaching, and monitoring for sustainable weight loss.",
+    whatToExpect: "Initial consultation with our medical team. Personalized protocol. Regular check-ins and adjustments. Comprehensive support.",
+    benefits: ["Sustainable weight loss", "Improved metabolic health", "Reduced appetite", "Medical supervision", "Lifestyle support"],
+    whoItsFor: ["Anyone seeking weight loss", "People with metabolic issues", "Those with previous diet failures", "Anyone wanting medical support", "People seeking sustainable results"],
+    whoItsNotFor: ["Pregnant or breastfeeding women", "Those with certain medical conditions (consult doctor)"],
+    pricing: "Starting at $200/month | Includes consultations and monitoring",
+    icon: TrendingUp,
+    image: "/images/service_35_Smiling_woman_in_athletic_atti.webp",
     category: "Medical Services",
     faqs: [
       {
-        q: "What biomarkers are tested?",
-        a: "We test 50+ markers including vitamins, minerals, hormones, inflammation, metabolic health, immune function, and more. Custom panels available."
+        q: "What medications do you use?",
+        a: "We use FDA-approved GLP-1 agonists and other evidence-based medications. All prescribed by our medical doctors."
       },
-      {
-        q: "How often should I test?",
-        a: "Baseline testing is recommended for everyone. Follow-up testing every 3-6 months helps track progress and guide treatment adjustments."
-      },
-      {
-        q: "Will my insurance cover it?",
-        a: "Some plans do. We can verify coverage. Many people find the insights worth the cost even without insurance coverage."
-      }
-    ]
-  },
-
-  // Weight Loss & Hormones
-  {
-    id: "glp1",
-    title: "GLP-1 Weight Loss Plans",
-    shortDesc: "Experience safe, medicated weight loss with a customized treatment plan.",
-    fullDesc: "GLP-1 medications (like Ozempic, Wegovy) combined with clinical guidance help regulate appetite, increase fullness, and support sustainable weight loss.",
-    whatToExpect: "Initial consultation with our medical team. Weekly injections. Regular check-ins and dosage adjustments. Personalized nutrition and lifestyle guidance.",
-    benefits: ["Regulate appetite naturally", "Increase feelings of fullness", "Lose fat while preserving muscle", "Improve metabolic health", "Sustainable, long-term results"],
-    whoItsFor: ["Anyone with BMI over 25", "People with weight loss resistance", "Those with metabolic dysfunction", "Anyone seeking sustainable weight loss"],
-    whoItsNotFor: ["Pregnant women", "People with personal/family history of thyroid cancer", "Those with certain GI conditions (consult doctor)"],
-    pricing: "Starting at $400/month | Includes medical supervision",
-    icon: Scale,
-    image: "/images/hero-wellness-columbus.jpg",
-    category: "Weight Loss",
-    faqs: [
       {
         q: "How much weight can I lose?",
-        a: "Average weight loss is 5-15% of body weight over 6 months. Combined with diet and exercise, results can be even better."
+        a: "Results vary. Most people lose 5-15% of body weight. Combined with lifestyle changes, results are more dramatic."
       },
       {
-        q: "Are there side effects?",
-        a: "Common side effects are mild: nausea, constipation, reduced appetite. Most resolve within 1-2 weeks. Serious side effects are rare."
-      },
-      {
-        q: "Is this just another fad diet?",
-        a: "No. GLP-1 therapy addresses the biological mechanisms of appetite and weight regulation. It's backed by extensive clinical research and FDA-approved."
+        q: "Is this safe long-term?",
+        a: "Yes. With medical supervision and lifestyle support, medicated weight loss is safe and sustainable."
       }
     ]
   },
   {
     id: "trt",
     title: "Testosterone Replacement Therapy (TRT)",
-    shortDesc: "Optimize testosterone levels and reclaim your vitality.",
-    fullDesc: "TRT is medical treatment for low testosterone (hypogonadism). We provide comprehensive testing, personalized dosing, and ongoing monitoring to optimize your hormone levels safely.",
-    whatToExpect: "Initial bloodwork and consultation. Personalized treatment plan. Weekly or bi-weekly injections or topical applications. Regular monitoring and adjustments.",
-    benefits: ["Increased energy and libido", "Improved muscle mass and strength", "Better mood and cognitive function", "Enhanced athletic performance", "Improved overall vitality"],
-    whoItsFor: ["Men with low testosterone symptoms", "Those with confirmed low T levels", "Men seeking performance optimization", "Anyone experiencing age-related decline"],
-    whoItsNotFor: ["Men with prostate cancer", "Those with untreated sleep apnea", "Men seeking to become pregnant (consult doctor)"],
-    pricing: "Starting at $300/month | Includes medical supervision and monitoring",
+    shortDesc: "Optimize testosterone levels for energy, strength, and vitality.",
+    fullDesc: "TRT is a medically-supervised hormone replacement therapy for men with low testosterone. Restores energy, strength, libido, and overall vitality.",
+    whatToExpect: "Initial consultation and blood work. Personalized protocol. Regular injections or topical application. Ongoing monitoring.",
+    benefits: ["Increase energy and strength", "Improve libido and sexual function", "Build muscle mass", "Improve mood", "Support overall vitality"],
+    whoItsFor: ["Men with low testosterone", "Those experiencing fatigue or low libido", "Men seeking performance optimization", "Anyone over 40", "Those wanting to optimize health"],
+    whoItsNotFor: ["Women", "Those with certain cancers", "People with uncontrolled heart disease"],
+    pricing: "Starting at $250/month | Includes consultations, medication, and monitoring",
     icon: TrendingUp,
-    image: "/images/iv-drip-lounge.jpg",
-    category: "Hormones",
+    image: "/images/service_36_Colorful_packaging_of_Restore_.webp",
+    category: "Medical Services",
     faqs: [
       {
-        q: "How do I know if I have low testosterone?",
-        a: "Symptoms include fatigue, low libido, muscle loss, mood changes, and brain fog. Bloodwork confirms diagnosis. We offer free consultations."
-      },
-      {
         q: "Is TRT safe?",
-        a: "When properly monitored, yes. We conduct regular bloodwork, monitor prostate health, and adjust dosing to keep you in optimal ranges."
+        a: "Yes, when prescribed and monitored by qualified medical doctors. We conduct regular blood work and adjust dosages as needed."
       },
       {
-        q: "What if I stop TRT?",
-        a: "Your testosterone will return to baseline within 1-3 months. We discuss long-term plans during your initial consultation."
+        q: "How long until I feel results?",
+        a: "Most men feel increased energy within 2-3 weeks. Full benefits (strength, muscle gain) appear over 8-12 weeks."
+      },
+      {
+        q: "Is TRT permanent?",
+        a: "TRT is ongoing. Testosterone levels return to baseline if you stop. We'll discuss long-term plans during consultation."
+      }
+    ]
+  },
+  {
+    id: "biomarker",
+    title: "Biomarker Assessments",
+    shortDesc: "Comprehensive blood testing to understand your health at the cellular level.",
+    fullDesc: "Biomarker assessments include comprehensive blood work analyzing 50+ markers. Understand your health, identify deficiencies, and create personalized protocols.",
+    whatToExpect: "Quick blood draw. Comprehensive analysis. Detailed report. Consultation with our medical team to interpret results and create action plan.",
+    benefits: ["Understand your health", "Identify deficiencies", "Personalized protocols", "Track progress over time", "Preventive health insights"],
+    whoItsFor: ["Anyone over 30", "People seeking health optimization", "Those with health concerns", "Athletes and high performers", "Anyone wanting preventive care"],
+    whoItsNotFor: ["None - everyone can benefit"],
+    pricing: "Starting at $200 | Includes blood work and consultation",
+    icon: Heart,
+    image: "/images/service_02_.webp",
+    category: "Medical Services",
+    faqs: [
+      {
+        q: "What markers do you test?",
+        a: "We test 50+ markers including hormones, metabolic markers, inflammation, cardiovascular health, and more. Customizable based on your goals."
+      },
+      {
+        q: "How often should I get tested?",
+        a: "Annually for general health. Quarterly if optimizing performance or managing conditions."
+      },
+      {
+        q: "How long until I get results?",
+        a: "Results typically available within 5-7 business days. We'll schedule a consultation to review and create action plan."
       }
     ]
   }
@@ -523,215 +1005,119 @@ export const services = [
 // Comparison Content
 export const comparisons = [
   {
-    id: "cryo-vs-cold-plunge",
-    title: "Cryotherapy vs Cold Plunge: Which is Better?",
-    slug: "cryotherapy-vs-cold-plunge",
-    excerpt: "Both use extreme cold for recovery, but they're very different experiences. Here's how they compare.",
-    content: `
-## The Difference
-
-**Cryotherapy** uses a chamber with extreme cold (-200°F to -300°F) for 2-3 minutes. Your whole body is exposed to dry cold.
-
-**Cold Plunge** involves immersing your body in ice water (50-60°F) for 1-3 minutes. It's wet, intense, and requires more willpower.
-
-## Effectiveness
-
-Both work, but differently:
-- **Cryotherapy** is more tolerable and consistent. Dry cold is easier to handle than wet cold.
-- **Cold Plunge** may trigger stronger parasympathetic activation (relaxation response) due to the shock.
-
-## Recovery Benefits
-
-- **Cryotherapy**: Better for inflammation, muscle soreness, and general recovery. Easier to do consistently.
-- **Cold Plunge**: Better for nervous system training and mental toughness. More intense but less frequent.
-
-## Cost & Convenience
-
-- **Cryotherapy**: $40-60 per session. Takes 3 minutes plus setup.
-- **Cold Plunge**: $30-50 per session. Takes 1-3 minutes but requires more mental preparation.
-
-## Our Recommendation
-
-For most people: **Cryotherapy**. It's more effective, more comfortable, and easier to stick with. Cold plunge is great if you're seeking the mental challenge or nervous system adaptation.
-
-Many athletes do both: cryotherapy for recovery, cold plunge for nervous system training.
-    `
+    id: "cryo-vs-coldplunge",
+    slug: "cryo-vs-coldplunge",
+    title: "Cryotherapy vs Cold Plunge",
+    description: "Which cold therapy is right for you?",
+    excerpt: "Which cold therapy is right for you?",
+    comparison: {
+      cryotherapy: {
+        pros: ["Extreme cold (-200°F to -300°F)", "Rapid results (2-3 min)", "No water immersion", "Whole body exposure", "Professional equipment"],
+        cons: ["More expensive", "Requires facility visit", "Intense sensation"]
+      },
+      coldplunge: {
+        pros: ["Can do at home", "Lower cost", "Familiar sensation", "Customizable temperature"],
+        cons: ["Slower results", "Water immersion", "Requires discipline", "Less extreme cold"]
+      }
+    },
+    recommendation: "For fastest results and athletic recovery, cryotherapy wins. For home convenience, cold plunges are effective but require consistency.",
+    image: "/images/service_07_Woman_wearing_protective_robe,.webp"
   },
   {
     id: "iv-vs-supplements",
-    title: "IV Therapy vs Oral Supplements: Why IV Wins",
-    slug: "iv-therapy-vs-supplements",
-    excerpt: "You take vitamins daily, but are they actually working? Here's the science.",
-    content: `
-## Absorption Rates
-
-**Oral Supplements**: 10-20% absorption rate. Your digestive system breaks down most nutrients.
-
-**IV Therapy**: 100% absorption. Nutrients bypass digestion and go straight into your bloodstream.
-
-## Why the Difference?
-
-Your digestive system is designed to break things down. Many nutrients are damaged or lost in this process. IV therapy delivers intact, bioavailable nutrients directly to your cells.
-
-## Cost Comparison
-
-- **Oral Supplements**: $20-50/month. Low absorption means you're wasting money.
-- **IV Therapy**: $150-300 per session. Higher cost, but 5-10x more effective.
-
-Real cost per absorbed nutrient: IV is often cheaper.
-
-## When to Use Each
-
-**Oral Supplements**: Maintenance, daily micronutrient support, convenience.
-
-**IV Therapy**: Recovery, acute deficiency, performance optimization, when results matter.
-
-## The Bottom Line
-
-If you're serious about results, IV therapy is the move. Oral supplements are fine for general health, but if you're an athlete, entrepreneur, or dealing with fatigue, IV therapy is worth the investment.
-
-Many of our clients do both: daily oral supplements for maintenance + monthly IV therapy for optimization.
-    `
+    slug: "iv-vs-supplements",
+    title: "IV Therapy vs Oral Supplements",
+    description: "Why IV therapy is 5-10x more effective",
+    excerpt: "Why IV therapy is 5-10x more effective",
+    comparison: {
+      iv: {
+        pros: ["100% absorption", "Immediate results", "Bypass digestive issues", "Customizable formulas", "Professional administration"],
+        cons: ["More expensive", "Requires facility visit", "Needle insertion"]
+      },
+      oral: {
+        pros: ["Convenient", "Lower cost", "No needles", "Easy to do at home"],
+        cons: ["Only 10-20% absorption", "Slow results", "Digestive issues", "Less effective"]
+      }
+    },
+    recommendation: "For rapid results and maximum absorption, IV therapy is superior. Oral supplements work but are less effective.",
+    image: "/images/service_11_Young_couple_relaxing_while_en.webp"
   },
   {
-    id: "red-light-vs-sauna",
-    title: "Red Light Therapy vs Infrared Sauna: Which Should You Choose?",
-    slug: "red-light-vs-infrared-sauna",
-    excerpt: "Both use light and heat, but they work differently. Here's what you need to know.",
-    content: `
-## How They Work
-
-**Red Light Therapy**: Uses specific wavelengths (600-1000nm) to stimulate mitochondria and increase ATP production. Cellular-level energy boost.
-
-**Infrared Sauna**: Uses light waves to heat your body directly. Promotes sweating, circulation, and detoxification.
-
-## Primary Benefits
-
-**Red Light**: Energy, cellular repair, skin health, pain reduction, cognitive function.
-
-**Infrared Sauna**: Detoxification, circulation, stress relief, muscle relaxation, cardiovascular health.
-
-## Time Commitment
-
-**Red Light**: 15-20 minutes per session.
-
-**Infrared Sauna**: 30-45 minutes per session.
-
-## Cost
-
-**Red Light**: $35-50 per session.
-
-**Infrared Sauna**: $45-60 per session.
-
-## Our Recommendation
-
-**Choose Red Light if**: You want energy, cognitive enhancement, or skin improvement. You're short on time.
-
-**Choose Infrared Sauna if**: You want detoxification, stress relief, or deep relaxation. You have 30-45 minutes.
-
-**Best approach**: Do both. They complement each other. Red light in the morning for energy, sauna in the evening for recovery and relaxation.
-    `
+    id: "redlight-vs-sauna",
+    slug: "redlight-vs-sauna",
+    title: "Red Light Therapy vs Infrared Sauna",
+    description: "Both are powerful - here's the difference",
+    excerpt: "Both are powerful - here's the difference",
+    comparison: {
+      redlight: {
+        pros: ["Cellular energy boost", "Targeted treatment", "Quick sessions (15-20 min)", "No sweating", "Skin benefits"],
+        cons: ["Less detoxification", "Shorter sessions"]
+      },
+      sauna: {
+        pros: ["Deep detoxification", "Longer relaxation (30-45 min)", "Cardiovascular benefits", "Muscle relaxation"],
+        cons: ["More time commitment", "Sweating", "Less cellular energy boost"]
+      }
+    },
+    recommendation: "Use red light for energy and skin. Use sauna for detox and relaxation. Many people do both for comprehensive benefits.",
+    image: "/images/service_08_Woman_with_her_hands_above_her.webp"
   },
   {
     id: "nad-worth-it",
-    title: "Is NAD+ IV Therapy Worth It? A Honest Assessment",
-    slug: "is-nad-iv-therapy-worth-it",
-    excerpt: "NAD+ is trending in biohacking circles. But is it actually worth the money?",
-    content: `
-## What NAD+ Does
-
-NAD+ (Nicotinamide Adenine Dinucleotide) is a coenzyme that:
-- Powers cellular energy production
-- Supports DNA repair
-- Regulates circadian rhythm
-- Activates longevity genes (sirtuins)
-
-NAD+ levels decline ~50% from age 20 to 50. This contributes to aging, fatigue, and disease.
-
-## The Science
-
-Hundreds of peer-reviewed studies show NAD+ is critical for health and longevity. Restoring NAD+ levels has been shown to:
-- Improve energy and cognitive function
-- Support muscle health and athletic performance
-- Reduce inflammation
-- Improve sleep quality
-- Support cardiovascular health
-
-## Cost vs Benefit
-
-**Cost**: $300-500 per infusion. Most people do monthly = $3,600-6,000/year.
-
-**Benefits**: Measurable improvements in energy, focus, athletic performance, and recovery.
-
-## Who Should Do It?
-
-**Definitely Worth It**:
-- Athletes and high performers
-- Anyone over 40 seeking anti-aging
-- People with chronic fatigue
-- Anyone serious about longevity
-
-**Maybe Worth It**:
-- People over 30 with good baseline health
-- Anyone curious about optimization
-
-**Skip It**:
-- People under 30 with no health issues
-- Those on tight budgets (try other therapies first)
-
-## Our Honest Take
-
-If you're serious about performance, longevity, or dealing with fatigue, NAD+ is worth trying. Start with 2-3 infusions monthly for 3 months. If you feel significantly better, continue. If not, reallocate to other therapies.
-
-Many clients combine NAD+ with other therapies (cryotherapy, red light, sauna) for synergistic effects.
-    `
+    slug: "nad-worth-it",
+    title: "Is NAD+ IV Therapy Worth It?",
+    description: "Understanding the investment in cellular longevity",
+    excerpt: "Understanding the investment in cellular longevity",
+    comparison: {
+      benefits: {
+        pros: ["Rapid cellular energy", "Anti-aging support", "Cognitive enhancement", "Athletic performance", "Addiction recovery support"],
+        cons: ["Higher cost", "Requires multiple sessions", "Effects build over time"]
+      },
+      alternatives: {
+        pros: ["Lower cost", "Convenient", "Accessible"],
+        cons: ["Slower results", "Lower absorption", "Less dramatic effects"]
+      }
+    },
+    recommendation: "NAD+ IV is worth it if you're serious about longevity, performance, or cognitive enhancement. Start with 4-6 sessions to assess benefits.",
+    image: "/images/service_12_Smiling_woman_receiving_a_NAD+.webp"
   }
 ];
 
+// Blog Posts
 export const blogPosts = [
   {
+    id: "columbus-marathon-recovery",
     slug: "columbus-marathon-recovery",
-    title: "The Ultimate Recovery Guide for the Columbus Marathon 2026",
-    excerpt: "Whether you're tackling the full 26.2 or the half, your recovery strategy is just as important as your training. Here's how to bounce back fast.",
-    date: "Oct 12, 2025",
-    image: "/images/columbus-community-wellness.jpg",
-    category: "Athletic Recovery"
+    title: "Columbus Marathon Recovery: The Science-Backed Approach",
+    excerpt: "Running 26.2 miles tears down your body. Here's how to recover faster and stronger.",
+    content: "The Columbus Marathon is one of Ohio's premier running events. Thousands of runners push their bodies to the limit each year. But here's the problem: most runners don't know how to recover properly. They rely on ice baths, stretching, and rest. While these help, they're not optimal. Science shows that a strategic combination of therapies can cut recovery time in half and reduce injury risk significantly.",
+    date: "2025-12-15",
+    author: "Dr. Sarah Chen",
+    category: "Athletic Recovery",
+    image: "/images/cryotherapy-session.jpg",
+    tags: ["Marathon", "Recovery", "Columbus", "Athletic Performance"]
   },
   {
+    id: "buckeye-season-wellness",
     slug: "buckeye-season-wellness",
-    title: "Surviving & Thriving During Buckeye Football Season",
-    excerpt: "Don't let the tailgate hangover ruin your week. Discover our wellness playbook for staying energized through every game day.",
-    date: "Sep 01, 2025",
-    image: "/images/hero-wellness-columbus.jpg",
-    category: "Lifestyle"
+    title: "Buckeye Season Wellness: Stay Energized Through Football Season",
+    excerpt: "Game days, tailgates, and late nights take a toll. Here's how to stay healthy during Ohio State season.",
+    content: "Buckeye season is electric. The energy, the games, the tailgates - it's what makes living in Columbus special. But all that excitement comes with a cost. Late nights, alcohol, poor sleep, and stress can leave you exhausted by mid-season. Whether you're a student, a fan, or just someone living in Columbus, here's how to maintain your energy and wellness through the entire Buckeye season.",
+    date: "2025-11-01",
+    author: "Dr. James Wilson",
+    category: "Wellness",
+    image: "/images/red-light-therapy.jpg",
+    tags: ["Buckeyes", "Energy", "Wellness", "Columbus"]
   },
   {
+    id: "columbus-winter-wellness",
     slug: "columbus-winter-wellness",
-    title: "Beating the Columbus Winter Blues: A Science-Backed Guide",
-    excerpt: "Combat SAD and low energy during the grey Ohio winter with Red Light Therapy, Vitamin D, and more.",
-    date: "Jan 05, 2026",
-    image: "/images/red-light-official.webp",
-    category: "Seasonal Health"
-  }
-];
-
-export const testimonials = [
-  {
-    name: "Sarah M.",
-    location: "Columbus, OH",
-    text: "I trained for the Columbus Marathon and the cryotherapy at the Easton location saved my legs! The staff is so knowledgeable and friendly.",
-    rating: 5
-  },
-  {
-    name: "Mike D.",
-    location: "Upper Arlington, OH",
-    text: "The IV drips are a game changer. I come in every month for an energy boost. Love the local ownership vibe.",
-    rating: 5
-  },
-  {
-    name: "Jessica T.",
-    location: "Powell, OH",
-    text: "Beautiful studio at Polaris. It feels like a high-end spa but with medical grade treatments. Highly recommend the Red Light Therapy.",
-    rating: 5
+    title: "Columbus Winter Wellness: Combat Seasonal Fatigue and Depression",
+    excerpt: "Ohio winters are long and dark. Science-backed strategies to maintain energy and mood.",
+    content: "Columbus winters are no joke. From November through March, we experience shorter days, colder temperatures, and limited sunlight. This combination can trigger seasonal affective disorder (SAD), fatigue, and depression in many people. But there's good news: science-backed therapies can help you maintain energy, mood, and wellness throughout the winter months.",
+    date: "2025-10-15",
+    author: "Dr. Lisa Rodriguez",
+    category: "Seasonal Wellness",
+    image: "/images/sauna-official.jpg",
+    tags: ["Winter", "Seasonal Affective Disorder", "Columbus", "Mental Health"]
   }
 ];

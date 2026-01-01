@@ -5,9 +5,9 @@ import { useState, useEffect } from "react";
 import { locations } from "@/lib/data";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
+  const [location] = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [location] = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -83,80 +83,94 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
         {/* Mobile Nav */}
         {isMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 w-full bg-background border-b shadow-lg animate-in slide-in-from-top-5">
-            <nav className="container flex flex-col gap-4 py-6">
-              <Link href="/services" className="text-lg font-medium py-2 border-b border-border/50">Services</Link>
-              <Link href="/comparisons" className="text-lg font-medium py-2 border-b border-border/50">Comparisons</Link>
-              <Link href="/faq" className="text-lg font-medium py-2 border-b border-border/50">FAQ</Link>
-              <Link href="/locations" className="text-lg font-medium py-2 border-b border-border/50">Locations</Link>
-              <Link href="/about" className="text-lg font-medium py-2 border-b border-border/50">About</Link>
-              <Button asChild className="w-full mt-4 bg-primary text-white">
-                <Link href="/book">Book Appointment</Link>
+          <div className="md:hidden border-t bg-background">
+            <nav className="container py-4 flex flex-col gap-4 font-medium">
+              <Link href="/services" className="text-foreground hover:text-primary transition-colors">
+                Services
+              </Link>
+              <Link href="/comparisons" className="text-foreground hover:text-primary transition-colors">
+                Comparisons
+              </Link>
+              <Link href="/faq" className="text-foreground hover:text-primary transition-colors">
+                FAQ
+              </Link>
+              <Link href="/locations" className="text-foreground hover:text-primary transition-colors">
+                Locations
+              </Link>
+              <Button asChild className="bg-primary hover:bg-primary/90 text-white font-bold rounded-full w-full">
+                <Link href="/book">Book Now</Link>
               </Button>
             </nav>
           </div>
         )}
       </header>
 
-      {/* Page Content */}
-      <main className="flex-1">
+      {/* Main Content */}
+      <main className="flex-1 w-full">
         {children}
       </main>
 
       {/* Footer */}
-      <footer className="bg-primary text-primary-foreground pt-16 pb-8">
-        <div className="container grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-          <div className="space-y-4">
-            <h3 className="font-heading font-bold text-2xl">RESTORE</h3>
-            <p className="text-primary-foreground/80 text-sm leading-relaxed">
-              Helping Columbus do more of what they love through science-backed wellness therapies. Locally owned and operated.
-            </p>
-            <div className="flex gap-4 pt-2">
-              <a href="#" className="hover:text-accent transition-colors"><Instagram className="w-5 h-5" /></a>
-              <a href="#" className="hover:text-accent transition-colors"><Facebook className="w-5 h-5" /></a>
-              <a href="#" className="hover:text-accent transition-colors"><Linkedin className="w-5 h-5" /></a>
+      <footer className="bg-primary text-primary-foreground py-12 md:py-16">
+        <div className="container">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+            {/* Brand */}
+            <div>
+              <h3 className="font-bold text-lg mb-4">Restore Hyper Wellness</h3>
+              <p className="text-sm opacity-90 mb-4">Local wellness authority in Columbus, Ohio. Science-backed therapies for recovery, energy, and longevity.</p>
+              <div className="flex gap-4">
+                <a href="#" className="hover:opacity-80 transition-opacity"><Instagram className="w-5 h-5" /></a>
+                <a href="#" className="hover:opacity-80 transition-opacity"><Facebook className="w-5 h-5" /></a>
+                <a href="#" className="hover:opacity-80 transition-opacity"><Linkedin className="w-5 h-5" /></a>
+              </div>
+            </div>
+
+            {/* Locations */}
+            <div>
+              <h4 className="font-bold mb-4">Locations</h4>
+              <div className="space-y-3 text-sm">
+                {locations.map(loc => (
+                  <Link key={loc.id} href={`/location/${loc.id}`} className="hover:opacity-80 transition-opacity block">
+                    <div className="font-medium">{loc.name.split(' - ')[1]}</div>
+                    <div className="opacity-90">{loc.city}, {loc.state}</div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* Services */}
+            <div>
+              <h4 className="font-bold mb-4">Services</h4>
+              <ul className="space-y-2 text-sm">
+                <li><Link href="/services" className="hover:opacity-80 transition-opacity">All Services</Link></li>
+                <li><Link href="/services" className="hover:opacity-80 transition-opacity">Cryotherapy</Link></li>
+                <li><Link href="/services" className="hover:opacity-80 transition-opacity">IV Therapy</Link></li>
+                <li><Link href="/services" className="hover:opacity-80 transition-opacity">Red Light</Link></li>
+                <li><Link href="/services" className="hover:opacity-80 transition-opacity">Skin Health</Link></li>
+              </ul>
+            </div>
+
+            {/* Contact */}
+            <div>
+              <h4 className="font-bold mb-4">Contact</h4>
+              <div className="space-y-2 text-sm">
+                <a href="tel:6145550101" className="hover:opacity-80 transition-opacity block">Call: 614-555-0101</a>
+                <a href="mailto:info@restorecolumbus.com" className="hover:opacity-80 transition-opacity block">Email: info@restorecolumbus.com</a>
+                <Link href="/book" className="hover:opacity-80 transition-opacity block font-medium text-accent">Book Appointment</Link>
+              </div>
             </div>
           </div>
 
-          <div>
-            <h4 className="font-heading font-bold text-lg mb-6 text-accent">Services</h4>
-            <ul className="space-y-3 text-sm text-primary-foreground/80">
-              <li><Link href="/services#cryotherapy" className="hover:text-white transition-colors">Cryotherapy</Link></li>
-              <li><Link href="/services#iv-drip" className="hover:text-white transition-colors">IV Drip Therapy</Link></li>
-              <li><Link href="/services#red-light" className="hover:text-white transition-colors">Red Light Therapy</Link></li>
-              <li><Link href="/services#infrared-sauna" className="hover:text-white transition-colors">Infrared Sauna</Link></li>
-              <li><Link href="/services#compression" className="hover:text-white transition-colors">Compression</Link></li>
-            </ul>
+          {/* Bottom Bar */}
+          <div className="border-t border-primary-foreground/20 pt-8 text-sm opacity-80">
+            <div className="flex flex-col md:flex-row justify-between items-center">
+              <p>&copy; 2025 Restore Hyper Wellness Columbus. All rights reserved.</p>
+              <div className="flex gap-6 mt-4 md:mt-0">
+                <Link href="#" className="hover:opacity-100 transition-opacity">Privacy Policy</Link>
+                <Link href="#" className="hover:opacity-100 transition-opacity">Terms of Service</Link>
+              </div>
+            </div>
           </div>
-
-          <div>
-            <h4 className="font-heading font-bold text-lg mb-6 text-accent">Company</h4>
-            <ul className="space-y-3 text-sm text-primary-foreground/80">
-              <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
-              <li><Link href="/blog" className="hover:text-white transition-colors">Columbus Wellness Blog</Link></li>
-              <li><Link href="/careers" className="hover:text-white transition-colors">Careers</Link></li>
-              <li><Link href="/contact" className="hover:text-white transition-colors">Contact</Link></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-heading font-bold text-lg mb-6 text-accent">Locations</h4>
-            <ul className="space-y-4 text-sm text-primary-foreground/80">
-              {locations.map(loc => (
-                <li key={loc.id} className="flex gap-2 items-start">
-                  <MapPin className="w-4 h-4 mt-1 shrink-0 text-accent" />
-                  <div>
-                    <strong className="block text-white">{loc.name.replace("Restore Hyper Wellness - ", "")}</strong>
-                    <span>{loc.address}</span>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-        
-        <div className="container border-t border-primary-foreground/20 pt-8 text-center text-xs text-primary-foreground/60">
-          <p>&copy; {new Date().getFullYear()} Restore Hyper Wellness Columbus. All rights reserved. Independent Franchisee.</p>
         </div>
       </footer>
     </div>

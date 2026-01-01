@@ -175,8 +175,8 @@ export default function Home() {
                 </CardHeader>
                 <CardContent className="space-y-6">
                   <div className={`text-center text-sm ${tier.isPopular ? 'text-muted-foreground' : 'text-white/80'}`}>
-                    <strong>{tier.credits} Credits</strong> / Month<br/>
-                    <span className="text-xs">(${tier.perTherapy.toFixed(2)} per therapy)</span>
+                    <strong>${tier.price}</strong> / Month<br/>
+                    <span className="text-xs">{tier.credits} monthly credits</span>
                   </div>
                   <ul className="space-y-3 text-sm">
                     {tier.features.map((feature, i) => (

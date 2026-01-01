@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { MapPin, Phone, Clock, ParkingCircle, MapPinIcon, Star, CheckCircle2, ArrowRight } from "lucide-react";
 import { Link, useRoute } from "wouter";
-import { locations, services, testimonials } from "@/lib/data";
+import { locations, services } from "@/lib/data";
 import { useEffect } from "react";
 
 export default function LocationDetail() {
