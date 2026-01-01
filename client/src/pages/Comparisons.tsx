@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { Link } from "wouter";
+import TherapyQuiz from "@/components/TherapyQuiz";
 import { comparisons } from "@/lib/data";
 
 export default function Comparisons() {
@@ -48,10 +49,23 @@ export default function Comparisons() {
         </div>
       </section>
 
+      {/* Therapy Quiz Section */}
+      <section className="py-20 bg-primary text-white">
+        <div className="container max-w-3xl">
+          <div className="text-center space-y-6 mb-12">
+            <h2 className="font-heading font-bold text-4xl">Not Sure Which Therapy?</h2>
+            <p className="text-lg text-white/80">
+              Take our quick 3-question quiz to get personalized therapy recommendations based on your wellness goals.
+            </p>
+          </div>
+          <TherapyQuiz />
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-16 bg-secondary/30">
         <div className="container max-w-2xl text-center space-y-6">
-          <h2 className="font-heading font-bold text-3xl text-primary">Still Unsure?</h2>
+          <h2 className="font-heading font-bold text-3xl text-primary">Still Have Questions?</h2>
           <p className="text-muted-foreground text-lg">
             Schedule a free consultation with our wellness team. We'll help you choose the right therapies for your specific goals.
           </p>

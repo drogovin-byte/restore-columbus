@@ -1,10 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import Layout from "@/components/Layout";
 import { memberships } from "@/lib/data";
 
 export default function Memberships() {
   return (
-    <div className="min-h-screen bg-white">
+    <Layout>
+      <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <div className="bg-white py-16">
         <div className="container space-y-4 text-center">
@@ -199,5 +201,6 @@ export default function Memberships() {
         </div>
       </div>
     </div>
+    </Layout>
   );
 }
