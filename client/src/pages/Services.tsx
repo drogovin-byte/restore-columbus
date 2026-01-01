@@ -61,14 +61,19 @@ export default function Services() {
           <Link key={service.id} href={`/service/${service.id}`}>
             <div id={service.id} className={`flex flex-col gap-12 items-stretch ${index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} cursor-pointer hover:opacity-90 transition-opacity`} itemScope itemType="https://schema.org/Service">
             <div className="flex-1 w-full min-w-0">
-              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
+              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl group cursor-pointer">
                 <img 
                   src={service.image} 
                   alt={service.title} 
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                   itemProp="image"
                 />
                 <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent" />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
+                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform group-hover:scale-100 scale-75">
+                    <ArrowRight className="w-12 h-12 text-white drop-shadow-lg" />
+                  </div>
+                </div>
               </div>
             </div>
             
