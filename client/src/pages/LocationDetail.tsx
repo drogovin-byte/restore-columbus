@@ -279,6 +279,34 @@ export default function LocationDetail() {
               </CardContent>
             </Card>
 
+            {/* Location-Specific Reviews Highlight */}
+            <Card className="border-none shadow-md bg-card">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2 text-lg">
+                  <Star className="w-5 h-5 text-accent fill-accent" />
+                  Top Reviews from {location.city}
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                {location.reviews?.filter(r => r.rating === 5).slice(0, 3).map((review, i) => (
+                  <div key={i} className="pb-4 border-b border-border last:border-b-0 last:pb-0">
+                    <div className="flex items-start justify-between gap-2 mb-2">
+                      <div>
+                        <p className="font-semibold text-sm text-foreground">{review.author}</p>
+                        <p className="text-xs text-muted-foreground">{review.date}</p>
+                      </div>
+                      <div className="flex gap-0.5">
+                        {[...Array(5)].map((_, j) => (
+                          <Star key={j} className="w-3 h-3 text-accent fill-accent" />
+                        ))}
+                      </div>
+                    </div>
+                    <p className="text-sm text-muted-foreground italic line-clamp-2">"{review.text}"</p>
+                  </div>
+                ))}
+              </CardContent>
+            </Card>
+
             {/* Why This Location */}
             <Card className="border-none shadow-md bg-secondary/30">
               <CardHeader>
