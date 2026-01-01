@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowRight, RotateCcw } from "lucide-react";
+import { ArrowRight, RotateCcw, Mail, Check } from "lucide-react";
 import { Link } from "wouter";
+import { Input } from "@/components/ui/input";
+import { toast } from "sonner";
 
 interface QuizQuestion {
   id: string;
@@ -146,6 +148,9 @@ export default function TherapyQuiz() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedAnswers, setSelectedAnswers] = useState<string[]>([]);
   const [showResults, setShowResults] = useState(false);
+  const [email, setEmail] = useState("");
+  const [emailSubmitted, setEmailSubmitted] = useState(false);
+  const [isSubmittingEmail, setIsSubmittingEmail] = useState(false);
 
   const handleAnswer = (therapies: string[]) => {
     const newAnswers = [...selectedAnswers, ...therapies];
@@ -176,6 +181,28 @@ export default function TherapyQuiz() {
     setCurrentQuestion(0);
     setSelectedAnswers([]);
     setShowResults(false);
+    setEmail("");
+    setEmailSubmitted(false);
+  };
+
+  const handleEmailSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) {
+      toast.error("Please enter your email address");
+      return;
+    }
+
+    setIsSubmittingEmail(true);
+    try {
+      // Simulate email submission - in production, this would call your backend API
+      await new Promise(resolve => setTimeout(resolve, 500));
+      setEmailSubmitted(true);
+      toast.success("Thanks! Check your email for exclusive wellness tips.");
+    } catch (error) {
+      toast.error("Failed to submit email. Please try again.");
+    } finally {
+      setIsSubmittingEmail(false);
+    }
   };
 
   if (showResults) {
@@ -219,28 +246,83 @@ export default function TherapyQuiz() {
           ))}
         </div>
 
-        <div className="bg-secondary/30 rounded-lg p-8 text-center space-y-6">
-          <div>
-            <h3 className="font-heading font-bold text-2xl text-primary mb-2">Ready to Get Started?</h3>
-            <p className="text-muted-foreground">
-              Book your first session and experience the difference these therapies can make.
-            </p>
+        {!emailSubmitted ? (
+          <div className="bg-secondary/30 rounded-lg p-8 space-y-6">
+            <div className="text-center">
+              <h3 className="font-heading font-bold text-2xl text-primary mb-2">Get Exclusive Wellness Tips</h3>
+              <p className="text-muted-foreground mb-6">
+                Subscribe to our newsletter for personalized recovery strategies, exclusive offers, and wellness insights tailored to your goals.
+              </p>
+            </div>
+            <form onSubmit={handleEmailSubmit} className="space-y-4">
+              <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+                <Input
+                  type="email"
+                  placeholder="Enter your email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="flex-1 rounded-full px-6 py-3 border-border focus:border-accent"
+                  disabled={isSubmittingEmail}
+                />
+                <Button
+                  type="submit"
+                  disabled={isSubmittingEmail}
+                  className="bg-accent hover:bg-accent/90 text-accent-foreground font-bold rounded-full px-8 whitespace-nowrap"
+                >
+                  {isSubmittingEmail ? "Subscribing..." : "Subscribe"}
+                </Button>
+              </div>
+              <p className="text-xs text-muted-foreground text-center">
+                We respect your privacy. Unsubscribe at any time.
+              </p>
+            </form>
+            <div className="border-t border-border pt-6 mt-6">
+              <p className="text-center text-muted-foreground mb-4">Or book your first session now:</p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white font-bold rounded-full px-8">
+                  <Link href="https://www.restore.com/book-now">Book Your First Session</Link>
+                </Button>
+                <Button 
+                  onClick={resetQuiz}
+                  variant="outline" 
+                  size="lg" 
+                  className="border-primary text-primary hover:bg-primary hover:text-white font-bold rounded-full px-8"
+                >
+                  <RotateCcw className="w-4 h-4 mr-2" />
+                  Retake Quiz
+                </Button>
+              </div>
+            </div>
           </div>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white font-bold rounded-full px-8">
-              <Link href="https://www.restore.com/book-now">Book Your First Session</Link>
-            </Button>
-            <Button 
-              onClick={resetQuiz}
-              variant="outline" 
-              size="lg" 
-              className="border-primary text-primary hover:bg-primary hover:text-white font-bold rounded-full px-8"
-            >
-              <RotateCcw className="w-4 h-4 mr-2" />
-              Retake Quiz
-            </Button>
+        ) : (
+          <div className="bg-accent/10 rounded-lg p-8 text-center space-y-6 border-2 border-accent">
+            <div className="flex justify-center">
+              <div className="w-16 h-16 rounded-full bg-accent/20 flex items-center justify-center">
+                <Check className="w-8 h-8 text-accent" />
+              </div>
+            </div>
+            <div>
+              <h3 className="font-heading font-bold text-2xl text-primary mb-2">You're All Set!</h3>
+              <p className="text-muted-foreground">
+                Check your email for exclusive wellness tips and personalized recovery strategies based on your quiz results.
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white font-bold rounded-full px-8">
+                <Link href="https://www.restore.com/book-now">Book Your First Session</Link>
+              </Button>
+              <Button 
+                onClick={resetQuiz}
+                variant="outline" 
+                size="lg" 
+                className="border-primary text-primary hover:bg-primary hover:text-white font-bold rounded-full px-8"
+              >
+                <RotateCcw className="w-4 h-4 mr-2" />
+                Retake Quiz
+              </Button>
+            </div>
           </div>
-        </div>
+        )}
       </div>
     );
   }
