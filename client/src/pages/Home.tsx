@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Star, CheckCircle2, MapPin, Target } from "lucide-react";
 import { Link } from "wouter";
-import { services, blogPosts, locations, needStates, memberships } from "@/lib/data";
+import { services, blogPosts, locations, problemStates, memberships } from "@/lib/data";
 
 export default function Home() {
   return (
@@ -69,8 +69,8 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {needStates.map((state) => (
-              <Link key={state.id} href={`/services`}>
+            {problemStates.map((state: any) => (
+              <Link key={state.id} href={`/problem/${state.id}`}>
                 <Card className="group cursor-pointer hover:shadow-lg transition-all duration-300 border-none bg-card h-full">
                   <CardContent className="p-6 flex flex-col items-center text-center space-y-4">
                     <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors duration-300">
@@ -131,10 +131,16 @@ export default function Home() {
             ))}
           </div>
           
-          <div className="text-center mt-12">
+          <div className="text-center mt-12 space-y-4">
             <Button asChild variant="outline" size="lg" className="rounded-full border-primary text-primary hover:bg-primary hover:text-white font-bold">
               <Link href="/services">View All Services</Link>
             </Button>
+            <div>
+              <p className="text-muted-foreground text-sm mb-2">Confused about which therapy is right for you?</p>
+              <Button asChild variant="link" className="text-accent font-bold hover:text-accent/80">
+                <Link href="/comparisons">Read Our Comparison Guides →</Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>

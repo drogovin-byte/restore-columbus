@@ -48,8 +48,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         }`}
       >
         <div className="container flex h-14 items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 font-heading font-bold text-xl md:text-2xl tracking-tight text-primary">
-            RESTORE
+          <Link href="/" className="flex items-center gap-2">
+            <img src="/images/restore-logo.png" alt="Restore Hyper Wellness" className="h-10 md:h-12 w-auto" />
           </Link>
 
           {/* Desktop Nav */}

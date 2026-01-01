@@ -6,6 +6,10 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import Services from "./pages/Services";
+import ServiceDetail from "./pages/ServiceDetail";
+import ProblemDetail from "./pages/ProblemDetail";
+import Comparisons from "./pages/Comparisons";
+import ComparisonDetail from "./pages/ComparisonDetail";
 import Locations from "./pages/Locations";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
@@ -16,8 +20,12 @@ import Book from "./pages/Book";
 function Router() {
   return (
     <Switch>
-      <Route path={"/"} component={Home} />
+      <Route path={"/"}  component={Home} />
       <Route path={"/services"} component={Services} />
+      <Route path={"/service/:id"} component={ServiceDetail} />
+      <Route path={"/problem/:id"} component={ProblemDetail} />
+      <Route path={"/comparisons"} component={Comparisons} />
+      <Route path={"/comparison/:slug"} component={ComparisonDetail} />
       <Route path={"/locations"} component={Locations} />
       <Route path={"/blog"} component={Blog} />
       <Route path={"/blog/:slug"} component={BlogPost} />
