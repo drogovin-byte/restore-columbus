@@ -163,7 +163,7 @@ export default function ServiceDetail() {
                   <a href="https://www.restore.com/book-now" target="_blank" rel="noopener noreferrer">Book Now</a>
                 </Button>
                 <Button asChild variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-white font-bold h-12">
-                  <Link href="/services#memberships">View Memberships</Link>
+                  <Link href="/memberships">View Memberships</Link>
                 </Button>
               </CardContent>
             </Card>
