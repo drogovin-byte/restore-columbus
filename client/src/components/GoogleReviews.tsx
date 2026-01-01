@@ -56,7 +56,7 @@ export default function GoogleReviews({
 
         {/* Reviews Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {reviews.map((review, idx) => (
+          {reviews.filter(review => review.rating === 5).map((review, idx) => (
             <Card key={idx} className="hover:shadow-lg transition-shadow">
               <CardContent className="pt-6">
                 <div className="flex items-start justify-between mb-3">
