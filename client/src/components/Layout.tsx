@@ -8,10 +8,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const [location] = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [showMobileFooter, setShowMobileFooter] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
+      // Show mobile footer after scrolling past hero (600px on mobile)
+      setShowMobileFooter(window.scrollY > 400);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -105,15 +108,26 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         )}
       </header>
 
-      {/* Sticky Mobile Book Now Button */}
-      <div className="fixed bottom-0 left-0 right-0 md:hidden z-40 bg-gradient-to-t from-background via-background to-transparent pt-4 pb-4 px-4 border-t border-border">
-        <Button asChild className="w-full bg-primary hover:bg-primary/90 text-white font-bold rounded-lg py-6 text-base shadow-lg">
-          <Link href="https://www.restore.com/book-now">Book Now</Link>
-        </Button>
-      </div>
+      {/* Sticky Mobile Book Now Button - Shows on Scroll */}
+      {showMobileFooter && (
+        <div className="fixed bottom-0 left-0 right-0 md:hidden z-40 bg-gradient-to-t from-background via-background to-transparent pt-4 pb-4 px-4 border-t border-border animate-in slide-in-from-bottom-3 duration-300">
+          <Button asChild className="w-full bg-accent hover:bg-white text-accent-foreground hover:text-primary font-bold rounded-full py-3 text-base shadow-lg transition-all hover:scale-105">
+            <Link href="https://www.restore.com/book-now">Book Your Session</Link>
+          </Button>
+        </div>
+      )}
+
+      {/* Always-visible Mobile Book Now Button - Always present */}
+      {!showMobileFooter && (
+        <div className="fixed bottom-0 left-0 right-0 md:hidden z-40 bg-gradient-to-t from-background via-background to-transparent pt-4 pb-4 px-4 border-t border-border">
+          <Button asChild className="w-full bg-primary hover:bg-primary/90 text-white font-bold rounded-lg py-6 text-base shadow-lg">
+            <Link href="https://www.restore.com/book-now">Book Now</Link>
+          </Button>
+        </div>
+      )}
 
       {/* Main Content - Add padding to prevent overlap with sticky button */}
-      <main className="flex-1 w-full pb-24 md:pb-0">
+      <main className="flex-1 w-full pb-28 md:pb-0">
         {children}
       </main>
 
@@ -182,7 +196,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       </footer>
 
       {/* Mobile spacer to prevent content from hiding behind sticky button */}
-      <div className="md:hidden h-20"></div>
+      <div className="md:hidden h-24"></div>
     </div>
   );
 }
