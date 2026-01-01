@@ -192,7 +192,7 @@ export const services = [
     whoItsNotFor: ["Pregnant women", "People with severe hypertension", "Those with cold sensitivity"],
     pricing: "1 Credit per session | Included in memberships",
     icon: Zap,
-    image: "/images/service_01_Cryotherapy_Chamber.webp",
+    image: "/images/service_07_Woman_wearing_protective_robe,.webp",
     category: "Recovery",
     faqs: [
       {
@@ -224,7 +224,7 @@ export const services = [
     whoItsNotFor: ["Pregnant women", "People with fever or acute illness", "Those with certain heart conditions"],
     pricing: "1 Credit per session | Included in memberships",
     icon: Heart,
-    image: "/images/service_02_Infrared_Sauna.webp",
+    image: "/images/service_09_Woman_relaxing_in_an_infrared_.webp",
     category: "Wellness",
     faqs: [
       {
@@ -256,7 +256,7 @@ export const services = [
     whoItsNotFor: ["People taking light-sensitive medications", "Those with certain eye conditions"],
     pricing: "1 Credit per session | Included in memberships",
     icon: Zap,
-    image: "/images/service_03_Red_Light_Therapy.webp",
+    image: "/images/service_08_Woman_with_her_hands_above_her.webp",
     category: "Wellness",
     faqs: [
       {
@@ -288,7 +288,7 @@ export const services = [
     whoItsNotFor: ["People with blood clots", "Those with severe edema", "Pregnant women"],
     pricing: "1 Credit per session | Included in memberships",
     icon: Heart,
-    image: "/images/service_04_Compression_Therapy.webp",
+    image: "/images/service_10_A_man_wearing_Normatec_compres.webp",
     category: "Recovery",
     faqs: [
       {
@@ -320,7 +320,7 @@ export const services = [
     whoItsNotFor: ["People with certain kidney conditions", "Those with needle phobia (though we can help)"],
     pricing: "4 Credits per IV Drip (with 2 Signature Nutrients) | Included in memberships",
     icon: Heart,
-    image: "/images/service_05_IV_Therapy.webp",
+    image: "/images/service_11_Young_couple_relaxing_while_en.webp",
     category: "Optimization",
     faqs: [
       {
@@ -352,7 +352,7 @@ export const services = [
     whoItsNotFor: ["Pregnant women", "People with certain medical conditions"],
     pricing: "Premium service | 4+ sessions recommended | Included in memberships with credits",
     icon: Brain,
-    image: "/images/service_06_NAD_IV_Therapy.webp",
+    image: "/images/service_12_Smiling_woman_receiving_a_NAD+.webp",
     category: "Longevity",
     faqs: [
       {
@@ -384,7 +384,7 @@ export const services = [
     whoItsNotFor: ["Men with prostate cancer", "Those with certain heart conditions", "Men not willing to commit to monitoring"],
     pricing: "Consultation + labs required | Ongoing monthly cost | Membership credits don't apply",
     icon: TrendingUp,
-    image: "/images/service_07_TRT_Consultation.webp",
+    image: "/images/service_13_A_man_receiving_an_intramuscul.webp",
     category: "Men's Health",
     faqs: [
       {
@@ -416,7 +416,7 @@ export const services = [
     whoItsNotFor: ["People with needle phobia", "Those with certain allergies"],
     pricing: "Starting at $30 per shot | Included in memberships",
     icon: Zap,
-    image: "/images/service_08_IM_Shots.webp",
+    image: "/images/service_14_NAD+_IM_Shot_vials.webp",
     category: "Optimization",
     faqs: [
       {
@@ -449,7 +449,7 @@ export const services = [
     whoItsNotFor: ["Those with active acne", "People with severe rosacea"],
     pricing: "Starting at $150 per treatment | 30% off with membership",
     icon: Smile,
-    image: "/images/service_09_Hydrafacial.webp",
+    image: "/images/service_17_Relaxed_woman_receiving_a_Hydr.webp",
     category: "Skin Health",
     faqs: [
       {
@@ -481,7 +481,7 @@ export const services = [
     whoItsNotFor: ["Pregnant women", "Those with certain implants"],
     pricing: "Starting at $200 per treatment | 30% off with membership",
     icon: Smile,
-    image: "/images/service_10_Neveskin_Facial.webp",
+    image: "/images/service_18_Woman_receiving_Neveskin™_Faci.webp",
     category: "Skin Health",
     faqs: [
       {
@@ -513,7 +513,7 @@ export const services = [
     whoItsNotFor: ["Pregnant women", "Those with certain implants"],
     pricing: "Starting at $250 per treatment | 30% off with membership",
     icon: Smile,
-    image: "/images/service_11_Neveskin_Shape.webp",
+    image: "/images/service_19_Woman_receiving_Neveskin™_Shap.webp",
     category: "Skin Health",
     faqs: [
       {
@@ -545,7 +545,7 @@ export const services = [
     whoItsNotFor: ["Pregnant women", "Those with certain implants"],
     pricing: "Starting at $250 per treatment | 30% off with membership",
     icon: Smile,
-    image: "/images/service_12_Neveskin_Tone.webp",
+    image: "/images/service_20_Person_receiving_Neveskin™_Ton.webp",
     category: "Skin Health",
     faqs: [
       {
