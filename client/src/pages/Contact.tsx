@@ -118,7 +118,7 @@ export default function Contact() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
-              { title: "Book an Appointment", href: "/book", desc: "Schedule your first session" },
+              { title: "Book an Appointment", href: "https://www.restore.com/book-now", desc: "Schedule your first session" },
               { title: "View Services", href: "/services", desc: "Explore all our therapies" },
               { title: "Read FAQs", href: "/faq", desc: "Get answers to common questions" },
               { title: "First-Time Offer", href: "/first-time-offer", desc: "Claim your free session" },
