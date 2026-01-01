@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Layout from "@/components/Layout";
 import { memberships } from "@/lib/data";
+import MembershipCalculator from "@/components/MembershipCalculator";
 
 export default function Memberships() {
   return (
@@ -129,6 +130,19 @@ export default function Memberships() {
               </div>
             );
           })}
+        </div>
+      </div>
+
+      {/* Membership Calculator Section */}
+      <div className="bg-gradient-to-b from-white to-blue-50 py-20">
+        <div className="container max-w-4xl space-y-8">
+          <div className="text-center space-y-4">
+            <h2 className="text-4xl font-bold text-[#1B5E7F]">Compare & Calculate</h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Use our interactive calculator to see exactly how much you'll save or spend when upgrading or downgrading your membership.
+            </p>
+          </div>
+          <MembershipCalculator />
         </div>
       </div>
 
