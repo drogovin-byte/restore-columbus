@@ -166,17 +166,17 @@ export default function Home() {
                 <CardHeader className={`text-center pb-2 ${tier.isPopular ? 'pt-8' : 'pt-6'}`}>
                   <CardTitle className={`font-heading font-bold text-2xl ${tier.isPopular ? 'text-primary' : 'text-white'}`}>{tier.name}</CardTitle>
                   <div className="flex items-baseline justify-center gap-1 mt-2">
-                    <span className={`text-4xl font-bold ${tier.isPopular ? 'text-primary' : 'text-white'}`}>${tier.price}</span>
-                    <span className={`text-sm ${tier.isPopular ? 'text-muted-foreground' : 'text-white/60'}`}>/mo</span>
+                    <span className={`text-4xl font-bold ${tier.isPopular ? 'text-primary' : 'text-white'}`}>{tier.credits}</span>
+                    <span className={`text-sm ${tier.isPopular ? 'text-muted-foreground' : 'text-white/60'}`}>Credits/mo</span>
                   </div>
                   <div className={`text-xs font-medium px-3 py-1 rounded-full inline-block mx-auto mt-2 ${tier.isPopular ? 'bg-secondary text-secondary-foreground' : 'bg-white/20 text-white'}`}>
-                    ${tier.value} Value
+                    {tier.description}
                   </div>
                 </CardHeader>
                 <CardContent className="space-y-6">
                   <div className={`text-center text-sm ${tier.isPopular ? 'text-muted-foreground' : 'text-white/80'}`}>
-                    <strong>${tier.price}</strong> / Month<br/>
-                    <span className="text-xs">{tier.credits} monthly credits</span>
+                    <strong>{tier.credits}</strong> Monthly Credits<br/>
+                    <span className="text-xs">Use for any Core Therapy</span>
                   </div>
                   <ul className="space-y-3 text-sm">
                     {tier.features.map((feature, i) => (
