@@ -105,13 +105,20 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         )}
       </header>
 
-      {/* Main Content */}
-      <main className="flex-1 w-full">
+      {/* Sticky Mobile Book Now Button */}
+      <div className="fixed bottom-0 left-0 right-0 md:hidden z-40 bg-gradient-to-t from-background via-background to-transparent pt-4 pb-4 px-4 border-t border-border">
+        <Button asChild className="w-full bg-primary hover:bg-primary/90 text-white font-bold rounded-lg py-6 text-base shadow-lg">
+          <Link href="/book">Book Now</Link>
+        </Button>
+      </div>
+
+      {/* Main Content - Add padding to prevent overlap with sticky button */}
+      <main className="flex-1 w-full pb-24 md:pb-0">
         {children}
       </main>
 
       {/* Footer */}
-      <footer className="bg-primary text-primary-foreground py-12 md:py-16">
+      <footer className="bg-primary text-primary-foreground py-12 md:py-16 relative z-30">
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
             {/* Brand */}
@@ -173,6 +180,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </div>
         </div>
       </footer>
+
+      {/* Mobile spacer to prevent content from hiding behind sticky button */}
+      <div className="md:hidden h-20"></div>
     </div>
   );
 }
