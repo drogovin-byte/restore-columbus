@@ -62,16 +62,16 @@ export default function Memberships() {
                 >
                   <div className="space-y-0 p-0 flex-1 flex flex-col">
                     {/* Header with Title and Pricing */}
-                    <div className={`space-y-6 px-8 ${isPopular ? 'pt-16 pb-8' : 'pt-8 pb-8'}`}>
-                      <h3 className="text-3xl font-bold text-white tracking-wide">{membership.name}</h3>
+                    <div className={`space-y-6 px-8 text-center ${isPopular ? 'pt-16 pb-8' : 'pt-8 pb-8'}`}>
+                      <h3 className="text-4xl font-bold text-white tracking-wide">{membership.name}</h3>
                       
                       {/* Pricing Section */}
                       <div className="space-y-3">
-                        <div className="flex items-baseline gap-2">
-                          <span className="text-5xl font-bold text-white">${membership.price}</span>
-                          <span className="text-lg text-white/90">/month</span>
+                        <div className="flex items-baseline justify-center gap-2">
+                          <span className="text-6xl font-bold text-white">${membership.price}</span>
+                          <span className="text-xl text-white/90">/month</span>
                         </div>
-                        <div className="space-y-1 text-sm">
+                        <div className="space-y-1 text-base">
                           <p className="text-white/90">
                             A ${membership.value} value!
                           </p>
@@ -86,9 +86,9 @@ export default function Memberships() {
 
                       {/* Credits Section */}
                       <div className="space-y-2">
-                        <div className="text-6xl font-bold text-white">{membership.credits}</div>
-                        <p className="text-lg text-white/90">Credits / Month</p>
-                        <p className="text-sm text-white/80">
+                        <div className="text-7xl font-bold text-white">{membership.credits}</div>
+                        <p className="text-xl text-white/90">Credits / Month</p>
+                        <p className="text-base text-white/80">
                           ${membership.perTherapy.toFixed(2)} per Therapy
                         </p>
                       </div>
@@ -98,10 +98,10 @@ export default function Memberships() {
                     </div>
 
                     {/* Benefits Section */}
-                    <div className="space-y-4 px-8 py-8 flex-1 flex flex-col">
+                    <div className="space-y-4 px-8 py-8 flex-1 flex flex-col text-center">
                       <div className="space-y-3 flex-1">
                         {membership.benefits.slice(0, 4).map((benefit, i) => (
-                          <p key={i} className="text-white/95 text-sm leading-relaxed">
+                          <p key={i} className="text-white/95 text-base leading-relaxed">
                             {benefit}
                           </p>
                         ))}
