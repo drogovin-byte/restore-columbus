@@ -7,6 +7,7 @@ import { Link, useRoute } from "wouter";
 import { locations, services } from "@/lib/data";
 import { useEffect } from "react";
 import GoogleReviews from "@/components/GoogleReviews";
+import { MapView } from "@/components/Map";
 
 export default function LocationDetail() {
   const [match, params] = useRoute("/location/:id");
@@ -181,15 +182,23 @@ export default function LocationDetail() {
             <div className="space-y-4">
               <h2 className="font-heading font-bold text-2xl text-primary">Location Map</h2>
               <div className="w-full h-96 bg-muted rounded-lg overflow-hidden border border-border">
-                <iframe
-                  width="100%"
-                  height="100%"
-                  frameBorder="0"
-                  src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyDummyKey&q=${encodeURIComponent(location.address + ' ' + location.city + ' ' + location.state)}`}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
+                <MapView
                   className="w-full h-full"
+                  initialCenter={{
+                    lat: location.id === 'easton' ? 40.0497 : location.id === 'dublin' ? 40.1103 : 40.0086,
+                    lng: location.id === 'easton' ? -82.9153 : location.id === 'dublin' ? -83.1141 : -83.0556
+                  }}
+                  initialZoom={15}
+                  onMapReady={(map: google.maps.Map) => {
+                    new google.maps.Marker({
+                      position: {
+                        lat: location.id === 'easton' ? 40.0497 : location.id === 'dublin' ? 40.1103 : 40.0086,
+                        lng: location.id === 'easton' ? -82.9153 : location.id === 'dublin' ? -83.1141 : -83.0556
+                      },
+                      map: map,
+                      title: location.name
+                    });
+                  }}
                 />
               </div>
             </div>
