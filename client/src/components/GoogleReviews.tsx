@@ -1,4 +1,4 @@
-import { Star } from "lucide-react";
+import { Star, CheckCircle } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 interface Review {
@@ -61,7 +61,13 @@ export default function GoogleReviews({
               <CardContent className="pt-6">
                 <div className="flex items-start justify-between mb-3">
                   <div>
-                    <p className="font-bold text-foreground">{review.author}</p>
+                    <div className="flex items-center gap-2 mb-1">
+                      <p className="font-bold text-foreground">{review.author}</p>
+                      <div className="flex items-center gap-1 px-2 py-0.5 bg-green-50 rounded-full">
+                        <CheckCircle className="w-3 h-3 text-green-600" />
+                        <span className="text-xs font-medium text-green-700">Verified</span>
+                      </div>
+                    </div>
                     <p className="text-xs text-muted-foreground">{review.date}</p>
                   </div>
                   <div className="flex gap-1">
