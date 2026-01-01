@@ -31,7 +31,7 @@ export default function LocationDetail() {
           "addressCountry": "US"
         },
         "telephone": location.phone,
-        "url": `https://restore-columbus.com/location/${location.id}`,
+        "url": `https://restore-columbus.manus.space/location/${location.id}`,
         "priceRange": "$$$",
         "openingHoursSpecification": [
           {
@@ -59,8 +59,10 @@ export default function LocationDetail() {
         ],
         "aggregateRating": {
           "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "reviewCount": "150"
+          "ratingValue": location.averageRating.toString(),
+          "reviewCount": location.totalReviews.toString(),
+          "bestRating": "5",
+          "worstRating": "1"
         }
       };
 

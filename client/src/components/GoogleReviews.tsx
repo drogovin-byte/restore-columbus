@@ -21,8 +21,54 @@ export default function GoogleReviews({
   averageRating, 
   totalReviews 
 }: GoogleReviewsProps) {
+  // Generate schema markup for AggregateRating
+  const aggregateRatingSchema = {
+    "@context": "https://schema.org",
+    "@type": "AggregateRating",
+    "ratingValue": averageRating.toFixed(1),
+    "reviewCount": totalReviews,
+    "bestRating": "5",
+    "worstRating": "1"
+  };
+
+  // Generate schema markup for individual reviews
+  const fiveStarReviews = reviews.filter(review => review.rating === 5);
+  const reviewsSchema = fiveStarReviews.map(review => ({
+    "@context": "https://schema.org",
+    "@type": "Review",
+    "author": {
+      "@type": "Person",
+      "name": review.author
+    },
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": review.rating,
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "reviewBody": review.text,
+    "datePublished": review.date
+  }));
+
   return (
     <section className="py-12 md:py-16 bg-background">
+      {/* Schema Markup for AggregateRating */}
+      <script type="application/ld+json">
+        {JSON.stringify(aggregateRatingSchema)}
+      </script>
+      
+      {/* Schema Markup for Individual Reviews */}
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          "itemListElement": reviewsSchema.map((review, idx) => ({
+            "@type": "ListItem",
+            "position": idx + 1,
+            "item": review
+          }))
+        })}
+      </script>
       <div className="container">
         <div className="mb-8">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Trusted by Columbus Residents</h2>
