@@ -110,19 +110,19 @@ export default function Memberships() {
                       </div>
 
                       {/* CTA Button */}
-                      <a
-                        href="https://www.restore.com/book-now"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-full mt-6"
+                      <Button
+                        asChild
+                        className="w-full mt-6 font-bold text-base py-6 rounded-lg bg-white hover:bg-gray-100 text-[#1B5E7F] transition-all duration-200 shadow-md hover:shadow-lg"
+                        size="lg"
                       >
-                        <Button
-                          className="w-full font-bold text-base py-6 rounded-lg bg-white hover:bg-gray-100 text-[#1B5E7F] transition-all duration-200 shadow-md hover:shadow-lg"
-                          size="lg"
+                        <a
+                          href="https://www.restore.com/book-now"
+                          target="_blank"
+                          rel="noopener noreferrer"
                         >
                           Get Started
-                        </Button>
-                      </a>
+                        </a>
+                      </Button>
                     </div>
                   </div>
                 </Card>
@@ -193,11 +193,11 @@ export default function Memberships() {
           <p className="text-lg text-white/90 max-w-2xl mx-auto">
             Join thousands of Columbus residents who've made Restore part of their wellness routine.
           </p>
-          <a href="https://www.restore.com/book-now" target="_blank" rel="noopener noreferrer">
-            <Button size="lg" className="bg-white hover:bg-gray-100 text-[#1B5E7F] font-semibold">
+          <Button asChild size="lg" className="bg-white hover:bg-gray-100 text-[#1B5E7F] font-semibold">
+            <a href="https://www.restore.com/book-now" target="_blank" rel="noopener noreferrer">
               Book Your First Session
-            </Button>
-          </a>
+            </a>
+          </Button>
         </div>
       </div>
     </div>
