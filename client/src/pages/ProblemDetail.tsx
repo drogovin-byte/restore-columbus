@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -10,7 +11,14 @@ export default function ProblemDetail() {
   const [match, params] = useRoute("/problem/:id");
   const problem = problemStates.find(p => p.id === params?.id);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [params?.id]);
+
   if (!match || !problem) {
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
     return (
       <Layout>
         <div className="container py-20 text-center">
