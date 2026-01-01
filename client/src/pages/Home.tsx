@@ -36,7 +36,7 @@ export default function Home() {
               <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-white hover:text-primary font-bold text-lg h-14 px-8 rounded-full shadow-lg transition-all hover:scale-105">
                 <Link href="https://www.restore.com/book-now">Book Appointment</Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="border-white text-primary hover:bg-white/10 hover:text-white font-bold text-lg h-14 px-8 rounded-full backdrop-blur-sm">
+              <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-primary font-bold text-lg h-14 px-8 rounded-full backdrop-blur-sm transition-all hover:scale-105">
                 <Link href="/services">Explore Therapies</Link>
               </Button>
             </div>
