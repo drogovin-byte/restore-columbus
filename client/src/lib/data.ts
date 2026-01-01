@@ -96,7 +96,11 @@ export const problemStates = [
 export const memberships = [
   {
     name: "Level Up",
+    price: 170,
+    value: 336,
+    savings: 166,
     credits: 8,
+    perTherapy: 21.25,
     benefits: [
       "8 monthly credits for Core Therapies",
       "1 Credit = 1 Core Therapy (Cryo, Sauna, Compression, Red Light, IV)",
@@ -119,7 +123,11 @@ export const memberships = [
   },
   {
     name: "Elevate",
+    price: 260,
+    value: 588,
+    savings: 328,
     credits: 14,
+    perTherapy: 18.57,
     benefits: [
       "14 monthly credits for Core Therapies",
       "1 Credit = 1 Core Therapy (Cryo, Sauna, Compression, Red Light, IV)",
@@ -142,7 +150,11 @@ export const memberships = [
   },
   {
     name: "Core",
+    price: 300,
+    value: 1302,
+    savings: 1002,
     credits: 31,
+    perTherapy: 9.68,
     benefits: [
       "31 monthly credits for Core Therapies",
       "1 Credit = 1 Core Therapy (Cryo, Sauna, Compression, Red Light, IV)",
