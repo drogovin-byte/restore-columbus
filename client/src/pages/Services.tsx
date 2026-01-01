@@ -58,7 +58,8 @@ export default function Services() {
 
       <div className="container py-20 space-y-32">
         {services.map((service, index) => (
-          <div key={service.id} id={service.id} className={`flex flex-col gap-12 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'}`} itemScope itemType="https://schema.org/Service">
+          <Link key={service.id} href={`/service/${service.id}`}>
+            <div id={service.id} className={`flex flex-col gap-12 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} cursor-pointer hover:opacity-90 transition-opacity`} itemScope itemType="https://schema.org/Service">
             <div className="flex-1 w-full">
               <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
                 <img 
@@ -104,6 +105,7 @@ export default function Services() {
               </div>
             </div>
           </div>
+          </Link>
         ))}
       </div>
 
