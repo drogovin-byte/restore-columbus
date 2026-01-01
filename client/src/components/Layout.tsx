@@ -27,7 +27,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <div className="bg-primary text-primary-foreground py-2 text-xs md:text-sm font-medium">
         <div className="container flex justify-between items-center">
           <div className="flex items-center gap-4">
-            <span className="hidden md:inline">Proudly serving Columbus, OH since 2020</span>
+            <span className="hidden md:inline">Proudly serving Columbus, OH since 2019</span>
             <span className="md:hidden">Columbus, OH</span>
           </div>
           <div className="flex items-center gap-4">

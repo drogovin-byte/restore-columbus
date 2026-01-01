@@ -14,7 +14,7 @@ export default function About() {
             About Restore Hyper Wellness Columbus
           </h1>
           <p className="text-lg text-white/80">
-            Proudly serving Columbus since 2020. Locally owned, medically backed, community focused.
+            Proudly serving Columbus since 2019. Locally owned, medically backed, community focused.
           </p>
         </div>
       </section>
