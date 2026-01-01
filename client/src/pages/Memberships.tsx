@@ -45,7 +45,7 @@ export default function Memberships() {
             return (
               <div key={index} className="relative">
                 {isPopular && (
-                  <div className="absolute -top-16 left-1/2 transform -translate-x-1/2 z-20">
+                  <div className="absolute -top-24 left-1/2 transform -translate-x-1/2 z-20">
                     <div className="bg-[#5DADE2] rounded-full w-28 h-28 flex items-center justify-center border-4 border-white shadow-xl">
                       <div className="text-center">
                         <div className="text-xs font-bold text-white leading-tight">BEST</div>
@@ -62,7 +62,7 @@ export default function Memberships() {
                 >
                   <div className="space-y-0 p-0 flex-1 flex flex-col">
                     {/* Header with Title and Pricing */}
-                    <div className={`space-y-6 px-8 text-center ${isPopular ? 'pt-8 pb-8' : 'pt-8 pb-8'}`}>
+                    <div className={`space-y-6 px-8 text-center ${isPopular ? 'pt-24 pb-8' : 'pt-8 pb-8'}`}>
                       <h3 className="text-4xl font-bold text-white tracking-wide">{membership.name}</h3>
                       
                       {/* Pricing Section */}
