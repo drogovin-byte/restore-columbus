@@ -79,7 +79,7 @@ export default function Home() {
                     </div>
                     <h3 className="font-heading font-bold text-xl text-primary">{state.title}</h3>
                     <p className="text-sm text-muted-foreground">{state.description}</p>
-                    <div className="pt-2 text-xs font-bold text-accent uppercase tracking-wider">
+                    <div className="pt-2 text-xs font-bold text-primary uppercase tracking-wider">
                       Recommended Therapies &rarr;
                     </div>
                   </CardContent>

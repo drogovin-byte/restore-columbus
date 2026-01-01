@@ -120,6 +120,16 @@ export const problemStates = [
     solution: "Our men's health protocols include TRT, performance optimization, and recovery-focused therapies.",
     recommendedServices: ["trt", "nad-iv", "cryotherapy", "compression"],
     image: "/images/iv-drip-lounge.jpg"
+  },
+  {
+    id: "womens-wellness",
+    title: "Women's Wellness & Vitality",
+    description: "Optimize hormones, energy, and radiance",
+    icon: Heart,
+    problem: "Hormonal imbalances, low energy, and aging concerns are affecting your confidence and quality of life. You want to feel vibrant and like yourself again.",
+    solution: "Our women's wellness protocols optimize hormonal balance, enhance energy, and support skin health and longevity.",
+    recommendedServices: ["nad-iv", "red-light", "infrared-sauna", "iv-drip"],
+    image: "/images/red-light-official.webp"
   }
 ];
 
