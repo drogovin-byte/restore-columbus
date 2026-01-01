@@ -21,7 +21,7 @@ export default function MembershipCalculator() {
 
   const monthlyCostDifference = target.price - current.price;
   const creditDifference = target.credits - current.credits;
-  const costPerTherapyDifference = target.perTherapy - current.perTherapy;
+  const costPerTherapyDifference = Math.round((target.perTherapy - current.perTherapy) * 100) / 100;
 
   const isUpgrade = target.price > current.price;
   const isSameTier = currentTier === targetTier;
