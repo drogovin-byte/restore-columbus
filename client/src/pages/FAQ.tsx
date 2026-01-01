@@ -115,40 +115,29 @@ const faqs = [
 
 export default function FAQ() {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
-  const [schemaAdded, setSchemaAdded] = useState(false);
 
-  useEffect(() => {
-    // Add FAQPage schema markup
-    if (!schemaAdded) {
-      const schema = {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": faqs.flatMap(category =>
-          category.questions.map(q => ({
-            "@type": "Question",
-            "name": q.q,
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": q.a
-            }
-          }))
-        )
-      };
-
-      const script = document.createElement("script");
-      script.type = "application/ld+json";
-      script.textContent = JSON.stringify(schema);
-      document.head.appendChild(script);
-      setSchemaAdded(true);
-
-      return () => {
-        document.head.removeChild(script);
-      };
-    }
-  }, [schemaAdded]);
+  // Generate FAQ schema
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.flatMap(category =>
+      category.questions.map(q => ({
+        "@type": "Question",
+        "name": q.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": q.a
+        }
+      }))
+    )
+  };
 
   return (
     <Layout>
+      {/* FAQ Schema Markup */}
+      <script type="application/ld+json">
+        {JSON.stringify(faqSchema)}
+      </script>
       {/* Hero */}
       <section className="py-20 bg-primary text-white">
         <div className="container max-w-3xl text-center space-y-6">
