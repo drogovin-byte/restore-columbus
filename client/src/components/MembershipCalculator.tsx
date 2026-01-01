@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, TrendingUp, DollarSign, Zap } from "lucide-react";
+import { TrendingUp, Heart, Zap, DollarSign, ArrowRight } from "lucide-react";
 import { memberships } from "@/lib/data";
 
 type MembershipTier = "level-up" | "elevate" | "core";
@@ -22,10 +22,28 @@ export default function MembershipCalculator() {
   const monthlyCostDifference = target.price - current.price;
   const creditDifference = target.credits - current.credits;
   const costPerTherapyDifference = target.perTherapy - current.perTherapy;
-  const yearlySavings = monthlyCostDifference * 12;
 
   const isUpgrade = target.price > current.price;
   const isSameTier = currentTier === targetTier;
+
+  // Health benefit messaging
+  const getHealthBenefits = () => {
+    if (isUpgrade) {
+      return [
+        `${creditDifference} more therapy sessions per month`,
+        "More consistent wellness routine for better results",
+        "Accelerated recovery and performance gains",
+        "Better long-term health outcomes with regular treatment"
+      ];
+    } else {
+      return [
+        `${Math.abs(creditDifference)} fewer therapy sessions per month`,
+        "Less frequent treatment may slow recovery progress",
+        "Reduced consistency could impact long-term results",
+        "May need to supplement with additional out-of-pocket sessions"
+      ];
+    }
+  };
 
   return (
     <div className="space-y-8">
@@ -94,76 +112,115 @@ export default function MembershipCalculator() {
 
       {/* Comparison Results */}
       {!isSameTier && (
-        <Card className="border-2 bg-gradient-to-br from-background to-secondary/5">
+        <Card className="border-2 bg-gradient-to-br from-background to-primary/5">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
-              <TrendingUp className="w-5 h-5 text-accent" />
-              {isUpgrade ? "Upgrade Comparison" : "Downgrade Comparison"}
+              <Heart className="w-5 h-5 text-red-500" />
+              {isUpgrade ? "Unlock Better Health Outcomes" : "What You'll Miss"}
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-6">
-            {/* Main Metrics */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {/* Monthly Cost Change */}
-              <div className="p-4 rounded-lg bg-card border border-border">
-                <div className="flex items-center gap-2 mb-2">
-                  <DollarSign className="w-4 h-4 text-muted-foreground" />
-                  <span className="text-sm font-semibold text-muted-foreground">
-                    Monthly Cost Change
-                  </span>
+            {/* Cost Per Service Comparison */}
+            <div className="space-y-4">
+              <h3 className="font-semibold text-primary flex items-center gap-2">
+                <DollarSign className="w-4 h-4" />
+                Cost Per Therapy Session
+              </h3>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="p-4 rounded-lg bg-card border border-border">
+                  <div className="text-sm text-muted-foreground mb-1">Current</div>
+                  <div className="text-2xl font-bold text-primary">
+                    ${current.perTherapy}
+                  </div>
+                  <div className="text-xs text-muted-foreground mt-2">
+                    {current.name}
+                  </div>
                 </div>
-                <div
-                  className={`text-3xl font-bold ${
-                    monthlyCostDifference > 0
-                      ? "text-orange-600"
-                      : "text-green-600"
-                  }`}
-                >
-                  {monthlyCostDifference > 0 ? "+" : ""}${Math.abs(monthlyCostDifference)}
+                <div className={`p-4 rounded-lg border-2 ${
+                  isUpgrade
+                    ? "bg-green-50 border-green-200"
+                    : "bg-orange-50 border-orange-200"
+                }`}>
+                  <div className="text-sm text-muted-foreground mb-1">New</div>
+                  <div className={`text-2xl font-bold ${
+                    isUpgrade ? "text-green-700" : "text-orange-700"
+                  }`}>
+                    ${target.perTherapy}
+                  </div>
+                  <div className={`text-xs font-semibold mt-2 ${
+                    isUpgrade ? "text-green-700" : "text-orange-700"
+                  }`}>
+                    {isUpgrade ? "Save" : "Increase"} ${Math.abs(costPerTherapyDifference)}/session
+                  </div>
                 </div>
-                <p className="text-xs text-muted-foreground mt-2">
-                  {isUpgrade ? "Additional cost per month" : "Savings per month"}
-                </p>
               </div>
+              <p className="text-sm text-muted-foreground bg-primary/5 p-3 rounded-lg">
+                {isUpgrade
+                  ? `By upgrading, you'll pay $${Math.abs(costPerTherapyDifference)} less per therapy session, making consistent wellness more affordable.`
+                  : `Downgrading increases your per-session cost to $${target.perTherapy}, making it more expensive to maintain consistency.`}
+              </p>
+            </div>
 
-              {/* Yearly Impact */}
-              <div className="p-4 rounded-lg bg-card border border-border">
-                <div className="flex items-center gap-2 mb-2">
-                  <TrendingUp className="w-4 h-4 text-muted-foreground" />
-                  <span className="text-sm font-semibold text-muted-foreground">
-                    Annual Impact
-                  </span>
-                </div>
-                <div
-                  className={`text-3xl font-bold ${
-                    yearlySavings > 0 ? "text-orange-600" : "text-green-600"
-                  }`}
-                >
-                  {yearlySavings > 0 ? "+" : ""}${Math.abs(yearlySavings)}
-                </div>
-                <p className="text-xs text-muted-foreground mt-2">
-                  {isUpgrade ? "Additional yearly cost" : "Yearly savings"}
-                </p>
-              </div>
-
-              {/* Credit Increase */}
-              <div className="p-4 rounded-lg bg-card border border-border">
-                <div className="flex items-center gap-2 mb-2">
-                  <Zap className="w-4 h-4 text-muted-foreground" />
-                  <span className="text-sm font-semibold text-muted-foreground">
-                    Additional Credits
-                  </span>
-                </div>
-                <div className="text-3xl font-bold text-accent">
-                  +{creditDifference}
-                </div>
-                <p className="text-xs text-muted-foreground mt-2">
-                  Extra credits per month
-                </p>
+            {/* Health Benefits */}
+            <div className="space-y-4">
+              <h3 className="font-semibold text-primary flex items-center gap-2">
+                <Heart className="w-4 h-4" />
+                {isUpgrade ? "Health Benefits You'll Gain" : "Health Benefits You'll Lose"}
+              </h3>
+              <div className="space-y-2">
+                {getHealthBenefits().map((benefit, idx) => (
+                  <div key={idx} className="flex gap-3 p-3 rounded-lg bg-card border border-border">
+                    <div className={`flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center text-white text-xs font-bold ${
+                      isUpgrade ? "bg-green-500" : "bg-orange-500"
+                    }`}>
+                      {isUpgrade ? "+" : "−"}
+                    </div>
+                    <p className="text-sm text-foreground">{benefit}</p>
+                  </div>
+                ))}
               </div>
             </div>
 
-            {/* Detailed Breakdown */}
+            {/* Service Frequency Impact */}
+            <div className="space-y-4">
+              <h3 className="font-semibold text-primary flex items-center gap-2">
+                <Zap className="w-4 h-4" />
+                Monthly Service Frequency
+              </h3>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="p-4 rounded-lg bg-card border border-border">
+                  <div className="text-sm text-muted-foreground mb-2">Current</div>
+                  <div className="text-3xl font-bold text-primary">{current.credits}</div>
+                  <div className="text-xs text-muted-foreground mt-2">
+                    sessions/month
+                  </div>
+                </div>
+                <div className={`p-4 rounded-lg border-2 ${
+                  isUpgrade
+                    ? "bg-green-50 border-green-200"
+                    : "bg-orange-50 border-orange-200"
+                }`}>
+                  <div className="text-sm text-muted-foreground mb-2">New</div>
+                  <div className={`text-3xl font-bold ${
+                    isUpgrade ? "text-green-700" : "text-orange-700"
+                  }`}>
+                    {target.credits}
+                  </div>
+                  <div className={`text-xs font-semibold mt-2 ${
+                    isUpgrade ? "text-green-700" : "text-orange-700"
+                  }`}>
+                    {isUpgrade ? "+" : "−"}{Math.abs(creditDifference)} sessions/month
+                  </div>
+                </div>
+              </div>
+              <p className="text-sm text-muted-foreground bg-primary/5 p-3 rounded-lg">
+                {isUpgrade
+                  ? `${creditDifference} additional sessions per month means more consistent treatment, faster recovery, and better long-term health outcomes.`
+                  : `Fewer sessions per month means less frequent treatment, which can slow your progress and require supplemental out-of-pocket visits.`}
+              </p>
+            </div>
+
+            {/* Monthly Cost Impact */}
             <div className="space-y-3 pt-4 border-t border-border">
               <div className="flex items-center justify-between">
                 <span className="text-sm text-muted-foreground">
@@ -181,7 +238,7 @@ export default function MembershipCalculator() {
                 <span className="font-semibold">${target.price}/month</span>
               </div>
               <div className="flex items-center justify-between pt-2 border-t border-border">
-                <span className="text-sm font-semibold">Net Change</span>
+                <span className="text-sm font-semibold">Monthly Change</span>
                 <span
                   className={`font-bold text-lg ${
                     monthlyCostDifference > 0
@@ -194,22 +251,6 @@ export default function MembershipCalculator() {
                   )}/month
                 </span>
               </div>
-            </div>
-
-            {/* Value Proposition */}
-            <div className="bg-primary/5 rounded-lg p-4 space-y-2">
-              <p className="text-sm font-semibold text-primary">
-                {isUpgrade
-                  ? `Get ${creditDifference} more credits per month`
-                  : `Reduce your monthly spend by $${Math.abs(
-                      monthlyCostDifference
-                    )}`}
-              </p>
-              <p className="text-xs text-muted-foreground">
-                {isUpgrade
-                  ? `That's ${creditDifference} additional therapy sessions or combinations per month!`
-                  : `Perfect if you want to maintain flexibility while reducing costs.`}
-              </p>
             </div>
 
             {/* CTA */}
@@ -235,7 +276,7 @@ export default function MembershipCalculator() {
         <Card className="border-2 border-border/50 bg-muted/30">
           <CardContent className="pt-6">
             <p className="text-center text-muted-foreground">
-              Select different tiers to see the comparison and cost differences.
+              Select different tiers to see how your health outcomes and service frequency will change.
             </p>
           </CardContent>
         </Card>
