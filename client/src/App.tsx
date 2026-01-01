@@ -20,6 +20,7 @@ import About from "./pages/About";
 import FAQ from "./pages/FAQ";
 import Contact from "./pages/Contact";
 import FirstTimeOffer from "./pages/FirstTimeOffer";
+import Quiz from "./pages/Quiz";
 
 
 function Router() {
@@ -39,6 +40,7 @@ function Router() {
       <Route path={"/book"} component={Book} />
       <Route path={"/about"} component={About} />
       <Route path={"/faq"} component={FAQ} />
+      <Route path={"/quiz"} component={Quiz} />
       <Route path={"/contact"} component={Contact} />
       <Route path={"/first-time-offer"} component={FirstTimeOffer} />
       <Route path={"/404"} component={NotFound} />

@@ -87,6 +87,14 @@ export default function Home() {
               </Link>
             ))}
           </div>
+          
+          {/* Quiz CTA */}
+          <div className="mt-16 text-center">
+            <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground font-bold rounded-full px-8 py-6 text-base shadow-lg">
+              <Link href="/quiz">Take Our Therapy Quiz</Link>
+            </Button>
+            <p className="text-sm text-muted-foreground mt-4">Not sure which therapy is right for you? Let us help you find your perfect match.</p>
+          </div>
         </div>
       </section>
 
