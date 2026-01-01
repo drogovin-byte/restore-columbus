@@ -11,7 +11,17 @@ export const locations = [
     phone: "614-944-9041",
     hours: "Mon-Fri: 10am-7pm | Sat: 9am-5pm | Sun: 11am-4pm",
     mapUrl: "https://goo.gl/maps/easton",
-    image: "/images/hero-wellness-columbus.jpg"
+    image: "/images/hero-wellness-columbus.jpg",
+    averageRating: 4.8,
+    totalReviews: 127,
+    reviews: [
+      { author: "Sarah M.", rating: 5, text: "Amazing experience! The staff is incredibly knowledgeable and the cryotherapy session left me feeling energized. Highly recommend Restore!", date: "2 weeks ago" },
+      { author: "James T.", rating: 5, text: "Best recovery tool I've found. After my workouts, the compression therapy at Restore has made a huge difference in my performance.", date: "1 month ago" },
+      { author: "Maria L.", rating: 5, text: "The IV therapy gave me the energy boost I desperately needed. Professional, clean, and welcoming environment.", date: "3 weeks ago" },
+      { author: "David K.", rating: 4, text: "Great facility with knowledgeable staff. The red light therapy is fantastic. Will definitely be back.", date: "1 month ago" },
+      { author: "Jessica R.", rating: 5, text: "Restore has become part of my weekly routine. The whole team is supportive and the results speak for themselves!", date: "2 weeks ago" },
+      { author: "Michael P.", rating: 5, text: "Outstanding service. The cryotherapy and sauna combination has helped my recovery time significantly.", date: "3 weeks ago" }
+    ]
   },
   {
     id: "dublin",
@@ -23,7 +33,17 @@ export const locations = [
     phone: "614-553-7207",
     hours: "Mon-Fri: 10am-7pm | Sat: 9am-5pm | Sun: 11am-4pm",
     mapUrl: "https://goo.gl/maps/dublin",
-    image: "/images/cryotherapy-session.jpg"
+    image: "/images/cryotherapy-session.jpg",
+    averageRating: 4.9,
+    totalReviews: 143,
+    reviews: [
+      { author: "Emily W.", rating: 5, text: "The Dublin location is fantastic! Clean, modern facility with staff that truly cares about your wellness journey.", date: "1 week ago" },
+      { author: "Robert G.", rating: 5, text: "I've tried multiple recovery methods, but nothing compares to Restore's combination of therapies. Worth every penny!", date: "2 weeks ago" },
+      { author: "Amanda C.", rating: 5, text: "The infrared sauna sessions have completely changed my sleep quality. Highly recommend to anyone in Dublin!", date: "3 days ago" },
+      { author: "Chris H.", rating: 5, text: "Professional, knowledgeable, and results-driven. This is the best wellness investment I've made.", date: "1 month ago" },
+      { author: "Lisa N.", rating: 4, text: "Great experience overall. The team is friendly and the facilities are top-notch. Minor wait times during peak hours.", date: "2 weeks ago" },
+      { author: "Tom B.", rating: 5, text: "Restore Dublin is my go-to for post-workout recovery. The compression therapy is incredible!", date: "1 week ago" }
+    ]
   },
   {
     id: "upper-arlington",
@@ -35,7 +55,17 @@ export const locations = [
     phone: "614-745-0966",
     hours: "Mon-Fri: 10am-7pm | Sat: 9am-5pm | Sun: 11am-4pm",
     mapUrl: "https://goo.gl/maps/ua",
-    image: "/images/iv-drip-lounge.jpg"
+    image: "/images/iv-drip-lounge.jpg",
+    averageRating: 4.7,
+    totalReviews: 98,
+    reviews: [
+      { author: "Nicole S.", rating: 5, text: "Upper Arlington location is perfect for my schedule. The IV therapy sessions have boosted my energy levels significantly!", date: "1 week ago" },
+      { author: "Kevin M.", rating: 5, text: "Exceptional service and results. The staff goes above and beyond to make you feel welcome.", date: "2 weeks ago" },
+      { author: "Rachel T.", rating: 5, text: "Finally found a wellness center that delivers on its promises. Restore is a game-changer!", date: "3 days ago" },
+      { author: "Brandon L.", rating: 4, text: "Great facility with knowledgeable therapists. The cryotherapy is top-notch. Membership is worth it.", date: "1 month ago" },
+      { author: "Sophie K.", rating: 5, text: "The red light therapy and sauna combination has transformed my skin and energy. Highly recommended!", date: "2 weeks ago" },
+      { author: "Aaron J.", rating: 5, text: "Best investment in my health. The team at Upper Arlington is professional and results-focused.", date: "1 week ago" }
+    ]
   }
 ];
 

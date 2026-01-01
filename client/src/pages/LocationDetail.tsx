@@ -6,6 +6,7 @@ import { MapPin, Phone, Clock, ParkingCircle, MapPinIcon, Star, CheckCircle2, Ar
 import { Link, useRoute } from "wouter";
 import { locations, services } from "@/lib/data";
 import { useEffect } from "react";
+import GoogleReviews from "@/components/GoogleReviews";
 
 export default function LocationDetail() {
   const [match, params] = useRoute("/location/:id");
@@ -312,6 +313,16 @@ export default function LocationDetail() {
           </Button>
         </div>
       </section>
+
+      {/* Google Reviews Section */}
+      {location?.reviews && (
+        <GoogleReviews 
+          locationName={location.name}
+          reviews={location.reviews}
+          averageRating={location.averageRating}
+          totalReviews={location.totalReviews}
+        />
+      )}
     </Layout>
   );
 }

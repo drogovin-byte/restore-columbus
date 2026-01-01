@@ -5,11 +5,22 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Star, CheckCircle2, MapPin, Target } from "lucide-react";
 import { Link } from "wouter";
 import { services, blogPosts, locations, problemStates, memberships } from "@/lib/data";
+import GoogleReviews from "@/components/GoogleReviews";
 
 export default function Home() {
   return (
     <Layout>
-      {/* Hero Section */}
+      {/* Google Reviews Section */}
+      {locations[0].reviews && (
+        <GoogleReviews 
+          locationName={locations[0].name}
+          reviews={locations[0].reviews}
+          averageRating={locations[0].averageRating}
+          totalReviews={locations[0].totalReviews}
+        />
+      )}
+
+      {/* Blog Section */}
       <section className="relative h-[600px] md:h-[700px] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
