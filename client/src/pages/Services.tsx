@@ -59,8 +59,8 @@ export default function Services() {
       <div className="container py-20 space-y-32">
         {services.map((service, index) => (
           <Link key={service.id} href={`/service/${service.id}`}>
-            <div id={service.id} className={`flex flex-col gap-12 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} cursor-pointer hover:opacity-90 transition-opacity`} itemScope itemType="https://schema.org/Service">
-            <div className="flex-1 w-full">
+            <div id={service.id} className={`flex flex-col gap-12 items-stretch ${index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} cursor-pointer hover:opacity-90 transition-opacity`} itemScope itemType="https://schema.org/Service">
+            <div className="flex-1 w-full min-w-0">
               <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
                 <img 
                   src={service.image} 
@@ -96,8 +96,8 @@ export default function Services() {
                 </div>
               </div>
 
-              <div className="pt-4">
-                <Button asChild size="lg" className="bg-primary text-white hover:bg-primary/90 rounded-full px-8">
+              <div className="pt-8 pb-4">
+                <Button asChild size="lg" className="bg-primary text-white hover:bg-primary/90 rounded-full px-8 w-full sm:w-auto">
                   <a href="https://www.restore.com/book-now" itemProp="url" target="_blank" rel="noopener noreferrer">
                     Book {service.title} <ArrowRight className="w-4 h-4 ml-2" />
                   </a>
