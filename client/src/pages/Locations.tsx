@@ -81,31 +81,17 @@ export default function Locations() {
                 
                 // Add markers for each location
                 locations.forEach(loc => {
-                  // Mock coordinates for demo purposes
-                  // Easton
-                  if(loc.id === 'easton') {
-                    new google.maps.Marker({
-                      position: { lat: 40.0497, lng: -82.9153 },
-                      map: map,
-                      title: loc.name
-                    });
-                  }
-                  // Upper Arlington
-                  if(loc.id === 'upper-arlington') {
-                    new google.maps.Marker({
-                      position: { lat: 40.0086, lng: -83.0556 },
-                      map: map,
-                      title: loc.name
-                    });
-                  }
-                  // Polaris
-                  if(loc.id === 'polaris') {
-                    new google.maps.Marker({
-                      position: { lat: 40.1465, lng: -82.9722 },
-                      map: map,
-                      title: loc.name
-                    });
-                  }
+                  let position = { lat: 40.05, lng: -82.95 };
+                  
+                  if(loc.id === 'easton') position = { lat: 40.0497, lng: -82.9153 };
+                  if(loc.id === 'dublin') position = { lat: 40.1103, lng: -83.1141 };
+                  if(loc.id === 'upper-arlington') position = { lat: 40.0086, lng: -83.0556 };
+
+                  new google.maps.Marker({
+                    position: position,
+                    map: map,
+                    title: loc.name
+                  });
                 });
               }}
             />

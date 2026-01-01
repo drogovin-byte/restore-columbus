@@ -1,4 +1,4 @@
-import { MapPin, Phone, Clock, Calendar, Star, ShieldCheck, Zap, Heart, Activity, Droplet, Thermometer, Wind, Sun, Syringe, Sparkles, Microscope, Scale } from "lucide-react";
+import { MapPin, Phone, Clock, Calendar, Star, ShieldCheck, Zap, Heart, Activity, Droplet, Thermometer, Wind, Sun, Syringe, Sparkles, Microscope, Scale, Battery, Moon, Brain, Flame } from "lucide-react";
 
 export const locations = [
   {
@@ -39,6 +39,102 @@ export const locations = [
   }
 ];
 
+export const needStates = [
+  {
+    id: "energy",
+    title: "Boost Energy",
+    description: "Fight fatigue and power through your day with renewed vitality.",
+    icon: Battery,
+    services: ["iv-drip", "cryotherapy", "red-light", "nad-iv"]
+  },
+  {
+    id: "recovery",
+    title: "Speed Recovery",
+    description: "Bounce back faster from workouts, injuries, or surgery.",
+    icon: Activity,
+    services: ["cryotherapy", "compression", "infrared-sauna", "mhbot"]
+  },
+  {
+    id: "immunity",
+    title: "Strengthen Immunity",
+    description: "Fortify your body's defenses against illness and stress.",
+    icon: ShieldCheck,
+    services: ["iv-drip", "infrared-sauna", "biomarkers"]
+  },
+  {
+    id: "beauty",
+    title: "Enhance Beauty",
+    description: "Glow from the inside out with skin and anti-aging therapies.",
+    icon: Sparkles,
+    services: ["hydrafacial", "red-light", "cryoskin-facial", "iv-drip"]
+  },
+  {
+    id: "cognition",
+    title: "Sharpen Focus",
+    description: "Clear brain fog and improve mental clarity and performance.",
+    icon: Brain,
+    services: ["mhbot", "nad-iv", "cryotherapy"]
+  },
+  {
+    id: "weight-loss",
+    title: "Manage Weight",
+    description: "Support your metabolism and body composition goals.",
+    icon: Scale,
+    services: ["glp1", "cryoskin-slimming", "infrared-sauna"]
+  }
+];
+
+export const memberships = [
+  {
+    name: "Level Up",
+    price: 170,
+    value: 336,
+    credits: 8,
+    perTherapy: 21.25,
+    features: [
+      "8 Credits / Month",
+      "Use for Core Therapies or IV Drips",
+      "1 Credit = 1 Core Therapy",
+      "4 Credits = 1 IV Drip (Signature/High Dose)",
+      "30% Off Specialty Services",
+      "Rollover Credits (100 days)"
+    ],
+    bestFor: "Maintenance"
+  },
+  {
+    name: "Elevate",
+    price: 260,
+    value: 588,
+    credits: 14,
+    perTherapy: 18.57,
+    features: [
+      "14 Credits / Month",
+      "Use for Core Therapies or IV Drips",
+      "1 Credit = 1 Core Therapy",
+      "4 Credits = 1 IV Drip (Signature/High Dose)",
+      "30% Off Specialty Services",
+      "Rollover Credits (100 days)"
+    ],
+    bestFor: "Best Value",
+    isPopular: true
+  },
+  {
+    name: "Core",
+    price: 300,
+    value: 1302,
+    credits: 31,
+    perTherapy: 9.68,
+    features: [
+      "Daily Access (31 Credits)",
+      "Use for Core Therapies Only",
+      "1 Credit = 1 Core Therapy",
+      "30% Off Specialty Services",
+      "Credits expire monthly"
+    ],
+    bestFor: "Daily Users"
+  }
+];
+
 export const services = [
   // Core Therapies
   {
@@ -67,7 +163,7 @@ export const services = [
     shortDesc: "Sweat it out for 30-45 minutes through light waves and relaxing heat.",
     fullDesc: "Sweat it out for 30-45 minutes through light waves and relaxing heat. Unlike traditional saunas, infrared heats the body directly.",
     benefits: ["Promote healing and energy", "Improve circulation and heart health", "Detoxify and relieve inflammation"],
-    icon: Wind,
+    icon: Flame,
     image: "/images/sauna-official.jpg",
     category: "Core Therapies"
   },
@@ -94,16 +190,6 @@ export const services = [
     category: "IV & IM Therapy"
   },
   {
-    id: "niagen-iv",
-    title: "Niagen (NR) IV Drips",
-    shortDesc: "Superior way to feel the effects of NAD+ therapy.",
-    fullDesc: "Experience the superior way to feel the effects of NAD+ therapy to help reduce age- and stress-related cellular damage and improve energy and metabolism.",
-    benefits: ["Improved cellular and metabolic health", "Enhanced cellular energy to combat fatigue", "Reduced oxidative stress for faster recovery"],
-    icon: Zap,
-    image: "/images/iv-drip-official.webp", // Reusing IV image
-    category: "IV & IM Therapy"
-  },
-  {
     id: "nad-iv",
     title: "NAD+ IV Therapy",
     shortDesc: "Jumpstart your cellular repair and protect your unique genetic makeup.",
@@ -123,58 +209,8 @@ export const services = [
     image: "/images/iv-drip-official.webp", // Contextual fallback
     category: "IV & IM Therapy"
   },
-  {
-    id: "niagen-im",
-    title: "Niagen (NR) IM Shots",
-    shortDesc: "The fastest way to feel the effects of NAD+ therapy.",
-    fullDesc: "The fastest and superior way to feel the effects of NAD+ therapy to help improve cellular repair, energy, metabolism and cognition.",
-    benefits: ["Improved cellular and metabolic health", "Enhanced cellular energy to combat fatigue", "Reduced oxidative stress for faster recovery"],
-    icon: Syringe,
-    image: "/images/iv-drip-official.webp", // Contextual fallback
-    category: "IV & IM Therapy"
-  },
 
   // Skin Health
-  {
-    id: "marini-peel",
-    title: "Marini Glycolic Resurfacing Peels",
-    shortDesc: "Measurably improve the appearance of your skin with zero downtime.",
-    fullDesc: "Measurably improve the appearance of your skin with zero downtime. Our experts work with you to determine the best customization for your skin and goals.",
-    benefits: ["Improved signs of aging", "Brighter complexion", "Smoother skin texture"],
-    icon: Sparkles,
-    image: "/images/hero-wellness-columbus.jpg", // Fallback
-    category: "Skin Health"
-  },
-  {
-    id: "keravive",
-    title: "Hydrafacial Keravive Scalp Treatment",
-    shortDesc: "Deeply cleanse clogged hair follicles to support natural hair growth.",
-    fullDesc: "Deeply cleanse clogged hair follicles and infuse highly concentrated peptides into the follicles to support natural hair growth.",
-    benefits: ["Decreased hair thinning", "Reduced scalp itching and irritation", "Decreased dandruff and dry scalp"],
-    icon: Sparkles,
-    image: "/images/hero-wellness-columbus.jpg", // Fallback
-    category: "Skin Health"
-  },
-  {
-    id: "neveskin-facial",
-    title: "Neveskin Facial",
-    shortDesc: "Help reduce the signs of aging and tighten and tone the skin with cold therapy.",
-    fullDesc: "Help reduce the signs of aging and tighten and tone the skin with cold therapy.",
-    benefits: ["Reduced signs of aging", "Tightened and firmer skin", "Increased blood flow and oxygen to the skin"],
-    icon: Sparkles,
-    image: "/images/hero-wellness-columbus.jpg", // Fallback
-    category: "Skin Health"
-  },
-  {
-    id: "hydropeptide-facial",
-    title: "HydroPeptide Custom Facial",
-    shortDesc: "High-performance customized facial to smooth complexion.",
-    fullDesc: "This high-performance customized facial aims to help smooth complexion, enhance product penetration and effectively purge impurities.",
-    benefits: ["Decreased 'peach fuzz'", "Improved signs of aging", "Smoother complexion"],
-    icon: Sparkles,
-    image: "/images/hero-wellness-columbus.jpg", // Fallback
-    category: "Skin Health"
-  },
   {
     id: "hydrafacial",
     title: "Hydrafacial",
@@ -186,41 +222,21 @@ export const services = [
     category: "Skin Health"
   },
   {
-    id: "marini-luminate",
-    title: "Marini Luminate® Facial",
-    shortDesc: "Address facial discoloration and promote a radiant complexion.",
-    fullDesc: "Address facial discoloration and promote a radiant complexion with advanced brightening agents, targeted acids and antioxidants.",
-    benefits: ["Brighter complexion", "Enhanced vibrance", "Increased youthful glow"],
+    id: "cryoskin-facial",
+    title: "Neveskin Facial",
+    shortDesc: "Help reduce the signs of aging and tighten and tone the skin with cold therapy.",
+    fullDesc: "Help reduce the signs of aging and tighten and tone the skin with cold therapy.",
+    benefits: ["Reduced signs of aging", "Tightened and firmer skin", "Increased blood flow and oxygen to the skin"],
     icon: Sparkles,
     image: "/images/hero-wellness-columbus.jpg", // Fallback
     category: "Skin Health"
   },
   {
-    id: "dermaflash",
-    title: "DERMAFLASH LUXE+ Sonic Dermaplaning",
-    shortDesc: "Remove peach fuzz and dead skin cells instantly.",
-    fullDesc: "Remove peach fuzz and dead skin cells to help reveal smoother, glowing, younger-looking skin instantly.",
-    benefits: ["Reduced 'peach fuzz'", "Improved skin texture and tone", "Boosted skincare penetration and makeup application"],
-    icon: Sparkles,
-    image: "/images/hero-wellness-columbus.jpg", // Fallback
-    category: "Skin Health"
-  },
-  {
-    id: "neveskin-shape",
-    title: "Neveskin Shape",
+    id: "cryoskin-slimming",
+    title: "Neveskin Shape & Tone",
     shortDesc: "Alternating hot and cold massage to help shape the body.",
     fullDesc: "Experience alternating hot and cold massage to help shape the body and reduce the appearance of skin dimpling.",
     benefits: ["Reduced appearance of skin dimpling", "Improved tightness of skin", "Enhanced shaping and toning for specific areas"],
-    icon: Activity,
-    image: "/images/hero-wellness-columbus.jpg", // Fallback
-    category: "Body Contouring"
-  },
-  {
-    id: "neveskin-tone",
-    title: "Neveskin Tone",
-    shortDesc: "Harness the power of cold massage to help tighten and tone.",
-    fullDesc: "Harness the power of cold massage to help tighten, tone and reduce the appearance of skin dimpling.",
-    benefits: ["Reduced appearance of skin dimpling", "Enhanced appearance of toned, tighter skin", "Improved overall skin texture"],
     icon: Activity,
     image: "/images/hero-wellness-columbus.jpg", // Fallback
     category: "Body Contouring"

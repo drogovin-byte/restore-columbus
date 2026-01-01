@@ -1,10 +1,10 @@
 import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Star, CheckCircle2, MapPin } from "lucide-react";
+import { ArrowRight, Star, CheckCircle2, MapPin, Target } from "lucide-react";
 import { Link } from "wouter";
-import { services, blogPosts, testimonials, locations } from "@/lib/data";
+import { services, blogPosts, locations, needStates, memberships } from "@/lib/data";
 
 export default function Home() {
   return (
@@ -54,6 +54,37 @@ export default function Home() {
                 <span>Trusted by 5,000+ Locals</span>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Need States / Shop by Goal */}
+      <section className="py-20 bg-secondary/30">
+        <div className="container">
+          <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+            <h2 className="font-heading font-bold text-3xl md:text-4xl text-primary">What's Your Goal?</h2>
+            <p className="text-muted-foreground text-lg">
+              We don't just offer services; we offer solutions. Tell us how you want to feel, and we'll show you how to get there.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {needStates.map((state) => (
+              <Link key={state.id} href={`/services`}>
+                <Card className="group cursor-pointer hover:shadow-lg transition-all duration-300 border-none bg-card h-full">
+                  <CardContent className="p-6 flex flex-col items-center text-center space-y-4">
+                    <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                      <state.icon className="w-8 h-8 text-primary group-hover:text-white" />
+                    </div>
+                    <h3 className="font-heading font-bold text-xl text-primary">{state.title}</h3>
+                    <p className="text-sm text-muted-foreground">{state.description}</p>
+                    <div className="pt-2 text-xs font-bold text-accent uppercase tracking-wider">
+                      Recommended Therapies &rarr;
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
@@ -108,51 +139,58 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Local Roots / About Section */}
-      <section className="py-20 bg-secondary/30">
+      {/* Membership Pricing */}
+      <section className="py-20 bg-primary text-white">
         <div className="container">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-              <img 
-                src="/images/columbus-community-wellness.jpg" 
-                alt="Columbus Community Wellness" 
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-primary/10 mix-blend-multiply" />
-            </div>
-            <div className="space-y-8">
-              <div className="space-y-4">
-                <Badge variant="outline" className="border-primary text-primary font-bold">Locally Owned & Operated</Badge>
-                <h2 className="font-heading font-bold text-3xl md:text-4xl text-primary">
-                  Rooted in Columbus,<br />Focused on Your Health
-                </h2>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  We aren't just a franchise; we are your neighbors. Our three Columbus studios are locally owned by passionate health advocates who believe that everyone deserves access to elite-level recovery and wellness care.
-                </p>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  Whether you're training for the Columbus Marathon, recovering from a Buckeyes game, or just trying to keep up with your kids, we're here to help you do more.
-                </p>
-              </div>
-              
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {[
-                  "Medical Professionals on Staff",
-                  "3 Convenient Locations",
-                  "Open 7 Days a Week",
-                  "Customized Wellness Plans"
-                ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-secondary-foreground shrink-0" />
-                    <span className="font-medium text-primary">{item}</span>
-                  </div>
-                ))}
-              </div>
-
-              <Button asChild size="lg" className="bg-primary text-white hover:bg-primary/90 rounded-full px-8">
-                <Link href="/about">Meet Our Team</Link>
-              </Button>
-            </div>
+          <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+            <h2 className="font-heading font-bold text-3xl md:text-4xl">Join the Club</h2>
+            <p className="text-white/80 text-lg">
+              Consistency is key to results. Our memberships offer the best value for your wellness routine.
+            </p>
           </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {memberships.map((tier) => (
+              <Card key={tier.name} className={`relative border-none overflow-hidden ${tier.isPopular ? 'scale-105 shadow-2xl z-10' : 'bg-white/10 text-white'}`}>
+                {tier.isPopular && (
+                  <div className="absolute top-0 inset-x-0 bg-accent text-accent-foreground text-center text-xs font-bold py-1 uppercase tracking-wider">
+                    Most Popular
+                  </div>
+                )}
+                <CardHeader className={`text-center pb-2 ${tier.isPopular ? 'pt-8' : 'pt-6'}`}>
+                  <CardTitle className={`font-heading font-bold text-2xl ${tier.isPopular ? 'text-primary' : 'text-white'}`}>{tier.name}</CardTitle>
+                  <div className="flex items-baseline justify-center gap-1 mt-2">
+                    <span className={`text-4xl font-bold ${tier.isPopular ? 'text-primary' : 'text-white'}`}>${tier.price}</span>
+                    <span className={`text-sm ${tier.isPopular ? 'text-muted-foreground' : 'text-white/60'}`}>/mo</span>
+                  </div>
+                  <div className={`text-xs font-medium px-3 py-1 rounded-full inline-block mx-auto mt-2 ${tier.isPopular ? 'bg-secondary text-secondary-foreground' : 'bg-white/20 text-white'}`}>
+                    ${tier.value} Value
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-6">
+                  <div className={`text-center text-sm ${tier.isPopular ? 'text-muted-foreground' : 'text-white/80'}`}>
+                    <strong>{tier.credits} Credits</strong> / Month<br/>
+                    <span className="text-xs">(${tier.perTherapy.toFixed(2)} per therapy)</span>
+                  </div>
+                  <ul className="space-y-3 text-sm">
+                    {tier.features.map((feature, i) => (
+                      <li key={i} className="flex items-start gap-2">
+                        <CheckCircle2 className={`w-4 h-4 mt-0.5 shrink-0 ${tier.isPopular ? 'text-primary' : 'text-accent'}`} />
+                        <span className={tier.isPopular ? 'text-foreground' : 'text-white/90'}>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <Button asChild className={`w-full font-bold ${tier.isPopular ? 'bg-primary text-white hover:bg-primary/90' : 'bg-white text-primary hover:bg-white/90'}`}>
+                    <Link href="/book">Choose {tier.name}</Link>
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+          
+          <p className="text-center text-xs text-white/40 mt-8 max-w-2xl mx-auto">
+            *Terms and restrictions apply. Prices subject to change. See studio for details. 3-month commitment required.
+          </p>
         </div>
       </section>
 
