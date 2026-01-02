@@ -149,13 +149,16 @@ export default function Pricing() {
                   <h3 className="text-lg font-bold text-[#1B5E7F]">{service.title}</h3>
                   <p className="text-slate-600 text-sm">{service.shortDesc}</p>
                   
-                  <div className="bg-gradient-to-br from-[#E8F4F8] to-[#D4E9F0] p-4 rounded-lg border border-[#3FA3B8]/20">
+                  <div className="bg-gradient-to-br from-[#E8F4F8] to-[#D4E9F0] p-4 rounded-lg border border-[#3FA3B8]/20 space-y-2">
                     <p className="text-sm font-semibold text-[#1B5E7F]">
                       1 Credit per session
                     </p>
-                    <p className="text-xs text-[#2E8B9E] mt-1">
+                    <p className="text-xs text-[#2E8B9E]">
                       Included in all memberships
                     </p>
+                    <div className="border-t border-[#3FA3B8]/30 pt-2 mt-2">
+                      <p className="text-xs font-medium text-[#1B5E7F]">{service.pricing}</p>
+                    </div>
                   </div>
 
                   <Button asChild variant="outline" size="sm" className="w-full">
@@ -185,13 +188,16 @@ export default function Pricing() {
                   <h3 className="text-lg font-bold text-[#1B5E7F]">{service.title}</h3>
                   <p className="text-slate-600 text-sm">{service.shortDesc}</p>
                   
-                  <div className="bg-gradient-to-br from-[#E8F4F8] to-[#D4E9F0] p-4 rounded-lg border border-[#3FA3B8]/20">
+                  <div className="bg-gradient-to-br from-[#E8F4F8] to-[#D4E9F0] p-4 rounded-lg border border-[#3FA3B8]/20 space-y-2">
                     <p className="text-sm font-semibold text-[#1B5E7F]">
                       Premium Service
                     </p>
-                    <p className="text-xs text-[#2E8B9E] mt-1">
+                    <p className="text-xs text-[#2E8B9E]">
                       30% member discount available
                     </p>
+                    <div className="border-t border-[#3FA3B8]/30 pt-2 mt-2">
+                      <p className="text-xs font-medium text-[#1B5E7F]">{service.pricing}</p>
+                    </div>
                   </div>
 
                   <Button asChild variant="outline" size="sm" className="w-full">
@@ -223,11 +229,14 @@ export default function Pricing() {
                   Advanced cellular rejuvenation therapy
                 </p>
 
-                <div className="bg-gradient-to-br from-[#E8F4F8] to-[#D4E9F0] p-4 rounded-lg border border-[#3FA3B8]/20">
-                  <p className="text-sm font-semibold text-[#1B5E7F] mb-2">Premium Service</p>
+                <div className="bg-gradient-to-br from-[#E8F4F8] to-[#D4E9F0] p-4 rounded-lg border border-[#3FA3B8]/20 space-y-2">
+                  <p className="text-sm font-semibold text-[#1B5E7F]">Premium Service</p>
                   <p className="text-xs text-[#2E8B9E]">
                     Pay-per-session pricing | Not included in memberships | 60-90 minute sessions
                   </p>
+                  <div className="border-t border-[#3FA3B8]/30 pt-2 mt-2">
+                    <p className="text-xs font-medium text-[#1B5E7F]">Member $144 | Retail $181</p>
+                  </div>
                 </div>
 
                 <ul className="space-y-2 text-sm">
@@ -263,11 +272,14 @@ export default function Pricing() {
                   Superior NAD+ precursor therapy
                 </p>
 
-                <div className="bg-gradient-to-br from-[#E8F4F8] to-[#D4E9F0] p-4 rounded-lg border border-[#3FA3B8]/20">
-                  <p className="text-sm font-semibold text-[#1B5E7F] mb-2">Premium Service</p>
+                <div className="bg-gradient-to-br from-[#E8F4F8] to-[#D4E9F0] p-4 rounded-lg border border-[#3FA3B8]/20 space-y-2">
+                  <p className="text-sm font-semibold text-[#1B5E7F]">Premium Service</p>
                   <p className="text-xs text-[#2E8B9E]">
                     Pay-per-session pricing | Not included in memberships | 30-45 minute sessions
                   </p>
+                  <div className="border-t border-[#3FA3B8]/30 pt-2 mt-2">
+                    <p className="text-xs font-medium text-[#1B5E7F]">Member $144 | Retail $181</p>
+                  </div>
                 </div>
 
                 <ul className="space-y-2 text-sm">

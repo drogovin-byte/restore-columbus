@@ -10,3 +10,4 @@
 - [x] Update therapy and IV pricing to match actual Restore.com pricing
 - [x] Update skin health pricing to match actual Restore.com pricing
 - [x] Update services page to display both member and non-member pricing with credit language where applicable
+- [x] Update Pricing page service cards to display both member and non-member pricing
