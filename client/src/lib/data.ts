@@ -414,6 +414,42 @@ export const services = [
     ]
   },
   {
+    id: "niagen-nr-iv",
+    title: "Niagen (NR) IV Drips",
+    shortDesc: "Superior NAD+ precursor therapy with 75% faster infusion and fewer side effects than traditional NAD+.",
+    fullDesc: "Niagen (NR) is a pharmaceutical-grade precursor to NAD+ that provides superior cellular energy and longevity benefits. Unlike traditional NAD+ therapy, Niagen (NR) is naturally present in the body, resulting in faster infusion times (30-45 minutes), fewer adverse effects, and more efficient NAD+ production at the cellular level.",
+    whatToExpect: "A nurse will insert an IV catheter and take your vital signs. You'll relax in a comfortable chair for 30-45 minutes while the Niagen (NR) infuses. Many people enjoy reading, working, or listening to podcasts. After your session, you can enjoy a complimentary cleansing IV infusion to support recovery and immunity.",
+    benefits: ["Improved cellular and metabolic health", "Enhanced cellular energy to combat fatigue", "Reduced oxidative stress for faster recovery", "Decreased inflammation for healthier aging", "Boosted cognitive function", "75% faster than traditional NAD+ therapy"],
+    whoItsFor: ["Anyone seeking NAD+ benefits", "People wanting faster infusion times", "Those sensitive to NAD+ side effects", "Athletes seeking recovery", "Anyone over 40 seeking longevity"],
+    whoItsNotFor: ["Pregnant women", "People with certain medical conditions"],
+    pricing: "Premium service | 4+ sessions recommended | Included in memberships with credits",
+    icon: Zap,
+    image: "/images/service_12_Smiling_woman_receiving_a_NAD+.webp",
+    category: "Longevity",
+    faqs: [
+      {
+        q: "How is Niagen (NR) different from NAD+?",
+        a: "Niagen (NR) is a natural precursor to NAD+ that converts naturally in your cells. It provides 20% higher NAD+ levels at the 3-hour mark compared to baseline, with fewer adverse effects like headaches and nausea. The infusion is also 75% faster (30-45 minutes vs 60-90 minutes)."
+      },
+      {
+        q: "Is Niagen (NR) safe?",
+        a: "Yes. Niagen is a pharmaceutical-grade, patented form of nicotinamide riboside (NR). It's naturally present in foods and the body, making it well-tolerated with minimal side effects. All infusions are administered by licensed nurses."
+      },
+      {
+        q: "What are the benefits of Niagen (NR)?",
+        a: "Benefits include improved cellular energy, enhanced metabolism, reduced oxidative stress, decreased inflammation, boosted cognitive function, and support for athletic recovery and longevity. Results typically compound over multiple sessions."
+      },
+      {
+        q: "How often should I do Niagen (NR) therapy?",
+        a: "We recommend up to 4,000mg within 28 days for optimal results. This could be 1-4 sessions depending on your goals. Many clients do weekly sessions initially, then transition to monthly maintenance."
+      },
+      {
+        q: "When will I feel results?",
+        a: "Some people feel increased energy and mental clarity during or immediately after the infusion. Most notice significant improvements in energy, focus, and recovery within 24-48 hours. Benefits compound with consistent sessions."
+      }
+    ]
+  },
+  {
     id: "trt",
     title: "Testosterone Replacement Therapy (TRT)",
     shortDesc: "Medically-supervised hormone optimization for men seeking vitality and performance.",
