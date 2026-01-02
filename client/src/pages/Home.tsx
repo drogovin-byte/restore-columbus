@@ -214,10 +214,10 @@ export default function Home() {
                     <strong>{tier.credits}</strong> Credits / Month<br/>
                     <span className="text-xs">${tier.perTherapy.toFixed(2)} per Therapy</span>
                   </div>
-                  <ul className="space-y-3 text-sm">
+                  <ul className="space-y-3 text-sm text-center">
                     {tier.features.map((feature, i) => (
-                      <li key={i} className="flex items-start gap-2">
-                        <CheckCircle2 className={`w-4 h-4 mt-0.5 shrink-0 ${tier.isPopular ? 'text-primary' : 'text-accent'}`} />
+                      <li key={i} className="flex items-center justify-center gap-2">
+                        <CheckCircle2 className={`w-4 h-4 shrink-0 ${tier.isPopular ? 'text-primary' : 'text-accent'}`} />
                         <span className={tier.isPopular ? 'text-foreground' : 'text-white/90'}>{feature}</span>
                       </li>
                     ))}
