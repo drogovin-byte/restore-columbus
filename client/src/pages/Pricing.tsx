@@ -1,15 +1,12 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Check, X, ArrowRight } from "lucide-react";
+import { Card } from "@/components/ui/card";
+import { Check } from "lucide-react";
 import { Link } from "wouter";
 import Layout from "@/components/Layout";
 import { memberships, services } from "@/lib/data";
 
 export default function Pricing() {
-  const [billingCycle, setBillingCycle] = useState<"monthly" | "annual">("monthly");
-
   // Separate services by category
   const coreTherapies = services.filter(s => 
     ["cryotherapy", "infrared-sauna", "red-light", "compression", "iv-drip"].includes(s.id)
@@ -18,11 +15,6 @@ export default function Pricing() {
   const specialtyServices = services.filter(s => 
     !["cryotherapy", "infrared-sauna", "red-light", "compression", "iv-drip"].includes(s.id)
   );
-
-  const premiumServices = [
-    { name: "NAD+ IV Therapy", price: "Premium", included: false },
-    { name: "Niagen (NR) IV Drips", price: "Premium", included: false }
-  ];
 
   return (
     <Layout>
@@ -36,95 +28,99 @@ export default function Pricing() {
         </div>
       </section>
 
-      {/* Membership Comparison */}
-      <section className="py-20">
-        <div className="container">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Membership Plans</h2>
-            <p className="text-slate-600 mb-8">Choose the plan that matches your wellness commitment</p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {memberships.map((membership, idx) => {
-              // Color scheme matching Memberships page
+      {/* Membership Plans - Matching Memberships Page Design */}
+      <div className="min-h-screen bg-white">
+        <div className="container py-20">
+          <div className="grid gap-8 lg:grid-cols-3 relative pb-8">
+            {memberships.map((membership, index) => {
+              const isPopular = membership.isPopular;
+              
               let cardBg = "";
-              if (idx === 0) {
-                // Level Up - Light Blue to Teal gradient
+              if (index === 0) {
                 cardBg = "bg-gradient-to-br from-[#5DADE2] via-[#4A9FD8] to-[#3B8BC9]";
-              } else if (idx === 1) {
-                // Elevate - Dark Teal to Navy gradient (Most Popular)
+              } else if (index === 1) {
                 cardBg = "bg-gradient-to-br from-[#2B7A9B] via-[#1B5E7F] to-[#0F3D52]";
               } else {
-                // Core - Teal to Deep Teal gradient
                 cardBg = "bg-gradient-to-br from-[#3FA3B8] via-[#2E8B9E] to-[#1F6B7F]";
               }
+
               return (
-              <Card 
-                key={idx} 
-                className={`relative flex flex-col h-full border-0 rounded-2xl overflow-hidden transition-all duration-300 ${
-                  membership.isPopular ? "ring-2 ring-primary shadow-2xl scale-105" : "shadow-lg"
-                } ${cardBg}`}
-              >
-                {membership.isPopular && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-20">
-                    <Badge className="bg-[#5DADE2] text-white font-bold px-4 py-2 rounded-full shadow-lg">
-                      Most Popular
-                    </Badge>
-                  </div>
-                )}
-                
-                <CardHeader className="text-white pt-8 pb-6">
-                  <CardTitle className="text-3xl font-bold text-white">{membership.name}</CardTitle>
-                  <p className="text-white/90 text-sm mt-2">{membership.description}</p>
-                </CardHeader>
-
-                <CardContent className="flex-1 space-y-6 text-white pb-8">
-                  {/* Pricing */}
-                  <div className="space-y-2">
-                    <div className="flex items-baseline gap-2">
-                      <span className="text-5xl font-bold text-white">${membership.price}</span>
-                      <span className="text-white/90">/month</span>
+                <div key={index} className="relative">
+                  {isPopular && (
+                    <div className="absolute -top-24 left-1/2 transform -translate-x-1/2 z-20">
+                      <div className="bg-[#5DADE2] rounded-full w-28 h-28 flex items-center justify-center border-4 border-white shadow-xl">
+                        <div className="text-center">
+                          <div className="text-xs font-bold text-white leading-tight">BEST</div>
+                          <div className="text-xs font-bold text-white leading-tight">VALUE</div>
+                        </div>
+                      </div>
                     </div>
-                    <p className="text-white/90 text-sm mt-2">
-                      Value: ${membership.value} | Save ${membership.savings}
-                    </p>
-                    <p className="text-sm font-semibold text-white/95">
-                      ${membership.perTherapy} per therapy
-                    </p>
-                  </div>
+                  )}
+                  
+                  <Card
+                    className={`flex flex-col overflow-hidden transition-all duration-300 h-full border-0 rounded-3xl shadow-xl ${
+                      isPopular ? "lg:scale-105 lg:shadow-2xl" : ""
+                    } ${cardBg}`}
+                  >
+                    <div className="space-y-0 p-0 flex-1 flex flex-col">
+                      <div className="space-y-6 px-8 text-center pt-8 pb-8">
+                        <h3 className="text-4xl font-bold text-white tracking-wide">{membership.name}</h3>
+                        
+                        <div className="space-y-3">
+                          <div className="flex items-baseline justify-center gap-2">
+                            <span className="text-6xl font-bold text-white">${membership.price}</span>
+                            <span className="text-xl text-white/90">/month</span>
+                          </div>
+                          <div className="space-y-1 text-base">
+                            <p className="text-white/90">
+                              A ${membership.value} value!
+                            </p>
+                            <p className="text-white font-semibold">
+                              You save ${membership.savings}!
+                            </p>
+                          </div>
+                        </div>
 
-                  {/* Divider */}
-                  <div className="border-b border-white/30"></div>
+                        <div className="border-b border-white/30"></div>
 
-                  {/* Credits */}
-                  <div className="bg-white/10 p-4 rounded-xl backdrop-blur-sm">
-                    <p className="font-bold text-2xl text-white mb-2">{membership.credits}</p>
-                    <p className="text-white/90 text-sm mb-1">Monthly Credits</p>
-                    <p className="text-white/80 text-xs">
-                      1 credit = 1 core therapy | 4 credits = IV Drip with 2 nutrients
-                    </p>
-                  </div>
+                        <div className="space-y-2">
+                          <div className="text-7xl font-bold text-white">{membership.credits}</div>
+                          <p className="text-xl text-white/90">Credits / Month</p>
+                          <p className="text-base text-white/80">
+                            ${membership.perTherapy.toFixed(2)} per Therapy
+                          </p>
+                        </div>
 
-                  {/* Features */}
-                  <ul className="space-y-3">
-                    {membership.benefits.map((benefit, bidx) => (
-                      <li key={bidx} className="flex gap-3 text-sm text-white/95">
-                        <Check className="w-5 h-5 text-white flex-shrink-0 mt-0.5" />
-                        <span>{benefit}</span>
-                      </li>
-                    ))}
-                  </ul>
+                        <div className="border-b border-white/30"></div>
+                      </div>
 
-                  <Button asChild className="w-full mt-auto bg-white text-slate-900 hover:bg-white/90 font-bold">
-                    <Link href="/memberships">Choose Plan</Link>
-                  </Button>
-                </CardContent>
-              </Card>
-            );
+                      <div className="space-y-4 px-8 py-8 flex-1 flex flex-col text-center">
+                        <div className="space-y-3 flex-1">
+                          {membership.benefits.slice(0, 4).map((benefit, i) => (
+                            <p key={i} className="text-white/95 text-base leading-relaxed">
+                              {benefit}
+                            </p>
+                          ))}
+                        </div>
+
+                        <Button
+                          asChild
+                          className="w-full mt-6 font-bold text-base py-6 rounded-lg bg-white hover:bg-gray-100 text-[#1B5E7F] transition-all duration-200 shadow-md hover:shadow-lg"
+                          size="lg"
+                        >
+                          <Link href="/memberships">
+                            Choose Plan
+                          </Link>
+                        </Button>
+                      </div>
+                    </div>
+                  </Card>
+                </div>
+              );
             })}
           </div>
         </div>
-      </section>
+      </div>
 
       {/* Core Therapies Pricing */}
       <section className="py-20 bg-slate-50">
@@ -139,10 +135,8 @@ export default function Pricing() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {coreTherapies.map((service) => (
               <Card key={service.id} className="hover:shadow-lg transition-shadow border-l-4 border-l-[#3FA3B8]">
-                <CardHeader className="pb-3">
-                  <CardTitle className="text-lg text-[#1B5E7F]">{service.title}</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
+                <div className="p-6 space-y-4">
+                  <h3 className="text-lg font-bold text-[#1B5E7F]">{service.title}</h3>
                   <p className="text-slate-600 text-sm">{service.shortDesc}</p>
                   
                   <div className="bg-gradient-to-br from-[#E8F4F8] to-[#D4E9F0] p-4 rounded-lg border border-[#3FA3B8]/20">
@@ -157,7 +151,7 @@ export default function Pricing() {
                   <Button asChild variant="outline" size="sm" className="w-full">
                     <Link href={`/service/${service.id}`}>Learn More</Link>
                   </Button>
-                </CardContent>
+                </div>
               </Card>
             ))}
           </div>
@@ -177,10 +171,8 @@ export default function Pricing() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {specialtyServices.map((service) => (
               <Card key={service.id} className="hover:shadow-lg transition-shadow border-l-4 border-l-[#3FA3B8]">
-                <CardHeader className="pb-3">
-                  <CardTitle className="text-lg text-[#1B5E7F]">{service.title}</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
+                <div className="p-6 space-y-4">
+                  <h3 className="text-lg font-bold text-[#1B5E7F]">{service.title}</h3>
                   <p className="text-slate-600 text-sm">{service.shortDesc}</p>
                   
                   <div className="bg-gradient-to-br from-[#E8F4F8] to-[#D4E9F0] p-4 rounded-lg border border-[#3FA3B8]/20">
@@ -195,14 +187,14 @@ export default function Pricing() {
                   <Button asChild variant="outline" size="sm" className="w-full">
                     <Link href={`/service/${service.id}`}>View Details</Link>
                   </Button>
-                </CardContent>
+                </div>
               </Card>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Premium Services */}
+      {/* Premium IV Services */}
       <section className="py-20 bg-slate-50">
         <div className="container">
           <div className="mb-12">
@@ -215,13 +207,12 @@ export default function Pricing() {
           <div className="grid md:grid-cols-2 gap-8">
             {/* NAD+ */}
             <Card className="border-l-4 border-l-[#3FA3B8] hover:shadow-lg transition-shadow">
-              <CardHeader className="pb-3">
-                <CardTitle className="text-[#1B5E7F]">NAD+ IV Therapy</CardTitle>
-                <p className="text-slate-600 text-sm mt-2">
+              <div className="p-6 space-y-4">
+                <h3 className="text-lg font-bold text-[#1B5E7F]">NAD+ IV Therapy</h3>
+                <p className="text-slate-600 text-sm">
                   Advanced cellular rejuvenation therapy
                 </p>
-              </CardHeader>
-              <CardContent className="space-y-4">
+
                 <div className="bg-gradient-to-br from-[#E8F4F8] to-[#D4E9F0] p-4 rounded-lg border border-[#3FA3B8]/20">
                   <p className="text-sm font-semibold text-[#1B5E7F] mb-2">Premium Service</p>
                   <p className="text-xs text-[#2E8B9E]">
@@ -251,18 +242,17 @@ export default function Pricing() {
                 <Button asChild className="w-full bg-[#3FA3B8] hover:bg-[#2E8B9E] text-white">
                   <Link href="/service/nad-iv">Learn More</Link>
                 </Button>
-              </CardContent>
+              </div>
             </Card>
 
             {/* Niagen NR */}
             <Card className="border-l-4 border-l-[#3FA3B8] hover:shadow-lg transition-shadow">
-              <CardHeader className="pb-3">
-                <CardTitle className="text-[#1B5E7F]">Niagen (NR) IV Drips</CardTitle>
-                <p className="text-slate-600 text-sm mt-2">
+              <div className="p-6 space-y-4">
+                <h3 className="text-lg font-bold text-[#1B5E7F]">Niagen (NR) IV Drips</h3>
+                <p className="text-slate-600 text-sm">
                   Superior NAD+ precursor therapy
                 </p>
-              </CardHeader>
-              <CardContent className="space-y-4">
+
                 <div className="bg-gradient-to-br from-[#E8F4F8] to-[#D4E9F0] p-4 rounded-lg border border-[#3FA3B8]/20">
                   <p className="text-sm font-semibold text-[#1B5E7F] mb-2">Premium Service</p>
                   <p className="text-xs text-[#2E8B9E]">
@@ -292,56 +282,54 @@ export default function Pricing() {
                 <Button asChild className="w-full bg-[#3FA3B8] hover:bg-[#2E8B9E] text-white">
                   <Link href="/service/niagen-nr-iv">Learn More</Link>
                 </Button>
-              </CardContent>
+              </div>
             </Card>
           </div>
         </div>
       </section>
 
-      {/* Membership vs Pay-Per-Session Comparison */}
-      <section className="py-20">
-        <div className="container">
-          <div className="mb-12">
-            <h2 className="text-3xl font-bold text-center mb-4">Membership Savings</h2>
-            <p className="text-slate-600 text-center">
-              See how much you save with a membership
-            </p>
+      {/* Membership Savings */}
+      <section className="py-20 bg-white">
+        <div className="container max-w-4xl">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">Membership Savings</h2>
+            <p className="text-slate-600">See how much you save with a membership</p>
           </div>
 
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
                 <tr className="border-b-2 border-slate-200">
-                  <th className="text-left py-4 px-4 font-semibold">Scenario</th>
-                  <th className="text-right py-4 px-4 font-semibold">Pay-Per-Session</th>
-                  <th className="text-right py-4 px-4 font-semibold">Level Up Member</th>
-                  <th className="text-right py-4 px-4 font-semibold">Savings</th>
+                  <th className="text-left py-3 px-4 font-bold">Scenario</th>
+                  <th className="text-left py-3 px-4 font-bold">Pay-Per-Session</th>
+                  <th className="text-left py-3 px-4 font-bold">Level Up Member</th>
+                  <th className="text-left py-3 px-4 font-bold">Savings</th>
                 </tr>
               </thead>
               <tbody>
                 <tr className="border-b border-slate-100">
-                  <td className="py-4 px-4">4 Core Therapies/month</td>
-                  <td className="text-right py-4 px-4">$120</td>
-                  <td className="text-right py-4 px-4">$170</td>
-                  <td className="text-right py-4 px-4 text-green-600 font-semibold">-$50</td>
+                  <td className="py-3 px-4">4 Core Therapies/month</td>
+                  <td className="py-3 px-4">$120</td>
+                  <td className="py-3 px-4">$170</td>
+                  <td className="py-3 px-4 text-red-600">-$50</td>
                 </tr>
                 <tr className="border-b border-slate-100">
-                  <td className="py-4 px-4">8 Core Therapies/month</td>
-                  <td className="text-right py-4 px-4">$240</td>
-                  <td className="text-right py-4 px-4">$170</td>
-                  <td className="text-right py-4 px-4 text-green-600 font-semibold">+$70</td>
+                  <td className="py-3 px-4">8 Core Therapies/month</td>
+                  <td className="py-3 px-4">$240</td>
+                  <td className="py-3 px-4">$170</td>
+                  <td className="py-3 px-4 text-green-600">+$70</td>
                 </tr>
                 <tr className="border-b border-slate-100">
-                  <td className="py-4 px-4">1 Specialty Service/month</td>
-                  <td className="text-right py-4 px-4">$100</td>
-                  <td className="text-right py-4 px-4">$70 (30% off)</td>
-                  <td className="text-right py-4 px-4 text-green-600 font-semibold">+$30</td>
+                  <td className="py-3 px-4">1 Specialty Service/month</td>
+                  <td className="py-3 px-4">$100</td>
+                  <td className="py-3 px-4">$70 (30% off)</td>
+                  <td className="py-3 px-4 text-green-600">+$30</td>
                 </tr>
                 <tr>
-                  <td className="py-4 px-4 font-semibold">Total Monthly Value</td>
-                  <td className="text-right py-4 px-4 font-semibold">$460</td>
-                  <td className="text-right py-4 px-4 font-semibold">$410</td>
-                  <td className="text-right py-4 px-4 text-green-600 font-bold">+$50</td>
+                  <td className="py-3 px-4 font-bold">Total Monthly Value</td>
+                  <td className="py-3 px-4 font-bold">$460</td>
+                  <td className="py-3 px-4 font-bold">$410</td>
+                  <td className="py-3 px-4 font-bold text-green-600">+$50</td>
                 </tr>
               </tbody>
             </table>
@@ -351,70 +339,53 @@ export default function Pricing() {
 
       {/* FAQ Section */}
       <section className="py-20 bg-slate-50">
-        <div className="container">
+        <div className="container max-w-3xl">
           <h2 className="text-3xl font-bold mb-12 text-center">Pricing FAQ</h2>
-
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <div className="space-y-4">
-              <h3 className="font-semibold text-lg">Can I pause my membership?</h3>
-              <p className="text-slate-600">
-                Yes! You can pause your membership anytime and resume whenever you're ready. No penalties or cancellation fees.
-              </p>
+          
+          <div className="space-y-6">
+            <div className="bg-white p-6 rounded-lg shadow-sm">
+              <h3 className="font-bold text-lg mb-2">Can I pause my membership?</h3>
+              <p className="text-slate-600">Yes! You can pause your membership anytime and resume whenever you're ready. No penalties or cancellation fees.</p>
             </div>
 
-            <div className="space-y-4">
-              <h3 className="font-semibold text-lg">Can I use credits at other locations?</h3>
-              <p className="text-slate-600">
-                Yes! Your membership credits work at any Restore location nationwide, giving you flexibility wherever you are.
-              </p>
+            <div className="bg-white p-6 rounded-lg shadow-sm">
+              <h3 className="font-bold text-lg mb-2">Can I use credits at other locations?</h3>
+              <p className="text-slate-600">Yes! Your membership credits work at any Restore location nationwide, giving you flexibility wherever you are.</p>
             </div>
 
-            <div className="space-y-4">
-              <h3 className="font-semibold text-lg">Do unused credits roll over?</h3>
-              <p className="text-slate-600">
-                Credits are monthly and don't roll over. We recommend booking your sessions throughout the month to maximize your membership value.
-              </p>
+            <div className="bg-white p-6 rounded-lg shadow-sm">
+              <h3 className="font-bold text-lg mb-2">Do unused credits roll over?</h3>
+              <p className="text-slate-600">Credits are monthly and don't roll over. We recommend booking your sessions throughout the month to maximize your membership value.</p>
             </div>
 
-            <div className="space-y-4">
-              <h3 className="font-semibold text-lg">Are premium services included?</h3>
-              <p className="text-slate-600">
-                NAD+ and Niagen (NR) are premium services paid separately. All other specialty services receive a 30% member discount.
-              </p>
+            <div className="bg-white p-6 rounded-lg shadow-sm">
+              <h3 className="font-bold text-lg mb-2">Are premium services included?</h3>
+              <p className="text-slate-600">NAD+ and Niagen (NR) are premium services paid separately. All other specialty services receive a 30% member discount.</p>
             </div>
 
-            <div className="space-y-4">
-              <h3 className="font-semibold text-lg">Can I upgrade or downgrade?</h3>
-              <p className="text-slate-600">
-                Absolutely! Change your membership plan anytime. Upgrades take effect immediately, downgrades at the end of your billing cycle.
-              </p>
+            <div className="bg-white p-6 rounded-lg shadow-sm">
+              <h3 className="font-bold text-lg mb-2">Can I upgrade or downgrade?</h3>
+              <p className="text-slate-600">Absolutely! Change your membership plan anytime. Upgrades take effect immediately, downgrades at the end of your billing cycle.</p>
             </div>
 
-            <div className="space-y-4">
-              <h3 className="font-semibold text-lg">What if I'm new to Restore?</h3>
-              <p className="text-slate-600">
-                New members often start with Level Up to explore different therapies. Our team can recommend the best plan for your goals.
-              </p>
+            <div className="bg-white p-6 rounded-lg shadow-sm">
+              <h3 className="font-bold text-lg mb-2">What if I'm new to Restore?</h3>
+              <p className="text-slate-600">New members often start with Level Up to explore different therapies. Our team can recommend the best plan for your goals.</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-slate-900 to-slate-800 text-white">
+      <section className="py-20 bg-gradient-to-r from-[#1B5E7F] to-[#3FA3B8] text-white">
         <div className="container text-center space-y-6">
           <h2 className="text-4xl font-bold">Ready to Transform Your Health?</h2>
-          <p className="text-xl text-slate-300 max-w-2xl mx-auto">
+          <p className="text-xl text-white/90 max-w-2xl mx-auto">
             Join thousands of Columbus residents who've made wellness a priority. Start your membership today.
           </p>
-          <div className="flex gap-4 justify-center">
-            <Button asChild size="lg" className="bg-primary hover:bg-primary/90">
-              <Link href="/memberships">View Memberships</Link>
-            </Button>
-            <Button asChild size="lg" variant="outline" className="text-white border-white hover:bg-white/10">
-              <Link href="/services">Explore Services</Link>
-            </Button>
-          </div>
+          <Button asChild size="lg" className="bg-white text-[#1B5E7F] hover:bg-gray-100">
+            <Link href="/memberships">View Memberships</Link>
+          </Button>
         </div>
       </section>
     </Layout>
