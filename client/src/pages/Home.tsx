@@ -171,40 +171,40 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {memberships.map((tier: any, idx: number) => (
-              <Card key={`membership-${tier.id}-${idx}`} className={`relative ${tier.isPopular ? 'ring-2 ring-accent md:scale-105' : ''}`}>
+              <div key={`membership-${tier.id}-${idx}`} className={`relative bg-white rounded-lg shadow-lg overflow-hidden ${tier.isPopular ? 'ring-2 ring-accent md:scale-105' : ''}`}>
                 {tier.isPopular && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <Badge className="bg-accent text-accent-foreground">MOST POPULAR</Badge>
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
+                    <Badge className="bg-accent text-accent-foreground font-bold">MOST POPULAR</Badge>
                   </div>
                 )}
-                <CardHeader className={`text-center pb-2 ${tier.isPopular ? 'pt-8' : 'pt-6'}`}>
-                  <CardTitle className={`font-heading font-bold text-2xl ${tier.isPopular ? 'text-primary' : 'text-white'}`}>{tier.name}</CardTitle>
-                  <div className="flex items-baseline justify-center gap-1 mt-2">
-                    <span className={`text-4xl font-bold ${tier.isPopular ? 'text-primary' : 'text-white'}`}>${tier.price}</span>
-                    <span className={`text-sm ${tier.isPopular ? 'text-muted-foreground' : 'text-white/60'}`}>/month</span>
+                <div className={`text-center p-6 ${tier.isPopular ? 'pt-12' : 'pt-6'}`}>
+                  <h3 className="font-heading font-bold text-2xl text-primary mb-2">{tier.name}</h3>
+                  <div className="flex items-baseline justify-center gap-1 mb-3">
+                    <span className="text-5xl font-bold text-primary">${tier.price}</span>
+                    <span className="text-sm text-muted-foreground">/month</span>
                   </div>
-                  <div className={`text-xs font-medium px-3 py-1 rounded-full inline-block mx-auto mt-2 ${tier.isPopular ? 'bg-secondary text-secondary-foreground' : 'bg-white/20 text-white'}`}>
+                  <div className="bg-green-50 text-green-700 text-xs font-medium px-3 py-1 rounded-full inline-block mb-4">
                     A ${tier.value} value! You save ${tier.savings}!
                   </div>
-                </CardHeader>
-                <CardContent className="space-y-6">
-                  <div className={`text-center text-sm ${tier.isPopular ? 'text-muted-foreground' : 'text-white/80'}`}>
-                    <strong>{tier.credits}</strong> Credits / Month<br/>
-                    <span className="text-xs">${tier.perTherapy.toFixed(2)} per Therapy</span>
+                  <div className="text-center text-sm text-muted-foreground border-t pt-4">
+                    <strong className="text-primary text-lg">{tier.credits}</strong> Credits / Month<br/>
+                    <span className="text-xs text-muted-foreground">${tier.perTherapy.toFixed(2)} per Therapy</span>
                   </div>
-                  <ul className="space-y-3 text-sm text-center">
+                </div>
+                <div className="px-6 pb-6 space-y-4">
+                  <ul className="space-y-3 text-sm">
                     {tier.features.map((feature: string, i: number) => (
-                      <li key={i} className="flex items-center justify-center gap-2">
-                        <CheckCircle2 className={`w-4 h-4 shrink-0 ${tier.isPopular ? 'text-primary' : 'text-accent'}`} />
-                        <span className={tier.isPopular ? 'text-foreground' : 'text-white/90'}>{feature}</span>
+                      <li key={`feature-${i}`} className="flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 shrink-0 text-primary" />
+                        <span className="text-foreground">{feature}</span>
                       </li>
                     ))}
                   </ul>
-                  <Button asChild className={`w-full font-bold ${tier.isPopular ? 'bg-primary text-white hover:bg-primary/90' : 'bg-white text-primary hover:bg-white/90'}`}>
+                  <Button asChild className="w-full font-bold bg-primary text-white hover:bg-primary/90 h-11">
                     <a href="https://www.restore.com/book-now" target="_blank" rel="noopener noreferrer">Choose {tier.name}</a>
                   </Button>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             ))}
           </div>
           
