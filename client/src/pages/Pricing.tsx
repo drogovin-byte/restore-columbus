@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Check, Snowflake, Wind, Lightbulb, Zap } from "lucide-react";
+import { Check, Snowflake, Wind, Lightbulb, Zap, Droplets, Activity, Syringe, Sparkles, Star, CircleDot, Waves, Atom, Dna } from "lucide-react";
 import { Link } from "wouter";
 import Layout from "@/components/Layout";
 import { memberships, services } from "@/lib/data";
@@ -25,6 +25,30 @@ export default function Pricing() {
   const otherSpecialtyServices = specialtyServices.filter(s => 
     !["nad-iv", "niagen-nr-iv"].includes(s.id)
   );
+
+  // Icon mapping for specialty services
+  const specialtyIcons: Record<string, any> = {
+    "iv-therapy": Droplets,
+    "trt": Activity,
+    "im-shots": Syringe,
+    "hydrafacial": Sparkles,
+    "neveskin-facial": Star,
+    "neveskin-shape": CircleDot,
+    "neveskin-tone": Waves,
+    "hyperbaric": Atom,
+  };
+
+  // Color mapping for specialty services
+  const specialtyColors = [
+    { bg: '#6366F1', gradient: 'from-indigo-500 to-purple-500' },
+    { bg: '#EC4899', gradient: 'from-pink-500 to-rose-500' },
+    { bg: '#F59E0B', gradient: 'from-amber-500 to-orange-500' },
+    { bg: '#10B981', gradient: 'from-emerald-500 to-teal-500' },
+    { bg: '#8B5CF6', gradient: 'from-violet-500 to-purple-500' },
+    { bg: '#EF4444', gradient: 'from-red-500 to-rose-500' },
+    { bg: '#06B6D4', gradient: 'from-cyan-500 to-blue-500' },
+    { bg: '#84CC16', gradient: 'from-lime-500 to-green-500' },
+  ];
 
   return (
     <Layout>
@@ -142,7 +166,7 @@ export default function Pricing() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {coreTherapies.map((service, idx) => {
               const icons = [Snowflake, Wind, Lightbulb, Zap];
               const IconComponent = icons[idx % 4];
@@ -184,134 +208,196 @@ export default function Pricing() {
       </section>
 
       {/* Specialty Services */}
-      <section className="py-20">
+      <section className="py-20 bg-white">
         <div className="container">
-          <div className="mb-12">
-            <h2 className="text-3xl font-bold mb-4">Specialty Services</h2>
-            <p className="text-slate-600">
+          <div className="mb-16 text-center">
+            <h2 className="text-4xl font-bold mb-4 text-slate-900">Specialty Services</h2>
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
               30% discount for members. Pay-per-session for non-members.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {otherSpecialtyServices.map((service) => (
-              <Card key={service.id} className="hover:shadow-lg transition-shadow border-l-4" style={{borderLeftColor: '#3FA3B8'}}>
-                <div className="p-6 space-y-4">
-                  <h3 className="text-lg font-bold text-[#1B5E7F]">{service.title}</h3>
-                  <p className="text-slate-600 text-sm">{service.shortDesc}</p>
-                  
-                  <div className="bg-gradient-to-br from-[#E8F4F8] to-[#D4E9F0] p-4 rounded-lg border border-[#3FA3B8]/20 space-y-2">
-                    <p className="text-sm font-semibold text-[#1B5E7F]">
-                      Premium Service
-                    </p>
-                    <p className="text-xs text-[#2E8B9E]">
-                      30% member discount available
-                    </p>
-                    <div className="border-t border-[#3FA3B8]/30 pt-2 mt-2">
-                      <p className="text-xs font-medium text-[#1B5E7F]">{service.pricing}</p>
-                    </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {otherSpecialtyServices.map((service, idx) => {
+              const IconComponent = specialtyIcons[service.id] || Sparkles;
+              const colorSet = specialtyColors[idx % specialtyColors.length];
+              
+              return (
+                <Card key={service.id} className="hover:shadow-2xl transition-all duration-300 border-0 overflow-hidden group">
+                  <div className="relative h-28 flex items-center justify-center text-white opacity-90 group-hover:opacity-100 transition-opacity" style={{backgroundColor: colorSet.bg}}>
+                    <IconComponent className="w-10 h-10" />
                   </div>
+                  
+                  <div className="p-5 space-y-3">
+                    <h3 className="text-lg font-bold text-slate-900 leading-tight">{service.title}</h3>
+                    <p className="text-slate-600 text-sm leading-relaxed line-clamp-2">{service.shortDesc}</p>
+                    
+                    <div className="bg-gradient-to-br from-slate-50 to-slate-100 p-4 rounded-xl border border-slate-200 space-y-2">
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs font-semibold text-slate-900">Premium Service</span>
+                        <span className="inline-block px-2 py-0.5 bg-amber-100 text-amber-800 text-xs font-bold rounded-full">30% Off</span>
+                      </div>
+                      <p className="text-xs text-slate-500">
+                        Member discount available
+                      </p>
+                      <div className="border-t border-slate-200 pt-2 mt-2">
+                        <p className="text-xs font-semibold text-slate-900">{service.pricing}</p>
+                      </div>
+                    </div>
 
-                  <Button asChild variant="outline" size="sm" className="w-full">
-                    <Link href={`/service/${service.id}`}>View Details</Link>
-                  </Button>
-                </div>
-              </Card>
-            ))}
+                    <Button asChild className={`w-full bg-gradient-to-r ${colorSet.gradient} hover:opacity-90 text-white font-semibold h-10 rounded-lg transition-all text-sm`}>
+                      <Link href={`/service/${service.id}`}>View Details</Link>
+                    </Button>
+                  </div>
+                </Card>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* Premium IV Services */}
-      <section className="py-20 bg-slate-50">
+      <section className="py-20 bg-gradient-to-b from-slate-900 to-slate-800">
         <div className="container">
-          <div className="mb-12">
-            <h2 className="text-3xl font-bold mb-4">Premium IV Services</h2>
-            <p className="text-slate-600">
+          <div className="mb-16 text-center">
+            <h2 className="text-4xl font-bold mb-4 text-white">Premium IV Services</h2>
+            <p className="text-lg text-slate-300 max-w-2xl mx-auto">
               Advanced cellular therapies. Not included in memberships. Pay-per-session only.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {/* NAD+ */}
-            <Card className="border-l-4 hover:shadow-lg transition-shadow" style={{borderLeftColor: '#3FA3B8'}}>
+            <Card className="border-0 overflow-hidden group hover:shadow-2xl transition-all duration-300 bg-white">
+              <div className="relative h-36 flex items-center justify-center bg-gradient-to-br from-violet-600 via-purple-600 to-indigo-700">
+                <div className="absolute inset-0 bg-black/10"></div>
+                <div className="relative z-10 text-center">
+                  <Dna className="w-14 h-14 text-white mx-auto mb-2" />
+                  <span className="text-white/90 text-sm font-medium">Cellular Rejuvenation</span>
+                </div>
+              </div>
+              
               <div className="p-6 space-y-4">
-                <h3 className="text-lg font-bold text-[#1B5E7F]">NAD+ IV Therapy</h3>
-                <p className="text-slate-600 text-sm">
-                  Advanced cellular rejuvenation therapy
+                <div className="flex items-start justify-between">
+                  <h3 className="text-2xl font-bold text-slate-900">NAD+ IV Therapy</h3>
+                  <span className="inline-block px-3 py-1 bg-violet-100 text-violet-800 text-xs font-bold rounded-full">Premium</span>
+                </div>
+                <p className="text-slate-600">
+                  Advanced cellular rejuvenation therapy that restores energy, supports longevity, and enhances mental clarity.
                 </p>
 
-                <div className="bg-gradient-to-br from-[#E8F4F8] to-[#D4E9F0] p-4 rounded-lg border border-[#3FA3B8]/20 space-y-2">
-                  <p className="text-sm font-semibold text-[#1B5E7F]">Premium Service</p>
-                  <p className="text-xs text-[#2E8B9E]">
-                    Pay-per-session pricing | Not included in memberships | 60-90 minute sessions
+                <div className="bg-gradient-to-br from-violet-50 to-purple-50 p-5 rounded-xl border border-violet-100 space-y-3">
+                  <p className="text-xs text-violet-700 font-medium">
+                    60-90 minute sessions | Pay-per-session
                   </p>
-                  <div className="border-t border-[#3FA3B8]/30 pt-2 mt-2 space-y-1">
-                    <p className="text-xs font-medium text-[#1B5E7F]">500 mg: Member $440 | Retail $550</p>
-                    <p className="text-xs font-medium text-[#1B5E7F]">750 mg: Member $530 | Retail $670</p>
-                    <p className="text-xs font-medium text-[#1B5E7F]">125 mg Add-On: Member $110 | Retail $138</p>
-                    <p className="text-xs font-medium text-[#1B5E7F]">125 mg IM: Member $115 | Retail $144</p>
+                  <div className="grid grid-cols-2 gap-3 pt-2">
+                    <div className="bg-white p-3 rounded-lg border border-violet-100">
+                      <p className="text-xs text-slate-500 mb-1">500 mg</p>
+                      <p className="text-sm font-bold text-slate-900">$440 <span className="text-xs font-normal text-slate-500">member</span></p>
+                      <p className="text-xs text-slate-400">$550 retail</p>
+                    </div>
+                    <div className="bg-white p-3 rounded-lg border border-violet-100">
+                      <p className="text-xs text-slate-500 mb-1">750 mg</p>
+                      <p className="text-sm font-bold text-slate-900">$530 <span className="text-xs font-normal text-slate-500">member</span></p>
+                      <p className="text-xs text-slate-400">$670 retail</p>
+                    </div>
+                    <div className="bg-white p-3 rounded-lg border border-violet-100">
+                      <p className="text-xs text-slate-500 mb-1">125 mg Add-On</p>
+                      <p className="text-sm font-bold text-slate-900">$110 <span className="text-xs font-normal text-slate-500">member</span></p>
+                      <p className="text-xs text-slate-400">$138 retail</p>
+                    </div>
+                    <div className="bg-white p-3 rounded-lg border border-violet-100">
+                      <p className="text-xs text-slate-500 mb-1">125 mg IM</p>
+                      <p className="text-sm font-bold text-slate-900">$115 <span className="text-xs font-normal text-slate-500">member</span></p>
+                      <p className="text-xs text-slate-400">$144 retail</p>
+                    </div>
                   </div>
                 </div>
 
                 <ul className="space-y-2 text-sm">
                   <li className="flex gap-2">
-                    <Check className="w-4 h-4 text-[#3FA3B8] flex-shrink-0 mt-0.5" />
+                    <Check className="w-5 h-5 text-violet-500 flex-shrink-0" />
                     <span>Restore cellular energy</span>
                   </li>
                   <li className="flex gap-2">
-                    <Check className="w-4 h-4 text-[#3FA3B8] flex-shrink-0 mt-0.5" />
+                    <Check className="w-5 h-5 text-violet-500 flex-shrink-0" />
                     <span>Support longevity</span>
                   </li>
                   <li className="flex gap-2">
-                    <Check className="w-4 h-4 text-[#3FA3B8] flex-shrink-0 mt-0.5" />
+                    <Check className="w-5 h-5 text-violet-500 flex-shrink-0" />
                     <span>Enhance mental clarity</span>
                   </li>
                 </ul>
 
-                <Button asChild className="w-full">
+                <Button asChild className="w-full bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-700 hover:to-purple-700 text-white font-semibold h-12 rounded-lg transition-all">
                   <Link href="/service/nad-iv">View Details</Link>
                 </Button>
               </div>
             </Card>
 
             {/* Niagen */}
-            <Card className="border-l-4 hover:shadow-lg transition-shadow" style={{borderLeftColor: '#3FA3B8'}}>
+            <Card className="border-0 overflow-hidden group hover:shadow-2xl transition-all duration-300 bg-white">
+              <div className="relative h-36 flex items-center justify-center bg-gradient-to-br from-emerald-600 via-teal-600 to-cyan-700">
+                <div className="absolute inset-0 bg-black/10"></div>
+                <div className="relative z-10 text-center">
+                  <Atom className="w-14 h-14 text-white mx-auto mb-2" />
+                  <span className="text-white/90 text-sm font-medium">Cellular Regeneration</span>
+                </div>
+              </div>
+              
               <div className="p-6 space-y-4">
-                <h3 className="text-lg font-bold text-[#1B5E7F]">Niagen (NR) IV Drips</h3>
-                <p className="text-slate-600 text-sm">
-                  NAD+ precursor for cellular regeneration
+                <div className="flex items-start justify-between">
+                  <h3 className="text-2xl font-bold text-slate-900">Niagen (NR) IV Drips</h3>
+                  <span className="inline-block px-3 py-1 bg-emerald-100 text-emerald-800 text-xs font-bold rounded-full">Premium</span>
+                </div>
+                <p className="text-slate-600">
+                  NAD+ precursor for cellular regeneration that boosts energy levels and supports healthy metabolism.
                 </p>
 
-                <div className="bg-gradient-to-br from-[#E8F4F8] to-[#D4E9F0] p-4 rounded-lg border border-[#3FA3B8]/20 space-y-2">
-                  <p className="text-sm font-semibold text-[#1B5E7F]">Premium Service</p>
-                  <p className="text-xs text-[#2E8B9E]">
-                    Pay-per-session pricing | Not included in memberships | 30-45 minute sessions
+                <div className="bg-gradient-to-br from-emerald-50 to-teal-50 p-5 rounded-xl border border-emerald-100 space-y-3">
+                  <p className="text-xs text-emerald-700 font-medium">
+                    30-45 minute sessions | Pay-per-session
                   </p>
-                  <div className="border-t border-[#3FA3B8]/30 pt-2 mt-2 space-y-1">
-                    <p className="text-xs font-medium text-[#1B5E7F]">500 mg: Member $690 | Retail $860</p>
-                    <p className="text-xs font-medium text-[#1B5E7F]">1000 mg: Member $1,380 | Retail $1,720</p>
-                    <p className="text-xs font-medium text-[#1B5E7F]">125 mg Add-On: Member $173 | Retail $215</p>
-                    <p className="text-xs font-medium text-[#1B5E7F]">125 mg IM: Member $205 | Retail $245</p>
+                  <div className="grid grid-cols-2 gap-3 pt-2">
+                    <div className="bg-white p-3 rounded-lg border border-emerald-100">
+                      <p className="text-xs text-slate-500 mb-1">500 mg</p>
+                      <p className="text-sm font-bold text-slate-900">$690 <span className="text-xs font-normal text-slate-500">member</span></p>
+                      <p className="text-xs text-slate-400">$860 retail</p>
+                    </div>
+                    <div className="bg-white p-3 rounded-lg border border-emerald-100">
+                      <p className="text-xs text-slate-500 mb-1">1000 mg</p>
+                      <p className="text-sm font-bold text-slate-900">$1,380 <span className="text-xs font-normal text-slate-500">member</span></p>
+                      <p className="text-xs text-slate-400">$1,720 retail</p>
+                    </div>
+                    <div className="bg-white p-3 rounded-lg border border-emerald-100">
+                      <p className="text-xs text-slate-500 mb-1">125 mg Add-On</p>
+                      <p className="text-sm font-bold text-slate-900">$173 <span className="text-xs font-normal text-slate-500">member</span></p>
+                      <p className="text-xs text-slate-400">$215 retail</p>
+                    </div>
+                    <div className="bg-white p-3 rounded-lg border border-emerald-100">
+                      <p className="text-xs text-slate-500 mb-1">125 mg IM</p>
+                      <p className="text-sm font-bold text-slate-900">$205 <span className="text-xs font-normal text-slate-500">member</span></p>
+                      <p className="text-xs text-slate-400">$245 retail</p>
+                    </div>
                   </div>
                 </div>
 
                 <ul className="space-y-2 text-sm">
                   <li className="flex gap-2">
-                    <Check className="w-4 h-4 text-[#3FA3B8] flex-shrink-0 mt-0.5" />
+                    <Check className="w-5 h-5 text-emerald-500 flex-shrink-0" />
                     <span>Boost NAD+ levels</span>
                   </li>
                   <li className="flex gap-2">
-                    <Check className="w-4 h-4 text-[#3FA3B8] flex-shrink-0 mt-0.5" />
+                    <Check className="w-5 h-5 text-emerald-500 flex-shrink-0" />
                     <span>Increase energy</span>
                   </li>
                   <li className="flex gap-2">
-                    <Check className="w-4 h-4 text-[#3FA3B8] flex-shrink-0 mt-0.5" />
+                    <Check className="w-5 h-5 text-emerald-500 flex-shrink-0" />
                     <span>Support metabolism</span>
                   </li>
                 </ul>
 
-                <Button asChild className="w-full">
+                <Button asChild className="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-semibold h-12 rounded-lg transition-all">
                   <Link href="/service/niagen-nr-iv">View Details</Link>
                 </Button>
               </div>
