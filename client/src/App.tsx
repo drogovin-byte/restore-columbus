@@ -32,8 +32,6 @@ function Router() {
       <Route path={"/"}  component={Home} />
       <Route path={"/services"} component={Services} />
        <Route path="/service/:id" component={ServiceDetail} />
-      {/* Dynamic route for local landing pages (e.g. /cryotherapy-dublin, /iv-drip-easton) */}
-      <Route path="/:slug" component={LocalLanding} />
       <Route path={"/problem/:id"} component={ProblemDetail} />
       <Route path={"/comparisons"} component={Comparisons} />
       <Route path={"/comparison/:slug"} component={ComparisonDetail} />
@@ -51,6 +49,11 @@ function Router() {
       <Route path={"contact"} component={Contact} />
       <Route path={"/first-time-offer"} component={FirstTimeOffer} />
       <Route path={"/404"} component={NotFound} />
+      
+      {/* Dynamic route for local landing pages (e.g. /cryotherapy-dublin, /iv-drip-easton) */}
+      {/* Must be near the end to avoid intercepting other top-level routes */}
+      <Route path="/:slug" component={LocalLanding} />
+
       {/* Final fallback route */}
       <Route component={NotFound} />
     </Switch>
