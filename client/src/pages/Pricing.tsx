@@ -316,55 +316,6 @@ export default function Pricing() {
         </div>
       </section>
 
-      {/* Membership Savings */}
-      <section className="py-20 bg-white">
-        <div className="container max-w-4xl">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Membership Savings</h2>
-            <p className="text-slate-600">See how much you save with a membership</p>
-          </div>
-
-          <div className="overflow-x-auto">
-            <table className="w-full">
-              <thead>
-                <tr className="border-b-2 border-slate-200">
-                  <th className="text-left py-3 px-4 font-bold">Scenario</th>
-                  <th className="text-left py-3 px-4 font-bold">Pay-Per-Session</th>
-                  <th className="text-left py-3 px-4 font-bold">Level Up Member</th>
-                  <th className="text-left py-3 px-4 font-bold">Savings</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="border-b border-slate-100">
-                  <td className="py-3 px-4">4 Core Therapies/month</td>
-                  <td className="py-3 px-4">$120</td>
-                  <td className="py-3 px-4">$170</td>
-                  <td className="py-3 px-4 text-red-600">-$50</td>
-                </tr>
-                <tr className="border-b border-slate-100">
-                  <td className="py-3 px-4">8 Core Therapies/month</td>
-                  <td className="py-3 px-4">$240</td>
-                  <td className="py-3 px-4">$170</td>
-                  <td className="py-3 px-4 text-green-600">+$70</td>
-                </tr>
-                <tr className="border-b border-slate-100">
-                  <td className="py-3 px-4">1 Specialty Service/month</td>
-                  <td className="py-3 px-4">$100</td>
-                  <td className="py-3 px-4">$70 (30% off)</td>
-                  <td className="py-3 px-4 text-green-600">+$30</td>
-                </tr>
-                <tr>
-                  <td className="py-3 px-4 font-bold">Total Monthly Value</td>
-                  <td className="py-3 px-4 font-bold">$460</td>
-                  <td className="py-3 px-4 font-bold">$410</td>
-                  <td className="py-3 px-4 font-bold text-green-600">+$50</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
       {/* FAQ Section */}
       <section className="py-20 bg-slate-50">
         <div className="container max-w-3xl">
