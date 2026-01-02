@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout";
+import SEO from "@/components/SEO";
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -35,6 +36,37 @@ export default function ServiceDetail() {
 
   return (
     <Layout>
+      <SEO 
+        title={service.title}
+        description={service.shortDesc}
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "name": service.title,
+          "description": service.shortDesc,
+          "provider": {
+            "@type": "LocalBusiness",
+            "name": "Restore Hyper Wellness Columbus"
+          },
+          "areaServed": {
+            "@type": "City",
+            "name": "Columbus"
+          },
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Wellness Services",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": service.title
+                }
+              }
+            ]
+          }
+        }}
+      />
       {/* Hero Section */}
       <section className="relative h-[400px] flex items-end overflow-hidden">
         <div className="absolute inset-0 z-0">

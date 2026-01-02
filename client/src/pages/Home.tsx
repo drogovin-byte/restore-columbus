@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout";
+import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -10,6 +11,32 @@ import GoogleReviews from "@/components/GoogleReviews";
 export default function Home() {
   return (
     <Layout>
+      <SEO 
+        title="Cryotherapy, IV Drip & Red Light Therapy"
+        description="Restore Hyper Wellness Columbus offers science-backed wellness services including Cryotherapy, IV Drip Therapy, Red Light Therapy, and Infrared Sauna. Recover faster and feel better."
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          "name": "Restore Hyper Wellness Columbus",
+          "image": "https://restore-columbus.manus.space/images/hero-wellness-columbus.jpg",
+          "telephone": "614-944-9041",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "4158 Easton Gateway",
+            "addressLocality": "Columbus",
+            "addressRegion": "OH",
+            "postalCode": "43219",
+            "addressCountry": "US"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 40.0498,
+            "longitude": -82.9152
+          },
+          "url": "https://restore-columbus.manus.space",
+          "priceRange": "$$"
+        }}
+      />
       {/* Hero Section */}
       <section className="relative h-[600px] md:h-[700px] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">

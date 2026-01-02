@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout";
+import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -26,6 +27,35 @@ export default function ComparisonDetail() {
 
   return (
     <Layout>
+      <SEO 
+        title={comparison.title}
+        description={comparison.description}
+        type="article"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": comparison.title,
+          "description": comparison.description,
+          "image": comparison.image,
+          "author": {
+            "@type": "Organization",
+            "name": "Restore Hyper Wellness Columbus"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Restore Hyper Wellness Columbus",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://restore-columbus.manus.space/images/restore-logo.png"
+            }
+          },
+          "datePublished": "2025-01-01",
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": `https://restore-columbus.manus.space/comparison/${comparison.slug}`
+          }
+        }}
+      />
       {/* Hero */}
       <section className="py-16 bg-primary text-white">
         <div className="container max-w-3xl">

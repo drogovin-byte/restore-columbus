@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout";
+import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { MapPin, Phone, Clock, Navigation } from "lucide-react";
@@ -11,6 +12,31 @@ export default function Locations() {
 
   return (
     <Layout>
+      <SEO 
+        title="Locations - Easton, Dublin, Upper Arlington"
+        description="Find a Restore Hyper Wellness near you in Columbus, OH. Locations in Easton, Dublin, and Upper Arlington. Open 7 days a week."
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          "name": "Restore Hyper Wellness Columbus",
+          "url": "https://restore-columbus.manus.space/locations",
+          "areaServed": ["Columbus", "Dublin", "Upper Arlington", "Easton"],
+          "department": locations.map(loc => ({
+            "@type": "LocalBusiness",
+            "name": `Restore Hyper Wellness - ${loc.name}`,
+            "image": loc.image,
+            "telephone": loc.phone,
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": loc.address,
+              "addressLocality": loc.city,
+              "addressRegion": loc.state,
+              "postalCode": loc.zip,
+              "addressCountry": "US"
+            }
+          }))
+        }}
+      />
       {/* Hero Section */}
       <div className="bg-primary text-white py-20">
         <div className="container text-center space-y-6">

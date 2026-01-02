@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout";
+import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ChevronDown } from "lucide-react";
@@ -134,10 +135,11 @@ export default function FAQ() {
 
   return (
     <Layout>
-      {/* FAQ Schema Markup */}
-      <script type="application/ld+json">
-        {JSON.stringify(faqSchema)}
-      </script>
+      <SEO 
+        title="Frequently Asked Questions"
+        description="Common questions about Restore Hyper Wellness Columbus services, pricing, memberships, and safety. Get answers about cryotherapy, IV drips, and more."
+        schema={faqSchema}
+      />
       {/* Hero */}
       <section className="py-20 bg-primary text-white">
         <div className="container max-w-3xl text-center space-y-6">
