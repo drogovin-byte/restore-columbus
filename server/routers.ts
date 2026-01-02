@@ -3,11 +3,24 @@ import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
 import { publicProcedure, router } from "./_core/trpc";
 import { z } from "zod";
-import { createMembershipLead } from "./db";
+import { createMembershipLead, getAllMembershipLeads, getMembershipLeadById, updateMembershipLead } from "./db";
 import { notifyOwner } from "./_core/notification";
 
+const adminProcedure = publicProcedure.use(async (opts) => {
+  if (opts.ctx.user?.role !== "admin") {
+    throw new Error("Unauthorized: Admin access required");
+  }
+  return opts.next();
+});
+
+const staffProcedure = publicProcedure.use(async (opts) => {
+  if (!opts.ctx.user) {
+    throw new Error("Unauthorized: Authentication required");
+  }
+  return opts.next();
+});
+
 export const appRouter = router({
-    // if you need to use socket.io, read and register route in server/_core/index.ts, all api should start with '/api/' so that the gateway can route correctly
   system: systemRouter,
   auth: router({
     me: publicProcedure.query(opts => opts.ctx.user),
@@ -52,6 +65,83 @@ export const appRouter = router({
           console.error("Membership signup error:", error);
           throw error;
         }
+      }),
+  }),
+
+  inquiries: router({
+    list: staffProcedure
+      .input(z.object({
+        status: z.string().optional(),
+        tier: z.string().optional(),
+        search: z.string().optional(),
+      }))
+      .query(async ({ input }) => {
+        return await getAllMembershipLeads({
+          status: input.status,
+          tier: input.tier,
+          search: input.search,
+        });
+      }),
+
+    getById: staffProcedure
+      .input(z.number())
+      .query(async ({ input }) => {
+        return await getMembershipLeadById(input);
+      }),
+
+    updateStatus: adminProcedure
+      .input(z.object({
+        id: z.number(),
+        status: z.enum(["new", "contacted", "converted", "not_interested"]),
+      }))
+      .mutation(async ({ input }) => {
+        return await updateMembershipLead(input.id, { status: input.status });
+      }),
+
+    updateNotes: adminProcedure
+      .input(z.object({
+        id: z.number(),
+        notes: z.string().optional(),
+      }))
+      .mutation(async ({ input }) => {
+        return await updateMembershipLead(input.id, { notes: input.notes });
+      }),
+
+    assign: adminProcedure
+      .input(z.object({
+        id: z.number(),
+        assignedToId: z.number().nullable(),
+      }))
+      .mutation(async ({ input }) => {
+        return await updateMembershipLead(input.id, { assignedToId: input.assignedToId });
+      }),
+
+    exportCsv: adminProcedure
+      .input(z.object({
+        status: z.string().optional(),
+        tier: z.string().optional(),
+      }))
+      .query(async ({ input }) => {
+        const leads = await getAllMembershipLeads({
+          status: input.status,
+          tier: input.tier,
+        });
+
+        const headers = ["ID", "Name", "Email", "Phone", "Tier", "Status", "Assigned To", "Created", "Updated"];
+        const rows = leads.map(lead => [
+          lead.id,
+          lead.name,
+          lead.email,
+          lead.phone,
+          lead.membershipTier,
+          lead.status,
+          lead.assignedToId || "",
+          new Date(lead.createdAt).toLocaleDateString(),
+          new Date(lead.updatedAt).toLocaleDateString(),
+        ]);
+
+        const csv = [headers, ...rows].map(row => row.map(cell => `"${cell}"`).join(",")).join("\n");
+        return csv;
       }),
   }),
 });

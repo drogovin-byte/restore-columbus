@@ -1,11 +1,10 @@
-import { eq } from "drizzle-orm";
+import { eq, desc, and, or, like } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
 import { InsertUser, users, membershipLeads, InsertMembershipLead } from "../drizzle/schema";
 import { ENV } from './_core/env';
 
 let _db: ReturnType<typeof drizzle> | null = null;
 
-// Lazily create the drizzle instance so local tooling can run without a DB.
 export async function getDb() {
   if (!_db && process.env.DATABASE_URL) {
     try {
@@ -101,6 +100,63 @@ export async function createMembershipLead(lead: InsertMembershipLead) {
     return result;
   } catch (error) {
     console.error("[Database] Failed to create membership lead:", error);
+    throw error;
+  }
+}
+
+export async function getAllMembershipLeads(filters?: { status?: string; search?: string; tier?: string }) {
+  const db = await getDb();
+  if (!db) return [];
+
+  const conditions: any[] = [];
+
+  if (filters?.status && filters.status !== "all") {
+    conditions.push(eq(membershipLeads.status, filters.status as any));
+  }
+
+  if (filters?.tier && filters.tier !== "all") {
+    conditions.push(eq(membershipLeads.membershipTier, filters.tier));
+  }
+
+  if (filters?.search) {
+    conditions.push(
+      or(
+        like(membershipLeads.name, `%${filters.search}%`),
+        like(membershipLeads.email, `%${filters.search}%`),
+        like(membershipLeads.phone, `%${filters.search}%`)
+      )
+    );
+  }
+
+  if (conditions.length > 0) {
+    return await db.select().from(membershipLeads).where(and(...conditions)).orderBy(desc(membershipLeads.createdAt));
+  }
+
+  return await db.select().from(membershipLeads).orderBy(desc(membershipLeads.createdAt));
+}
+
+export async function getMembershipLeadById(id: number) {
+  const db = await getDb();
+  if (!db) return null;
+
+  const result = await db.select().from(membershipLeads).where(eq(membershipLeads.id, id)).limit(1);
+  return result.length > 0 ? result[0] : null;
+}
+
+export async function updateMembershipLead(id: number, updates: { status?: string; notes?: string; assignedToId?: number | null }) {
+  const db = await getDb();
+  if (!db) return null;
+
+  try {
+    const updateSet: Record<string, any> = { updatedAt: new Date() };
+    if (updates.status) updateSet.status = updates.status;
+    if (updates.notes !== undefined) updateSet.notes = updates.notes;
+    if (updates.assignedToId !== undefined) updateSet.assignedToId = updates.assignedToId;
+
+    await db.update(membershipLeads).set(updateSet).where(eq(membershipLeads.id, id));
+    return getMembershipLeadById(id);
+  } catch (error) {
+    console.error("[Database] Failed to update membership lead:", error);
     throw error;
   }
 }

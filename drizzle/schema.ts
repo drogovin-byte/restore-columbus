@@ -31,7 +31,11 @@ export const membershipLeads = mysqlTable("membership_leads", {
   name: varchar("name", { length: 255 }).notNull(),
   email: varchar("email", { length: 320 }).notNull(),
   phone: varchar("phone", { length: 20 }).notNull(),
+  status: mysqlEnum("status", ["new", "contacted", "converted", "not_interested"]).default("new").notNull(),
+  notes: text("notes"),
+  assignedToId: int("assigned_to_id"),
   createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
 });
 
 export type MembershipLead = typeof membershipLeads.$inferSelect;
