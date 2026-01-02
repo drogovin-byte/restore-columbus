@@ -8,6 +8,13 @@ import { Link, useRoute } from "wouter";
 import { locations, services } from "@/lib/data";
 import { MapView } from "@/components/Map";
 
+// Define landmarks for each location to enhance local SEO
+const locationLandmarks: Record<string, string[]> = {
+  "dublin": ["Bridge Park", "Scioto Mile", "Historic Dublin", "Dublin Methodist Hospital"],
+  "easton": ["Easton Town Center", "Easton Gateway", "Columbus Airport (CMH)", "Gahanna"],
+  "upper-arlington": ["Ohio State University", "Lane Avenue", "Shops on Lane", "Grandview Heights"]
+};
+
 // Helper to generate page config dynamically
 const getPageConfig = (slug: string) => {
   // Parse slug: service-location (e.g., "cryotherapy-dublin", "iv-drip-easton")
@@ -24,15 +31,19 @@ const getPageConfig = (slug: string) => {
   const service = services.find(s => s.id === serviceId);
   if (!service) return null;
 
+  const landmarks = locationLandmarks[location.id] || [];
+  const primaryLandmark = landmarks[0] || location.city;
+
   // Generate dynamic content based on service and location
   return {
     service,
     location,
-    title: `${service.title} in ${location.city}, OH | Restore Hyper Wellness`,
+    landmarks,
+    title: `${service.title} near ${primaryLandmark} in ${location.city} | Restore`,
     headline: `${location.city}'s Premier ${service.title} Studio`,
-    subheadline: `Experience the benefits of ${service.title.toLowerCase()} just minutes from you in ${location.city}.`,
-    description: `Best ${service.title} in ${location.city}, OH. Visit Restore Hyper Wellness at ${location.address}. Book your session today for recovery and wellness.`,
-    localContent: `Located conveniently at ${location.address}, our ${location.city} studio serves the local community with premium ${service.title.toLowerCase()} services. Whether you're a busy professional, an athlete, or just looking to improve your wellness, our expert team in ${location.city} is here to help you feel your best.`
+    subheadline: `Experience the benefits of ${service.title.toLowerCase()} just minutes from ${primaryLandmark} and ${landmarks[1] || location.city}.`,
+    description: `Best ${service.title} near ${primaryLandmark} in ${location.city}, OH. Visit Restore Hyper Wellness at ${location.address}. Book your session today for recovery and wellness.`,
+    localContent: `Located conveniently at ${location.address}, our ${location.city} studio serves the local community near ${landmarks.join(", ")}. Whether you're a busy professional, an athlete, or just looking to improve your wellness, our expert team in ${location.city} is here to help you feel your best.`
   };
 };
 
@@ -48,7 +59,7 @@ export default function LocalLanding() {
   // return null to let other routes handle it or show 404
   if (!config) return null;
 
-  const { service, location } = config;
+  const { service, location, landmarks } = config;
 
   return (
     <Layout>
@@ -95,7 +106,7 @@ export default function LocalLanding() {
         <div className="container relative z-10 text-white">
           <div className="max-w-2xl space-y-6 animate-in fade-in slide-in-from-bottom-10 duration-700">
             <Badge className="bg-accent text-accent-foreground hover:bg-accent/90 px-4 py-1 text-sm font-bold uppercase tracking-wider mb-2 border-none">
-              Now Open in {location.city}
+              Now Open near {landmarks[0]}
             </Badge>
             <h1 className="font-heading font-bold text-4xl md:text-6xl leading-tight">
               {config.headline}
@@ -120,7 +131,7 @@ export default function LocalLanding() {
         <div className="container grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <h2 className="font-heading font-bold text-3xl text-primary">
-              Why Choose {service.title} in {location.city}?
+              Why Choose {service.title} near {landmarks[0]}?
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
               {config.localContent}
