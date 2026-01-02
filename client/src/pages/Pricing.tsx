@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Check } from "lucide-react";
+import { Check, Snowflake, Wind, Lightbulb, Zap } from "lucide-react";
 import { Link } from "wouter";
 import Layout from "@/components/Layout";
 import { memberships, services } from "@/lib/data";
@@ -133,40 +133,52 @@ export default function Pricing() {
       </div>
 
       {/* Core Therapies Pricing */}
-      <section className="py-20 bg-slate-50">
+      <section className="py-20 bg-gradient-to-b from-slate-50 to-white">
         <div className="container">
-          <div className="mb-12">
-            <h2 className="text-3xl font-bold mb-4">Core Therapies</h2>
-            <p className="text-slate-600">
+          <div className="mb-16 text-center">
+            <h2 className="text-4xl font-bold mb-4 text-slate-900">Core Therapies</h2>
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
               Included in all memberships. 1 credit per session.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {coreTherapies.map((service) => (
-              <Card key={service.id} className="hover:shadow-lg transition-shadow border-l-4" style={{borderLeftColor: '#3FA3B8'}}>
-                <div className="p-6 space-y-4">
-                  <h3 className="text-lg font-bold text-[#1B5E7F]">{service.title}</h3>
-                  <p className="text-slate-600 text-sm">{service.shortDesc}</p>
-                  
-                  <div className="bg-gradient-to-br from-[#E8F4F8] to-[#D4E9F0] p-4 rounded-lg border border-[#3FA3B8]/20 space-y-2">
-                    <p className="text-sm font-semibold text-[#1B5E7F]">
-                      1 Credit per session
-                    </p>
-                    <p className="text-xs text-[#2E8B9E]">
-                      Included in all memberships
-                    </p>
-                    <div className="border-t border-[#3FA3B8]/30 pt-2 mt-2">
-                      <p className="text-xs font-medium text-[#1B5E7F]">{service.pricing}</p>
-                    </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {coreTherapies.map((service, idx) => {
+              const icons = [Snowflake, Wind, Lightbulb, Zap];
+              const IconComponent = icons[idx % 4];
+              const colors = ['#5DADE2', '#3FA3B8', '#2B7A9B', '#1B5E7F'];
+              const bgColor = colors[idx % 4];
+              
+              return (
+                <Card key={service.id} className="hover:shadow-2xl transition-all duration-300 border-0 overflow-hidden group">
+                  <div className="relative h-32 flex items-center justify-center text-white opacity-90 group-hover:opacity-100 transition-opacity" style={{backgroundColor: bgColor}}>
+                    <IconComponent className="w-12 h-12" />
                   </div>
+                  
+                  <div className="p-6 space-y-4">
+                    <h3 className="text-xl font-bold text-slate-900">{service.title}</h3>
+                    <p className="text-slate-600 text-sm leading-relaxed">{service.shortDesc}</p>
+                    
+                    <div className="bg-gradient-to-br from-blue-50 to-cyan-50 p-5 rounded-xl border border-blue-100 space-y-3">
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm font-semibold text-slate-900">1 Credit per session</span>
+                        <span className="inline-block px-3 py-1 bg-blue-200 text-blue-900 text-xs font-bold rounded-full">Included</span>
+                      </div>
+                      <p className="text-xs text-slate-600">
+                        Available with all membership tiers
+                      </p>
+                      <div className="border-t border-blue-200 pt-3 mt-3">
+                        <p className="text-sm font-semibold text-slate-900">{service.pricing}</p>
+                      </div>
+                    </div>
 
-                  <Button asChild variant="outline" size="sm" className="w-full">
-                    <Link href={`/service/${service.id}`}>Learn More</Link>
-                  </Button>
-                </div>
-              </Card>
-            ))}
+                    <Button asChild className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold h-11 rounded-lg transition-all">
+                      <Link href={`/service/${service.id}`}>Learn More</Link>
+                    </Button>
+                  </div>
+                </Card>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -249,30 +261,26 @@ export default function Pricing() {
                   </li>
                   <li className="flex gap-2">
                     <Check className="w-4 h-4 text-[#3FA3B8] flex-shrink-0 mt-0.5" />
-                    <span>Support DNA repair</span>
+                    <span>Support longevity</span>
                   </li>
                   <li className="flex gap-2">
                     <Check className="w-4 h-4 text-[#3FA3B8] flex-shrink-0 mt-0.5" />
-                    <span>Enhance cognitive function</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <Check className="w-4 h-4 text-[#3FA3B8] flex-shrink-0 mt-0.5" />
-                    <span>Improve athletic performance</span>
+                    <span>Enhance mental clarity</span>
                   </li>
                 </ul>
 
-                <Button asChild className="w-full bg-[#3FA3B8] hover:bg-[#2E8B9E] text-white">
-                  <Link href="/service/nad-iv">Learn More</Link>
+                <Button asChild className="w-full">
+                  <Link href="/service/nad-iv">View Details</Link>
                 </Button>
               </div>
             </Card>
 
-            {/* Niagen NR */}
+            {/* Niagen */}
             <Card className="border-l-4 hover:shadow-lg transition-shadow" style={{borderLeftColor: '#3FA3B8'}}>
               <div className="p-6 space-y-4">
                 <h3 className="text-lg font-bold text-[#1B5E7F]">Niagen (NR) IV Drips</h3>
                 <p className="text-slate-600 text-sm">
-                  Superior NAD+ precursor therapy
+                  NAD+ precursor for cellular regeneration
                 </p>
 
                 <div className="bg-gradient-to-br from-[#E8F4F8] to-[#D4E9F0] p-4 rounded-lg border border-[#3FA3B8]/20 space-y-2">
@@ -291,24 +299,20 @@ export default function Pricing() {
                 <ul className="space-y-2 text-sm">
                   <li className="flex gap-2">
                     <Check className="w-4 h-4 text-[#3FA3B8] flex-shrink-0 mt-0.5" />
-                    <span>75% faster infusion than NAD+</span>
+                    <span>Boost NAD+ levels</span>
                   </li>
                   <li className="flex gap-2">
                     <Check className="w-4 h-4 text-[#3FA3B8] flex-shrink-0 mt-0.5" />
-                    <span>Fewer side effects</span>
+                    <span>Increase energy</span>
                   </li>
                   <li className="flex gap-2">
                     <Check className="w-4 h-4 text-[#3FA3B8] flex-shrink-0 mt-0.5" />
-                    <span>Enhanced cellular energy</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <Check className="w-4 h-4 text-[#3FA3B8] flex-shrink-0 mt-0.5" />
-                    <span>Superior NAD+ bioavailability</span>
+                    <span>Support metabolism</span>
                   </li>
                 </ul>
 
-                <Button asChild className="w-full bg-[#3FA3B8] hover:bg-[#2E8B9E] text-white">
-                  <Link href="/service/niagen-nr-iv">Learn More</Link>
+                <Button asChild className="w-full">
+                  <Link href="/service/niagen-nr-iv">View Details</Link>
                 </Button>
               </div>
             </Card>
@@ -317,54 +321,31 @@ export default function Pricing() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-slate-50">
+      <section className="py-20 bg-white">
         <div className="container max-w-3xl">
-          <h2 className="text-3xl font-bold mb-12 text-center">Pricing FAQ</h2>
+          <h2 className="text-3xl font-bold mb-12 text-center">Pricing FAQs</h2>
           
           <div className="space-y-6">
-            <div className="bg-white p-6 rounded-lg shadow-sm">
-              <h3 className="font-bold text-lg mb-2">Can I pause my membership?</h3>
-              <p className="text-slate-600">Yes! You can pause your membership anytime and resume whenever you're ready. No penalties or cancellation fees.</p>
+            <div className="border-b pb-6">
+              <h3 className="text-lg font-bold mb-2">Can I switch membership plans?</h3>
+              <p className="text-slate-600">Yes, you can upgrade or downgrade your membership at any time. Changes take effect on your next billing cycle.</p>
             </div>
-
-            <div className="bg-white p-6 rounded-lg shadow-sm">
-              <h3 className="font-bold text-lg mb-2">Can I use credits at other locations?</h3>
-              <p className="text-slate-600">Yes! Your membership credits work at any Restore location nationwide, giving you flexibility wherever you are.</p>
+            
+            <div className="border-b pb-6">
+              <h3 className="text-lg font-bold mb-2">Do unused credits roll over?</h3>
+              <p className="text-slate-600">Credits are monthly and do not roll over. We recommend using your credits each month to maximize your membership value.</p>
             </div>
-
-            <div className="bg-white p-6 rounded-lg shadow-sm">
-              <h3 className="font-bold text-lg mb-2">Do unused credits roll over?</h3>
-              <p className="text-slate-600">Credits are monthly and don't roll over. We recommend booking your sessions throughout the month to maximize your membership value.</p>
+            
+            <div className="border-b pb-6">
+              <h3 className="text-lg font-bold mb-2">Are there any contracts?</h3>
+              <p className="text-slate-600">All memberships require a 3-month commitment. After that, you can cancel anytime with no penalties.</p>
             </div>
-
-            <div className="bg-white p-6 rounded-lg shadow-sm">
-              <h3 className="font-bold text-lg mb-2">Are premium services included?</h3>
-              <p className="text-slate-600">NAD+ and Niagen (NR) are premium services paid separately. All other specialty services receive a 30% member discount.</p>
-            </div>
-
-            <div className="bg-white p-6 rounded-lg shadow-sm">
-              <h3 className="font-bold text-lg mb-2">Can I upgrade or downgrade?</h3>
-              <p className="text-slate-600">Absolutely! Change your membership plan anytime. Upgrades take effect immediately, downgrades at the end of your billing cycle.</p>
-            </div>
-
-            <div className="bg-white p-6 rounded-lg shadow-sm">
-              <h3 className="font-bold text-lg mb-2">What if I'm new to Restore?</h3>
-              <p className="text-slate-600">New members often start with Level Up to explore different therapies. Our team can recommend the best plan for your goals.</p>
+            
+            <div>
+              <h3 className="text-lg font-bold mb-2">What payment methods do you accept?</h3>
+              <p className="text-slate-600">We accept all major credit cards, debit cards, and digital payment methods. Contact us for other payment options.</p>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-[#1B5E7F] to-[#3FA3B8] text-white">
-        <div className="container text-center space-y-6">
-          <h2 className="text-4xl font-bold">Ready to Transform Your Health?</h2>
-          <p className="text-xl text-white/90 max-w-2xl mx-auto">
-            Join thousands of Columbus residents who've made wellness a priority. Start your membership today.
-          </p>
-          <Button asChild size="lg" className="bg-white text-[#1B5E7F] hover:bg-gray-100">
-            <Link href="/memberships">View Memberships</Link>
-          </Button>
         </div>
       </section>
     </Layout>
