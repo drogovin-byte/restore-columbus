@@ -171,20 +171,25 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {services.slice(0, 6).map((service: any, idx: number) => (
-              <Link key={`service-${service.id}-${idx}`} href={`/service/${service.id}`}>
-                <Card className="cursor-pointer hover:shadow-lg transition-shadow overflow-hidden h-full">
-                  <div className="aspect-video overflow-hidden bg-muted">
-                    <img src={service.image} alt={service.title} className="w-full h-full object-cover hover:scale-105 transition-transform" />
+              <div key={`service-${service.id}-${idx}`} className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 h-full cursor-pointer">
+                <div className="aspect-video overflow-hidden bg-muted relative">
+                  <img src={service.image} alt={service.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 text-white">
+                    <h3 className="font-heading font-bold text-xl mb-2">{service.title}</h3>
+                    <p className="text-sm text-white/90 mb-4 line-clamp-2">{service.shortDesc}</p>
+                    <Button asChild size="sm" className="bg-accent hover:bg-accent/90 text-accent-foreground font-bold w-full">
+                      <a href="https://www.restore.com/book-now">Book Now</a>
+                    </Button>
                   </div>
-                  <CardHeader>
+                </div>
+                <Link href={`/service/${service.id}`}>
+                  <div className="p-6 bg-white group-hover:bg-secondary/50 transition-colors duration-300">
                     <Badge variant="outline" className="w-fit mb-2">{service.category}</Badge>
-                    <CardTitle>{service.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
+                    <h4 className="font-heading font-bold text-lg text-primary mb-2">{service.title}</h4>
                     <p className="text-sm text-muted-foreground line-clamp-2">{service.shortDesc}</p>
-                  </CardContent>
-                </Card>
-              </Link>
+                  </div>
+                </Link>
+              </div>
             ))}
           </div>
 
