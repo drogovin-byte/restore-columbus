@@ -61,7 +61,7 @@ export default function Home() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-white hover:text-primary font-bold text-lg h-14 px-8 rounded-full shadow-lg transition-all hover:scale-105">
-                <Link href="https://www.restore.com/book-now">Book Appointment</Link>
+                <a href="https://www.restore.com/book-now" target="_blank" rel="noopener noreferrer">Book Appointment</a>
               </Button>
               <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-primary font-bold text-lg h-14 px-8 rounded-full backdrop-blur-sm transition-all hover:scale-105">
                 <Link href="/services">Explore Therapies</Link>
@@ -99,104 +99,82 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {problemStates.map((state: any) => (
               <Link key={state.id} href={`/problem/${state.id}`}>
-                <Card className="group cursor-pointer hover:shadow-lg transition-all duration-300 border-none bg-card h-full">
-                  <CardContent className="p-6 flex flex-col items-center text-center space-y-4">
-                    <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-                      <state.icon className="w-8 h-8 text-primary group-hover:text-white" />
+                <Card className="cursor-pointer hover:shadow-lg transition-shadow h-full">
+                  <CardHeader>
+                    <div className="flex items-start justify-between mb-2">
+                      <Target className="w-6 h-6 text-accent" />
                     </div>
-                    <h3 className="font-heading font-bold text-xl text-primary">{state.title}</h3>
+                    <CardTitle className="text-xl">{state.name}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
                     <p className="text-sm text-muted-foreground">{state.description}</p>
-                    <div className="pt-2 text-xs font-bold text-primary uppercase tracking-wider">
-                      Recommended Therapies &rarr;
-                    </div>
                   </CardContent>
                 </Card>
               </Link>
             ))}
           </div>
-          
-          {/* Quiz CTA */}
-          <div className="mt-16 text-center">
-            <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground font-bold rounded-full px-8 py-6 text-base shadow-lg">
-              <Link href="/quiz">Take Our Therapy Quiz</Link>
-            </Button>
-            <p className="text-sm text-muted-foreground mt-4">Not sure which therapy is right for you? Let us help you find your perfect match.</p>
-          </div>
         </div>
       </section>
 
-      {/* Services Grid */}
+      {/* Services Preview */}
       <section className="py-20 bg-background">
         <div className="container">
-          <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-            <h2 className="font-heading font-bold text-3xl md:text-4xl text-primary">Science-Backed Therapies</h2>
-            <p className="text-muted-foreground text-lg">
-              Our medical-grade modalities are designed to optimize your health, speed up recovery, and enhance your longevity.
-            </p>
+          <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
+            <div className="space-y-4">
+              <h2 className="font-heading font-bold text-3xl md:text-4xl text-primary">Science-Backed Therapies</h2>
+              <p className="text-muted-foreground text-lg max-w-xl">
+                Our medical-grade modalities are designed to optimize your health, speed up recovery, and enhance your longevity.
+              </p>
+            </div>
+            <Button asChild variant="link" className="text-primary font-bold text-lg p-0 h-auto hover:text-secondary-foreground">
+              <Link href="/services">View All Services <ArrowRight className="w-4 h-4 ml-2" /></Link>
+            </Button>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.slice(0, 6).map((service) => (
-              <Link key={service.id} href="/services">
-                <Card className="group h-full overflow-hidden border-none shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 bg-card">
-                  <div className="relative h-48 overflow-hidden">
-                    <img 
-                      src={service.image} 
-                      alt={service.title} 
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60" />
-                    <div className="absolute bottom-4 left-4 text-white flex items-center gap-2">
-                      <service.icon className="w-5 h-5 text-accent" />
-                      <span className="font-bold">{service.category}</span>
-                    </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {services.slice(0, 6).map((service: any) => (
+              <Link key={service.id} href={`/service/${service.id}`}>
+                <Card className="cursor-pointer hover:shadow-lg transition-shadow overflow-hidden h-full">
+                  <div className="aspect-video overflow-hidden bg-muted">
+                    <img src={service.image} alt={service.name} className="w-full h-full object-cover hover:scale-105 transition-transform" />
                   </div>
-                  <CardContent className="p-6 space-y-4">
-                    <h3 className="font-heading font-bold text-xl text-primary group-hover:text-secondary-foreground transition-colors">
-                      {service.title}
-                    </h3>
-                    <p className="text-muted-foreground leading-relaxed">
-                      {service.shortDesc}
-                    </p>
-                    <div className="pt-2 flex items-center text-sm font-bold text-secondary-foreground group-hover:text-accent-foreground transition-colors">
-                      Learn More <ArrowRight className="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" />
-                    </div>
+                  <CardHeader>
+                    <Badge variant="outline" className="w-fit mb-2">{service.category}</Badge>
+                    <CardTitle>{service.name}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground line-clamp-2">{service.shortDescription}</p>
                   </CardContent>
                 </Card>
               </Link>
             ))}
           </div>
-          
-          <div className="text-center mt-12 space-y-4">
-            <Button asChild variant="outline" size="lg" className="rounded-full border-primary text-primary hover:bg-primary hover:text-white font-bold">
-              <Link href="/services">View All Services</Link>
+
+          <div className="mt-12 bg-accent/10 border border-accent/20 rounded-xl p-8 text-center space-y-4">
+            <h3 className="font-heading font-bold text-2xl text-primary">Confused about which therapy is right for you?</h3>
+            <Button asChild variant="link" className="text-primary font-bold text-lg p-0 h-auto hover:text-secondary-foreground">
+              <Link href="/comparisons">Read Our Comparison Guides → </Link>
             </Button>
-            <div>
-              <p className="text-muted-foreground text-sm mb-2">Confused about which therapy is right for you?</p>
-              <Button asChild variant="link" className="text-accent font-bold hover:text-accent/80">
-                <Link href="/comparisons">Read Our Comparison Guides →</Link>
-              </Button>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* Membership Pricing */}
+      {/* Memberships */}
       <section className="py-20 bg-primary text-white">
         <div className="container">
-          <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <div className="text-center mb-12 space-y-4">
             <h2 className="font-heading font-bold text-3xl md:text-4xl">Join the Club</h2>
-            <p className="text-white/80 text-lg">
+            <p className="text-lg text-white/80 max-w-2xl mx-auto">
               Consistency is key to results. Our memberships offer the best value for your wellness routine.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {memberships.map((tier) => (
-              <Card key={tier.name} className={`relative border-none overflow-hidden ${tier.isPopular ? 'scale-105 shadow-2xl z-10' : 'bg-white/10 text-white'}`}>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {memberships.map((tier: any) => (
+              <Card key={tier.id} className={`relative ${tier.isPopular ? 'ring-2 ring-accent md:scale-105' : ''}`}>
                 {tier.isPopular && (
-                  <div className="absolute top-0 inset-x-0 bg-accent text-accent-foreground text-center text-xs font-bold py-1 uppercase tracking-wider">
-                    Most Popular
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                    <Badge className="bg-accent text-accent-foreground">MOST POPULAR</Badge>
                   </div>
                 )}
                 <CardHeader className={`text-center pb-2 ${tier.isPopular ? 'pt-8' : 'pt-6'}`}>
@@ -215,7 +193,7 @@ export default function Home() {
                     <span className="text-xs">${tier.perTherapy.toFixed(2)} per Therapy</span>
                   </div>
                   <ul className="space-y-3 text-sm text-center">
-                    {tier.features.map((feature, i) => (
+                    {tier.features.map((feature: string, i: number) => (
                       <li key={i} className="flex items-center justify-center gap-2">
                         <CheckCircle2 className={`w-4 h-4 shrink-0 ${tier.isPopular ? 'text-primary' : 'text-accent'}`} />
                         <span className={tier.isPopular ? 'text-foreground' : 'text-white/90'}>{feature}</span>
@@ -223,7 +201,7 @@ export default function Home() {
                     ))}
                   </ul>
                   <Button asChild className={`w-full font-bold ${tier.isPopular ? 'bg-primary text-white hover:bg-primary/90' : 'bg-white text-primary hover:bg-white/90'}`}>
-                    <Link href="https://www.restore.com/book-now">Choose {tier.name}</Link>
+                    <a href="https://www.restore.com/book-now" target="_blank" rel="noopener noreferrer">Choose {tier.name}</a>
                   </Button>
                 </CardContent>
               </Card>
@@ -302,13 +280,9 @@ export default function Home() {
                     </Badge>
                   </div>
                   <div className="space-y-2">
-                    <div className="text-sm text-muted-foreground font-medium">{post.date}</div>
-                    <h3 className="font-heading font-bold text-xl text-primary group-hover:text-secondary-foreground transition-colors leading-tight">
-                      {post.title}
-                    </h3>
-                    <p className="text-muted-foreground line-clamp-2 text-sm">
-                      {post.excerpt}
-                    </p>
+                    <p className="text-xs text-muted-foreground">{new Date(post.date).toLocaleDateString()}</p>
+                    <h3 className="font-heading font-bold text-lg text-primary group-hover:text-secondary-foreground transition-colors">{post.title}</h3>
+                    <p className="text-sm text-muted-foreground line-clamp-2">{post.excerpt}</p>
                   </div>
                 </article>
               </Link>
@@ -318,36 +292,20 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-primary text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-accent blur-3xl" />
-          <div className="absolute -bottom-24 -left-24 w-96 h-96 rounded-full bg-secondary blur-3xl" />
-        </div>
-        <div className="container relative z-10 text-center space-y-8">
-          <h2 className="font-heading font-bold text-3xl md:text-5xl">Ready to Feel Your Best?</h2>
-          <p className="text-xl text-white/80 max-w-2xl mx-auto">
+      <section className="py-20 bg-gradient-to-r from-primary to-secondary text-white">
+        <div className="container text-center space-y-6">
+          <h2 className="font-heading font-bold text-3xl md:text-4xl">Ready to Feel Your Best?</h2>
+          <p className="text-lg text-white/90 max-w-2xl mx-auto">
             Join thousands of Columbus residents who have made Restore a part of their weekly wellness routine.
           </p>
-          <Button asChild size="lg" className="bg-white text-primary hover:bg-gray-100 font-bold text-lg h-16 px-10 rounded-full shadow-xl">
-            <Link href="https://www.restore.com/book-now">Book Your First Session</Link>
+          <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-white hover:text-primary font-bold text-lg h-14 px-8 rounded-full shadow-lg transition-all hover:scale-105">
+            <a href="https://www.restore.com/book-now" target="_blank" rel="noopener noreferrer">Book Your First Session</a>
           </Button>
         </div>
       </section>
 
-      {/* Google Reviews Section - Combined from all locations */}
-      {(() => {
-        const allReviews = locations.flatMap(loc => loc.reviews);
-        const totalReviews = locations.reduce((sum, loc) => sum + loc.totalReviews, 0);
-        const avgRating = (locations.reduce((sum, loc) => sum + loc.averageRating, 0) / locations.length).toFixed(1);
-        return (
-          <GoogleReviews 
-            locationName="Restore Hyper Wellness Columbus"
-            reviews={allReviews}
-            averageRating={parseFloat(avgRating)}
-            totalReviews={totalReviews}
-          />
-        );
-      })()}
+      {/* Reviews Section */}
+      <GoogleReviews locationName="Restore Hyper Wellness Columbus" reviews={[]} averageRating={4.9} totalReviews={500} />
     </Layout>
   );
 }
