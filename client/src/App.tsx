@@ -6,7 +6,8 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import Services from "./pages/Services";
-import ServiceDetail from "./pages/ServiceDetail";
+import ServiceDetail from "@/pages/ServiceDetail";
+import LocalLanding from "@/pages/LocalLanding";
 import ProblemDetail from "./pages/ProblemDetail";
 import Comparisons from "./pages/Comparisons";
 import ComparisonDetail from "./pages/ComparisonDetail";
@@ -30,7 +31,9 @@ function Router() {
     <Switch>
       <Route path={"/"}  component={Home} />
       <Route path={"/services"} component={Services} />
-      <Route path={"/service/:id"} component={ServiceDetail} />
+       <Route path="/service/:id" component={ServiceDetail} />
+      {/* Dynamic route for local landing pages (e.g. /cryotherapy-dublin, /iv-drip-easton) */}
+      <Route path="/:slug" component={LocalLanding} />
       <Route path={"/problem/:id"} component={ProblemDetail} />
       <Route path={"/comparisons"} component={Comparisons} />
       <Route path={"/comparison/:slug"} component={ComparisonDetail} />

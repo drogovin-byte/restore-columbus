@@ -41,6 +41,7 @@ async function generateSitemap() {
     const comparisonSlugs = extractIds(dataContent, 'comparisons', 'slug');
     const blogSlugs = extractIds(dataContent, 'blogPosts', 'slug');
     const problemIds = extractIds(dataContent, 'problemStates', 'id');
+    const locationIds = extractIds(dataContent, 'locations', 'id');
     
     console.log(`Found:
     - ${serviceIds.length} services
@@ -117,6 +118,22 @@ async function generateSitemap() {
     <priority>0.7</priority>
   </url>
 `;
+    });
+
+    // Add Local Landing routes (Service + Location combinations)
+    // We'll generate combinations for key services: cryotherapy, iv-drip, red-light, infrared-sauna
+    const keyServices = ['cryotherapy', 'iv-drip', 'red-light', 'infrared-sauna'];
+    
+    keyServices.forEach(serviceId => {
+      locationIds.forEach(locationId => {
+        sitemap += `  <url>
+    <loc>${BASE_URL}/${serviceId}-${locationId}</loc>
+    <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+`;
+      });
     });
 
     sitemap += `</urlset>`;
