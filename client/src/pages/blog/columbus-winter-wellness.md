@@ -35,4 +35,4 @@ Don't let the Columbus winter win. Take control of your health and energy.
 
 *   **Visit us at Easton, Dublin, or Upper Arlington.**
 
-*[Book Your Winter Wellness Package](/book)*
+*[Book Your Winter Wellness Package](https://www.restore.com/book-now)*

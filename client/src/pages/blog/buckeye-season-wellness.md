@@ -34,4 +34,4 @@ We have 3 convenient locations around Columbus to serve Buckeye Nation:
 
 **Go Bucks! Be Well.**
 
-*Need a game plan for your health? [Schedule a Consultation](/book)*
+*Need a game plan for your health? [Schedule a Consultation](https://www.restore.com/book-now)*

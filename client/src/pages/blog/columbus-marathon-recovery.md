@@ -41,4 +41,4 @@ Don't wait until you can't walk down the stairs. Book your post-marathon recover
 *   **Upper Arlington**
 *   **Dublin**
 
-*Ready to recover faster? [Book Now](/book)*
+*Ready to recover faster? [Book Now](https://www.restore.com/book-now)*
