@@ -195,7 +195,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <div className="space-y-2 text-sm">
                 <a href="tel:6145550101" className="hover:opacity-80 transition-opacity block">Call: 614-555-0101</a>
                 <a href="mailto:info@restorecolumbus.com" className="hover:opacity-80 transition-opacity block">Email: info@restorecolumbus.com</a>
-                <Link href="https://www.restore.com/book-now" className="hover:opacity-80 transition-opacity block font-medium text-accent">Book Appointment</Link>
+                <Link href="/book" className="hover:opacity-80 transition-opacity block font-medium text-accent">Book Appointment</Link>
               </div>
             </div>
           </div>

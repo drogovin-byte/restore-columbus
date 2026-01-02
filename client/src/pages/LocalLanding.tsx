@@ -119,7 +119,7 @@ export default function LocalLanding() {
                 <a href={`tel:${location.phone.replace(/\D/g,'')}`}>Call {location.city} Studio</a>
               </Button>
               <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-primary font-bold text-lg h-14 px-8 rounded-full backdrop-blur-sm transition-all hover:scale-105">
-                <a href="https://www.restore.com/book-now">Book Appointment</a>
+                <Link href="/book">Book Appointment</Link>
               </Button>
             </div>
           </div>
@@ -253,7 +253,7 @@ export default function LocalLanding() {
             Book your {service.title} session at our {location.city} studio today.
           </p>
           <Button asChild size="lg" className="bg-white text-primary hover:bg-gray-100 font-bold text-lg h-14 px-10 rounded-full">
-            <a href="https://www.restore.com/book-now">Book Now</a>
+            <Link href="/book">Book Now</Link>
           </Button>
         </div>
       </section>
