@@ -180,9 +180,9 @@ export default function ServiceDetail() {
           <div className="space-y-6">
             {/* Pricing Card */}
             <Card className="border-none shadow-lg bg-card sticky top-24 overflow-hidden">
-              <CardHeader className="bg-primary text-white p-0">
-                <CardTitle className="flex items-center gap-2 p-4">
-                  <DollarSign className="w-5 h-5" />
+              <CardHeader className="bg-primary text-white p-0 m-0">
+                <CardTitle className="flex items-center gap-2 p-4 m-0 text-xl">
+                  <DollarSign className="w-6 h-6" />
                   Pricing
                 </CardTitle>
               </CardHeader>
@@ -192,10 +192,10 @@ export default function ServiceDetail() {
                     const [dosage, member, retail] = tier.split('|').map(p => p.trim());
                     return (
                       <div key={idx} className="border-b border-border pb-3 last:border-b-0">
-                        <p className="text-sm font-semibold text-foreground mb-2">{dosage}</p>
+                        <p className="text-base font-bold text-foreground mb-2">{dosage}</p>
                         <div className="space-y-1">
-                          {member && <p className="text-xs text-muted-foreground"><span className="font-medium">Member:</span> {member}</p>}
-                          {retail && <p className="text-xs text-muted-foreground"><span className="font-medium">Retail:</span> {retail}</p>}
+                          {member && <p className="text-sm text-muted-foreground"><span className="font-medium">Member:</span> {member}</p>}
+                          {retail && <p className="text-sm text-muted-foreground"><span className="font-medium">Retail:</span> {retail}</p>}
                         </div>
                       </div>
                     );
