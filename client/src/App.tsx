@@ -25,9 +25,10 @@ import FirstTimeOffer from "./pages/FirstTimeOffer";
 import Quiz from "./pages/Quiz";
 import Memberships from "./pages/Memberships";
 import Pricing from "./pages/Pricing";
-
+import MembershipSignup from "./pages/MembershipSignup";
 
 function Router() {
+  // make sure to consider if you need authentication for certain routes
   return (
     <Switch>
       <Route path={"/"}  component={Home} />
@@ -48,6 +49,7 @@ function Router() {
       <Route path={"memberships"} component={Memberships} />
       <Route path={"pricing"} component={Pricing} />
       <Route path={"contact"} component={Contact} />
+      <Route path="/membership/:id" component={MembershipSignup} />
       <Route path={"/first-time-offer"} component={FirstTimeOffer} />
       <Route path={"/404"} component={NotFound} />
       

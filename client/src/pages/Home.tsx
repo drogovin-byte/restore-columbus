@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout";
+import { useAuth } from "@/_core/hooks/useAuth";
 import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -9,6 +10,10 @@ import { services, blogPosts, locations, problemStates, memberships } from "@/li
 import GoogleReviews from "@/components/GoogleReviews";
 
 export default function Home() {
+  // The userAuth hooks provides authentication state
+  // To implement login/logout functionality, simply call logout() or redirect to getLoginUrl()
+  let { user, loading, error, isAuthenticated, logout } = useAuth();
+
   return (
     <Layout>
       <SEO 
@@ -201,7 +206,7 @@ export default function Home() {
                     ))}
                   </ul>
                   <Button asChild className="w-full font-bold bg-primary text-white hover:bg-primary/90 h-11">
-                    <a href="https://www.restore.com/book-now" target="_blank" rel="noopener noreferrer">Choose {tier.name}</a>
+                    <Link href={`/membership/${tier.id}`}>Choose {tier.name}</Link>
                   </Button>
                 </div>
               </div>
