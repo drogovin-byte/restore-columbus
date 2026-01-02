@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowRight, RotateCcw, Mail, Check } from "lucide-react";
+import { ArrowRight, RotateCcw, Mail, Check, Zap, Activity, Moon, Sparkles, Calendar, Timer, Clock, Flame } from "lucide-react";
 import { Link } from "wouter";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
@@ -11,6 +11,9 @@ interface QuizQuestion {
   question: string;
   answers: {
     text: string;
+    description: string;
+    icon: React.ReactNode;
+    gradient: string;
     therapies: string[];
   }[];
 }
@@ -31,18 +34,30 @@ const quizQuestions: QuizQuestion[] = [
     answers: [
       {
         text: "Recovery & Performance",
+        description: "Combat chronic exhaustion and reclaim your energy",
+        icon: <Activity className="w-8 h-8" />,
+        gradient: "from-blue-500 to-cyan-400",
         therapies: ["cryotherapy", "compression", "red-light"]
       },
       {
         text: "Energy & Vitality",
+        description: "Recover faster and perform at your peak",
+        icon: <Zap className="w-8 h-8" />,
+        gradient: "from-amber-500 to-orange-400",
         therapies: ["iv-therapy", "nad-plus", "infrared-sauna"]
       },
       {
         text: "Stress Relief & Sleep",
+        description: "Reduce chronic pain without relying on medications",
+        icon: <Moon className="w-8 h-8" />,
+        gradient: "from-purple-500 to-indigo-400",
         therapies: ["infrared-sauna", "red-light", "compression"]
       },
       {
         text: "Skin Health & Beauty",
+        description: "Rejuvenate your skin and enhance your natural glow",
+        icon: <Sparkles className="w-8 h-8" />,
+        gradient: "from-pink-500 to-rose-400",
         therapies: ["red-light", "infrared-sauna", "cryotherapy"]
       }
     ]
@@ -52,19 +67,31 @@ const quizQuestions: QuizQuestion[] = [
     question: "How often do you want to do therapy?",
     answers: [
       {
-        text: "Weekly (consistent routine)",
+        text: "Weekly",
+        description: "Build a consistent wellness routine",
+        icon: <Calendar className="w-8 h-8" />,
+        gradient: "from-emerald-500 to-teal-400",
         therapies: ["compression", "red-light", "infrared-sauna"]
       },
       {
-        text: "2-3 times per week (serious results)",
+        text: "2-3 Times Per Week",
+        description: "Serious results for dedicated wellness seekers",
+        icon: <Flame className="w-8 h-8" />,
+        gradient: "from-red-500 to-orange-400",
         therapies: ["cryotherapy", "iv-therapy", "compression"]
       },
       {
-        text: "Monthly (occasional boost)",
+        text: "Monthly",
+        description: "Occasional boost when you need it most",
+        icon: <Clock className="w-8 h-8" />,
+        gradient: "from-sky-500 to-blue-400",
         therapies: ["nad-plus", "iv-therapy", "cryotherapy"]
       },
       {
-        text: "As needed (flexible)",
+        text: "As Needed",
+        description: "Flexible approach based on your schedule",
+        icon: <Timer className="w-8 h-8" />,
+        gradient: "from-violet-500 to-purple-400",
         therapies: ["red-light", "infrared-sauna", "compression"]
       }
     ]
@@ -74,19 +101,31 @@ const quizQuestions: QuizQuestion[] = [
     question: "What type of experience appeals to you?",
     answers: [
       {
-        text: "Quick & intense (under 5 min)",
+        text: "Quick & Intense",
+        description: "Under 5 minutes of powerful therapy",
+        icon: <Zap className="w-8 h-8" />,
+        gradient: "from-yellow-500 to-amber-400",
         therapies: ["cryotherapy", "red-light"]
       },
       {
-        text: "Relaxing & immersive (20-45 min)",
+        text: "Relaxing & Immersive",
+        description: "20-45 minutes of deep restoration",
+        icon: <Moon className="w-8 h-8" />,
+        gradient: "from-indigo-500 to-blue-400",
         therapies: ["infrared-sauna", "compression", "iv-therapy"]
       },
       {
-        text: "Cellular rejuvenation (advanced)",
+        text: "Cellular Rejuvenation",
+        description: "Advanced therapy for optimal results",
+        icon: <Sparkles className="w-8 h-8" />,
+        gradient: "from-fuchsia-500 to-pink-400",
         therapies: ["nad-plus", "iv-therapy"]
       },
       {
-        text: "Combination approach (multiple)",
+        text: "Combination Approach",
+        description: "Multiple therapies for comprehensive wellness",
+        icon: <Activity className="w-8 h-8" />,
+        gradient: "from-cyan-500 to-teal-400",
         therapies: ["cryotherapy", "red-light", "infrared-sauna"]
       }
     ]
@@ -151,6 +190,7 @@ export default function TherapyQuiz() {
   const [email, setEmail] = useState("");
   const [emailSubmitted, setEmailSubmitted] = useState(false);
   const [isSubmittingEmail, setIsSubmittingEmail] = useState(false);
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   const handleAnswer = (therapies: string[]) => {
     const newAnswers = [...selectedAnswers, ...therapies];
@@ -164,13 +204,11 @@ export default function TherapyQuiz() {
   };
 
   const getRecommendedTherapies = () => {
-    // Count frequency of each therapy
     const therapyCount: Record<string, number> = {};
     selectedAnswers.forEach(therapy => {
       therapyCount[therapy] = (therapyCount[therapy] || 0) + 1;
     });
 
-    // Sort by frequency and get top 3
     return Object.entries(therapyCount)
       .sort(([, a], [, b]) => b - a)
       .slice(0, 3)
@@ -194,7 +232,6 @@ export default function TherapyQuiz() {
 
     setIsSubmittingEmail(true);
     try {
-      // Simulate email submission - in production, this would call your backend API
       await new Promise(resolve => setTimeout(resolve, 500));
       setEmailSubmitted(true);
       toast.success("Thanks! Check your email for exclusive wellness tips.");
@@ -333,41 +370,118 @@ export default function TherapyQuiz() {
   return (
     <div className="space-y-8">
       {/* Progress Bar */}
-      <div className="space-y-2">
+      <div className="space-y-4">
         <div className="flex justify-between items-center">
-          <h2 className="font-heading font-bold text-2xl text-primary">
-            {question.question}
-          </h2>
           <span className="text-sm font-medium text-muted-foreground">
-            {currentQuestion + 1} of {quizQuestions.length}
+            Question {currentQuestion + 1} of {quizQuestions.length}
+          </span>
+          <span className="text-sm font-medium text-accent">
+            {Math.round(progress)}% Complete
           </span>
         </div>
-        <div className="w-full bg-border rounded-full h-2 overflow-hidden">
+        <div className="w-full bg-border rounded-full h-3 overflow-hidden">
           <div 
-            className="bg-accent h-full transition-all duration-300"
+            className="bg-gradient-to-r from-accent to-primary h-full transition-all duration-500 ease-out rounded-full"
             style={{ width: `${progress}%` }}
           />
         </div>
+        <h2 className="font-heading font-bold text-2xl md:text-3xl text-primary text-center pt-4">
+          {question.question}
+        </h2>
       </div>
 
-      {/* Answer Options */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {/* Enhanced Answer Options */}
+      <div className="grid grid-cols-1 gap-4">
         {question.answers.map((answer, idx) => (
           <button
             key={idx}
             onClick={() => handleAnswer(answer.therapies)}
-            className="group"
+            onMouseEnter={() => setHoveredCard(idx)}
+            onMouseLeave={() => setHoveredCard(null)}
+            className="group w-full text-left"
           >
-            <Card className="border-2 border-border hover:border-accent hover:shadow-lg transition-all duration-300 cursor-pointer h-full bg-card hover:bg-secondary/50">
-              <CardContent className="p-6 flex items-center justify-between h-full">
-                <span className="font-medium text-foreground text-left group-hover:text-primary transition-colors">
-                  {answer.text}
-                </span>
-                <ArrowRight className="w-5 h-5 text-accent opacity-0 group-hover:opacity-100 transition-opacity shrink-0 ml-4" />
-              </CardContent>
-            </Card>
+            <div 
+              className={`
+                relative overflow-hidden rounded-2xl border-2 transition-all duration-300
+                ${hoveredCard === idx 
+                  ? 'border-transparent shadow-xl scale-[1.02]' 
+                  : 'border-border shadow-md hover:shadow-lg'
+                }
+              `}
+            >
+              {/* Gradient Background on Hover */}
+              <div 
+                className={`
+                  absolute inset-0 bg-gradient-to-r ${answer.gradient} opacity-0 transition-opacity duration-300
+                  ${hoveredCard === idx ? 'opacity-100' : 'group-hover:opacity-10'}
+                `}
+              />
+              
+              {/* Card Content */}
+              <div className={`
+                relative p-6 flex items-center gap-5 transition-colors duration-300
+                ${hoveredCard === idx ? 'bg-transparent' : 'bg-card'}
+              `}>
+                {/* Icon Container */}
+                <div 
+                  className={`
+                    shrink-0 w-16 h-16 rounded-xl flex items-center justify-center transition-all duration-300
+                    ${hoveredCard === idx 
+                      ? 'bg-white/20 text-white' 
+                      : `bg-gradient-to-br ${answer.gradient} text-white`
+                    }
+                  `}
+                >
+                  {answer.icon}
+                </div>
+                
+                {/* Text Content */}
+                <div className="flex-1 min-w-0">
+                  <h3 
+                    className={`
+                      font-heading font-bold text-lg md:text-xl transition-colors duration-300
+                      ${hoveredCard === idx ? 'text-white' : 'text-primary'}
+                    `}
+                  >
+                    {answer.text}
+                  </h3>
+                  <p 
+                    className={`
+                      text-sm mt-1 transition-colors duration-300
+                      ${hoveredCard === idx ? 'text-white/90' : 'text-muted-foreground'}
+                    `}
+                  >
+                    {answer.description}
+                  </p>
+                </div>
+                
+                {/* Arrow */}
+                <div 
+                  className={`
+                    shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300
+                    ${hoveredCard === idx 
+                      ? 'bg-white/20 text-white translate-x-1' 
+                      : 'bg-secondary text-muted-foreground group-hover:bg-accent group-hover:text-white'
+                    }
+                  `}
+                >
+                  <ArrowRight className="w-5 h-5" />
+                </div>
+              </div>
+            </div>
           </button>
         ))}
+      </div>
+
+      {/* Book Session CTA */}
+      <div className="pt-4 text-center">
+        <a 
+          href="https://www.restore.com/book-now"
+          className="inline-flex items-center gap-2 text-accent hover:text-primary font-medium transition-colors"
+        >
+          Skip quiz and book your session
+          <ArrowRight className="w-4 h-4" />
+        </a>
       </div>
     </div>
   );
