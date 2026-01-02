@@ -9,29 +9,7 @@ import { useEffect, useState } from "react";
 
 export default function BlogPost() {
   const [match, params] = useRoute("/blog/:slug");
-  const [content, setContent] = useState("");
-  const [loading, setLoading] = useState(true);
-
   const post = blogPosts.find(p => p.slug === params?.slug);
-
-  useEffect(() => {
-    if (params?.slug) {
-      setLoading(true);
-      fetch(`/src/pages/blog/${params.slug}.md`)
-        .then(res => {
-          if (!res.ok) throw new Error("Post not found");
-          return res.text();
-        })
-        .then(text => {
-          setContent(text);
-          setLoading(false);
-        })
-        .catch(err => {
-          console.error(err);
-          setLoading(false);
-        });
-    }
-  }, [params?.slug]);
 
   if (!post) return <div className="container py-20">Post not found</div>;
 
@@ -78,22 +56,14 @@ export default function BlogPost() {
 
         {/* Content */}
         <div className="container max-w-3xl mx-auto py-12 px-4 md:px-0">
-          {loading ? (
-            <div className="space-y-4 animate-pulse">
-              <div className="h-4 bg-muted rounded w-3/4"></div>
-              <div className="h-4 bg-muted rounded w-full"></div>
-              <div className="h-4 bg-muted rounded w-5/6"></div>
-            </div>
-          ) : (
-            <div className="prose prose-lg prose-slate dark:prose-invert max-w-none 
-              prose-headings:font-heading prose-headings:font-bold prose-headings:text-primary
-              prose-a:text-accent prose-a:no-underline hover:prose-a:underline
-              prose-img:rounded-xl prose-img:shadow-lg
-              prose-strong:text-primary
-            ">
-              <Streamdown>{content}</Streamdown>
-            </div>
-          )}
+          <div className="prose prose-lg prose-slate dark:prose-invert max-w-none 
+            prose-headings:font-heading prose-headings:font-bold prose-headings:text-primary
+            prose-a:text-accent prose-a:no-underline hover:prose-a:underline
+            prose-img:rounded-xl prose-img:shadow-lg
+            prose-strong:text-primary
+          ">
+            <Streamdown>{post.content}</Streamdown>
+          </div>
 
           {/* Author Bio / CTA */}
           <div className="mt-16 p-8 bg-secondary/30 rounded-2xl border border-border flex flex-col md:flex-row gap-6 items-center md:items-start">

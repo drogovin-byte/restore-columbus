@@ -797,5 +797,17 @@ export const blogPosts = [
     category: "Seasonal Wellness",
     image: "/images/sauna-official.jpg",
     tags: ["Winter", "Seasonal Affective Disorder", "Columbus", "Mental Health"]
+  },
+  {
+    id: "guide-to-wellness-dublin",
+    slug: "guide-to-wellness-dublin",
+    title: "Your Guide to Wellness in Dublin: Bridge Park and Beyond",
+    excerpt: "Discover the best wellness spots in Dublin, OH, from walking trails to advanced recovery.",
+    content: "Dublin, Ohio has transformed into a premier wellness destination. With the development of Bridge Park, the expansion of the Scioto Mile, and a community focused on health, there's never been a better time to focus on your well-being in Dublin.\n\n## Start with Movement at Bridge Park\n\nThe pedestrian bridge connecting Historic Dublin to Bridge Park isn't just an architectural marvel—it's the perfect starting point for your wellness journey. A morning walk or run along the Scioto River provides fresh air, river views, and a connection to nature that lowers cortisol and boosts mood.\n\n## Fuel Your Body\n\nAfter your movement, Dublin offers incredible healthy dining options. From the fresh bowls at North Market Bridge Park to the farm-to-table options in Historic Dublin, you can fuel your body with nutrient-dense whole foods.\n\n## Optimize Your Recovery\n\nMovement and nutrition are the foundation, but recovery is the accelerator. That's where Restore Hyper Wellness comes in. Located just minutes from Bridge Park at 6780 Longshore St, our Dublin studio offers advanced recovery modalities used by professional athletes.\n\nOne of our most popular treatments for active Dublin residents is **Whole Body Cryotherapy**. In just 3 minutes, you can reduce inflammation, boost your mood, and accelerate muscle recovery.\n\n[**Learn more about Cryotherapy in Dublin near Bridge Park**](/cryotherapy-dublin)\n\n## The Dublin Wellness Community\n\nWhat makes Dublin special is the community. Whether you're joining a run club at Fleet Feet, taking a yoga class on the green, or recovering at Restore, you're surrounded by people who value health and longevity. Join us and elevate your wellness journey today.",
+    date: "2026-01-02",
+    author: "Restore Team",
+    category: "Local Guide",
+    image: "/images/hero-wellness-columbus.jpg",
+    tags: ["Dublin", "Bridge Park", "Wellness Guide", "Local"]
   }
 ];
