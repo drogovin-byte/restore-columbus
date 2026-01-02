@@ -138,7 +138,7 @@ export default function Home() {
                       </p>
                       
                       {/* CTA */}
-                      <div className="flex items-center gap-2 text-accent font-semibold group-hover:gap-4 transition-all">
+                      <div className="flex items-center gap-2 text-primary font-bold group-hover:gap-4 transition-all group-hover:text-accent">
                         <span>Learn More</span>
                         <ArrowRight className="w-5 h-5" />
                       </div>

@@ -6,3 +6,4 @@
 - [x] Implement hover overlay on service cards with description and Book Now button
 - [x] Fix session duration text color for better readability on service cards
 - [x] Fix "Book Free Consultation" button to route to consultation booking page
+- [x] Fix light blue copy visibility in "Why Choose" and problem state cards
