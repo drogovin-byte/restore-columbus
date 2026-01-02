@@ -174,14 +174,14 @@ export default function Home() {
               <Link key={`service-${service.id}-${idx}`} href={`/service/${service.id}`}>
                 <Card className="cursor-pointer hover:shadow-lg transition-shadow overflow-hidden h-full">
                   <div className="aspect-video overflow-hidden bg-muted">
-                    <img src={service.image} alt={service.name} className="w-full h-full object-cover hover:scale-105 transition-transform" />
+                    <img src={service.image} alt={service.title} className="w-full h-full object-cover hover:scale-105 transition-transform" />
                   </div>
                   <CardHeader>
                     <Badge variant="outline" className="w-fit mb-2">{service.category}</Badge>
-                    <CardTitle>{service.name}</CardTitle>
+                    <CardTitle>{service.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-sm text-muted-foreground line-clamp-2">{service.shortDescription}</p>
+                    <p className="text-sm text-muted-foreground line-clamp-2">{service.shortDesc}</p>
                   </CardContent>
                 </Card>
               </Link>
