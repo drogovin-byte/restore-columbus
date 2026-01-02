@@ -249,8 +249,8 @@ export default function TherapyQuiz() {
         {!emailSubmitted ? (
           <div className="bg-secondary/30 rounded-lg p-8 space-y-6">
             <div className="text-center">
-              <h3 className="font-heading font-bold text-2xl text-primary mb-2">Get Exclusive Wellness Tips</h3>
-              <p className="text-muted-foreground mb-6">
+              <h3 className="font-heading font-bold text-2xl text-white mb-2">Get Exclusive Wellness Tips</h3>
+              <p className="text-white/90 mb-6">
                 Subscribe to our newsletter for personalized recovery strategies, exclusive offers, and wellness insights tailored to your goals.
               </p>
             </div>
@@ -272,12 +272,12 @@ export default function TherapyQuiz() {
                   {isSubmittingEmail ? "Subscribing..." : "Subscribe"}
                 </Button>
               </div>
-              <p className="text-xs text-muted-foreground text-center">
+              <p className="text-xs text-white/70 text-center">
                 We respect your privacy. Unsubscribe at any time.
               </p>
             </form>
             <div className="border-t border-border pt-6 mt-6">
-              <p className="text-center text-muted-foreground mb-4">Or book your first session now:</p>
+              <p className="text-center text-white/90 mb-4">Or book your first session now:</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white font-bold rounded-full px-8">
                   <Link href="https://www.restore.com/book-now">Book Your First Session</Link>
