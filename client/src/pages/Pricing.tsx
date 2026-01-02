@@ -235,7 +235,7 @@ export default function Pricing() {
                     Pay-per-session pricing | Not included in memberships | 60-90 minute sessions
                   </p>
                   <div className="border-t border-[#3FA3B8]/30 pt-2 mt-2">
-                    <p className="text-xs font-medium text-[#1B5E7F]">Member $144 | Retail $181</p>
+                    <p className="text-xs font-medium text-[#1B5E7F]">500 mg: Member $440 | Retail $550</p>
                   </div>
                 </div>
 
@@ -278,7 +278,7 @@ export default function Pricing() {
                     Pay-per-session pricing | Not included in memberships | 30-45 minute sessions
                   </p>
                   <div className="border-t border-[#3FA3B8]/30 pt-2 mt-2">
-                    <p className="text-xs font-medium text-[#1B5E7F]">Member $144 | Retail $181</p>
+                    <p className="text-xs font-medium text-[#1B5E7F]">500 mg: Member $690 | Retail $860</p>
                   </div>
                 </div>
 
