@@ -63,6 +63,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <Link href="/comparisons" className={`transition-colors hover:text-primary ${location === '/comparisons' ? 'text-primary font-bold' : 'text-muted-foreground'}`}>
               Comparisons
             </Link>
+            <Link href="/blog" className={`transition-colors hover:text-primary ${location === '/blog' ? 'text-primary font-bold' : 'text-muted-foreground'}`}>
+              Blog
+            </Link>
             <Link href="/faq" className={`transition-colors hover:text-primary ${location === '/faq' ? 'text-primary font-bold' : 'text-muted-foreground'}`}>
               FAQ
             </Link>
@@ -99,6 +102,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               </Link>
               <Link href="/comparisons" className="text-foreground hover:text-primary transition-colors">
                 Comparisons
+              </Link>
+              <Link href="/blog" className="text-foreground hover:text-primary transition-colors">
+                Blog
               </Link>
               <Link href="/faq" className="text-foreground hover:text-primary transition-colors">
                 FAQ
