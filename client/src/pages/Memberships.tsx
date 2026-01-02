@@ -32,17 +32,17 @@ export default function Memberships() {
             let cardGradient = "";
             
             if (index === 0) {
-              // Level Up - Light Teal
-              cardBg = "bg-[#5DADE2]";
-              cardGradient = "from-[#5DADE2] to-[#5DADE2]";
+              // Level Up - Light Blue to Teal gradient
+              cardBg = "bg-gradient-to-br from-[#5DADE2] via-[#4A9FD8] to-[#3B8BC9]";
+              cardGradient = "from-[#5DADE2] via-[#4A9FD8] to-[#3B8BC9]";
             } else if (index === 1) {
-              // Elevate - Dark Teal (Most Popular)
-              cardBg = "bg-[#1B5E7F]";
-              cardGradient = "from-[#1B5E7F] to-[#1B5E7F]";
+              // Elevate - Dark Teal to Navy gradient (Most Popular)
+              cardBg = "bg-gradient-to-br from-[#2B7A9B] via-[#1B5E7F] to-[#0F3D52]";
+              cardGradient = "from-[#2B7A9B] via-[#1B5E7F] to-[#0F3D52]";
             } else {
-              // Core - Medium Teal
-              cardBg = "bg-[#2E8B9E]";
-              cardGradient = "from-[#2E8B9E] to-[#2E8B9E]";
+              // Core - Teal to Deep Teal gradient
+              cardBg = "bg-gradient-to-br from-[#3FA3B8] via-[#2E8B9E] to-[#1F6B7F]";
+              cardGradient = "from-[#3FA3B8] via-[#2E8B9E] to-[#1F6B7F]";
             }
 
             return (
