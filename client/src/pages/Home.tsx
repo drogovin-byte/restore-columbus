@@ -4,7 +4,7 @@ import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Star, CheckCircle2, MapPin, Target } from "lucide-react";
+import { ArrowRight, Star, CheckCircle2, MapPin, Target, Battery, Activity, AlertCircle, Moon, TrendingUp, Heart } from "lucide-react";
 import { Link } from "wouter";
 import { services, blogPosts, locations, problemStates, memberships } from "@/lib/data";
 import GoogleReviews from "@/components/GoogleReviews";
@@ -102,21 +102,54 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {problemStates.map((state: any, idx: number) => (
-              <Link key={`problem-${state.id}-${idx}`} href={`/problem/${state.id}`}>
-                <Card className="cursor-pointer hover:shadow-lg transition-shadow h-full">
-                  <CardHeader>
-                    <div className="flex items-start justify-between mb-2">
-                      <Target className="w-6 h-6 text-accent" />
+            {problemStates.map((state: any, idx: number) => {
+              // Define gradient and icon based on problem type
+              const cardStyles: Record<string, { gradient: string; icon: React.ReactNode }> = {
+                "fatigue-burnout": { gradient: "from-amber-500 to-orange-400", icon: <Battery className="w-10 h-10" /> },
+                "athletic-recovery": { gradient: "from-blue-500 to-cyan-400", icon: <Activity className="w-10 h-10" /> },
+                "pain-inflammation": { gradient: "from-red-500 to-rose-400", icon: <AlertCircle className="w-10 h-10" /> },
+                "stress-sleep": { gradient: "from-purple-500 to-indigo-400", icon: <Moon className="w-10 h-10" /> },
+                "mens-health": { gradient: "from-emerald-500 to-teal-400", icon: <TrendingUp className="w-10 h-10" /> },
+                "womens-wellness": { gradient: "from-pink-500 to-rose-400", icon: <Heart className="w-10 h-10" /> }
+              };
+              const style = cardStyles[state.id] || { gradient: "from-accent to-primary", icon: <Target className="w-10 h-10" /> };
+              
+              return (
+                <Link key={`problem-${state.id}-${idx}`} href={`/problem/${state.id}`}>
+                  <div className="group relative overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-300 h-full cursor-pointer hover:scale-[1.02]">
+                    {/* Gradient accent bar */}
+                    <div className={`absolute top-0 left-0 right-0 h-2 bg-gradient-to-r ${style.gradient}`} />
+                    
+                    {/* Card content */}
+                    <div className="p-8 pt-10">
+                      {/* Icon with gradient background */}
+                      <div className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${style.gradient} flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                        {style.icon}
+                      </div>
+                      
+                      {/* Title */}
+                      <h3 className="font-heading font-bold text-2xl text-primary mb-3 group-hover:text-accent transition-colors">
+                        {state.title}
+                      </h3>
+                      
+                      {/* Description */}
+                      <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                        {state.description}
+                      </p>
+                      
+                      {/* CTA */}
+                      <div className="flex items-center gap-2 text-accent font-semibold group-hover:gap-4 transition-all">
+                        <span>Learn More</span>
+                        <ArrowRight className="w-5 h-5" />
+                      </div>
                     </div>
-                    <CardTitle className="text-xl">{state.name}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground">{state.description}</p>
-                  </CardContent>
-                </Card>
-              </Link>
-            ))}
+                    
+                    {/* Hover gradient overlay */}
+                    <div className={`absolute inset-0 bg-gradient-to-br ${style.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300 pointer-events-none`} />
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
