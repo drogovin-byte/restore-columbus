@@ -40,6 +40,13 @@ export default function Services() {
     }
   });
 
+  const handleCardClick = (e: React.MouseEvent<HTMLDivElement>, serviceId: string) => {
+    const target = e.target as HTMLElement;
+    // Don't navigate if clicking on button or link
+    if (target.closest('button') || target.closest('a')) return;
+    setLocation(`/service/${serviceId}`);
+  };
+
   return (
     <Layout>
       {/* Service Schema Markup for all services */}
@@ -60,7 +67,7 @@ export default function Services() {
 
       <div className="container py-20 space-y-32">
         {services.map((service, index) => (
-          <div key={service.id} id={service.id} className={`flex flex-col gap-12 items-stretch ${index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} cursor-pointer hover:opacity-90 transition-opacity`} itemScope itemType="https://schema.org/Service" onClick={() => setLocation(`/service/${service.id}`)}>
+          <div key={service.id} id={service.id} className={`flex flex-col gap-12 items-stretch ${index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} cursor-pointer hover:opacity-90 transition-opacity`} itemScope itemType="https://schema.org/Service" onClick={(e) => handleCardClick(e, service.id)}>
             <div className="flex-1 w-full min-w-0">
               <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl group cursor-pointer">
                 <img 
@@ -102,7 +109,7 @@ export default function Services() {
                 </div>
               </div>
 
-              <div className="pt-8 pb-4">
+              <div className="pt-8 pb-4" onClick={(e) => e.stopPropagation()}>
                 <Button asChild size="lg" className="bg-primary text-white hover:bg-primary/90 rounded-full px-8 w-full sm:w-auto">
                   <a href="https://www.restore.com/book-now" itemProp="url" target="_blank" rel="noopener noreferrer">
                     Book {service.title} <ArrowRight className="w-4 h-4 ml-2" />
