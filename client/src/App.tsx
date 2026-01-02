@@ -1,4 +1,5 @@
 import { Toaster } from "@/components/ui/sonner";
+import ScrollToTop from "@/components/ScrollToTop";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
@@ -73,6 +74,7 @@ function App() {
         // switchable
       >
         <TooltipProvider>
+          <ScrollToTop />
           <Toaster />
           <Router />
         </TooltipProvider>
