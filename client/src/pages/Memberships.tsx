@@ -65,7 +65,7 @@ export default function Memberships() {
                 >
                   <div className="space-y-0 p-0 flex-1 flex flex-col">
                     {/* Header with Title and Pricing */}
-                    <div className={`space-y-6 px-8 text-center ${isPopular ? 'pt-24 pb-8' : 'pt-8 pb-8'}`}>
+                    <div className={`space-y-6 px-8 text-center ${isPopular ? 'pt-8 pb-8' : 'pt-8 pb-8'}`}>
                       <h3 className="text-4xl font-bold text-white tracking-wide">{membership.name}</h3>
                       
                       {/* Pricing Section */}
