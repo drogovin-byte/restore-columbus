@@ -33,6 +33,6 @@ Pair your Restore sessions with other local wellness activities:
 ## Stay Healthy This Winter
 Don't let the Columbus winter win. Take control of your health and energy.
 
-*   **Visit us at Easton, Polaris, or Upper Arlington.**
+*   **Visit us at Easton, Dublin, or Upper Arlington.**
 
 *[Book Your Winter Wellness Package](/book)*

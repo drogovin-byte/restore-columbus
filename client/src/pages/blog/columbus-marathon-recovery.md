@@ -39,6 +39,6 @@ Don't wait until you can't walk down the stairs. Book your post-marathon recover
 
 *   **Easton Town Center**
 *   **Upper Arlington**
-*   **Polaris**
+*   **Dublin**
 
 *Ready to recover faster? [Book Now](/book)*

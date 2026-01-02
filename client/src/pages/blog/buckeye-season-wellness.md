@@ -30,7 +30,7 @@ As the season pushes into November and December, the temperature in Columbus dro
 We have 3 convenient locations around Columbus to serve Buckeye Nation:
 *   **Easton**
 *   **Upper Arlington**
-*   **Polaris**
+*   **Dublin**
 
 **Go Bucks! Be Well.**
 
