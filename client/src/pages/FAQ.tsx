@@ -199,7 +199,7 @@ export default function FAQ() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg" className="bg-primary text-white hover:bg-primary/90 font-bold text-lg h-14 px-10 rounded-full">
-              <Link href="https://www.restore.com/book-now">Book Free Consultation</Link>
+              <a href="https://www.restore.com/book-now" target="_blank" rel="noopener noreferrer">Book Free Consultation</a>
             </Button>
             <Button asChild variant="outline" size="lg" className="border-primary text-primary hover:bg-primary hover:text-white font-bold text-lg h-14 px-10 rounded-full">
               <Link href="/locations">Find Your Location</Link>

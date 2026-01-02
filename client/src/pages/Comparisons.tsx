@@ -70,7 +70,7 @@ export default function Comparisons() {
             Schedule a free consultation with our wellness team. We'll help you choose the right therapies for your specific goals.
           </p>
           <Button asChild size="lg" className="bg-primary text-white hover:bg-primary/90 font-bold text-lg h-14 px-10 rounded-full">
-            <Link href="https://www.restore.com/book-now">Book Free Consultation</Link>
+            <a href="https://www.restore.com/book-now" target="_blank" rel="noopener noreferrer">Book Free Consultation</a>
           </Button>
         </div>
       </section>
