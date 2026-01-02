@@ -82,6 +82,50 @@ export default function BlogPost() {
               </Button>
             </div>
           </div>
+
+          {/* Related Posts */}
+          <div className="mt-20 pt-12 border-t border-border">
+            <h2 className="font-heading font-bold text-2xl md:text-3xl text-primary mb-8">Related Articles</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {blogPosts
+                .filter(p => p.id !== post.id) // Exclude current post
+                .filter(p => p.category === post.category || p.tags?.some(tag => post.tags?.includes(tag))) // Match category or tags
+                .slice(0, 2) // Limit to 2 posts
+                .map(relatedPost => (
+                  <Link key={relatedPost.id} href={`/blog/${relatedPost.slug}`}>
+                    <div className="group cursor-pointer h-full bg-card rounded-xl overflow-hidden border border-border shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+                      <div className="relative h-48 overflow-hidden">
+                        <img 
+                          src={relatedPost.image} 
+                          alt={relatedPost.title} 
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                        <div className="absolute top-4 left-4">
+                          <Badge className="bg-white/90 text-primary hover:bg-white border-none shadow-sm">
+                            {relatedPost.category}
+                          </Badge>
+                        </div>
+                      </div>
+                      <div className="p-6 space-y-3">
+                        <div className="flex items-center gap-2 text-xs text-muted-foreground font-medium">
+                          <Calendar className="w-3 h-3" />
+                          {relatedPost.date}
+                        </div>
+                        <h3 className="font-heading font-bold text-xl text-foreground group-hover:text-primary transition-colors line-clamp-2">
+                          {relatedPost.title}
+                        </h3>
+                        <p className="text-muted-foreground text-sm line-clamp-2">
+                          {relatedPost.excerpt}
+                        </p>
+                        <div className="pt-2 flex items-center text-accent font-medium text-sm group-hover:translate-x-1 transition-transform">
+                          Read Article <ArrowLeft className="w-4 h-4 ml-1 rotate-180" />
+                        </div>
+                      </div>
+                    </div>
+                  </Link>
+                ))}
+            </div>
+          </div>
         </div>
       </article>
     </Layout>
