@@ -226,7 +226,7 @@ export default function Pricing() {
               const colorSet = coreColors[idx % coreColors.length];
               
               return (
-                <Card key={service.id} className="hover:shadow-2xl transition-all duration-300 border-0 overflow-hidden group relative">
+                <Card key={service.id} className="hover:shadow-2xl hover:scale-[1.02] hover:-translate-y-1 transition-all duration-300 ease-out border-0 overflow-hidden group relative cursor-pointer">
                   {/* Quick View Button */}
                   <button
                     onClick={() => openQuickView(service, colorSet, IconComponent)}
@@ -284,7 +284,7 @@ export default function Pricing() {
               const colorSet = specialtyColors[idx % specialtyColors.length];
               
               return (
-                <Card key={service.id} className="hover:shadow-2xl transition-all duration-300 border-0 overflow-hidden group relative">
+                <Card key={service.id} className="hover:shadow-2xl hover:scale-[1.02] hover:-translate-y-1 transition-all duration-300 ease-out border-0 overflow-hidden group relative cursor-pointer">
                   {/* Quick View Button */}
                   <button
                     onClick={() => openQuickView(service, colorSet, IconComponent)}
@@ -338,7 +338,7 @@ export default function Pricing() {
 
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {/* NAD+ */}
-            <Card className="border-0 overflow-hidden group hover:shadow-2xl transition-all duration-300 bg-white relative">
+            <Card className="border-0 overflow-hidden group hover:shadow-2xl hover:scale-[1.02] hover:-translate-y-1 transition-all duration-300 ease-out bg-white relative cursor-pointer">
               {/* Quick View Button */}
               <button
                 onClick={() => {
@@ -426,7 +426,7 @@ export default function Pricing() {
             </Card>
 
             {/* Niagen */}
-            <Card className="border-0 overflow-hidden group hover:shadow-2xl transition-all duration-300 bg-white relative">
+            <Card className="border-0 overflow-hidden group hover:shadow-2xl hover:scale-[1.02] hover:-translate-y-1 transition-all duration-300 ease-out bg-white relative cursor-pointer">
               {/* Quick View Button */}
               <button
                 onClick={() => {

@@ -16,3 +16,4 @@
 - [ ] Update NAD+ detail page with all dosage pricing options
 - [ ] Update Niagen detail page with all dosage pricing options
 - [x] Implement quick-view modals for service cards on Pricing page
+- [x] Add hover animations to service cards on Pricing page with scale transforms and shadow transitions
