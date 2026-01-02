@@ -1,12 +1,19 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Check, Snowflake, Wind, Lightbulb, Zap, Droplets, Activity, Syringe, Sparkles, Star, CircleDot, Waves, Atom, Dna } from "lucide-react";
+import { Check, Snowflake, Wind, Lightbulb, Zap, Droplets, Activity, Syringe, Sparkles, Star, CircleDot, Waves, Atom, Dna, Eye } from "lucide-react";
 import { Link } from "wouter";
 import Layout from "@/components/Layout";
 import { memberships, services } from "@/lib/data";
+import ServiceQuickViewModal from "@/components/ServiceQuickViewModal";
 
 export default function Pricing() {
+  const [quickViewService, setQuickViewService] = useState<typeof services[0] | null>(null);
+  const [quickViewColorSet, setQuickViewColorSet] = useState<{ bg: string; gradient: string } | null>(null);
+  const [quickViewIcon, setQuickViewIcon] = useState<React.ElementType | null>(null);
+  const [isPremiumQuickView, setIsPremiumQuickView] = useState(false);
+  const [premiumPricingData, setPremiumPricingData] = useState<any>(null);
+
   // Separate services by category
   const coreTherapies = services.filter(s => 
     ["cryotherapy", "infrared-sauna", "red-light", "compression"].includes(s.id)
@@ -26,6 +33,14 @@ export default function Pricing() {
     !["nad-iv", "niagen-nr-iv"].includes(s.id)
   );
 
+  // Icon mapping for core therapies
+  const coreIcons: Record<string, any> = {
+    "cryotherapy": Snowflake,
+    "infrared-sauna": Wind,
+    "red-light": Lightbulb,
+    "compression": Zap,
+  };
+
   // Icon mapping for specialty services
   const specialtyIcons: Record<string, any> = {
     "iv-therapy": Droplets,
@@ -38,6 +53,14 @@ export default function Pricing() {
     "hyperbaric": Atom,
   };
 
+  // Color mapping for core therapies
+  const coreColors = [
+    { bg: '#0EA5E9', gradient: 'from-sky-500 to-cyan-500' },
+    { bg: '#F97316', gradient: 'from-orange-500 to-amber-500' },
+    { bg: '#EF4444', gradient: 'from-red-500 to-rose-500' },
+    { bg: '#8B5CF6', gradient: 'from-violet-500 to-purple-500' },
+  ];
+
   // Color mapping for specialty services
   const specialtyColors = [
     { bg: '#6366F1', gradient: 'from-indigo-500 to-purple-500' },
@@ -49,6 +72,49 @@ export default function Pricing() {
     { bg: '#06B6D4', gradient: 'from-cyan-500 to-blue-500' },
     { bg: '#84CC16', gradient: 'from-lime-500 to-green-500' },
   ];
+
+  // Premium pricing data
+  const nadPricing = {
+    dosages: [
+      { label: "500 mg", member: "$440", retail: "$550" },
+      { label: "750 mg", member: "$530", retail: "$670" },
+      { label: "125 mg Add-On", member: "$110", retail: "$138" },
+      { label: "125 mg IM", member: "$115", retail: "$144" },
+    ],
+    sessionTime: "60-90 minute sessions"
+  };
+
+  const niagenPricing = {
+    dosages: [
+      { label: "500 mg", member: "$690", retail: "$860" },
+      { label: "1000 mg", member: "$1,380", retail: "$1,720" },
+      { label: "125 mg Add-On", member: "$173", retail: "$215" },
+      { label: "125 mg IM", member: "$205", retail: "$245" },
+    ],
+    sessionTime: "30-45 minute sessions"
+  };
+
+  const openQuickView = (
+    service: typeof services[0],
+    colorSet: { bg: string; gradient: string },
+    icon: React.ElementType,
+    isPremium: boolean = false,
+    premiumPricing?: any
+  ) => {
+    setQuickViewService(service);
+    setQuickViewColorSet(colorSet);
+    setQuickViewIcon(() => icon);
+    setIsPremiumQuickView(isPremium);
+    setPremiumPricingData(premiumPricing);
+  };
+
+  const closeQuickView = () => {
+    setQuickViewService(null);
+    setQuickViewColorSet(null);
+    setQuickViewIcon(null);
+    setIsPremiumQuickView(false);
+    setPremiumPricingData(null);
+  };
 
   return (
     <Layout>
@@ -98,55 +164,43 @@ export default function Pricing() {
                   >
                     <div className="space-y-0 p-0 flex-1 flex flex-col">
                       <div className="space-y-6 px-8 text-center pt-8 pb-8">
-                        <h3 className="text-4xl font-bold text-white tracking-wide">{membership.name}</h3>
+                        <h3 className="text-2xl font-bold text-white">{membership.name}</h3>
                         
-                        <div className="space-y-3">
-                          <div className="flex items-baseline justify-center gap-2">
-                            <span className="text-6xl font-bold text-white">${membership.price}</span>
-                            <span className="text-xl text-white/90">/month</span>
-                          </div>
-                          <div className="space-y-1 text-base">
-                            <p className="text-white/90">
-                              A ${membership.value} value!
-                            </p>
-                            <p className="text-white font-semibold">
-                              You save ${membership.savings}!
-                            </p>
-                          </div>
-                        </div>
-
-                        <div className="border-b border-white/30"></div>
-
                         <div className="space-y-2">
-                          <div className="text-7xl font-bold text-white">{membership.credits}</div>
-                          <p className="text-xl text-white/90">Credits / Month</p>
-                          <p className="text-base text-white/80">
-                            ${membership.perTherapy.toFixed(2)} per Therapy
-                          </p>
+                          <div className="flex items-baseline justify-center gap-1">
+                            <span className="text-6xl font-bold text-white">${membership.price}</span>
+                            <span className="text-white/80">/month</span>
+                          </div>
+                          <p className="text-white/90 text-sm">A ${membership.value} value!</p>
+                          <p className="text-[#7FDBFF] font-bold">You save ${membership.savings}!</p>
                         </div>
 
-                        <div className="border-b border-white/30"></div>
+                        <div className="flex flex-col items-center">
+                          <span className="text-6xl font-bold text-white">{membership.credits}</span>
+                          <span className="text-white/80 text-sm">Credits / Month</span>
+                          <span className="text-white/70 text-xs mt-1">${membership.perTherapy.toFixed(2)} per Therapy</span>
+                        </div>
                       </div>
 
-                      <div className="space-y-4 px-8 py-8 flex-1 flex flex-col text-center">
-                        <div className="space-y-3 flex-1">
+                      <div className="bg-white/10 backdrop-blur-sm flex-1 px-8 py-6">
+                        <ul className="space-y-3 text-sm">
                           {membership.benefits.slice(0, 4).map((benefit, i) => (
-                            <p key={i} className="text-white/95 text-base leading-relaxed">
-                              {benefit}
-                            </p>
+                            <li key={i} className="flex items-start gap-3 text-white/90">
+                              <Check className="w-5 h-5 text-[#7FDBFF] flex-shrink-0 mt-0.5" />
+                              <span>{benefit}</span>
+                            </li>
                           ))}
-                        </div>
-
-                        <Button
-                          asChild
-                          className="w-full mt-6 font-bold text-base py-6 rounded-lg bg-white hover:bg-gray-100 text-[#1B5E7F] transition-all duration-200 shadow-md hover:shadow-lg"
-                          size="lg"
-                        >
-                          <Link href="/memberships">
-                            Choose Plan
-                          </Link>
-                        </Button>
+                        </ul>
                       </div>
+                    </div>
+                    
+                    <div className="p-6 pt-0 bg-white/10">
+                      <Button 
+                        asChild
+                        className="w-full bg-white hover:bg-white/90 text-slate-900 font-bold h-14 text-lg rounded-xl shadow-lg"
+                      >
+                        <Link href="/memberships">Choose Plan</Link>
+                      </Button>
                     </div>
                   </Card>
                 </div>
@@ -156,7 +210,7 @@ export default function Pricing() {
         </div>
       </div>
 
-      {/* Core Therapies Pricing */}
+      {/* Core Therapies */}
       <section className="py-20 bg-gradient-to-b from-slate-50 to-white">
         <div className="container">
           <div className="mb-16 text-center">
@@ -168,35 +222,42 @@ export default function Pricing() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {coreTherapies.map((service, idx) => {
-              const icons = [Snowflake, Wind, Lightbulb, Zap];
-              const IconComponent = icons[idx % 4];
-              const colors = ['#5DADE2', '#3FA3B8', '#2B7A9B', '#1B5E7F'];
-              const bgColor = colors[idx % 4];
+              const IconComponent = coreIcons[service.id] || Zap;
+              const colorSet = coreColors[idx % coreColors.length];
               
               return (
-                <Card key={service.id} className="hover:shadow-2xl transition-all duration-300 border-0 overflow-hidden group">
-                  <div className="relative h-32 flex items-center justify-center text-white opacity-90 group-hover:opacity-100 transition-opacity" style={{backgroundColor: bgColor}}>
-                    <IconComponent className="w-12 h-12" />
+                <Card key={service.id} className="hover:shadow-2xl transition-all duration-300 border-0 overflow-hidden group relative">
+                  {/* Quick View Button */}
+                  <button
+                    onClick={() => openQuickView(service, colorSet, IconComponent)}
+                    className="absolute top-3 right-3 w-9 h-9 rounded-full bg-white/90 hover:bg-white flex items-center justify-center shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 z-10 hover:scale-110"
+                    title="Quick View"
+                  >
+                    <Eye className="w-4 h-4 text-slate-700" />
+                  </button>
+
+                  <div className={`relative h-28 flex items-center justify-center bg-gradient-to-br ${colorSet.gradient}`}>
+                    <IconComponent className="w-10 h-10 text-white" />
                   </div>
                   
-                  <div className="p-6 space-y-4">
-                    <h3 className="text-xl font-bold text-slate-900">{service.title}</h3>
-                    <p className="text-slate-600 text-sm leading-relaxed">{service.shortDesc}</p>
+                  <div className="p-5 space-y-3">
+                    <h3 className="text-lg font-bold text-slate-900">{service.title}</h3>
+                    <p className="text-slate-600 text-sm leading-relaxed line-clamp-2">{service.shortDesc}</p>
                     
-                    <div className="bg-gradient-to-br from-blue-50 to-cyan-50 p-5 rounded-xl border border-blue-100 space-y-3">
+                    <div className="bg-gradient-to-br from-slate-50 to-slate-100 p-4 rounded-xl border border-slate-200 space-y-2">
                       <div className="flex items-center justify-between">
-                        <span className="text-sm font-semibold text-slate-900">1 Credit per session</span>
-                        <span className="inline-block px-3 py-1 bg-blue-200 text-blue-900 text-xs font-bold rounded-full">Included</span>
+                        <span className="text-xs font-semibold text-slate-900">1 Credit per session</span>
+                        <span className="inline-block px-2 py-0.5 bg-emerald-100 text-emerald-800 text-xs font-bold rounded-full">Included</span>
                       </div>
-                      <p className="text-xs text-slate-600">
+                      <p className="text-xs text-slate-500">
                         Available with all membership tiers
                       </p>
-                      <div className="border-t border-blue-200 pt-3 mt-3">
-                        <p className="text-sm font-semibold text-slate-900">{service.pricing}</p>
+                      <div className="border-t border-slate-200 pt-2 mt-2">
+                        <p className="text-xs font-semibold text-slate-900">{service.pricing}</p>
                       </div>
                     </div>
 
-                    <Button asChild className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold h-11 rounded-lg transition-all">
+                    <Button asChild className={`w-full bg-gradient-to-r ${colorSet.gradient} hover:opacity-90 text-white font-semibold h-10 rounded-lg transition-all text-sm`}>
                       <Link href={`/service/${service.id}`}>Learn More</Link>
                     </Button>
                   </div>
@@ -223,7 +284,16 @@ export default function Pricing() {
               const colorSet = specialtyColors[idx % specialtyColors.length];
               
               return (
-                <Card key={service.id} className="hover:shadow-2xl transition-all duration-300 border-0 overflow-hidden group">
+                <Card key={service.id} className="hover:shadow-2xl transition-all duration-300 border-0 overflow-hidden group relative">
+                  {/* Quick View Button */}
+                  <button
+                    onClick={() => openQuickView(service, colorSet, IconComponent)}
+                    className="absolute top-3 right-3 w-9 h-9 rounded-full bg-white/90 hover:bg-white flex items-center justify-center shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 z-10 hover:scale-110"
+                    title="Quick View"
+                  >
+                    <Eye className="w-4 h-4 text-slate-700" />
+                  </button>
+
                   <div className="relative h-28 flex items-center justify-center text-white opacity-90 group-hover:opacity-100 transition-opacity" style={{backgroundColor: colorSet.bg}}>
                     <IconComponent className="w-10 h-10" />
                   </div>
@@ -268,7 +338,27 @@ export default function Pricing() {
 
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {/* NAD+ */}
-            <Card className="border-0 overflow-hidden group hover:shadow-2xl transition-all duration-300 bg-white">
+            <Card className="border-0 overflow-hidden group hover:shadow-2xl transition-all duration-300 bg-white relative">
+              {/* Quick View Button */}
+              <button
+                onClick={() => {
+                  const nadService = services.find(s => s.id === "nad-iv");
+                  if (nadService) {
+                    openQuickView(
+                      nadService,
+                      { bg: '#8B5CF6', gradient: 'from-violet-600 to-purple-600' },
+                      Dna,
+                      true,
+                      nadPricing
+                    );
+                  }
+                }}
+                className="absolute top-3 right-3 w-9 h-9 rounded-full bg-white/90 hover:bg-white flex items-center justify-center shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 z-10 hover:scale-110"
+                title="Quick View"
+              >
+                <Eye className="w-4 h-4 text-slate-700" />
+              </button>
+
               <div className="relative h-36 flex items-center justify-center bg-gradient-to-br from-violet-600 via-purple-600 to-indigo-700">
                 <div className="absolute inset-0 bg-black/10"></div>
                 <div className="relative z-10 text-center">
@@ -336,7 +426,27 @@ export default function Pricing() {
             </Card>
 
             {/* Niagen */}
-            <Card className="border-0 overflow-hidden group hover:shadow-2xl transition-all duration-300 bg-white">
+            <Card className="border-0 overflow-hidden group hover:shadow-2xl transition-all duration-300 bg-white relative">
+              {/* Quick View Button */}
+              <button
+                onClick={() => {
+                  const niagenService = services.find(s => s.id === "niagen-nr-iv");
+                  if (niagenService) {
+                    openQuickView(
+                      niagenService,
+                      { bg: '#10B981', gradient: 'from-emerald-600 to-teal-600' },
+                      Atom,
+                      true,
+                      niagenPricing
+                    );
+                  }
+                }}
+                className="absolute top-3 right-3 w-9 h-9 rounded-full bg-white/90 hover:bg-white flex items-center justify-center shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 z-10 hover:scale-110"
+                title="Quick View"
+              >
+                <Eye className="w-4 h-4 text-slate-700" />
+              </button>
+
               <div className="relative h-36 flex items-center justify-center bg-gradient-to-br from-emerald-600 via-teal-600 to-cyan-700">
                 <div className="absolute inset-0 bg-black/10"></div>
                 <div className="relative z-10 text-center">
@@ -434,6 +544,19 @@ export default function Pricing() {
           </div>
         </div>
       </section>
+
+      {/* Quick View Modal */}
+      {quickViewService && quickViewColorSet && quickViewIcon && (
+        <ServiceQuickViewModal
+          isOpen={!!quickViewService}
+          onClose={closeQuickView}
+          service={quickViewService}
+          colorSet={quickViewColorSet}
+          IconComponent={quickViewIcon}
+          isPremium={isPremiumQuickView}
+          premiumPricing={premiumPricingData}
+        />
+      )}
     </Layout>
   );
 }
