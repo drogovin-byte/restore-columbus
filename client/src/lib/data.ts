@@ -641,6 +641,38 @@ export const services = [
         a: "Yes. Schedule 1-2 weeks before for best appearance."
       }
     ]
+  },
+  {
+    id: "mild-hyperbaric-oxygen",
+    title: "Mild Hyperbaric Oxygen Therapy",
+    shortDesc: "60-90 minute therapy session to support wound healing, inflammation, immunity and sleep.",
+    fullDesc: "Mild Hyperbaric Oxygen Therapy (mHBOT) is a modern medical therapy that helps enhance total well-being. It's ideal for individuals looking to speed up recovery, enhance cognitive function and reduce inflammation.",
+    whatToExpect: "A relaxing, non-invasive session where you breathe enhanced oxygen in a pressurized chamber. You can sit up and work or lie down and relax. Most clients report feeling more relaxed and rested immediately after.",
+    benefits: ["Optimized sleep", "Repaired muscles", "Increased cognitive clarity", "Decreased athletic recovery time", "Increased energy"],
+    whoItsFor: ["Athletes seeking faster recovery", "People with sleep issues", "Those recovering from injury or illness", "Anyone wanting cognitive enhancement", "Individuals seeking improved immunity"],
+    whoItsNotFor: ["People with uncontrolled fever", "Those with severe claustrophobia", "Certain respiratory conditions"],
+    pricing: "Premium Service | 30% member discount available",
+    icon: Heart,
+    image: "/images/service_hyperbaric.jpg",
+    category: "Recovery & Wellness",
+    faqs: [
+      {
+        q: "How long do the effects last?",
+        a: "Results vary by individual. Many clients report immediate benefits like relaxation and improved sleep. For optimal long-term results, we recommend 20-40 maintenance sessions."
+      },
+      {
+        q: "How will I feel during the session?",
+        a: "Most clients find it relaxing and comfortable. You may feel slight ear popping during pressurization, similar to an airplane. You can work, read, or rest."
+      },
+      {
+        q: "What should I do to prepare?",
+        a: "Arrive early to complete a medical waiver. You'll have your vitals checked and a TeleMed consultation with a medical professional. Wear comfortable clothing and avoid caffeine."
+      },
+      {
+        q: "How often should I use it?",
+        a: "We recommend 1-2 sessions daily with at least 4 hours between sessions. A minimum of 10 sessions is recommended to achieve results."
+      }
+    ]
   }
 ];
 

@@ -13,7 +13,17 @@ export default function Pricing() {
   );
 
   const specialtyServices = services.filter(s => 
-    !["cryotherapy", "infrared-sauna", "red-light", "compression"].includes(s.id)
+    !["cryotherapy", "infrared-sauna", "red-light", "compression", "nad-iv", "niagen-nr-iv"].includes(s.id)
+  );
+
+  // Separate premium IV services
+  const premiumIVServices = services.filter(s => 
+    ["nad-iv", "niagen-nr-iv"].includes(s.id)
+  );
+
+  // Get other specialty services (excluding premium IV)
+  const otherSpecialtyServices = specialtyServices.filter(s => 
+    !["nad-iv", "niagen-nr-iv"].includes(s.id)
   );
 
   return (
@@ -134,7 +144,7 @@ export default function Pricing() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {coreTherapies.map((service) => (
-              <Card key={service.id} className="hover:shadow-lg transition-shadow border-l-4 border-l-[#3FA3B8]">
+              <Card key={service.id} className="hover:shadow-lg transition-shadow border-l-4" style={{borderLeftColor: '#3FA3B8'}}>
                 <div className="p-6 space-y-4">
                   <h3 className="text-lg font-bold text-[#1B5E7F]">{service.title}</h3>
                   <p className="text-slate-600 text-sm">{service.shortDesc}</p>
@@ -169,8 +179,8 @@ export default function Pricing() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {specialtyServices.map((service) => (
-              <Card key={service.id} className="hover:shadow-lg transition-shadow border-l-4 border-l-[#3FA3B8]">
+            {otherSpecialtyServices.map((service) => (
+              <Card key={service.id} className="hover:shadow-lg transition-shadow border-l-4" style={{borderLeftColor: '#3FA3B8'}}>
                 <div className="p-6 space-y-4">
                   <h3 className="text-lg font-bold text-[#1B5E7F]">{service.title}</h3>
                   <p className="text-slate-600 text-sm">{service.shortDesc}</p>
@@ -206,7 +216,7 @@ export default function Pricing() {
 
           <div className="grid md:grid-cols-2 gap-8">
             {/* NAD+ */}
-            <Card className="border-l-4 border-l-[#3FA3B8] hover:shadow-lg transition-shadow">
+            <Card className="border-l-4 hover:shadow-lg transition-shadow" style={{borderLeftColor: '#3FA3B8'}}>
               <div className="p-6 space-y-4">
                 <h3 className="text-lg font-bold text-[#1B5E7F]">NAD+ IV Therapy</h3>
                 <p className="text-slate-600 text-sm">
@@ -246,7 +256,7 @@ export default function Pricing() {
             </Card>
 
             {/* Niagen NR */}
-            <Card className="border-l-4 border-l-[#3FA3B8] hover:shadow-lg transition-shadow">
+            <Card className="border-l-4 hover:shadow-lg transition-shadow" style={{borderLeftColor: '#3FA3B8'}}>
               <div className="p-6 space-y-4">
                 <h3 className="text-lg font-bold text-[#1B5E7F]">Niagen (NR) IV Drips</h3>
                 <p className="text-slate-600 text-sm">
