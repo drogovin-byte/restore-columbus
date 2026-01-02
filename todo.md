@@ -18,3 +18,4 @@
 - [x] Implement quick-view modals for service cards on Pricing page
 - [x] Add hover animations to service cards on Pricing page with scale transforms and shadow transitions
 - [x] Improve checkmark visibility in Key Benefits and Who It's For sections on service detail pages
+- [x] Fix checkmark color - change from light accent to dark, saturated color for better visibility

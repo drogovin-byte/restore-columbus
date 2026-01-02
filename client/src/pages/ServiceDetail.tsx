@@ -123,7 +123,7 @@ export default function ServiceDetail() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {service.benefits.map((benefit, i) => (
                   <div key={i} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-6 h-6 text-accent mt-0.5 shrink-0 flex-shrink-0" />
+                    <CheckCircle2 className="w-6 h-6 text-teal-600 mt-0.5 shrink-0 flex-shrink-0" />
                     <span className="text-slate-700 font-medium">{benefit}</span>
                   </div>
                 ))}
@@ -139,7 +139,7 @@ export default function ServiceDetail() {
               <div className="space-y-2">
                 {service.whoItsFor.map((item, i) => (
                   <div key={i} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-accent mt-0.5 shrink-0 flex-shrink-0" />
+                    <CheckCircle2 className="w-5 h-5 text-teal-600 mt-0.5 shrink-0 flex-shrink-0" />
                     <span className="text-slate-700">{item}</span>
                   </div>
                 ))}
