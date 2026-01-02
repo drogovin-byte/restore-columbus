@@ -45,43 +45,62 @@ export default function Pricing() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {memberships.map((membership, idx) => (
+            {memberships.map((membership, idx) => {
+              // Color scheme matching Memberships page
+              let cardBg = "";
+              if (idx === 0) {
+                // Level Up - Light Blue to Teal gradient
+                cardBg = "bg-gradient-to-br from-[#5DADE2] via-[#4A9FD8] to-[#3B8BC9]";
+              } else if (idx === 1) {
+                // Elevate - Dark Teal to Navy gradient (Most Popular)
+                cardBg = "bg-gradient-to-br from-[#2B7A9B] via-[#1B5E7F] to-[#0F3D52]";
+              } else {
+                // Core - Teal to Deep Teal gradient
+                cardBg = "bg-gradient-to-br from-[#3FA3B8] via-[#2E8B9E] to-[#1F6B7F]";
+              }
+              return (
               <Card 
                 key={idx} 
-                className={`relative flex flex-col h-full ${
-                  membership.isPopular ? "ring-2 ring-primary shadow-lg scale-105" : ""
-                }`}
+                className={`relative flex flex-col h-full border-0 rounded-2xl overflow-hidden transition-all duration-300 ${
+                  membership.isPopular ? "ring-2 ring-primary shadow-2xl scale-105" : "shadow-lg"
+                } ${cardBg}`}
               >
                 {membership.isPopular && (
-                  <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-primary">
-                    Most Popular
-                  </Badge>
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-20">
+                    <Badge className="bg-[#5DADE2] text-white font-bold px-4 py-2 rounded-full shadow-lg">
+                      Most Popular
+                    </Badge>
+                  </div>
                 )}
                 
-                <CardHeader>
-                  <CardTitle className="text-2xl">{membership.name}</CardTitle>
-                  <p className="text-slate-600 text-sm mt-2">{membership.description}</p>
+                <CardHeader className="text-white pt-8 pb-6">
+                  <CardTitle className="text-3xl font-bold text-white">{membership.name}</CardTitle>
+                  <p className="text-white/90 text-sm mt-2">{membership.description}</p>
                 </CardHeader>
 
-                <CardContent className="flex-1 space-y-6">
+                <CardContent className="flex-1 space-y-6 text-white pb-8">
                   {/* Pricing */}
                   <div className="space-y-2">
                     <div className="flex items-baseline gap-2">
-                      <span className="text-4xl font-bold">${membership.price}</span>
-                      <span className="text-slate-600">/month</span>
+                      <span className="text-5xl font-bold text-white">${membership.price}</span>
+                      <span className="text-white/90">/month</span>
                     </div>
-                    <p className="text-sm text-slate-600">
+                    <p className="text-white/90 text-sm mt-2">
                       Value: ${membership.value} | Save ${membership.savings}
                     </p>
-                    <p className="text-sm font-semibold text-primary">
+                    <p className="text-sm font-semibold text-white/95">
                       ${membership.perTherapy} per therapy
                     </p>
                   </div>
 
+                  {/* Divider */}
+                  <div className="border-b border-white/30"></div>
+
                   {/* Credits */}
-                  <div className="bg-slate-50 p-4 rounded-lg">
-                    <p className="font-semibold text-lg mb-2">{membership.credits} Monthly Credits</p>
-                    <p className="text-sm text-slate-600">
+                  <div className="bg-white/10 p-4 rounded-xl backdrop-blur-sm">
+                    <p className="font-bold text-2xl text-white mb-2">{membership.credits}</p>
+                    <p className="text-white/90 text-sm mb-1">Monthly Credits</p>
+                    <p className="text-white/80 text-xs">
                       1 credit = 1 core therapy | 4 credits = IV Drip with 2 nutrients
                     </p>
                   </div>
@@ -89,19 +108,20 @@ export default function Pricing() {
                   {/* Features */}
                   <ul className="space-y-3">
                     {membership.benefits.map((benefit, bidx) => (
-                      <li key={bidx} className="flex gap-3 text-sm">
-                        <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                      <li key={bidx} className="flex gap-3 text-sm text-white/95">
+                        <Check className="w-5 h-5 text-white flex-shrink-0 mt-0.5" />
                         <span>{benefit}</span>
                       </li>
                     ))}
                   </ul>
 
-                  <Button asChild className="w-full mt-auto" variant={membership.isPopular ? "default" : "outline"}>
+                  <Button asChild className="w-full mt-auto bg-white text-slate-900 hover:bg-white/90 font-bold">
                     <Link href="/memberships">Choose Plan</Link>
                   </Button>
                 </CardContent>
               </Card>
-            ))}
+            );
+            })}
           </div>
         </div>
       </section>
@@ -118,18 +138,18 @@ export default function Pricing() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {coreTherapies.map((service) => (
-              <Card key={service.id} className="hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <CardTitle className="text-lg">{service.title}</CardTitle>
+              <Card key={service.id} className="hover:shadow-lg transition-shadow border-l-4 border-l-[#3FA3B8]">
+                <CardHeader className="pb-3">
+                  <CardTitle className="text-lg text-[#1B5E7F]">{service.title}</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <p className="text-slate-600 text-sm">{service.shortDesc}</p>
                   
-                  <div className="bg-blue-50 p-3 rounded-lg">
-                    <p className="text-sm font-semibold text-blue-900">
+                  <div className="bg-gradient-to-br from-[#E8F4F8] to-[#D4E9F0] p-4 rounded-lg border border-[#3FA3B8]/20">
+                    <p className="text-sm font-semibold text-[#1B5E7F]">
                       1 Credit per session
                     </p>
-                    <p className="text-xs text-blue-700 mt-1">
+                    <p className="text-xs text-[#2E8B9E] mt-1">
                       Included in all memberships
                     </p>
                   </div>
@@ -156,18 +176,18 @@ export default function Pricing() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {specialtyServices.map((service) => (
-              <Card key={service.id} className="hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <CardTitle className="text-lg">{service.title}</CardTitle>
+              <Card key={service.id} className="hover:shadow-lg transition-shadow border-l-4 border-l-[#3FA3B8]">
+                <CardHeader className="pb-3">
+                  <CardTitle className="text-lg text-[#1B5E7F]">{service.title}</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <p className="text-slate-600 text-sm">{service.shortDesc}</p>
                   
-                  <div className="bg-amber-50 p-3 rounded-lg">
-                    <p className="text-sm font-semibold text-amber-900">
+                  <div className="bg-gradient-to-br from-[#E8F4F8] to-[#D4E9F0] p-4 rounded-lg border border-[#3FA3B8]/20">
+                    <p className="text-sm font-semibold text-[#1B5E7F]">
                       Premium Service
                     </p>
-                    <p className="text-xs text-amber-700 mt-1">
+                    <p className="text-xs text-[#2E8B9E] mt-1">
                       30% member discount available
                     </p>
                   </div>
@@ -194,82 +214,82 @@ export default function Pricing() {
 
           <div className="grid md:grid-cols-2 gap-8">
             {/* NAD+ */}
-            <Card className="border-2 border-primary/20">
-              <CardHeader>
-                <CardTitle>NAD+ IV Therapy</CardTitle>
+            <Card className="border-l-4 border-l-[#3FA3B8] hover:shadow-lg transition-shadow">
+              <CardHeader className="pb-3">
+                <CardTitle className="text-[#1B5E7F]">NAD+ IV Therapy</CardTitle>
                 <p className="text-slate-600 text-sm mt-2">
                   Advanced cellular rejuvenation therapy
                 </p>
               </CardHeader>
               <CardContent className="space-y-4">
-                <div className="bg-slate-100 p-4 rounded-lg">
-                  <p className="text-sm font-semibold text-slate-900 mb-2">Premium Service</p>
-                  <p className="text-xs text-slate-600">
+                <div className="bg-gradient-to-br from-[#E8F4F8] to-[#D4E9F0] p-4 rounded-lg border border-[#3FA3B8]/20">
+                  <p className="text-sm font-semibold text-[#1B5E7F] mb-2">Premium Service</p>
+                  <p className="text-xs text-[#2E8B9E]">
                     Pay-per-session pricing | Not included in memberships | 60-90 minute sessions
                   </p>
                 </div>
 
                 <ul className="space-y-2 text-sm">
                   <li className="flex gap-2">
-                    <Check className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                    <Check className="w-4 h-4 text-[#3FA3B8] flex-shrink-0 mt-0.5" />
                     <span>Restore cellular energy</span>
                   </li>
                   <li className="flex gap-2">
-                    <Check className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                    <Check className="w-4 h-4 text-[#3FA3B8] flex-shrink-0 mt-0.5" />
                     <span>Support DNA repair</span>
                   </li>
                   <li className="flex gap-2">
-                    <Check className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                    <Check className="w-4 h-4 text-[#3FA3B8] flex-shrink-0 mt-0.5" />
                     <span>Enhance cognitive function</span>
                   </li>
                   <li className="flex gap-2">
-                    <Check className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                    <Check className="w-4 h-4 text-[#3FA3B8] flex-shrink-0 mt-0.5" />
                     <span>Improve athletic performance</span>
                   </li>
                 </ul>
 
-                <Button asChild className="w-full">
+                <Button asChild className="w-full bg-[#3FA3B8] hover:bg-[#2E8B9E] text-white">
                   <Link href="/service/nad-iv">Learn More</Link>
                 </Button>
               </CardContent>
             </Card>
 
             {/* Niagen NR */}
-            <Card className="border-2 border-primary/20">
-              <CardHeader>
-                <CardTitle>Niagen (NR) IV Drips</CardTitle>
+            <Card className="border-l-4 border-l-[#3FA3B8] hover:shadow-lg transition-shadow">
+              <CardHeader className="pb-3">
+                <CardTitle className="text-[#1B5E7F]">Niagen (NR) IV Drips</CardTitle>
                 <p className="text-slate-600 text-sm mt-2">
                   Superior NAD+ precursor therapy
                 </p>
               </CardHeader>
               <CardContent className="space-y-4">
-                <div className="bg-slate-100 p-4 rounded-lg">
-                  <p className="text-sm font-semibold text-slate-900 mb-2">Premium Service</p>
-                  <p className="text-xs text-slate-600">
+                <div className="bg-gradient-to-br from-[#E8F4F8] to-[#D4E9F0] p-4 rounded-lg border border-[#3FA3B8]/20">
+                  <p className="text-sm font-semibold text-[#1B5E7F] mb-2">Premium Service</p>
+                  <p className="text-xs text-[#2E8B9E]">
                     Pay-per-session pricing | Not included in memberships | 30-45 minute sessions
                   </p>
                 </div>
 
                 <ul className="space-y-2 text-sm">
                   <li className="flex gap-2">
-                    <Check className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                    <Check className="w-4 h-4 text-[#3FA3B8] flex-shrink-0 mt-0.5" />
                     <span>75% faster infusion than NAD+</span>
                   </li>
                   <li className="flex gap-2">
-                    <Check className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                    <Check className="w-4 h-4 text-[#3FA3B8] flex-shrink-0 mt-0.5" />
                     <span>Fewer side effects</span>
                   </li>
                   <li className="flex gap-2">
-                    <Check className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                    <Check className="w-4 h-4 text-[#3FA3B8] flex-shrink-0 mt-0.5" />
                     <span>Enhanced cellular energy</span>
                   </li>
                   <li className="flex gap-2">
-                    <Check className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                    <Check className="w-4 h-4 text-[#3FA3B8] flex-shrink-0 mt-0.5" />
                     <span>Superior NAD+ bioavailability</span>
                   </li>
                 </ul>
 
-                <Button asChild className="w-full">
+                <Button asChild className="w-full bg-[#3FA3B8] hover:bg-[#2E8B9E] text-white">
                   <Link href="/service/niagen-nr-iv">Learn More</Link>
                 </Button>
               </CardContent>
