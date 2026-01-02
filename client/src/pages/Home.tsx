@@ -70,14 +70,14 @@ export default function Home() {
             <div className="flex items-center gap-2 text-sm text-white/80 pt-4">
               <div className="flex -space-x-2">
                 {[1,2,3,4].map(i => (
-                  <div key={i} className="w-8 h-8 rounded-full bg-gray-200 border-2 border-primary overflow-hidden">
-                    <img src={`https://i.pravatar.cc/100?img=${i+10}`} alt="User" />
+                  <div key={`avatar-${i}`} className="w-8 h-8 rounded-full bg-gray-200 border-2 border-primary overflow-hidden">
+                    <img src={`https://i.pravatar.cc/100?img=${i+10}`} alt={`User ${i}`} />
                   </div>
                 ))}
               </div>
               <div className="flex flex-col">
                 <div className="flex text-accent">
-                  {[1,2,3,4,5].map(i => <Star key={i} className="w-3 h-3 fill-current" />)}
+                  {[1,2,3,4,5].map(i => <Star key={`star-${i}`} className="w-3 h-3 fill-current" />)}
                 </div>
                 <span>Trusted by 5,000+ Locals</span>
               </div>
@@ -97,8 +97,8 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {problemStates.map((state: any) => (
-              <Link key={state.id} href={`/problem/${state.id}`}>
+            {problemStates.map((state: any, idx: number) => (
+              <Link key={`problem-${state.id}-${idx}`} href={`/problem/${state.id}`}>
                 <Card className="cursor-pointer hover:shadow-lg transition-shadow h-full">
                   <CardHeader>
                     <div className="flex items-start justify-between mb-2">
@@ -132,8 +132,8 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {services.slice(0, 6).map((service: any) => (
-              <Link key={service.id} href={`/service/${service.id}`}>
+            {services.slice(0, 6).map((service: any, idx: number) => (
+              <Link key={`service-${service.id}-${idx}`} href={`/service/${service.id}`}>
                 <Card className="cursor-pointer hover:shadow-lg transition-shadow overflow-hidden h-full">
                   <div className="aspect-video overflow-hidden bg-muted">
                     <img src={service.image} alt={service.name} className="w-full h-full object-cover hover:scale-105 transition-transform" />
@@ -170,8 +170,8 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {memberships.map((tier: any) => (
-              <Card key={tier.id} className={`relative ${tier.isPopular ? 'ring-2 ring-accent md:scale-105' : ''}`}>
+            {memberships.map((tier: any, idx: number) => (
+              <Card key={`membership-${tier.id}-${idx}`} className={`relative ${tier.isPopular ? 'ring-2 ring-accent md:scale-105' : ''}`}>
                 {tier.isPopular && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                     <Badge className="bg-accent text-accent-foreground">MOST POPULAR</Badge>
@@ -223,8 +223,8 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {locations.map((loc) => (
-              <div key={loc.id} className="bg-card border rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+            {locations.map((loc, idx: number) => (
+              <div key={`location-${loc.id}-${idx}`} className="bg-card border rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                 <div className="h-48 overflow-hidden">
                   <img src={loc.image} alt={loc.name} className="w-full h-full object-cover" />
                 </div>
@@ -266,8 +266,8 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {blogPosts.map((post) => (
-              <Link key={post.slug} href={`/blog/${post.slug}`}>
+            {blogPosts.map((post, idx: number) => (
+              <Link key={`blog-${post.slug}-${idx}`} href={`/blog/${post.slug}`}>
                 <article className="group cursor-pointer space-y-4">
                   <div className="relative aspect-[4/3] rounded-xl overflow-hidden">
                     <img 
