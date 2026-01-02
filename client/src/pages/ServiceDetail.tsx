@@ -188,8 +188,12 @@ export default function ServiceDetail() {
               </CardHeader>
               <CardContent className="pt-6 space-y-6">
                 <div>
-                  <p className="text-sm text-muted-foreground mb-2">Starting at</p>
-                  <p className="text-3xl font-bold text-primary">{service.pricing}</p>
+                  <p className="text-sm text-muted-foreground mb-3 font-semibold">Pricing Options</p>
+                  <div className="space-y-2">
+                    {service.pricing.split(' | ').map((option, idx) => (
+                      <p key={idx} className="text-sm text-primary font-medium">{option}</p>
+                    ))}
+                  </div>
                 </div>
                 <Button asChild className="w-full bg-accent text-accent-foreground hover:bg-accent/90 font-bold h-12">
                   <a href="https://www.restore.com/book-now" target="_blank" rel="noopener noreferrer">Book Now</a>

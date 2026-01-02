@@ -13,3 +13,5 @@
 - [x] Update Pricing page service cards to display both member and non-member pricing
 - [x] Correct NAD+ IV (500mg) pricing to Member $440 | Retail $550
 - [x] Correct Niagen NR IV (500mg) pricing to Member $690 | Retail $860
+- [ ] Update NAD+ detail page with all dosage pricing options
+- [ ] Update Niagen detail page with all dosage pricing options

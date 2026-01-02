@@ -234,8 +234,11 @@ export default function Pricing() {
                   <p className="text-xs text-[#2E8B9E]">
                     Pay-per-session pricing | Not included in memberships | 60-90 minute sessions
                   </p>
-                  <div className="border-t border-[#3FA3B8]/30 pt-2 mt-2">
+                  <div className="border-t border-[#3FA3B8]/30 pt-2 mt-2 space-y-1">
                     <p className="text-xs font-medium text-[#1B5E7F]">500 mg: Member $440 | Retail $550</p>
+                    <p className="text-xs font-medium text-[#1B5E7F]">750 mg: Member $530 | Retail $670</p>
+                    <p className="text-xs font-medium text-[#1B5E7F]">125 mg Add-On: Member $110 | Retail $138</p>
+                    <p className="text-xs font-medium text-[#1B5E7F]">125 mg IM: Member $115 | Retail $144</p>
                   </div>
                 </div>
 
@@ -277,8 +280,11 @@ export default function Pricing() {
                   <p className="text-xs text-[#2E8B9E]">
                     Pay-per-session pricing | Not included in memberships | 30-45 minute sessions
                   </p>
-                  <div className="border-t border-[#3FA3B8]/30 pt-2 mt-2">
+                  <div className="border-t border-[#3FA3B8]/30 pt-2 mt-2 space-y-1">
                     <p className="text-xs font-medium text-[#1B5E7F]">500 mg: Member $690 | Retail $860</p>
+                    <p className="text-xs font-medium text-[#1B5E7F]">1000 mg: Member $1,380 | Retail $1,720</p>
+                    <p className="text-xs font-medium text-[#1B5E7F]">125 mg Add-On: Member $173 | Retail $215</p>
+                    <p className="text-xs font-medium text-[#1B5E7F]">125 mg IM: Member $205 | Retail $245</p>
                   </div>
                 </div>
 
