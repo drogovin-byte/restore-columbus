@@ -9,28 +9,16 @@ import { toast } from "sonner";
 import { Loader2, ArrowLeft } from "lucide-react";
 import { Link } from "wouter";
 
-const membershipData: Record<string, any> = {
-  "level-up": {
-    name: "Level Up",
-    price: 170,
-    credits: 8,
-  },
-  "elevate": {
-    name: "Elevate",
-    price: 260,
-    credits: 14,
-  },
-  "core": {
-    name: "Core",
-    price: 300,
-    credits: 31,
-  },
+const membershipTiers: Record<string, { name: string; price: number; credits: number }> = {
+  "level-up": { name: "Level Up", price: 170, credits: 8 },
+  "elevate": { name: "Elevate", price: 260, credits: 14 },
+  "core": { name: "Core", price: 300, credits: 31 },
 };
 
 export default function MembershipSignup() {
   const [, params] = useRoute("/membership/:id");
   const membershipId = params?.id || "";
-  const membership = membershipData[membershipId];
+  const membership = membershipTiers[membershipId];
 
   const [formData, setFormData] = useState({
     name: "",

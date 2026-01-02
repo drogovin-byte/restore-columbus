@@ -135,6 +135,7 @@ export const problemStates = [
 
 export const memberships = [
   {
+    id: "level-up",
     name: "Level Up",
     price: 170,
     value: 336,
@@ -162,6 +163,7 @@ export const memberships = [
     description: "Perfect for getting started with consistent wellness"
   },
   {
+    id: "elevate",
     name: "Elevate",
     price: 260,
     value: 588,
@@ -189,6 +191,7 @@ export const memberships = [
     description: "Most popular - consistent wellness with flexibility"
   },
   {
+    id: "core",
     name: "Core",
     price: 300,
     value: 1302,
