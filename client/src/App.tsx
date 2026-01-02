@@ -22,6 +22,7 @@ import Contact from "./pages/Contact";
 import FirstTimeOffer from "./pages/FirstTimeOffer";
 import Quiz from "./pages/Quiz";
 import Memberships from "./pages/Memberships";
+import Pricing from "./pages/Pricing";
 
 
 function Router() {
@@ -43,6 +44,7 @@ function Router() {
       <Route path={"/faq"} component={FAQ} />
       <Route path={"quiz"} component={Quiz} />
       <Route path={"memberships"} component={Memberships} />
+      <Route path={"pricing"} component={Pricing} />
       <Route path={"contact"} component={Contact} />
       <Route path={"/first-time-offer"} component={FirstTimeOffer} />
       <Route path={"/404"} component={NotFound} />

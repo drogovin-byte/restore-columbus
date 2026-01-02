@@ -69,6 +69,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <Link href="/memberships" className={`transition-colors hover:text-primary ${location === '/memberships' ? 'text-primary font-bold' : 'text-muted-foreground'}`}>
               Memberships
             </Link>
+            <Link href="/pricing" className={`transition-colors hover:text-primary ${location === '/pricing' ? 'text-primary font-bold' : 'text-muted-foreground'}`}>
+              Pricing
+            </Link>
             <Link href="/locations" className={`transition-colors hover:text-primary ${location === '/locations' ? 'text-primary font-bold' : 'text-muted-foreground'}`}>
               Locations
             </Link>
@@ -102,6 +105,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               </Link>
               <Link href="/memberships" className="text-foreground hover:text-primary transition-colors">
                 Memberships
+              </Link>
+              <Link href="/pricing" className="text-foreground hover:text-primary transition-colors">
+                Pricing
               </Link>
               <Link href="/locations" className="text-foreground hover:text-primary transition-colors">
                 Locations
