@@ -179,21 +179,27 @@ export default function ServiceDetail() {
           {/* Right Column - Sidebar */}
           <div className="space-y-6">
             {/* Pricing Card */}
-            <Card className="border-none shadow-lg bg-card sticky top-24">
-              <CardHeader className="bg-primary text-white rounded-t-lg">
-                <CardTitle className="flex items-center gap-2">
+            <Card className="border-none shadow-lg bg-card sticky top-24 overflow-hidden">
+              <CardHeader className="bg-primary text-white p-0">
+                <CardTitle className="flex items-center gap-2 p-4">
                   <DollarSign className="w-5 h-5" />
                   Pricing
                 </CardTitle>
               </CardHeader>
-              <CardContent className="pt-6 space-y-6">
-                <div>
-                  <p className="text-sm text-muted-foreground mb-3 font-semibold">Pricing Options</p>
-                  <div className="space-y-2">
-                    {service.pricing.split(' | ').map((option, idx) => (
-                      <p key={idx} className="text-sm text-primary font-medium">{option}</p>
-                    ))}
-                  </div>
+              <CardContent className="p-6 space-y-6">
+                <div className="space-y-4">
+                  {service.pricing.split('||').map((tier, idx) => {
+                    const [dosage, member, retail] = tier.split('|').map(p => p.trim());
+                    return (
+                      <div key={idx} className="border-b border-border pb-3 last:border-b-0">
+                        <p className="text-sm font-semibold text-foreground mb-2">{dosage}</p>
+                        <div className="space-y-1">
+                          {member && <p className="text-xs text-muted-foreground"><span className="font-medium">Member:</span> {member}</p>}
+                          {retail && <p className="text-xs text-muted-foreground"><span className="font-medium">Retail:</span> {retail}</p>}
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
                 <Button asChild className="w-full bg-accent text-accent-foreground hover:bg-accent/90 font-bold h-12">
                   <a href="https://www.restore.com/book-now" target="_blank" rel="noopener noreferrer">Book Now</a>
