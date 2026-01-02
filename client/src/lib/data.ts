@@ -1,0 +1,801 @@
+import { Battery, Activity, AlertCircle, Moon, TrendingUp, Zap, Heart, Brain, Smile } from "lucide-react";
+
+export const locations = [
+  {
+    id: "easton",
+    name: "Restore Hyper Wellness - Easton",
+    address: "4158 Easton Gateway",
+    city: "Columbus",
+    state: "OH",
+    zip: "43219",
+    phone: "614-944-9041",
+    hours: "Mon-Fri: 10am-7pm | Sat: 9am-5pm | Sun: 11am-4pm",
+    mapUrl: "https://goo.gl/maps/easton",
+    image: "/images/hero-wellness-columbus.jpg",
+    averageRating: 4.9,
+    totalReviews: 652,
+    reviews: [
+      { author: "Sarah M.", rating: 5, text: "Amazing experience! The staff is incredibly knowledgeable and the cryotherapy session left me feeling energized. Highly recommend Restore!", date: "2 weeks ago" },
+      { author: "James T.", rating: 5, text: "Best recovery tool I've found. After my workouts, the compression therapy at Restore has made a huge difference in my performance.", date: "1 month ago" },
+      { author: "Maria L.", rating: 5, text: "The IV therapy gave me the energy boost I desperately needed. Professional, clean, and welcoming environment.", date: "3 weeks ago" },
+      { author: "David K.", rating: 4, text: "Great facility with knowledgeable staff. The red light therapy is fantastic. Will definitely be back.", date: "1 month ago" },
+      { author: "Jessica R.", rating: 5, text: "Restore has become part of my weekly routine. The whole team is supportive and the results speak for themselves!", date: "2 weeks ago" },
+      { author: "Michael P.", rating: 5, text: "Outstanding service. The cryotherapy and sauna combination has helped my recovery time significantly.", date: "3 weeks ago" }
+    ]
+  },
+  {
+    id: "dublin",
+    name: "Restore Hyper Wellness - Dublin",
+    address: "6780 Longshore St",
+    city: "Dublin",
+    state: "OH",
+    zip: "43017",
+    phone: "614-553-7207",
+    hours: "Mon-Fri: 10am-7pm | Sat: 9am-5pm | Sun: 11am-4pm",
+    mapUrl: "https://goo.gl/maps/dublin",
+    image: "/images/cryotherapy-session.jpg",
+    averageRating: 4.9,
+    totalReviews: 271,
+    reviews: [
+      { author: "Emily W.", rating: 5, text: "The Dublin location is fantastic! Clean, modern facility with staff that truly cares about your wellness journey.", date: "1 week ago" },
+      { author: "Robert G.", rating: 5, text: "I've tried multiple recovery methods, but nothing compares to Restore's combination of therapies. Worth every penny!", date: "2 weeks ago" },
+      { author: "Amanda C.", rating: 5, text: "The infrared sauna sessions have completely changed my sleep quality. Highly recommend to anyone in Dublin!", date: "3 days ago" },
+      { author: "Chris H.", rating: 5, text: "Professional, knowledgeable, and results-driven. This is the best wellness investment I've made.", date: "1 month ago" },
+      { author: "Lisa N.", rating: 4, text: "Great experience overall. The team is friendly and the facilities are top-notch. Minor wait times during peak hours.", date: "2 weeks ago" },
+      { author: "Tom B.", rating: 5, text: "Restore Dublin is my go-to for post-workout recovery. The compression therapy is incredible!", date: "1 week ago" }
+    ]
+  },
+  {
+    id: "upper-arlington",
+    name: "Restore Hyper Wellness - Upper Arlington",
+    address: "3094 Kingsdale Center",
+    city: "Upper Arlington",
+    state: "OH",
+    zip: "43221",
+    phone: "614-745-0966",
+    hours: "Mon-Fri: 10am-7pm | Sat: 9am-5pm | Sun: 11am-4pm",
+    mapUrl: "https://goo.gl/maps/ua",
+    image: "/images/iv-drip-lounge.jpg",
+    averageRating: 5.0,
+    totalReviews: 79,
+    reviews: [
+      { author: "Nicole S.", rating: 5, text: "Upper Arlington location is perfect for my schedule. The IV therapy sessions have boosted my energy levels significantly!", date: "1 week ago" },
+      { author: "Kevin M.", rating: 5, text: "Exceptional service and results. The staff goes above and beyond to make you feel welcome.", date: "2 weeks ago" },
+      { author: "Rachel T.", rating: 5, text: "Finally found a wellness center that delivers on its promises. Restore is a game-changer!", date: "3 days ago" },
+      { author: "Brandon L.", rating: 4, text: "Great facility with knowledgeable therapists. The cryotherapy is top-notch. Membership is worth it.", date: "1 month ago" },
+      { author: "Sophie K.", rating: 5, text: "The red light therapy and sauna combination has transformed my skin and energy. Highly recommended!", date: "2 weeks ago" },
+      { author: "Aaron J.", rating: 5, text: "Best investment in my health. The team at Upper Arlington is professional and results-focused.", date: "1 week ago" }
+    ]
+  }
+];
+
+// Problem-First Discovery Pages
+export const problemStates = [
+  {
+    id: "fatigue-burnout",
+    title: "Fatigue & Burnout",
+    description: "Combat chronic exhaustion and reclaim your energy",
+    icon: Battery,
+    problem: "You're running on empty. Whether it's work stress, poor sleep, or lifestyle demands, you're exhausted and struggling to keep up.",
+    solution: "Our energy-restoration therapies replenish cellular function and optimize your nervous system.",
+    recommendedServices: ["iv-drip", "nad-iv", "red-light", "infrared-sauna"],
+    image: "/images/hero-wellness-columbus.jpg"
+  },
+  {
+    id: "athletic-recovery",
+    title: "Athletic Recovery",
+    description: "Recover faster and perform at your peak",
+    icon: Activity,
+    problem: "You train hard but recover slow. Soreness, inflammation, and fatigue are limiting your performance and progress.",
+    solution: "Our recovery-focused therapies reduce inflammation, accelerate muscle repair, and optimize your training window.",
+    recommendedServices: ["cryotherapy", "compression", "infrared-sauna", "mhbot"],
+    image: "/images/cryotherapy-session.jpg"
+  },
+  {
+    id: "pain-inflammation",
+    title: "Pain & Inflammation",
+    description: "Reduce chronic pain without relying on medications",
+    icon: AlertCircle,
+    problem: "Chronic pain or inflammation is affecting your quality of life. You want relief that doesn't come from a pill bottle.",
+    solution: "Our anti-inflammatory therapies target the root cause of pain and promote natural healing.",
+    recommendedServices: ["cryotherapy", "red-light", "infrared-sauna", "iv-drip"],
+    image: "/images/red-light-official.webp"
+  },
+  {
+    id: "stress-sleep",
+    title: "Stress & Sleep",
+    description: "Reduce stress and sleep deeper",
+    icon: Moon,
+    problem: "You're stressed, anxious, and your sleep quality is suffering. You wake up exhausted and the cycle continues.",
+    solution: "Our nervous system-balancing therapies reduce cortisol, promote relaxation, and improve sleep architecture.",
+    recommendedServices: ["infrared-sauna", "red-light", "cryotherapy", "nad-iv"],
+    image: "/images/sauna-official.jpg"
+  },
+  {
+    id: "mens-health",
+    title: "Men's Health & Optimization",
+    description: "Optimize testosterone, strength, and vitality",
+    icon: TrendingUp,
+    problem: "Your energy, libido, and muscle mass are declining. You want to optimize your hormones and feel like yourself again.",
+    solution: "Our men's health protocols include TRT, performance optimization, and recovery-focused therapies.",
+    recommendedServices: ["trt", "nad-iv", "cryotherapy", "compression"],
+    image: "/images/iv-drip-lounge.jpg"
+  },
+  {
+    id: "womens-wellness",
+    title: "Women's Wellness & Vitality",
+    description: "Optimize hormones, energy, and radiance",
+    icon: Heart,
+    problem: "Hormonal imbalances, low energy, and aging concerns are affecting your confidence and quality of life. You want to feel vibrant and like yourself again.",
+    solution: "Our women's wellness protocols optimize hormonal balance, enhance energy, and support skin health and longevity.",
+    recommendedServices: ["nad-iv", "red-light", "infrared-sauna", "iv-drip"],
+    image: "/images/red-light-official.webp"
+  }
+];
+
+export const memberships = [
+  {
+    name: "Level Up",
+    price: 170,
+    value: 336,
+    savings: 166,
+    credits: 8,
+    perTherapy: 21.25,
+    benefits: [
+      "8 monthly credits for Core Therapies",
+      "1 Credit = 1 Core Therapy (Cryo, Sauna, Compression, Red Light, IV)",
+      "4 Credits = IV Drip with 2 Signature Nutrients",
+      "30% off Specialty Services",
+      "Access to Members-Only events",
+      "Use credits at any Restore location nationwide",
+      "Book anytime, Pause anytime"
+    ],
+    isPopular: false,
+    features: [
+      "8 monthly credits",
+      "Core Therapy access",
+      "IV Drip redemption",
+      "30% Specialty discount",
+      "Members-Only events",
+      "Nationwide access"
+    ],
+    description: "Perfect for getting started with consistent wellness"
+  },
+  {
+    name: "Elevate",
+    price: 260,
+    value: 588,
+    savings: 328,
+    credits: 14,
+    perTherapy: 18.57,
+    benefits: [
+      "14 monthly credits for Core Therapies",
+      "1 Credit = 1 Core Therapy (Cryo, Sauna, Compression, Red Light, IV)",
+      "4 Credits = IV Drip with 2 Signature Nutrients",
+      "30% off Specialty Services",
+      "Access to Members-Only events",
+      "Use credits at any Restore location nationwide",
+      "Book anytime, Pause anytime"
+    ],
+    isPopular: true,
+    features: [
+      "14 monthly credits",
+      "Core Therapy access",
+      "IV Drip redemption",
+      "30% Specialty discount",
+      "Members-Only events",
+      "Nationwide access"
+    ],
+    description: "Most popular - consistent wellness with flexibility"
+  },
+  {
+    name: "Core",
+    price: 300,
+    value: 1302,
+    savings: 1002,
+    credits: 31,
+    perTherapy: 9.68,
+    benefits: [
+      "31 monthly credits for Core Therapies",
+      "1 Credit = 1 Core Therapy (Cryo, Sauna, Compression, Red Light, IV)",
+      "Unlimited access to core modalities",
+      "30% off Specialty Services",
+      "Access to Members-Only events",
+      "Use credits at any Restore location nationwide",
+      "Book anytime, Pause anytime",
+      "Priority booking"
+    ],
+    isPopular: false,
+    features: [
+      "31 monthly credits",
+      "Unlimited Core Therapy",
+      "30% Specialty discount",
+      "Members-Only events",
+      "Nationwide access",
+      "Priority booking"
+    ],
+    description: "Maximum benefits for serious wellness enthusiasts"
+  }
+];
+
+// Services with UNIQUE images - NO DUPLICATES
+export const services = [
+  // Core Therapies
+  {
+    id: "cryotherapy",
+    title: "Cryotherapy",
+    shortDesc: "Submerge your body in sub-zero temps for 3 minutes to boost mood and reduce inflammation.",
+    fullDesc: "Whole-body cryotherapy exposes your body to extreme cold (between -200°F and -300°F) for 2-3 minutes. This triggers a powerful healing response throughout your body.",
+    whatToExpect: "You'll enter a specialized chamber wearing protective gear. The experience is invigorating, not painful. Most people feel energized immediately after.",
+    benefits: ["Reduce inflammation and pain", "Boost mood and energy", "Speed athletic recovery", "Improve sleep quality", "Enhance immune function"],
+    whoItsFor: ["Athletes and weekend warriors", "People with chronic pain", "Anyone recovering from injury", "Those seeking mood and energy boost"],
+    whoItsNotFor: ["Pregnant women", "People with severe hypertension", "Those with cold sensitivity"],
+    pricing: "1 Credit per session | Included in memberships",
+    icon: Zap,
+    image: "/images/service_07_Woman_wearing_protective_robe,.webp",
+    category: "Recovery",
+    faqs: [
+      {
+        q: "Is it painful?",
+        a: "No. The extreme cold is invigorating, not painful. Your body adapts quickly. Most people feel energized and refreshed."
+      },
+      {
+        q: "How often should I do this?",
+        a: "2-3 times per week for athletic recovery. 1-2 times per week for general wellness. Consistency matters more than frequency."
+      },
+      {
+        q: "What should I wear?",
+        a: "We provide protective gear (gloves, socks, headband). You wear minimal clothing inside the chamber."
+      },
+      {
+        q: "When will I see results?",
+        a: "Immediate: mood boost, energy increase. Short-term (1-2 weeks): reduced inflammation. Long-term (4+ weeks): improved recovery and sleep."
+      }
+    ]
+  },
+  {
+    id: "infrared-sauna",
+    title: "Infrared Sauna",
+    shortDesc: "30-45 minute detox session that increases core body temperature for deep healing.",
+    fullDesc: "Infrared sauna uses light waves to penetrate skin and increase core body temperature. Unlike traditional saunas, infrared saunas operate at lower temperatures (120-150°F) but deliver deeper therapeutic benefits.",
+    whatToExpect: "You'll sit in a private sauna pod for 30-45 minutes. The experience is deeply relaxing. You'll sweat profusely and feel rejuvenated afterward.",
+    benefits: ["Deep detoxification", "Improve cardiovascular health", "Reduce muscle soreness", "Boost immune function", "Promote relaxation and sleep", "Support skin health"],
+    whoItsFor: ["Anyone seeking detox", "People with muscle soreness", "Those with stress or anxiety", "Anyone wanting better sleep", "Athletes in recovery"],
+    whoItsNotFor: ["Pregnant women", "People with fever or acute illness", "Those with certain heart conditions"],
+    pricing: "1 Credit per session | Included in memberships",
+    icon: Heart,
+    image: "/images/service_09_Woman_relaxing_in_an_infrared_.webp",
+    category: "Wellness",
+    faqs: [
+      {
+        q: "How much will I sweat?",
+        a: "Significantly more than traditional saunas. This is normal and beneficial. Bring a towel and stay hydrated."
+      },
+      {
+        q: "Is it safe?",
+        a: "Yes. Infrared saunas are very safe. We monitor temperature and provide emergency call buttons. Tell us about any health conditions."
+      },
+      {
+        q: "How often should I use it?",
+        a: "2-4 times per week for optimal detox benefits. Even once per week provides significant wellness benefits."
+      },
+      {
+        q: "What's the difference from a regular sauna?",
+        a: "Infrared penetrates deeper into tissue, operates at lower temps, and provides superior detox and recovery benefits."
+      }
+    ]
+  },
+  {
+    id: "red-light",
+    title: "Red Light Therapy",
+    shortDesc: "15-20 minute light therapy session that boosts cellular energy and promotes healing.",
+    fullDesc: "Red light therapy uses specific wavelengths of red and near-infrared light to stimulate mitochondrial function and ATP production at the cellular level.",
+    whatToExpect: "You'll stand in front of a red light panel for 15-20 minutes. The experience is passive and relaxing. No heat, no discomfort.",
+    benefits: ["Boost cellular energy (ATP)", "Reduce inflammation", "Improve skin health and collagen", "Enhance athletic recovery", "Support cognitive function", "Promote wound healing"],
+    whoItsFor: ["Athletes seeking recovery", "Anyone with inflammation", "People wanting skin rejuvenation", "Those seeking cognitive boost", "Anyone with joint pain"],
+    whoItsNotFor: ["People taking light-sensitive medications", "Those with certain eye conditions"],
+    pricing: "1 Credit per session | Included in memberships",
+    icon: Zap,
+    image: "/images/service_08_Woman_with_her_hands_above_her.webp",
+    category: "Wellness",
+    faqs: [
+      {
+        q: "Will it burn my skin?",
+        a: "No. Red light therapy is safe and non-invasive. There's no heat or UV radiation. Completely safe for all skin types."
+      },
+      {
+        q: "How often should I do this?",
+        a: "3-5 times per week for athletic recovery. 2-3 times per week for general wellness and skin health."
+      },
+      {
+        q: "When will I see skin results?",
+        a: "Immediate glow after first session. Collagen production takes 4-6 weeks. Cumulative results improve over time."
+      },
+      {
+        q: "Can I combine with other therapies?",
+        a: "Absolutely. Red light pairs well with cryotherapy, sauna, and IV therapy for comprehensive wellness."
+      }
+    ]
+  },
+  {
+    id: "compression",
+    title: "Compression Therapy",
+    shortDesc: "30-minute compression session that flushes metabolic waste and accelerates recovery.",
+    fullDesc: "Compression therapy uses sequential air pressure to move blood and lymphatic fluid through your limbs, flushing metabolic waste and accelerating recovery.",
+    whatToExpect: "You'll wear compression sleeves or boots. Air chambers inflate and deflate sequentially for 30 minutes. The sensation is like a massage. Very relaxing.",
+    benefits: ["Accelerate athletic recovery", "Reduce muscle soreness", "Improve circulation", "Flush metabolic waste", "Reduce swelling", "Enhance performance"],
+    whoItsFor: ["Athletes and active people", "Anyone with muscle soreness", "People with poor circulation", "Those recovering from injury", "Weekend warriors"],
+    whoItsNotFor: ["People with blood clots", "Those with severe edema", "Pregnant women"],
+    pricing: "1 Credit per session | Included in memberships",
+    icon: Heart,
+    image: "/images/service_10_A_man_wearing_Normatec_compres.webp",
+    category: "Recovery",
+    faqs: [
+      {
+        q: "Is it uncomfortable?",
+        a: "No. Most people find it very relaxing. The sensation is like a gentle massage. You can read or relax during the session."
+      },
+      {
+        q: "How often should I use it?",
+        a: "2-3 times per week after intense training. Once per week for general recovery and circulation benefits."
+      },
+      {
+        q: "When will I feel better?",
+        a: "Immediately after. You'll feel less sore and more mobile. Cumulative benefits improve with consistent use."
+      },
+      {
+        q: "Can I use it before or after workouts?",
+        a: "Both. Use after workouts for recovery. Use before for circulation and performance enhancement."
+      }
+    ]
+  },
+  {
+    id: "iv-drip",
+    title: "IV Therapy",
+    shortDesc: "30-45 minute IV infusion delivering nutrients directly to your bloodstream.",
+    fullDesc: "IV therapy delivers vitamins, minerals, and amino acids directly into your bloodstream, bypassing the digestive system for 100% absorption and immediate results.",
+    whatToExpect: "A nurse will insert an IV catheter (quick, minimal discomfort). You'll relax in a comfortable chair for 30-45 minutes while nutrients infuse. Most people feel energized immediately.",
+    benefits: ["100% nutrient absorption", "Immediate energy boost", "Enhanced immune function", "Improved hydration", "Faster recovery", "Better cognitive function"],
+    whoItsFor: ["Anyone seeking energy boost", "Athletes in recovery", "People with nutrient deficiencies", "Those fighting illness", "Anyone wanting optimization"],
+    whoItsNotFor: ["People with certain kidney conditions", "Those with needle phobia (though we can help)"],
+    pricing: "4 Credits per IV Drip (with 2 Signature Nutrients) | Included in memberships",
+    icon: Heart,
+    image: "/images/service_11_Young_couple_relaxing_while_en.webp",
+    category: "Optimization",
+    faqs: [
+      {
+        q: "Does the IV hurt?",
+        a: "Minimal discomfort. Our nurses are experts. Most people say it's less uncomfortable than they expected."
+      },
+      {
+        q: "What's in the IV?",
+        a: "We offer signature blends (Energy, Immunity, Recovery) plus custom formulations. All ingredients are pharmaceutical-grade."
+      },
+      {
+        q: "When will I feel results?",
+        a: "Many people feel results within 30 minutes. Energy boost, mental clarity, and hydration improvements are common."
+      },
+      {
+        q: "How often can I get IV therapy?",
+        a: "Weekly is common for athletes. Monthly is standard for general wellness. We'll customize based on your goals."
+      }
+    ]
+  },
+  {
+    id: "nad-iv",
+    title: "NAD+ IV Therapy",
+    shortDesc: "Advanced cellular rejuvenation therapy that restores cellular energy and supports longevity.",
+    fullDesc: "NAD+ (Nicotinamide Adenine Dinucleotide) is a coenzyme that declines with age. NAD+ IV therapy restores this critical molecule, supporting cellular energy, DNA repair, and longevity.",
+    whatToExpect: "Similar to standard IV therapy but with a longer infusion time (60-90 minutes). You'll feel deeply relaxed. Many people report profound energy and mental clarity afterward.",
+    benefits: ["Restore cellular energy", "Support DNA repair", "Enhance cognitive function", "Improve athletic performance", "Support addiction recovery", "Promote longevity"],
+    whoItsFor: ["Anyone over 40", "Athletes seeking performance", "People with cognitive concerns", "Those seeking longevity", "Anyone in recovery"],
+    whoItsNotFor: ["Pregnant women", "People with certain medical conditions"],
+    pricing: "Premium service | Not included in memberships | Pay-per-session pricing",
+    icon: Brain,
+    image: "/images/service_12_Smiling_woman_receiving_a_NAD+.webp",
+    category: "Longevity",
+    faqs: [
+      {
+        q: "Is NAD+ therapy worth it?",
+        a: "Yes, if you're serious about longevity and performance. Results compound over time. Most people do 4-6 sessions to assess benefits."
+      },
+      {
+        q: "How long does it take?",
+        a: "60-90 minutes per session. Longer than standard IV therapy but the benefits justify the time investment."
+      },
+      {
+        q: "When will I feel results?",
+        a: "Some people feel results during the infusion. Most notice significant energy and clarity within 24-48 hours."
+      },
+      {
+        q: "How often should I do this?",
+        a: "Weekly for intensive protocols. Monthly for maintenance. We'll recommend based on your goals and budget."
+      }
+    ]
+  },
+  {
+    id: "niagen-nr-iv",
+    title: "Niagen (NR) IV Drips",
+    shortDesc: "Superior NAD+ precursor therapy with 75% faster infusion and fewer side effects than traditional NAD+.",
+    fullDesc: "Niagen (NR) is a pharmaceutical-grade precursor to NAD+ that provides superior cellular energy and longevity benefits. Unlike traditional NAD+ therapy, Niagen (NR) is naturally present in the body, resulting in faster infusion times (30-45 minutes), fewer adverse effects, and more efficient NAD+ production at the cellular level.",
+    whatToExpect: "A nurse will insert an IV catheter and take your vital signs. You'll relax in a comfortable chair for 30-45 minutes while the Niagen (NR) infuses. Many people enjoy reading, working, or listening to podcasts. After your session, you can enjoy a complimentary cleansing IV infusion to support recovery and immunity.",
+    benefits: ["Improved cellular and metabolic health", "Enhanced cellular energy to combat fatigue", "Reduced oxidative stress for faster recovery", "Decreased inflammation for healthier aging", "Boosted cognitive function", "75% faster than traditional NAD+ therapy"],
+    whoItsFor: ["Anyone seeking NAD+ benefits", "People wanting faster infusion times", "Those sensitive to NAD+ side effects", "Athletes seeking recovery", "Anyone over 40 seeking longevity"],
+    whoItsNotFor: ["Pregnant women", "People with certain medical conditions"],
+    pricing: "Premium service | Not included in memberships | Pay-per-session pricing",
+    icon: Zap,
+    image: "/images/service_12_Smiling_woman_receiving_a_NAD+.webp",
+    category: "Longevity",
+    faqs: [
+      {
+        q: "How is Niagen (NR) different from NAD+?",
+        a: "Niagen (NR) is a natural precursor to NAD+ that converts naturally in your cells. It provides 20% higher NAD+ levels at the 3-hour mark compared to baseline, with fewer adverse effects like headaches and nausea. The infusion is also 75% faster (30-45 minutes vs 60-90 minutes)."
+      },
+      {
+        q: "Is Niagen (NR) safe?",
+        a: "Yes. Niagen is a pharmaceutical-grade, patented form of nicotinamide riboside (NR). It's naturally present in foods and the body, making it well-tolerated with minimal side effects. All infusions are administered by licensed nurses."
+      },
+      {
+        q: "What are the benefits of Niagen (NR)?",
+        a: "Benefits include improved cellular energy, enhanced metabolism, reduced oxidative stress, decreased inflammation, boosted cognitive function, and support for athletic recovery and longevity. Results typically compound over multiple sessions."
+      },
+      {
+        q: "How often should I do Niagen (NR) therapy?",
+        a: "We recommend up to 4,000mg within 28 days for optimal results. This could be 1-4 sessions depending on your goals. Many clients do weekly sessions initially, then transition to monthly maintenance."
+      },
+      {
+        q: "When will I feel results?",
+        a: "Some people feel increased energy and mental clarity during or immediately after the infusion. Most notice significant improvements in energy, focus, and recovery within 24-48 hours. Benefits compound with consistent sessions."
+      }
+    ]
+  },
+  {
+    id: "trt",
+    title: "Testosterone Replacement Therapy (TRT)",
+    shortDesc: "Medically-supervised hormone optimization for men seeking vitality and performance.",
+    fullDesc: "TRT is a medically-supervised treatment that restores testosterone to optimal levels for men with deficiency. Our doctors customize protocols based on individual labs and goals.",
+    whatToExpect: "Initial consultation with labs. Weekly or bi-weekly injections (self-administered at home). Regular monitoring and adjustments. Comprehensive support throughout.",
+    benefits: ["Restore energy and vitality", "Improve muscle mass and strength", "Enhance libido and sexual function", "Improve mood and confidence", "Support cognitive function", "Increase athletic performance"],
+    whoItsFor: ["Men with low testosterone", "Men over 40 seeking optimization", "Those with fatigue or low libido", "Athletes seeking performance", "Men wanting vitality"],
+    whoItsNotFor: ["Men with prostate cancer", "Those with certain heart conditions", "Men not willing to commit to monitoring"],
+    pricing: "Consultation + labs required | Ongoing monthly cost | Membership credits don't apply",
+    icon: TrendingUp,
+    image: "/images/service_13_A_man_receiving_an_intramuscul.webp",
+    category: "Men's Health",
+    faqs: [
+      {
+        q: "Is TRT safe?",
+        a: "Yes, when medically supervised. We monitor labs regularly and adjust dosages. Our doctors have extensive TRT experience."
+      },
+      {
+        q: "Will I need injections forever?",
+        a: "Most likely. TRT is typically a long-term commitment. We'll discuss all options during consultation."
+      },
+      {
+        q: "How long until I feel results?",
+        a: "Energy and mood: 2-4 weeks. Muscle and strength: 8-12 weeks. Sexual function: 4-8 weeks. Results compound over time."
+      },
+      {
+        q: "What about side effects?",
+        a: "Minimal when properly dosed and monitored. We screen for and manage any potential issues proactively."
+      }
+    ]
+  },
+  {
+    id: "im-shots",
+    title: "IM Shots (Intramuscular Injections)",
+    shortDesc: "Quick nutrient injections for targeted wellness benefits.",
+    fullDesc: "IM shots deliver concentrated nutrients directly into muscle tissue for rapid absorption and targeted benefits. Popular options include B12, Vitamin D, Glutathione, and more.",
+    whatToExpect: "Quick injection (30 seconds). Minimal discomfort. Immediate absorption. You're done in minutes.",
+    benefits: ["Rapid nutrient delivery", "Energy boost (B12)", "Immune support (Vitamin D)", "Detoxification (Glutathione)", "Quick and convenient", "Affordable"],
+    whoItsFor: ["Anyone seeking quick boost", "People with B12 deficiency", "Those wanting immune support", "Athletes seeking recovery", "Busy professionals"],
+    whoItsNotFor: ["People with needle phobia", "Those with certain allergies"],
+    pricing: "Starting at $30 per shot | Included in memberships",
+    icon: Zap,
+    image: "/images/service_14_NAD+_IM_Shot_vials.webp",
+    category: "Optimization",
+    faqs: [
+      {
+        q: "Which shot should I get?",
+        a: "B12 for energy, Vitamin D for immunity, Glutathione for detox. We'll recommend based on your goals."
+      },
+      {
+        q: "How often can I get shots?",
+        a: "Weekly is common for B12. Monthly for others. We'll customize based on your needs."
+      },
+      {
+        q: "When will I feel results?",
+        a: "B12: within hours to days. Others: 24-48 hours. Results compound with regular use."
+      },
+      {
+        q: "Are they safe?",
+        a: "Yes. All ingredients are pharmaceutical-grade. Minimal side effects when administered by trained professionals."
+      }
+    ]
+  },
+  // Skin Health Services
+  {
+    id: "hydrafacial",
+    title: "HydraFacial",
+    shortDesc: "Advanced hydrating facial that removes impurities and infuses serums for glowing skin.",
+    fullDesc: "HydraFacial uses patented vortex-fusion technology to cleanse, extract, and hydrate skin with customized serums. Results are visible immediately.",
+    whatToExpect: "30-45 minute facial. Gentle suction sensation. Skin feels incredibly smooth and hydrated. No downtime.",
+    benefits: ["Remove clogged pores", "Reduce wrinkles and fine lines", "Improve skin firmness", "Hydrate deeply", "Brighten complexion", "Reduce hyperpigmentation"],
+    whoItsFor: ["Anyone with dull skin", "People with clogged pores", "Those with fine lines", "Anyone seeking glow", "All skin types"],
+    whoItsNotFor: ["Those with active acne", "People with severe rosacea"],
+    pricing: "Starting at $150 per treatment | 30% off with membership",
+    icon: Smile,
+    image: "/images/service_17_Relaxed_woman_receiving_a_Hydr.webp",
+    category: "Skin Health",
+    faqs: [
+      {
+        q: "Is it painful?",
+        a: "No. Most people find it relaxing. The sensation is like a gentle massage with light suction."
+      },
+      {
+        q: "When will I see results?",
+        a: "Immediately. Skin looks brighter and feels smoother right after. Cumulative results improve with regular treatments."
+      },
+      {
+        q: "How often should I get this?",
+        a: "Monthly is ideal for best results. Every 4-6 weeks for maintenance."
+      },
+      {
+        q: "Can I wear makeup after?",
+        a: "Yes. No downtime. You can go back to work or social plans immediately."
+      }
+    ]
+  },
+  {
+    id: "neveskin",
+    title: "Neveskin Facial",
+    shortDesc: "Advanced radiofrequency facial that tightens and rejuvenates skin.",
+    fullDesc: "Neveskin uses radiofrequency technology to stimulate collagen production, tighten skin, and reduce signs of aging.",
+    whatToExpect: "30-45 minute facial. Warm sensation. Skin feels tighter and looks more youthful immediately.",
+    benefits: ["Reduce signs of aging", "Tighten and firm skin", "Increase blood flow", "Stimulate collagen", "Improve skin texture", "Non-invasive alternative to surgery"],
+    whoItsFor: ["Anyone over 30", "People seeking anti-aging", "Those with loose skin", "Anyone wanting natural lift", "People avoiding surgery"],
+    whoItsNotFor: ["Pregnant women", "Those with certain implants"],
+    pricing: "Starting at $200 per treatment | 30% off with membership",
+    icon: Smile,
+    image: "/images/service_18_Woman_receiving_Neveskin™_Faci.webp",
+    category: "Skin Health",
+    faqs: [
+      {
+        q: "Is it painful?",
+        a: "No. Warm sensation but not painful. Most people find it relaxing."
+      },
+      {
+        q: "When will I see results?",
+        a: "Immediate tightening. Collagen production takes 4-6 weeks. Best results after 3-6 treatments."
+      },
+      {
+        q: "How often should I get this?",
+        a: "Monthly for best results. Every 6-8 weeks for maintenance."
+      },
+      {
+        q: "Is this like a facelift?",
+        a: "It's a non-invasive alternative. Results are subtle but significant over time. No surgery, no downtime."
+      }
+    ]
+  },
+  {
+    id: "neveskin-shape",
+    title: "Neveskin Shape",
+    shortDesc: "Body contouring treatment that reduces dimpling and improves skin texture.",
+    fullDesc: "Neveskin Shape uses advanced radiofrequency to target cellulite and body dimpling, improving skin texture and appearance.",
+    whatToExpect: "30-45 minute treatment. Warm sensation. Skin looks smoother immediately.",
+    benefits: ["Reduce cellulite appearance", "Improve skin texture", "Tighten loose skin", "Enhance body contours", "Non-invasive body sculpting"],
+    whoItsFor: ["Anyone with cellulite", "People seeking body contouring", "Those wanting skin tightening", "Anyone avoiding surgery"],
+    whoItsNotFor: ["Pregnant women", "Those with certain implants"],
+    pricing: "Starting at $250 per treatment | 30% off with membership",
+    icon: Smile,
+    image: "/images/service_19_Woman_receiving_Neveskin™_Shap.webp",
+    category: "Skin Health",
+    faqs: [
+      {
+        q: "Will this eliminate cellulite?",
+        a: "It significantly reduces appearance. Most people see 50-70% improvement with consistent treatments."
+      },
+      {
+        q: "How many treatments do I need?",
+        a: "6-8 treatments recommended for best results. Maintenance treatments every 6-8 weeks."
+      },
+      {
+        q: "Is there downtime?",
+        a: "No. You can resume normal activities immediately."
+      },
+      {
+        q: "Can I combine with other treatments?",
+        a: "Yes. Many people combine with Neveskin Facial for comprehensive body and face rejuvenation."
+      }
+    ]
+  },
+  {
+    id: "neveskin-tone",
+    title: "Neveskin Tone",
+    shortDesc: "Advanced body toning treatment for enhanced muscle definition and skin tightness.",
+    fullDesc: "Neveskin Tone uses radiofrequency to enhance muscle tone, improve skin texture, and create a more sculpted appearance.",
+    whatToExpect: "30-45 minute treatment. Warm sensation. Skin looks tighter and more toned.",
+    benefits: ["Enhance muscle tone", "Improve skin texture", "Create sculpted appearance", "Tighten loose skin", "Non-invasive body sculpting"],
+    whoItsFor: ["Athletes seeking definition", "People wanting body sculpting", "Those seeking skin tightening", "Anyone avoiding surgery"],
+    whoItsNotFor: ["Pregnant women", "Those with certain implants"],
+    pricing: "Starting at $250 per treatment | 30% off with membership",
+    icon: Smile,
+    image: "/images/service_20_Person_receiving_Neveskin™_Ton.webp",
+    category: "Skin Health",
+    faqs: [
+      {
+        q: "Will this build muscle?",
+        a: "It enhances existing muscle tone and appearance. Best results when combined with strength training."
+      },
+      {
+        q: "How many treatments do I need?",
+        a: "6-8 treatments for best results. Maintenance every 6-8 weeks."
+      },
+      {
+        q: "When will I see results?",
+        a: "Immediate tightening. Muscle enhancement visible after 3-4 treatments."
+      },
+      {
+        q: "Can I do this before events?",
+        a: "Yes. Schedule 1-2 weeks before for best appearance."
+      }
+    ]
+  },
+  {
+    id: "mild-hyperbaric-oxygen",
+    title: "Mild Hyperbaric Oxygen Therapy",
+    shortDesc: "60-90 minute therapy session to support wound healing, inflammation, immunity and sleep.",
+    fullDesc: "Mild Hyperbaric Oxygen Therapy (mHBOT) is a modern medical therapy that helps enhance total well-being. It's ideal for individuals looking to speed up recovery, enhance cognitive function and reduce inflammation.",
+    whatToExpect: "A relaxing, non-invasive session where you breathe enhanced oxygen in a pressurized chamber. You can sit up and work or lie down and relax. Most clients report feeling more relaxed and rested immediately after.",
+    benefits: ["Optimized sleep", "Repaired muscles", "Increased cognitive clarity", "Decreased athletic recovery time", "Increased energy"],
+    whoItsFor: ["Athletes seeking faster recovery", "People with sleep issues", "Those recovering from injury or illness", "Anyone wanting cognitive enhancement", "Individuals seeking improved immunity"],
+    whoItsNotFor: ["People with uncontrolled fever", "Those with severe claustrophobia", "Certain respiratory conditions"],
+    pricing: "Premium Service | 30% member discount available",
+    icon: Heart,
+    image: "/images/service_hyperbaric.jpg",
+    category: "Recovery & Wellness",
+    faqs: [
+      {
+        q: "How long do the effects last?",
+        a: "Results vary by individual. Many clients report immediate benefits like relaxation and improved sleep. For optimal long-term results, we recommend 20-40 maintenance sessions."
+      },
+      {
+        q: "How will I feel during the session?",
+        a: "Most clients find it relaxing and comfortable. You may feel slight ear popping during pressurization, similar to an airplane. You can work, read, or rest."
+      },
+      {
+        q: "What should I do to prepare?",
+        a: "Arrive early to complete a medical waiver. You'll have your vitals checked and a TeleMed consultation with a medical professional. Wear comfortable clothing and avoid caffeine."
+      },
+      {
+        q: "How often should I use it?",
+        a: "We recommend 1-2 sessions daily with at least 4 hours between sessions. A minimum of 10 sessions is recommended to achieve results."
+      }
+    ]
+  }
+];
+
+// Comparison Content
+export const comparisons = [
+  {
+    id: "cryo-vs-coldplunge",
+    slug: "cryo-vs-coldplunge",
+    title: "Cryotherapy vs Cold Plunge",
+    description: "Which cold therapy is right for you?",
+    excerpt: "Which cold therapy is right for you?",
+    comparison: {
+      cryotherapy: {
+        pros: ["Extreme cold (-200°F to -300°F)", "Rapid results (2-3 min)", "No water immersion", "Whole body exposure", "Professional equipment"],
+        cons: ["More expensive", "Requires facility visit", "Intense sensation"]
+      },
+      coldplunge: {
+        pros: ["Can do at home", "Lower cost", "Familiar sensation", "Customizable temperature"],
+        cons: ["Slower results", "Water immersion", "Requires discipline", "Less extreme cold"]
+      }
+    },
+    recommendation: "For fastest results and athletic recovery, cryotherapy wins. For home convenience, cold plunges are effective but require consistency.",
+    image: "/images/service_07_Woman_wearing_protective_robe,.webp",
+    fullContent: "At Restore Hyper Wellness, we offer whole-body cryotherapy—a cutting-edge recovery technology that exposes your body to extreme cold (-200°F to -300°F) for just 2-3 minutes. This isn't your typical ice bath. Our cryotherapy chamber uses nitrogen vapor to rapidly cool your skin, triggering a cascade of physiological responses that accelerate recovery and reduce inflammation.\n\nWhen you step into our cryotherapy chamber, your body enters a state of controlled cold stress. Blood vessels constrict, pushing blood away from your extremities toward your core organs. Once you exit, vasodilation occurs—blood rushes back to your muscles, delivering oxygen and nutrients at an accelerated rate. This process reduces inflammation, decreases muscle soreness (DOMS), and speeds up recovery by 30-50% compared to passive rest.\n\nAthletes love cryotherapy because it works fast. A 3-minute session can reduce inflammation and soreness for 24-48 hours. You can do it between workouts, on rest days, or even before competition to reduce injury risk. The whole-body exposure means every muscle group benefits simultaneously.\n\nCold plunges, while effective, require you to immerse your entire body in ice-cold water (typically 50-60°F) for 5-15 minutes. The experience is intense and takes discipline to maintain regularly. You get similar benefits—reduced inflammation, improved circulation, enhanced recovery—but it takes longer and requires more mental toughness.\n\nThe key difference? Intensity and efficiency. Cryotherapy delivers extreme cold in minimal time, making it perfect for busy athletes and professionals. Cold plunges are more accessible for home use but require consistency and tolerance for prolonged cold exposure.\n\nAt Restore, our cryotherapy is administered by trained professionals in a controlled environment. You get the science-backed benefits without the hassle of maintaining an ice bath at home. Whether you're recovering from intense workouts, managing chronic inflammation, or optimizing athletic performance, our cryotherapy chamber delivers results fast."
+  },
+  {
+    id: "iv-vs-supplements",
+    slug: "iv-vs-supplements",
+    title: "IV Therapy vs Oral Supplements",
+    description: "Why IV therapy is 5-10x more effective",
+    excerpt: "Why IV therapy is 5-10x more effective",
+    comparison: {
+      iv: {
+        pros: ["100% absorption", "Immediate results", "Bypass digestive issues", "Customizable formulas", "Professional administration"],
+        cons: ["More expensive", "Requires facility visit", "Needle insertion"]
+      },
+      oral: {
+        pros: ["Convenient", "Lower cost", "No needles", "Easy to do at home"],
+        cons: ["Only 10-20% absorption", "Slow results", "Digestive issues", "Less effective"]
+      }
+    },
+    recommendation: "For rapid results and maximum absorption, IV therapy is superior. Oral supplements work but are less effective.",
+    image: "/images/service_11_Young_couple_relaxing_while_en.webp",
+    fullContent: "Here's the fundamental problem with oral supplements: your digestive system is a filter, not a delivery system. When you swallow a vitamin, mineral, or nutrient, it travels through your stomach and intestines where it's broken down and absorbed. But your body can only absorb 10-20% of what you consume. The rest is either metabolized inefficiently or eliminated as waste. IV therapy bypasses this entire process. At Restore Hyper Wellness, we deliver vitamins, minerals, amino acids, and specialized compounds directly into your bloodstream through intravenous infusion. This means 100% bioavailability. The science is compelling. A study published in the Journal of Alternative and Complementary Medicine found that IV nutrient therapy delivers 10-25 times higher concentrations of nutrients to tissues compared to oral supplementation. For energy, immune support, athletic recovery, and anti-aging benefits, this difference is transformative. Our IV therapy programs at Restore include customizable formulas designed for your specific goals. Whether you need an energy boost with high-dose vitamin C and B-complex vitamins, athletic recovery with amino acids and electrolytes, immune support with zinc and glutathione, or anti-aging with NAD+ and antioxidants, we can create the perfect infusion for you. Results are immediate. Many clients report feeling more energized, focused, and recovered within 30 minutes of completing their IV therapy session. Oral supplements take days or weeks to build up in your system. Oral supplements still have a place for daily maintenance and preventative health. But if you're serious about rapid recovery, peak performance, or addressing specific health challenges, IV therapy at Restore delivers results that oral supplements cannot match. You're ensuring your body actually uses the nutrients."
+  },
+  {
+    id: "redlight-vs-sauna",
+    slug: "redlight-vs-sauna",
+    title: "Red Light Therapy vs Infrared Sauna",
+    description: "Both are powerful - here's the difference",
+    excerpt: "Both are powerful - here's the difference",
+    comparison: {
+      redlight: {
+        pros: ["Cellular energy boost", "Targeted treatment", "Quick sessions (15-20 min)", "No sweating", "Skin benefits"],
+        cons: ["Less detoxification", "Shorter sessions"]
+      },
+      sauna: {
+        pros: ["Deep detoxification", "Longer relaxation (30-45 min)", "Cardiovascular benefits", "Muscle relaxation"],
+        cons: ["More time commitment", "Sweating", "Less cellular energy boost"]
+      }
+    },
+    recommendation: "Use red light for energy and skin. Use sauna for detox and relaxation. Many people do both for comprehensive benefits.",
+    image: "/images/service_08_Woman_with_her_hands_above_her.webp",
+    fullContent: "Red light therapy and infrared sauna are both powerful wellness tools, but they work through completely different mechanisms. Red light therapy uses specific wavelengths of red and near-infrared light to stimulate mitochondrial function in your cells. When light photons penetrate your skin and reach the mitochondria, they energize the cytochrome c oxidase enzyme in the electron transport chain. This increases ATP cellular energy production by up to 40%. At Restore, our red light therapy beds deliver therapeutic wavelengths across your entire body in just 15-20 minutes. Clients experience improved energy, faster muscle recovery, enhanced skin appearance, better circulation, and reduced inflammation. Infrared sauna works differently. Our infrared sauna cabins use infrared heat to penetrate 1.5 inches below the skin surface, raising your core body temperature. This triggers several powerful responses: increased heart rate and circulation, profuse sweating which detoxifies through your largest organ, muscle relaxation, and parasympathetic nervous system activation. A 30-45 minute infrared sauna session at Restore can burn 200-600 calories, eliminate heavy metals and toxins through sweat, improve cardiovascular function, reduce muscle tension, and promote deep relaxation. So which should you choose? The answer is both. They are complementary. Use red light therapy for rapid cellular energy, athletic recovery, and skin health. Use infrared sauna for deep detoxification, cardiovascular conditioning, and stress relief. Many of our most committed members do both: 15 minutes of red light therapy followed by 30 minutes in the infrared sauna for a comprehensive recovery and wellness session. At Restore Hyper Wellness, we have invested in premium equipment for both therapies because we believe optimal wellness requires a multi-modal approach."
+  },
+  {
+    id: "nad-worth-it",
+    slug: "nad-worth-it",
+    title: "Is NAD+ IV Therapy Worth It?",
+    description: "Understanding the investment in cellular longevity",
+    excerpt: "Understanding the investment in cellular longevity",
+    comparison: {
+      benefits: {
+        pros: ["Rapid cellular energy", "Anti-aging support", "Cognitive enhancement", "Athletic performance", "Addiction recovery support"],
+        cons: ["Higher cost", "Requires multiple sessions", "Effects build over time"]
+      },
+      alternatives: {
+        pros: ["Lower cost", "Convenient", "Accessible"],
+        cons: ["Slower results", "Lower absorption", "Less dramatic effects"]
+      }
+    },
+    recommendation: "NAD+ IV is worth it if you're serious about longevity, performance, or cognitive enhancement. Start with 4-6 sessions to assess benefits.",
+    image: "/images/service_12_Smiling_woman_receiving_a_NAD+.webp",
+    fullContent: "NAD+ is a coenzyme found in every cell in your body. It is essential for energy production, DNA repair, cellular stress resistance, and longevity. But NAD+ levels decline by 50% between age 20 and 50, and continue dropping with age. This decline is linked to aging, cognitive decline, reduced athletic performance, and increased disease risk. NAD+ IV therapy at Restore Hyper Wellness delivers high-dose NAD+ directly into your bloodstream, bypassing the digestive system and achieving blood concentrations that oral supplements simply cannot match. Cellular Energy: NAD+ is a critical cofactor in the electron transport chain, the process that generates ATP. By restoring NAD+ levels, you are essentially upgrading your cellular power plant. Clients report feeling more energized, focused, and mentally sharp within hours of their NAD+ infusion. Cognitive Enhancement: NAD+ supports brain function and neuroplasticity. Studies show that elevated NAD+ improves memory, focus, and mental clarity. For professionals, students, and anyone seeking peak cognitive performance, NAD+ IV therapy delivers measurable results. Athletic Performance: Athletes use NAD+ to enhance recovery, reduce fatigue, and improve endurance. NAD+ supports mitochondrial function in muscle tissue, meaning faster recovery and better performance in your next workout. Anti-Aging at the Cellular Level: NAD+ activates sirtuins, proteins that regulate cellular aging and longevity. By restoring NAD+ levels, you are literally supporting your body's natural anti-aging mechanisms at the cellular level. Addiction Recovery Support: NAD+ IV therapy has shown promise in supporting recovery from substance abuse by restoring cellular function and reducing cravings. Many addiction specialists recommend NAD+ as part of a comprehensive recovery program. Is it worth the investment? That depends on your goals and timeline. If you are looking for marginal improvements, oral supplements might suffice. But if you are serious about peak performance, cognitive enhancement, athletic recovery, or anti-aging, if you want to feel and perform at your absolute best, NAD+ IV therapy delivers results that other modalities cannot match. We recommend starting with a series of 4-6 sessions to assess your individual response. Many clients then transition to monthly maintenance infusions. At Restore, we have worked with executives, athletes, and wellness-focused individuals who have made NAD+ IV therapy a cornerstone of their health optimization strategy. The investment pays dividends in energy, performance, and longevity."
+  }
+];
+
+// Blog Posts
+export const blogPosts = [
+  {
+    id: "columbus-marathon-recovery",
+    slug: "columbus-marathon-recovery",
+    title: "Columbus Marathon Recovery: The Science-Backed Approach",
+    excerpt: "Running 26.2 miles tears down your body. Here's how to recover faster and stronger.",
+    content: "The Columbus Marathon is one of Ohio's premier running events. Thousands of runners push their bodies to the limit each year. But here's the problem: most runners don't know how to recover properly. They rely on ice baths, stretching, and rest. While these help, they're not optimal. Science shows that a strategic combination of therapies can cut recovery time in half and reduce injury risk significantly.",
+    date: "2025-12-15",
+    author: "Dr. Sarah Chen",
+    category: "Athletic Recovery",
+    image: "/images/cryotherapy-session.jpg",
+    tags: ["Marathon", "Recovery", "Columbus", "Athletic Performance"]
+  },
+  {
+    id: "buckeye-season-wellness",
+    slug: "buckeye-season-wellness",
+    title: "Buckeye Season Wellness: Stay Energized Through Football Season",
+    excerpt: "Game days, tailgates, and late nights take a toll. Here's how to stay healthy during Ohio State season.",
+    content: "Buckeye season is electric. The energy, the games, the tailgates - it's what makes living in Columbus special. But all that excitement comes with a cost. Late nights, alcohol, poor sleep, and stress can leave you exhausted by mid-season. Whether you're a student, a fan, or just someone living in Columbus, here's how to maintain your energy and wellness through the entire Buckeye season.",
+    date: "2025-11-01",
+    author: "Dr. James Wilson",
+    category: "Wellness",
+    image: "/images/red-light-therapy.jpg",
+    tags: ["Buckeyes", "Energy", "Wellness", "Columbus"]
+  },
+  {
+    id: "columbus-winter-wellness",
+    slug: "columbus-winter-wellness",
+    title: "Columbus Winter Wellness: Combat Seasonal Fatigue and Depression",
+    excerpt: "Ohio winters are long and dark. Science-backed strategies to maintain energy and mood.",
+    content: "Columbus winters are no joke. From November through March, we experience shorter days, colder temperatures, and limited sunlight. This combination can trigger seasonal affective disorder (SAD), fatigue, and depression in many people. But there's good news: science-backed therapies can help you maintain energy, mood, and wellness throughout the winter months.",
+    date: "2025-10-15",
+    author: "Dr. Lisa Rodriguez",
+    category: "Seasonal Wellness",
+    image: "/images/sauna-official.jpg",
+    tags: ["Winter", "Seasonal Affective Disorder", "Columbus", "Mental Health"]
+  }
+];

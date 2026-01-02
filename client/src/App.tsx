@@ -5,12 +5,48 @@ import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
+import Services from "./pages/Services";
+import ServiceDetail from "./pages/ServiceDetail";
+import ProblemDetail from "./pages/ProblemDetail";
+import Comparisons from "./pages/Comparisons";
+import ComparisonDetail from "./pages/ComparisonDetail";
+import Locations from "./pages/Locations";
+import LocationDetail from "./pages/LocationDetail";
+import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
+import Science from "./pages/Science";
+import Book from "./pages/Book";
+import About from "./pages/About";
+import FAQ from "./pages/FAQ";
+import Contact from "./pages/Contact";
+import FirstTimeOffer from "./pages/FirstTimeOffer";
+import Quiz from "./pages/Quiz";
+import Memberships from "./pages/Memberships";
+import Pricing from "./pages/Pricing";
 
 
 function Router() {
   return (
     <Switch>
-      <Route path={"/"} component={Home} />
+      <Route path={"/"}  component={Home} />
+      <Route path={"/services"} component={Services} />
+      <Route path={"/service/:id"} component={ServiceDetail} />
+      <Route path={"/problem/:id"} component={ProblemDetail} />
+      <Route path={"/comparisons"} component={Comparisons} />
+      <Route path={"/comparison/:slug"} component={ComparisonDetail} />
+      <Route path={"/locations"} component={Locations} />
+      <Route path={"/location/:id"} component={LocationDetail} />
+      <Route path={"/blog"} component={Blog} />
+      <Route path={"/blog/:slug"} component={BlogPost} />
+      <Route path={"/science"} component={Science} />
+      <Route path={"/book"} component={Book} />
+      <Route path={"/about"} component={About} />
+      <Route path={"/faq"} component={FAQ} />
+      <Route path={"quiz"} component={Quiz} />
+      <Route path={"memberships"} component={Memberships} />
+      <Route path={"pricing"} component={Pricing} />
+      <Route path={"contact"} component={Contact} />
+      <Route path={"/first-time-offer"} component={FirstTimeOffer} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
