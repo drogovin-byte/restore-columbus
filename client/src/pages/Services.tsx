@@ -96,6 +96,13 @@ export default function Services() {
                 </p>
               </div>
 
+              <div className="space-y-6 border-t border-border pt-6">
+                <div className="space-y-3">
+                  <h3 className="font-bold text-lg text-primary">Pricing:</h3>
+                  <p className="text-base text-muted-foreground font-medium">{service.pricing}</p>
+                </div>
+              </div>
+
               <div className="space-y-4">
                 <h3 className="font-bold text-lg text-primary">Potential Benefits:</h3>
                 <meta itemProp="areaServed" content="Columbus, OH" />

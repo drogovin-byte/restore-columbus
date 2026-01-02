@@ -9,3 +9,4 @@
 - [x] Fix light blue copy visibility in "Why Choose" and problem state cards
 - [x] Update therapy and IV pricing to match actual Restore.com pricing
 - [x] Update skin health pricing to match actual Restore.com pricing
+- [x] Update services page to display both member and non-member pricing with credit language where applicable
