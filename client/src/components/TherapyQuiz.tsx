@@ -277,7 +277,7 @@ export default function TherapyQuiz() {
                 <div>
                   <h3 className="font-heading font-bold text-xl text-primary mb-2">{therapy.name}</h3>
                   <p className="text-sm text-muted-foreground mb-3">{therapy.description}</p>
-                  <div className="text-xs font-medium text-accent mb-3">⏱️ {therapy.duration}</div>
+                  <div className="text-sm font-bold text-primary mb-3">⏱️ {therapy.duration}</div>
                 </div>
                 <div className="space-y-2">
                   <p className="text-xs font-bold text-primary uppercase">Key Benefits:</p>
