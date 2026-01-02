@@ -171,13 +171,13 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {memberships.map((tier: any, idx: number) => (
-              <div key={`membership-${tier.id}-${idx}`} className={`relative bg-white rounded-lg shadow-lg overflow-hidden ${tier.isPopular ? 'ring-2 ring-accent md:scale-105' : ''}`}>
+              <div key={`membership-${tier.id}-${idx}`} className={`relative bg-white rounded-lg shadow-lg ${tier.isPopular ? 'ring-2 ring-accent md:scale-105' : ''}`}>
                 {tier.isPopular && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
-                    <Badge className="bg-accent text-accent-foreground font-bold">MOST POPULAR</Badge>
+                  <div className="absolute -top-5 left-1/2 transform -translate-x-1/2 z-20">
+                    <Badge className="bg-accent text-accent-foreground font-bold px-4 py-1">MOST POPULAR</Badge>
                   </div>
                 )}
-                <div className={`text-center p-6 ${tier.isPopular ? 'pt-12' : 'pt-6'}`}>
+                <div className={`text-center p-6 ${tier.isPopular ? 'pt-16' : 'pt-6'}`}>
                   <h3 className="font-heading font-bold text-2xl text-primary mb-2">{tier.name}</h3>
                   <div className="flex items-baseline justify-center gap-1 mb-3">
                     <span className="text-5xl font-bold text-primary">${tier.price}</span>
