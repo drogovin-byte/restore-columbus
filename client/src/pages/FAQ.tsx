@@ -36,7 +36,7 @@ const faqs = [
       },
       {
         q: "Can I use my insurance?",
-        a: "Most insurance plans do not cover wellness therapies. However, some plans may cover specific treatments like IV therapy for medical purposes. We recommend checking with your insurance provider. We offer flexible payment options and financing."
+        a: "We do not accept traditional insurance plans. However, some HSA (Health Savings Account) and FSA (Flexible Spending Account) plans have been used to cover our medical services. We recommend checking with your plan administrator to see if our treatments are eligible. We also offer flexible payment options and financing."
       },
       {
         q: "Do you offer package deals?",
