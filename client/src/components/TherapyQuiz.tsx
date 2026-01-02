@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowRight, RotateCcw, Mail, Check, Zap, Activity, Moon, Sparkles, Calendar, Timer, Clock, Flame } from "lucide-react";
@@ -191,6 +191,18 @@ export default function TherapyQuiz() {
   const [emailSubmitted, setEmailSubmitted] = useState(false);
   const [isSubmittingEmail, setIsSubmittingEmail] = useState(false);
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+  const [visibleCards, setVisibleCards] = useState<number[]>([]);
+
+  // Staggered animation for cards
+  useEffect(() => {
+    setVisibleCards([]);
+    const question = quizQuestions[currentQuestion];
+    question.answers.forEach((_, idx) => {
+      setTimeout(() => {
+        setVisibleCards(prev => [...prev, idx]);
+      }, idx * 150);
+    });
+  }, [currentQuestion]);
 
   const handleAnswer = (therapies: string[]) => {
     const newAnswers = [...selectedAnswers, ...therapies];
@@ -398,7 +410,12 @@ export default function TherapyQuiz() {
             onClick={() => handleAnswer(answer.therapies)}
             onMouseEnter={() => setHoveredCard(idx)}
             onMouseLeave={() => setHoveredCard(null)}
-            className="group w-full text-left"
+            className={`group w-full text-left transition-all duration-500 ease-out ${
+              visibleCards.includes(idx)
+                ? 'opacity-100 translate-y-0'
+                : 'opacity-0 translate-y-8'
+            }`}
+            style={{ transitionDelay: `${idx * 50}ms` }}
           >
             <div 
               className={`
