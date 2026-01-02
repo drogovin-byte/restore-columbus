@@ -44,9 +44,9 @@ export default function ComparisonDetail() {
 
       {/* Content */}
       <section className="py-20 bg-background">
-        <div className="container max-w-3xl">
+        <div className="container max-w-4xl">
           <Card className="border-none shadow-lg bg-card">
-            <CardContent className="p-8 prose prose-invert max-w-none">
+            <CardContent className="p-8 md:p-12 prose prose-invert max-w-none prose-headings:text-2xl md:prose-headings:text-3xl prose-headings:font-bold prose-headings:mt-8 prose-headings:mb-4 first:prose-headings:mt-0 prose-p:text-base md:prose-p:text-lg prose-p:leading-relaxed prose-p:mb-4 prose-ul:text-base md:prose-ul:text-lg prose-ul:leading-relaxed prose-li:mb-2">
               <Streamdown>{comparison.fullContent || comparison.description}</Streamdown>
             </CardContent>
           </Card>
