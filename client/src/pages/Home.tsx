@@ -192,9 +192,9 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="px-6 pb-6 space-y-4">
-                  <ul className="space-y-3 text-sm">
+                  <ul className="space-y-3 text-sm text-center">
                     {tier.features.map((feature: string, i: number) => (
-                      <li key={`feature-${i}`} className="flex items-center gap-2">
+                      <li key={`feature-${i}`} className="flex items-center justify-center gap-2">
                         <CheckCircle2 className="w-4 h-4 shrink-0 text-primary" />
                         <span className="text-foreground">{feature}</span>
                       </li>
