@@ -133,19 +133,34 @@ export default function Pricing() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {coreTherapies.map((service) => (
+            {coreTherapies.map((service) => {
+              const isIVTherapy = service.id === 'iv-drip';
+              return (
               <Card key={service.id} className="hover:shadow-lg transition-shadow border-l-4 border-l-[#3FA3B8]">
                 <div className="p-6 space-y-4">
                   <h3 className="text-lg font-bold text-[#1B5E7F]">{service.title}</h3>
                   <p className="text-slate-600 text-sm">{service.shortDesc}</p>
                   
                   <div className="bg-gradient-to-br from-[#E8F4F8] to-[#D4E9F0] p-4 rounded-lg border border-[#3FA3B8]/20">
-                    <p className="text-sm font-semibold text-[#1B5E7F]">
-                      1 Credit per session
-                    </p>
-                    <p className="text-xs text-[#2E8B9E] mt-1">
-                      Included in all memberships
-                    </p>
+                    {isIVTherapy ? (
+                      <>
+                        <p className="text-sm font-semibold text-[#1B5E7F]">
+                          4 Credits per session
+                        </p>
+                        <p className="text-xs text-[#2E8B9E] mt-1">
+                          Includes 2 signature ingredients | Additional ingredients available for extra cost
+                        </p>
+                      </>
+                    ) : (
+                      <>
+                        <p className="text-sm font-semibold text-[#1B5E7F]">
+                          1 Credit per session
+                        </p>
+                        <p className="text-xs text-[#2E8B9E] mt-1">
+                          Included in all memberships
+                        </p>
+                      </>
+                    )}
                   </div>
 
                   <Button asChild variant="outline" size="sm" className="w-full">
@@ -153,7 +168,8 @@ export default function Pricing() {
                   </Button>
                 </div>
               </Card>
-            ))}
+            );
+            })}
           </div>
         </div>
       </section>
