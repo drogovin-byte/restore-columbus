@@ -55,3 +55,5 @@
 - [x] Fix map coordinates for Easton location (4158 Easton Gateway)
 - [x] Update Google reviews count for Easton location
 - [x] Fix map coordinates for Dublin location (6780 Longshore Street, Dublin, OH 43017)
+- [x] Update Dublin location hours - Mon-Fri 10am-6pm, Saturday 10am-5pm
+- [x] Update Dublin location reviews count to 250+

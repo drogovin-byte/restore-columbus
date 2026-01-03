@@ -164,11 +164,11 @@ export default function LocationDetail() {
                 <CardContent className="pt-6 space-y-2 text-sm">
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">Mon-Fri:</span>
-                    <span className="font-semibold">10am - 7pm</span>
+                    <span className="font-semibold">10am - 6pm</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">Saturday:</span>
-                    <span className="font-semibold">9am - 5pm</span>
+                    <span className="font-semibold">10am - 5pm</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">Sunday:</span>
@@ -280,7 +280,7 @@ export default function LocationDetail() {
                     ))}
                   </div>
                   <span className="font-bold text-primary">4.9/5</span>
-                  <span className="text-sm text-muted-foreground">(150+ reviews)</span>
+                  <span className="text-sm text-muted-foreground">(250+ reviews)</span>
                 </div>
                 <p className="text-sm text-muted-foreground italic">
                   "Amazing experience! The staff is knowledgeable and the facilities are top-notch. Highly recommend!"
