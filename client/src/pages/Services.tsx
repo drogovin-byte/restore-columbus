@@ -135,7 +135,7 @@ export default function Services() {
             Our expert team can help you build a customized wellness plan based on your unique goals and health data.
           </p>
           <Button asChild variant="outline" size="lg" className="border-primary text-primary hover:bg-primary hover:text-white font-bold text-lg h-14 px-8 rounded-full">
-            <Link href="/contact">Schedule a Free Consultation</Link>
+            <a href="https://www.restore.com/book-now" target="_blank" rel="noopener noreferrer">Schedule a Free Consultation</a>
           </Button>
         </div>
       </section>
