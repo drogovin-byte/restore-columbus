@@ -144,7 +144,7 @@ export const memberships = [
     perTherapy: 21.25,
     benefits: [
       "8 monthly credits for Core Therapies",
-      "1 Credit = 1 Core Therapy (Cryo, Sauna, Compression, Red Light, IV)",
+      "1 Credit = 1 Core Therapy (Cryo, Sauna, Compression, Red Light)",
       "4 Credits = IV Drip with 2 Signature Nutrients",
       "30% off Specialty Services",
       "Access to Members-Only events",
@@ -172,7 +172,7 @@ export const memberships = [
     perTherapy: 18.57,
     benefits: [
       "14 monthly credits for Core Therapies",
-      "1 Credit = 1 Core Therapy (Cryo, Sauna, Compression, Red Light, IV)",
+      "1 Credit = 1 Core Therapy (Cryo, Sauna, Compression, Red Light)",
       "4 Credits = IV Drip with 2 Signature Nutrients",
       "30% off Specialty Services",
       "Access to Members-Only events",
@@ -200,7 +200,7 @@ export const memberships = [
     perTherapy: 9.68,
     benefits: [
       "31 monthly credits for Core Therapies",
-      "1 Credit = 1 Core Therapy (Cryo, Sauna, Compression, Red Light, IV)",
+      "1 Credit = 1 Core Therapy (Cryo, Sauna, Compression, Red Light)",
       "Unlimited access to core modalities",
       "30% off Specialty Services",
       "Access to Members-Only events",
