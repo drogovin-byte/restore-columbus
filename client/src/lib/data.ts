@@ -690,6 +690,7 @@ export const comparisons = [
     title: "Cryotherapy vs Cold Plunge",
     description: "Which cold therapy is right for you?",
     excerpt: "Which cold therapy is right for you?",
+    cardImage: "/images/comparison-cryo-cold.jpg",
     comparison: {
       cryotherapy: {
         pros: ["Extreme cold (-200°F to -300°F)", "Rapid results (2-3 min)", "No water immersion", "Whole body exposure", "Professional equipment"],
@@ -710,6 +711,7 @@ export const comparisons = [
     title: "IV Therapy vs Oral Supplements",
     description: "Why IV therapy is 5-10x more effective",
     excerpt: "Why IV therapy is 5-10x more effective",
+    cardImage: "/images/comparison-iv-therapy.jpg",
     comparison: {
       iv: {
         pros: ["100% absorption", "Immediate results", "Bypass digestive issues", "Customizable formulas", "Professional administration"],
@@ -730,6 +732,7 @@ export const comparisons = [
     title: "Red Light Therapy vs Infrared Sauna",
     description: "Both are powerful - here's the difference",
     excerpt: "Both are powerful - here's the difference",
+    cardImage: "/images/comparison-red-light.jpg",
     comparison: {
       redlight: {
         pros: ["Cellular energy boost", "Targeted treatment", "Quick sessions (15-20 min)", "No sweating", "Skin benefits"],
@@ -745,11 +748,12 @@ export const comparisons = [
     fullContent: "## Different Mechanisms\n\nRed light therapy and infrared sauna are both powerful wellness tools, but they work through completely different mechanisms.\n\n## Red Light Therapy: Cellular Energy\n\nRed light therapy uses specific wavelengths of red and near-infrared light to stimulate **mitochondrial function** in your cells. When light photons penetrate your skin and reach the mitochondria, they energize the cytochrome c oxidase enzyme in the electron transport chain. This increases **ATP cellular energy production by up to 40%**.\n\nAt Restore, our red light therapy beds deliver therapeutic wavelengths across your entire body in just **15-20 minutes**. Clients experience:\n\n- Improved energy\n- Faster muscle recovery\n- Enhanced skin appearance\n- Better circulation\n- Reduced inflammation\n\n## Infrared Sauna: Deep Detox\n\nInfrared sauna works differently. Our infrared sauna cabins use infrared heat to penetrate **1.5 inches below the skin surface**, raising your core body temperature. This triggers several powerful responses:\n\n- Increased heart rate and circulation\n- Profuse sweating which detoxifies through your largest organ\n- Muscle relaxation\n- Parasympathetic nervous system activation\n\nA **30-45 minute** infrared sauna session at Restore can burn **200-600 calories**, eliminate heavy metals and toxins through sweat, improve cardiovascular function, reduce muscle tension, and promote deep relaxation.\n\n## Which Should You Choose?\n\nThe answer is **both**. They are complementary.\n\n- Use **Red Light Therapy** for rapid cellular energy, athletic recovery, and skin health.\n- Use **Infrared Sauna** for deep detoxification, cardiovascular conditioning, and stress relief.\n\n## The Ultimate Combo\n\nMany of our most committed members do both: **15 minutes of red light therapy followed by 30 minutes in the infrared sauna** for a comprehensive recovery and wellness session. At Restore Hyper Wellness, we have invested in premium equipment for both therapies because we believe optimal wellness requires a multi-modal approach."
   },
   {
-    id: "nad-worth-it",
-    slug: "nad-worth-it",
+    id: "nad-vs-other",
+    slug: "nad-vs-other",
     title: "Is NAD+ IV Therapy Worth It?",
     description: "Understanding the investment in cellular longevity",
     excerpt: "Understanding the investment in cellular longevity",
+    cardImage: "/images/comparison-nad-therapy.jpg",
     comparison: {
       benefits: {
         pros: ["Rapid cellular energy", "Anti-aging support", "Cognitive enhancement", "Athletic performance", "Addiction recovery support"],

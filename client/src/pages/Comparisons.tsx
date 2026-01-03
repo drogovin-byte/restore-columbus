@@ -28,22 +28,32 @@ export default function Comparisons() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {comparisons.map((comp) => (
               <Link key={comp.id} href={`/comparison/${comp.slug}`}>
-                <Card className="group h-full overflow-hidden border border-border/50 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-card cursor-pointer">
-                  {/* Subtle top accent line */}
-                  <div className="h-1 bg-gradient-to-r from-accent via-accent/60 to-transparent" />
+                <Card className="group h-full overflow-hidden border-none shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 bg-card cursor-pointer">
+                  {/* Image Container */}
+                  <div className="relative h-48 overflow-hidden bg-gradient-to-br from-primary/20 to-secondary/20">
+                    <img 
+                      src={comp.cardImage || comp.image} 
+                      alt={comp.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    {/* Overlay gradient */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  </div>
                   
-                  <CardHeader className="pb-3">
-                    <CardTitle className="text-lg font-bold text-primary group-hover:text-secondary-foreground transition-colors duration-200">
+                  {/* Content */}
+                  <CardHeader className="pb-3 pt-6">
+                    <CardTitle className="text-lg font-bold text-primary group-hover:text-secondary-foreground transition-colors duration-200 leading-tight">
                       {comp.title}
                     </CardTitle>
                   </CardHeader>
                   
-                  <CardContent className="space-y-4">
-                    <p className="text-sm text-muted-foreground leading-relaxed">
+                  <CardContent className="space-y-4 pb-6">
+                    <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2">
                       {comp.excerpt}
                     </p>
                     
-                    <div className="pt-2 flex items-center text-sm font-semibold text-secondary-foreground group-hover:text-accent transition-colors duration-200">
+                    {/* CTA */}
+                    <div className="pt-2 inline-flex items-center text-sm font-bold text-accent group-hover:text-accent-foreground transition-colors duration-200">
                       Read Full Comparison 
                       <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1 duration-200" />
                     </div>
