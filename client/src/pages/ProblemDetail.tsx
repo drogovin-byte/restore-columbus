@@ -61,7 +61,7 @@ export default function ProblemDetail() {
               {problem.description}
             </p>
             <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-white hover:text-primary font-bold text-lg h-14 px-8 rounded-full shadow-lg transition-all hover:scale-105 w-fit">
-              <Link href="https://www.restore.com/book-now">Book Consultation</Link>
+              <a href="https://www.restore.com/book-now" target="_blank" rel="noopener noreferrer">Book Consultation</a>
             </Button>
           </div>
         </div>
@@ -236,10 +236,10 @@ export default function ProblemDetail() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg" className="bg-white text-primary hover:bg-gray-100 font-bold text-lg h-14 px-10 rounded-full">
-              <Link href="https://www.restore.com/book-now">Book Your First Session</Link>
+              <a href="https://www.restore.com/book-now" target="_blank" rel="noopener noreferrer">Book Your First Session</a>
             </Button>
             <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white/10 font-bold text-lg h-14 px-10 rounded-full">
-              <Link href="https://www.restore.com/book-now">Free Consultation</Link>
+              <a href="https://www.restore.com/book-now" target="_blank" rel="noopener noreferrer">Free Consultation</a>
             </Button>
           </div>
         </div>

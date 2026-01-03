@@ -329,7 +329,7 @@ export default function TherapyQuiz() {
               <p className="text-center text-white/90 mb-4">Or book your first session now:</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white font-bold rounded-full px-8">
-                  <Link href="https://www.restore.com/book-now">Book Your First Session</Link>
+                  <a href="https://www.restore.com/book-now" target="_blank" rel="noopener noreferrer">Book Your First Session</a>
                 </Button>
                 <Button 
                   onClick={resetQuiz}
@@ -358,7 +358,7 @@ export default function TherapyQuiz() {
             </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white font-bold rounded-full px-8">
-                <Link href="https://www.restore.com/book-now">Book Your First Session</Link>
+                <a href="https://www.restore.com/book-now" target="_blank" rel="noopener noreferrer">Book Your First Session</a>
               </Button>
               <Button 
                 onClick={resetQuiz}

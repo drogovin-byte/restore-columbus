@@ -30,7 +30,7 @@ export default function FirstTimeOffer() {
 
           <div className="pt-4">
             <Button asChild size="lg" className="bg-white text-primary hover:bg-gray-100 font-bold text-xl h-16 px-12 rounded-full shadow-2xl transition-all hover:scale-105">
-              <Link href="https://www.restore.com/book-now">Claim Your Free Session</Link>
+              <a href="https://www.restore.com/book-now" target="_blank" rel="noopener noreferrer">Claim Your Free Session</a>
             </Button>
           </div>
 
@@ -207,7 +207,7 @@ export default function FirstTimeOffer() {
             Your first session is free. Your first consultation is free. The only thing you have to lose is the status quo.
           </p>
           <Button asChild size="lg" className="bg-primary text-white hover:bg-primary/90 font-bold text-xl h-16 px-12 rounded-full shadow-lg">
-            <Link href="https://www.restore.com/book-now">Claim Your Free Session Now</Link>
+            <a href="https://www.restore.com/book-now" target="_blank" rel="noopener noreferrer">Claim Your Free Session Now</a>
           </Button>
           <p className="text-sm text-muted-foreground">
             Valid at Easton, Dublin, and Upper Arlington locations. No credit card required.

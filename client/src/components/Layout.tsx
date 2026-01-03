@@ -79,7 +79,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               Locations
             </Link>
             <Button asChild size="sm" className="bg-primary hover:bg-primary/90 text-white font-bold rounded-full px-6">
-              <Link href="https://www.restore.com/book-now">Book Now</Link>
+              <a href="https://www.restore.com/book-now" target="_blank" rel="noopener noreferrer">Book Now</a>
             </Button>
             <Link href="/admin" className="ml-4 p-2 rounded-lg hover:bg-muted transition-colors" title="Admin Dashboard">
               <Settings className="w-5 h-5 text-muted-foreground hover:text-primary" />
@@ -122,7 +122,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 Locations
               </Link>
               <Button asChild className="bg-primary hover:bg-primary/90 text-white font-bold rounded-full w-full">
-                <Link href="https://www.restore.com/book-now">Book Now</Link>
+                <a href="https://www.restore.com/book-now" target="_blank" rel="noopener noreferrer">Book Now</a>
               </Button>
               <Link href="/admin" className="flex items-center gap-2 text-foreground hover:text-primary transition-colors">
                 <Settings className="w-4 h-4" /> Admin Dashboard
