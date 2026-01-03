@@ -159,7 +159,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <h4 className="font-bold mb-4">Locations</h4>
               <div className="space-y-3 text-sm">
                 {locations.map(loc => (
-                  <Link key={loc.id} href={`/location/${loc.id}`} className="hover:opacity-80 transition-opacity block">
+                  <Link key={loc.id} href={`/locations/${loc.id}`} className="hover:opacity-80 transition-opacity block">
                     <div className="font-medium">{loc.name.split(' - ')[1]}</div>
                     <div className="opacity-90">{loc.city}, {loc.state}</div>
                   </Link>
