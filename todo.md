@@ -51,3 +51,4 @@
 - [ ] Add admin panel for updating review counts manually
 - [x] Fix nested anchor tag error on Locations page
 - [x] Fix 404 error on /locations/easton route
+- [x] Update Easton location landmarks - replace Columbus Zoo with Columbus Airport CMH and Gahanna High School with New Albany

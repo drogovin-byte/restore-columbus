@@ -92,7 +92,7 @@ export default function LocationDetail() {
   }
 
   const nearbyLandmarks = {
-    "easton": ["Easton Shopping Center", "Columbus Zoo", "Gahanna High School"],
+    "easton": ["Easton Shopping Center", "Columbus Airport CMH", "New Albany"],
     "dublin": ["Tuttle Crossing Mall", "Riverside Drive", "Muirfield Village"],
     "upper-arlington": ["Upper Arlington High School", "Kingsdale Shopping Center", "Scioto Park"]
   };
