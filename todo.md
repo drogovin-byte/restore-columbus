@@ -67,3 +67,4 @@
 - [x] Update Easton reviews count to 650+
 - [x] Make location reviews independent - each location displays its own review count
 - [x] Update Easton totalReviews to 650 in data.ts
+- [x] Update Free Consultation link in ProblemDetail to Manus booking app

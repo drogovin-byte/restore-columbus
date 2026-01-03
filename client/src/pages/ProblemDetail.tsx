@@ -243,7 +243,7 @@ export default function ProblemDetail() {
               <a href="https://www.restore.com/book-now" target="_blank" rel="noopener noreferrer">Book Your First Session</a>
             </Button>
             <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white/10 font-bold text-lg h-14 px-10 rounded-full">
-              <a href="https://www.restore.com/book-now" target="_blank" rel="noopener noreferrer">Free Consultation</a>
+              <a href="https://manus.im/app/gDb7fBedok5ZZ3AQc00pA1" target="_blank" rel="noopener noreferrer">Free Consultation</a>
             </Button>
           </div>
         </div>
