@@ -58,3 +58,5 @@
 - [x] Update Dublin location hours - Mon-Fri 10am-6pm, Saturday 10am-5pm
 - [x] Update Dublin location reviews count to 250+
 - [x] Fix 404 errors on footer location links
+- [x] Fix map coordinates for Upper Arlington location (3094 Kingsdale Center)
+- [x] Update Upper Arlington hours - Monday closed, Tues-Fri 10am-6pm, Sat 10am-5pm, Sun 11am-4pm

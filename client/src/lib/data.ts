@@ -53,7 +53,7 @@ export const locations = [
     state: "OH",
     zip: "43221",
     phone: "614-745-0966",
-    hours: "Mon-Fri: 10am-7pm | Sat: 9am-5pm | Sun: 11am-4pm",
+    hours: "Monday: Closed | Tues-Fri: 10am-6pm | Sat: 10am-5pm | Sun: 11am-4pm",
     mapUrl: "https://goo.gl/maps/ua",
     image: "/images/iv-drip-lounge.jpg",
     averageRating: 5.0,
