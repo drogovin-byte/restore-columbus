@@ -7,9 +7,10 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { trpc } from "@/lib/trpc";
 import { toast } from "sonner";
-import { Download, Search, Filter, X, AlertCircle } from "lucide-react";
+import { Download, Search, Filter, X, AlertCircle, LogOut } from "lucide-react";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
+import AdminLogin from "./AdminLogin";
 
 const statusColors: Record<string, string> = {
   new: "bg-blue-100 text-blue-800",
@@ -33,7 +34,23 @@ const statusLabels: Record<string, string> = {
 
 export default function AdminDashboard() {
   const [, navigate] = useLocation();
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [activeTab, setActiveTab] = useState<"inquiries" | "appointments">("inquiries");
+
+  useEffect(() => {
+    // Check if user is already authenticated in this session
+    const authToken = sessionStorage.getItem("adminAuth");
+    if (authToken === "true") {
+      setIsAuthenticated(true);
+    }
+  }, []);
+
+  const handleLogout = () => {
+    sessionStorage.removeItem("adminAuth");
+    sessionStorage.removeItem("adminAuthTime");
+    setIsAuthenticated(false);
+    toast.success("Logged out successfully");
+  };
   
   const [inquiryFilters, setInquiryFilters] = useState({
     status: "all",
@@ -221,12 +238,27 @@ export default function AdminDashboard() {
     scheduled: appointments?.filter((a: any) => a.status === "scheduled").length || 0,
   };
 
+  if (!isAuthenticated) {
+    return <AdminLogin onLoginSuccess={() => setIsAuthenticated(true)} />;
+  }
+
   return (
     <div className="min-h-screen bg-background p-6">
       <div className="max-w-7xl mx-auto space-y-6">
-        <div className="space-y-2">
-          <h1 className="text-4xl font-bold text-primary">Admin Dashboard</h1>
-          <p className="text-muted-foreground">Manage membership inquiries and appointment requests</p>
+        <div className="flex justify-between items-start">
+          <div className="space-y-2">
+            <h1 className="text-4xl font-bold text-primary">Admin Dashboard</h1>
+            <p className="text-muted-foreground">Manage membership inquiries and appointment requests</p>
+          </div>
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={handleLogout}
+            className="flex items-center gap-2"
+          >
+            <LogOut className="w-4 h-4" />
+            Logout
+          </Button>
         </div>
 
         {/* Tabs */}

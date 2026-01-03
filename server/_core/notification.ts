@@ -202,3 +202,107 @@ export async function sendCustomerEmail(
     return false;
   }
 }
+
+
+// Studio email mapping
+export const studioEmails: Record<string, string> = {
+  "easton": "frontdeskoh001@restore.com",
+  "dublin": "frontdeskoh005@restore.com",
+  "upper-arlington": "frontdeskoh038@restore.com",
+};
+
+export type StudioInquiryPayload = {
+  studioId: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  tier: string;
+};
+
+/**
+ * Sends a studio inquiry email to the specific studio location.
+ * Returns `true` if the request was accepted, `false` when the upstream service
+ * cannot be reached.
+ */
+export async function sendStudioInquiryEmail(
+  payload: StudioInquiryPayload
+): Promise<boolean> {
+  const { studioId, firstName, lastName, email, phone, tier } = payload;
+
+  const studioEmail = studioEmails[studioId];
+  if (!studioEmail) {
+    console.warn(`No email found for studio: ${studioId}`);
+    return false;
+  }
+
+  const studioNames: Record<string, string> = {
+    "easton": "Easton",
+    "dublin": "Dublin",
+    "upper-arlington": "Upper Arlington",
+  };
+
+  const studioName = studioNames[studioId] || studioId;
+
+  const htmlContent = `
+    <h2>New Membership Inquiry</h2>
+    <p>A new membership inquiry has been submitted for your studio.</p>
+    
+    <h3>Customer Information:</h3>
+    <ul>
+      <li><strong>Name:</strong> ${firstName} ${lastName}</li>
+      <li><strong>Email:</strong> ${email}</li>
+      <li><strong>Phone:</strong> ${phone}</li>
+      <li><strong>Membership Tier:</strong> ${tier}</li>
+    </ul>
+    
+    <p>Please follow up with this customer to schedule their membership and answer any questions they may have.</p>
+    
+    <p>Best regards,<br/>Restore Hyper Wellness System</p>
+  `;
+
+  if (!ENV.forgeApiUrl) {
+    console.error("Email service URL is not configured.");
+    return false;
+  }
+
+  if (!ENV.forgeApiKey) {
+    console.error("Email service API key is not configured.");
+    return false;
+  }
+
+  const endpoint = buildEndpointUrl(ENV.forgeApiUrl);
+
+  try {
+    const response = await fetch(endpoint, {
+      method: "POST",
+      headers: {
+        accept: "application/json",
+        authorization: `Bearer ${ENV.forgeApiKey}`,
+        "content-type": "application/json",
+        "connect-protocol-version": "1",
+      },
+      body: JSON.stringify({
+        title: `New Membership Inquiry - ${studioName} Studio`,
+        content: htmlContent,
+        recipientEmail: studioEmail,
+        recipientName: `${studioName} Studio`,
+      }),
+    });
+
+    if (!response.ok) {
+      const detail = await response.text().catch(() => "");
+      console.warn(
+        `[Studio Email] Failed to send inquiry email to ${studioEmail} (${response.status} ${response.statusText})${
+          detail ? `: ${detail}` : ""
+        }`
+      );
+      return false;
+    }
+
+    return true;
+  } catch (error) {
+    console.warn("[Studio Email] Error calling email service:", error);
+    return false;
+  }
+}

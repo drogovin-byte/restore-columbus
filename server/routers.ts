@@ -4,7 +4,7 @@ import { systemRouter } from "./_core/systemRouter";
 import { publicProcedure, router } from "./_core/trpc";
 import { z } from "zod";
 import { createMembershipLead, getAllMembershipLeads, getMembershipLeadById, updateMembershipLead, createAppointmentRequest, getAllAppointmentRequests, getAppointmentRequestById, updateAppointmentRequest } from "./db";
-import { notifyOwner, sendCustomerEmail } from "./_core/notification";
+import { notifyOwner, sendCustomerEmail, sendStudioInquiryEmail } from "./_core/notification";
 
 const adminProcedure = publicProcedure.use(async (opts) => {
   if (opts.ctx.user?.role !== "admin") {
@@ -40,6 +40,7 @@ export const appRouter = router({
         name: z.string().min(2),
         email: z.string().email(),
         phone: z.string().min(10),
+        studioId: z.string().optional(),
       }))
       .mutation(async ({ input }) => {
         try {
@@ -56,6 +57,21 @@ export const appRouter = router({
             title: `New Membership Inquiry: ${input.membershipTier}`,
             content: message,
           });
+
+          // Send email to specific studio if studioId is provided
+          if (input.studioId) {
+            const nameParts = input.name.split(" ");
+            const firstName = nameParts[0];
+            const lastName = nameParts.slice(1).join(" ") || "";
+            await sendStudioInquiryEmail({
+              studioId: input.studioId,
+              firstName,
+              lastName,
+              email: input.email,
+              phone: input.phone,
+              tier: input.membershipTier,
+            });
+          }
 
           return {
             success: true,
