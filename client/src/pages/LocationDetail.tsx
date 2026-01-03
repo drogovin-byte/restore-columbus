@@ -311,7 +311,7 @@ export default function LocationDetail() {
                       <Star key={i} className="w-4 h-4 text-accent fill-accent" />
                     ))}
                   </div>
-                  <span className="font-bold text-primary">4.9/5</span>
+                  <span className="font-bold text-primary">5/5</span>
                   <span className="text-sm text-muted-foreground">({location.totalReviews}+ reviews)</span>
                 </div>
                 <p className="text-sm text-muted-foreground italic">
