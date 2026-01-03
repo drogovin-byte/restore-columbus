@@ -62,3 +62,4 @@
 - [x] Update Upper Arlington hours - Monday closed, Tues-Fri 10am-6pm, Sat 10am-5pm, Sun 11am-4pm
 - [x] Fix Upper Arlington hours display to show Monday as closed
 - [x] Add location-specific services (Hyperbaric Oxygen, Neveskin, GLP-1 to all; Hydrafacial to Easton & Dublin)
+- [x] Combine exclusive services and services available into one unified section

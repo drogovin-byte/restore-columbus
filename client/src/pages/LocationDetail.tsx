@@ -253,25 +253,18 @@ export default function LocationDetail() {
               </div>
             </div>
 
-            {/* Location-Specific Services */}
-            {location.specialServices && location.specialServices.length > 0 && (
-              <div className="space-y-4">
-                <h2 className="font-heading font-bold text-2xl text-primary">Exclusive Services at This Location</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                  {location.specialServices.map((service, i) => (
-                    <div key={i} className="flex items-center gap-2 p-3 bg-accent/10 border border-accent rounded-lg">
-                      <CheckCircle2 className="w-5 h-5 text-accent shrink-0" />
-                      <span className="font-semibold text-foreground">{service}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* Services Available */}
+            {/* All Services */}
             <div className="space-y-4">
               <h2 className="font-heading font-bold text-2xl text-primary">Services Available</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                {/* Location-Specific Services First */}
+                {location.specialServices && location.specialServices.map((service, i) => (
+                  <div key={`special-${i}`} className="flex items-center gap-2 p-3 bg-accent/10 border border-accent rounded-lg">
+                    <CheckCircle2 className="w-5 h-5 text-accent shrink-0" />
+                    <span className="font-semibold text-foreground">{service}</span>
+                  </div>
+                ))}
+                {/* Standard Services */}
                 {services.slice(0, 8).map((service) => (
                   <Link key={service.id} href={`/service/${service.id}`}>
                     <div className="flex items-center gap-2 p-3 bg-card border border-border rounded-lg hover:border-primary hover:bg-primary/5 transition-all cursor-pointer">
