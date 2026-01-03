@@ -46,7 +46,7 @@ export default function Home() {
       <section className="relative h-[600px] md:h-[700px] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="/hero-image.16ac7342.jpg" 
+            src="/hero-image.0009f794.jpg" 
             alt="Restore Hyper Wellness Columbus Studio" 
             className="w-full h-full object-cover"
           />
