@@ -134,7 +134,7 @@ export default function Pricing() {
         <div className="container text-center space-y-6">
           <h1 className="text-5xl font-bold">Transparent Pricing</h1>
           <p className="text-xl text-slate-300 max-w-2xl mx-auto">
-            Choose the membership that fits your wellness goals. All memberships include access to core therapies and 30% off specialty services.
+            Choose the membership that fits your wellness goals. All memberships include access to core therapies and 30% off retail for specialty services.
           </p>
         </div>
       </section>

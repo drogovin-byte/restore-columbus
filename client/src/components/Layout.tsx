@@ -184,7 +184,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <h4 className="font-bold mb-4">Contact</h4>
               <div className="space-y-2 text-sm">
                 <a href="tel:6149449041" className="hover:opacity-80 transition-opacity block">Call: 614-944-9041</a>
-                <a href="mailto:info@restorecolumbus.com" className="hover:opacity-80 transition-opacity block">Email: info@restorecolumbus.com</a>
+                <a href="mailto:info@restorecolumbus.com" className="hover:opacity-80 transition-opacity block">Email: frontdeskOH001@restore.com</a>
                 <Link href="/book" className="hover:opacity-80 transition-opacity block font-medium text-accent">Book Appointment</Link>
               </div>
             </div>
