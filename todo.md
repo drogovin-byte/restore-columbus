@@ -30,3 +30,6 @@
 - [x] Add progress step numbers (1 of 3, 2 of 3, 3 of 3) to the form progress bar
 - [x] Fix Call Studio Now button text overflow (text being cut off)
 - [x] Add phone call functionality to Call Studio Now button (tel: link)
+- [x] Audit all Call Studio buttons throughout the site
+- [x] Fix Call Studio buttons to link to correct studio phone numbers
+- [x] Test Call Studio buttons on each page

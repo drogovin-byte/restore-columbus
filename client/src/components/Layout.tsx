@@ -34,7 +34,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <span className="md:hidden">Columbus, OH</span>
           </div>
           <div className="flex items-center gap-4">
-            <a href="tel:6145550101" className="hover:text-accent transition-colors flex items-center gap-1">
+            <a href="tel:6149449041" className="hover:text-accent transition-colors flex items-center gap-1">
               <Phone className="w-3 h-3" /> <span className="hidden sm:inline">Call Us</span>
             </a>
             <Link href="/locations" className="hover:text-accent transition-colors flex items-center gap-1">
@@ -183,7 +183,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <div>
               <h4 className="font-bold mb-4">Contact</h4>
               <div className="space-y-2 text-sm">
-                <a href="tel:6145550101" className="hover:opacity-80 transition-opacity block">Call: 614-555-0101</a>
+                <a href="tel:6149449041" className="hover:opacity-80 transition-opacity block">Call: 614-944-9041</a>
                 <a href="mailto:info@restorecolumbus.com" className="hover:opacity-80 transition-opacity block">Email: info@restorecolumbus.com</a>
                 <Link href="/book" className="hover:opacity-80 transition-opacity block font-medium text-accent">Book Appointment</Link>
               </div>
