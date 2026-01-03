@@ -206,6 +206,7 @@ export default function LocationDetail() {
               <h2 className="font-heading font-bold text-2xl text-primary">Location Map</h2>
               <div className="w-full h-96 bg-muted rounded-lg overflow-hidden border border-border">
                 <MapView
+                  key={location.id}
                   className="w-full h-full"
                   initialCenter={{
                     lat: location.id === 'easton' ? 40.056673 : location.id === 'dublin' ? 40.1051554 : 40.0203536,
