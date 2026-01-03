@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Check, Snowflake, Wind, Lightbulb, Zap, Droplets, Activity, Syringe, Sparkles, Star, CircleDot, Waves, Atom, Dna, Eye } from "lucide-react";
+import { Check, Snowflake, Wind, Lightbulb, Zap, Droplets, Activity, Syringe, Sparkles, Star, CircleDot, Waves, Atom, Dna, Eye, Heart } from "lucide-react";
 import { Link } from "wouter";
 import Layout from "@/components/Layout";
 import { memberships, services } from "@/lib/data";
@@ -33,6 +33,15 @@ export default function Pricing() {
     !["nad-iv", "niagen-nr-iv"].includes(s.id)
   );
 
+  // Separate medical services from skin health
+  const medicalServices = otherSpecialtyServices.filter(s => 
+    ["iv-drip", "trt", "im-shots", "mild-hyperbaric-oxygen"].includes(s.id)
+  );
+
+  const skinHealthServices = otherSpecialtyServices.filter(s => 
+    ["hydrafacial", "neveskin", "neveskin-shape", "neveskin-tone"].includes(s.id)
+  );
+
   // Icon mapping for core therapies
   const coreIcons: Record<string, any> = {
     "cryotherapy": Snowflake,
@@ -43,14 +52,14 @@ export default function Pricing() {
 
   // Icon mapping for specialty services
   const specialtyIcons: Record<string, any> = {
-    "iv-therapy": Droplets,
+    "iv-drip": Droplets,
     "trt": Activity,
     "im-shots": Syringe,
     "hydrafacial": Sparkles,
-    "neveskin-facial": Star,
+    "neveskin": Star,
     "neveskin-shape": CircleDot,
     "neveskin-tone": Waves,
-    "hyperbaric": Atom,
+    "mild-hyperbaric-oxygen": Atom,
   };
 
   // Color mapping for core therapies
@@ -63,14 +72,16 @@ export default function Pricing() {
 
   // Color mapping for specialty services
   const specialtyColors = [
-    { bg: '#6366F1', gradient: 'from-indigo-500 to-purple-500' },
-    { bg: '#EC4899', gradient: 'from-pink-500 to-rose-500' },
-    { bg: '#F59E0B', gradient: 'from-amber-500 to-orange-500' },
-    { bg: '#10B981', gradient: 'from-emerald-500 to-teal-500' },
-    { bg: '#8B5CF6', gradient: 'from-violet-500 to-purple-500' },
-    { bg: '#EF4444', gradient: 'from-red-500 to-rose-500' },
-    { bg: '#06B6D4', gradient: 'from-cyan-500 to-blue-500' },
-    { bg: '#84CC16', gradient: 'from-lime-500 to-green-500' },
+    // Medical Services (top row)
+    { bg: '#6366F1', gradient: 'from-indigo-500 to-purple-500' },      // IV Therapy
+    { bg: '#EC4899', gradient: 'from-pink-500 to-rose-500' },          // TRT
+    { bg: '#F59E0B', gradient: 'from-amber-500 to-orange-500' },       // IM Shots
+    { bg: '#10B981', gradient: 'from-emerald-500 to-teal-500' },       // mHBOT
+    // Skin Health Services (bottom row)
+    { bg: '#8B5CF6', gradient: 'from-violet-500 to-purple-500' },      // HydraFacial
+    { bg: '#EF4444', gradient: 'from-red-500 to-rose-500' },           // Neveskin Facial
+    { bg: '#06B6D4', gradient: 'from-cyan-500 to-blue-500' },          // Neveskin Shape
+    { bg: '#84CC16', gradient: 'from-lime-500 to-green-500' },         // Neveskin Tone
   ];
 
   // Premium pricing data
@@ -236,64 +247,6 @@ export default function Pricing() {
                     <Eye className="w-4 h-4 text-slate-700" />
                   </button>
 
-                  <div className={`relative h-28 flex items-center justify-center bg-gradient-to-br ${colorSet.gradient}`}>
-                    <IconComponent className="w-10 h-10 text-white" />
-                  </div>
-                  
-                  <div className="p-5 space-y-3">
-                    <h3 className="text-lg font-bold text-slate-900">{service.title}</h3>
-                    <p className="text-slate-600 text-sm leading-relaxed line-clamp-2">{service.shortDesc}</p>
-                    
-                    <div className="bg-gradient-to-br from-slate-50 to-slate-100 p-4 rounded-xl border border-slate-200 space-y-2">
-                      <div className="flex items-center justify-between">
-                        <span className="text-xs font-semibold text-slate-900">1 Credit per session</span>
-                        <span className="inline-block px-2 py-0.5 bg-emerald-100 text-emerald-800 text-xs font-bold rounded-full">Included</span>
-                      </div>
-                      <p className="text-xs text-slate-500">
-                        Available with all membership tiers
-                      </p>
-                      <div className="border-t border-slate-200 pt-2 mt-2">
-                        <p className="text-xs font-semibold text-slate-900">{service.pricing}</p>
-                      </div>
-                    </div>
-
-                    <Button asChild className={`w-full bg-gradient-to-r ${colorSet.gradient} hover:opacity-90 text-white font-semibold h-10 rounded-lg transition-all text-sm`}>
-                      <Link href={`/service/${service.id}`}>Learn More</Link>
-                    </Button>
-                  </div>
-                </Card>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Specialty Services */}
-      <section className="py-20 bg-white">
-        <div className="container">
-          <div className="mb-16 text-center">
-            <h2 className="text-4xl font-bold mb-4 text-slate-900">Specialty Services</h2>
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              30% discount for members. Pay-per-session for non-members.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {otherSpecialtyServices.map((service, idx) => {
-              const IconComponent = specialtyIcons[service.id] || Sparkles;
-              const colorSet = specialtyColors[idx % specialtyColors.length];
-              
-              return (
-                <Card key={service.id} className="hover:shadow-2xl hover:scale-[1.02] hover:-translate-y-1 transition-all duration-300 ease-out border-0 overflow-hidden group relative cursor-pointer">
-                  {/* Quick View Button */}
-                  <button
-                    onClick={() => openQuickView(service, colorSet, IconComponent)}
-                    className="absolute top-3 right-3 w-9 h-9 rounded-full bg-white/90 hover:bg-white flex items-center justify-center shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 z-10 hover:scale-110"
-                    title="Quick View"
-                  >
-                    <Eye className="w-4 h-4 text-slate-700" />
-                  </button>
-
                   <div className="relative h-28 flex items-center justify-center text-white opacity-90 group-hover:opacity-100 transition-opacity" style={{backgroundColor: colorSet.bg}}>
                     <IconComponent className="w-10 h-10" />
                   </div>
@@ -313,6 +266,100 @@ export default function Pricing() {
                 </Card>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* Specialty Services */}
+      <section className="py-20 bg-white">
+        <div className="container">
+          <div className="mb-16 text-center">
+            <h2 className="text-4xl font-bold mb-4 text-slate-900">Specialty Services</h2>
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+              Enhance your wellness routine. 30% off with membership.
+            </p>
+          </div>
+
+          {/* Medical Services Row */}
+          <div className="mb-16">
+            <h3 className="text-2xl font-bold mb-8 text-slate-900">Medical & Wellness Services</h3>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {medicalServices.map((service, idx) => {
+                const IconComponent = specialtyIcons[service.id] || Sparkles;
+                const colorSet = specialtyColors[idx];
+                
+                return (
+                  <Card key={service.id} className="hover:shadow-2xl hover:scale-[1.02] hover:-translate-y-1 transition-all duration-300 ease-out border-0 overflow-hidden group relative cursor-pointer">
+                    {/* Quick View Button */}
+                    <button
+                      onClick={() => openQuickView(service, colorSet, IconComponent)}
+                      className="absolute top-3 right-3 w-9 h-9 rounded-full bg-white/90 hover:bg-white flex items-center justify-center shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 z-10 hover:scale-110"
+                      title="Quick View"
+                    >
+                      <Eye className="w-4 h-4 text-slate-700" />
+                    </button>
+
+                    <div className="relative h-28 flex items-center justify-center text-white opacity-90 group-hover:opacity-100 transition-opacity" style={{backgroundColor: colorSet.bg}}>
+                      <IconComponent className="w-10 h-10" />
+                    </div>
+                    
+                    <div className="p-5 space-y-3 flex flex-col h-full">
+                      <h3 className="text-lg font-bold text-slate-900 leading-tight">{service.title}</h3>
+                      <p className="text-slate-600 text-sm leading-relaxed line-clamp-2 flex-grow">{service.shortDesc}</p>
+                      
+                      <div className="bg-gradient-to-br from-slate-50 to-slate-100 p-4 rounded-xl border border-slate-200">
+                        <p className="text-xs font-semibold text-slate-900">{service.pricing}</p>
+                      </div>
+
+                      <Button asChild className={`w-full bg-gradient-to-r ${colorSet.gradient} hover:opacity-90 text-white font-semibold h-10 rounded-lg transition-all text-sm`}>
+                        <Link href={`/service/${service.id}`}>View Details</Link>
+                      </Button>
+                    </div>
+                  </Card>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Skin Health Services Row */}
+          <div>
+            <h3 className="text-2xl font-bold mb-8 text-slate-900">Skin Health Services</h3>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {skinHealthServices.map((service, idx) => {
+                const IconComponent = specialtyIcons[service.id] || Sparkles;
+                const colorSet = specialtyColors[medicalServices.length + idx];
+                
+                return (
+                  <Card key={service.id} className="hover:shadow-2xl hover:scale-[1.02] hover:-translate-y-1 transition-all duration-300 ease-out border-0 overflow-hidden group relative cursor-pointer">
+                    {/* Quick View Button */}
+                    <button
+                      onClick={() => openQuickView(service, colorSet, IconComponent)}
+                      className="absolute top-3 right-3 w-9 h-9 rounded-full bg-white/90 hover:bg-white flex items-center justify-center shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 z-10 hover:scale-110"
+                      title="Quick View"
+                    >
+                      <Eye className="w-4 h-4 text-slate-700" />
+                    </button>
+
+                    <div className="relative h-28 flex items-center justify-center text-white opacity-90 group-hover:opacity-100 transition-opacity" style={{backgroundColor: colorSet.bg}}>
+                      <IconComponent className="w-10 h-10" />
+                    </div>
+                    
+                    <div className="p-5 space-y-3 flex flex-col h-full">
+                      <h3 className="text-lg font-bold text-slate-900 leading-tight">{service.title}</h3>
+                      <p className="text-slate-600 text-sm leading-relaxed line-clamp-2 flex-grow">{service.shortDesc}</p>
+                      
+                      <div className="bg-gradient-to-br from-slate-50 to-slate-100 p-4 rounded-xl border border-slate-200">
+                        <p className="text-xs font-semibold text-slate-900">{service.pricing}</p>
+                      </div>
+
+                      <Button asChild className={`w-full bg-gradient-to-r ${colorSet.gradient} hover:opacity-90 text-white font-semibold h-10 rounded-lg transition-all text-sm`}>
+                        <Link href={`/service/${service.id}`}>View Details</Link>
+                      </Button>
+                    </div>
+                  </Card>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
@@ -382,41 +429,16 @@ export default function Pricing() {
                       <p className="text-sm font-bold text-slate-900">$530 <span className="text-xs font-normal text-slate-500">member</span></p>
                       <p className="text-xs text-slate-400">$670 retail</p>
                     </div>
-                    <div className="bg-white p-3 rounded-lg border border-violet-100">
-                      <p className="text-xs text-slate-500 mb-1">125 mg Add-On</p>
-                      <p className="text-sm font-bold text-slate-900">$110 <span className="text-xs font-normal text-slate-500">member</span></p>
-                      <p className="text-xs text-slate-400">$138 retail</p>
-                    </div>
-                    <div className="bg-white p-3 rounded-lg border border-violet-100">
-                      <p className="text-xs text-slate-500 mb-1">125 mg IM</p>
-                      <p className="text-sm font-bold text-slate-900">$115 <span className="text-xs font-normal text-slate-500">member</span></p>
-                      <p className="text-xs text-slate-400">$144 retail</p>
-                    </div>
                   </div>
                 </div>
 
-                <ul className="space-y-2 text-sm">
-                  <li className="flex gap-2">
-                    <Check className="w-5 h-5 text-violet-500 flex-shrink-0" />
-                    <span>Restore cellular energy</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <Check className="w-5 h-5 text-violet-500 flex-shrink-0" />
-                    <span>Support longevity</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <Check className="w-5 h-5 text-violet-500 flex-shrink-0" />
-                    <span>Enhance mental clarity</span>
-                  </li>
-                </ul>
-
-                <Button asChild className="w-full bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-700 hover:to-purple-700 text-white font-semibold h-12 rounded-lg transition-all">
+                <Button asChild className="w-full bg-gradient-to-r from-violet-600 to-purple-600 hover:opacity-90 text-white font-semibold h-10 rounded-lg transition-all">
                   <Link href="/service/nad-iv">View Details</Link>
                 </Button>
               </div>
             </Card>
 
-            {/* Niagen */}
+            {/* Niagen (NR) */}
             <Card className="border-0 overflow-hidden group hover:shadow-2xl hover:scale-[1.02] hover:-translate-y-1 transition-all duration-300 ease-out bg-white relative cursor-pointer">
               {/* Quick View Button */}
               <button
@@ -452,7 +474,7 @@ export default function Pricing() {
                   <span className="inline-block px-3 py-1 bg-emerald-100 text-emerald-800 text-xs font-bold rounded-full">Premium</span>
                 </div>
                 <p className="text-slate-600">
-                  NAD+ precursor for cellular regeneration that boosts energy levels and supports healthy metabolism.
+                  Superior NAD+ precursor therapy with faster infusion and fewer side effects than traditional NAD+.
                 </p>
 
                 <div className="bg-gradient-to-br from-emerald-50 to-teal-50 p-5 rounded-xl border border-emerald-100 space-y-3">
@@ -470,35 +492,10 @@ export default function Pricing() {
                       <p className="text-sm font-bold text-slate-900">$1,380 <span className="text-xs font-normal text-slate-500">member</span></p>
                       <p className="text-xs text-slate-400">$1,720 retail</p>
                     </div>
-                    <div className="bg-white p-3 rounded-lg border border-emerald-100">
-                      <p className="text-xs text-slate-500 mb-1">125 mg Add-On</p>
-                      <p className="text-sm font-bold text-slate-900">$173 <span className="text-xs font-normal text-slate-500">member</span></p>
-                      <p className="text-xs text-slate-400">$215 retail</p>
-                    </div>
-                    <div className="bg-white p-3 rounded-lg border border-emerald-100">
-                      <p className="text-xs text-slate-500 mb-1">125 mg IM</p>
-                      <p className="text-sm font-bold text-slate-900">$205 <span className="text-xs font-normal text-slate-500">member</span></p>
-                      <p className="text-xs text-slate-400">$245 retail</p>
-                    </div>
                   </div>
                 </div>
 
-                <ul className="space-y-2 text-sm">
-                  <li className="flex gap-2">
-                    <Check className="w-5 h-5 text-emerald-500 flex-shrink-0" />
-                    <span>Boost NAD+ levels</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <Check className="w-5 h-5 text-emerald-500 flex-shrink-0" />
-                    <span>Increase energy</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <Check className="w-5 h-5 text-emerald-500 flex-shrink-0" />
-                    <span>Support metabolism</span>
-                  </li>
-                </ul>
-
-                <Button asChild className="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-semibold h-12 rounded-lg transition-all">
+                <Button asChild className="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:opacity-90 text-white font-semibold h-10 rounded-lg transition-all">
                   <Link href="/service/niagen-nr-iv">View Details</Link>
                 </Button>
               </div>
@@ -507,31 +504,48 @@ export default function Pricing() {
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="py-20 bg-white">
+      {/* Pricing FAQ */}
+      <section className="py-20 bg-slate-50">
         <div className="container max-w-3xl">
-          <h2 className="text-3xl font-bold mb-12 text-center">Pricing FAQs</h2>
-          
+          <div className="mb-16 text-center">
+            <h2 className="text-4xl font-bold mb-4 text-slate-900">Pricing FAQ</h2>
+            <p className="text-lg text-slate-600">
+              Common questions about our memberships and pricing
+            </p>
+          </div>
+
           <div className="space-y-6">
-            <div className="border-b pb-6">
-              <h3 className="text-lg font-bold mb-2">Can I switch membership plans?</h3>
-              <p className="text-slate-600">Yes, you can upgrade or downgrade your membership at any time. Changes take effect on your next billing cycle.</p>
-            </div>
-            
-            <div className="border-b pb-6">
-              <h3 className="text-lg font-bold mb-2">Do unused credits roll over?</h3>
-              <p className="text-slate-600">Credits are monthly and do not roll over. We recommend using your credits each month to maximize your membership value.</p>
-            </div>
-            
-            <div className="border-b pb-6">
-              <h3 className="text-lg font-bold mb-2">Are there any contracts?</h3>
-              <p className="text-slate-600">All memberships require a 3-month commitment. After that, you can cancel anytime with no penalties.</p>
-            </div>
-            
-            <div>
-              <h3 className="text-lg font-bold mb-2">What payment methods do you accept?</h3>
-              <p className="text-slate-600">We accept all major credit cards, debit cards, and digital payment methods. Contact us for other payment options.</p>
-            </div>
+            {[
+              {
+                q: "Can I use my insurance?",
+                a: "Restore doesn't accept traditional insurance plans. However, some HSA and FSA plans have been used to cover medical services. Check with your plan administrator for eligibility."
+              },
+              {
+                q: "Do membership credits roll over?",
+                a: "Credits are monthly. Unused credits do not roll over to the next month. We recommend using your credits consistently for best results."
+              },
+              {
+                q: "Can I pause my membership?",
+                a: "Yes. You can pause your membership anytime without penalty. Restart whenever you're ready."
+              },
+              {
+                q: "What payment methods do you accept?",
+                a: "We accept all major credit cards, debit cards, and digital payment methods. Memberships auto-renew monthly."
+              },
+              {
+                q: "Can I change my membership tier?",
+                a: "Yes. You can upgrade or downgrade your membership anytime. Changes take effect on your next billing cycle."
+              },
+              {
+                q: "Is there a contract?",
+                a: "No long-term contracts. Month-to-month flexibility. Cancel anytime."
+              }
+            ].map((faq, idx) => (
+              <div key={idx} className="bg-white p-6 rounded-xl border border-slate-200">
+                <h3 className="text-lg font-bold text-slate-900 mb-3">{faq.q}</h3>
+                <p className="text-slate-600">{faq.a}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -539,13 +553,13 @@ export default function Pricing() {
       {/* Quick View Modal */}
       {quickViewService && quickViewColorSet && quickViewIcon && (
         <ServiceQuickViewModal
-          isOpen={!!quickViewService}
-          onClose={closeQuickView}
+          isOpen={true}
           service={quickViewService}
           colorSet={quickViewColorSet}
           IconComponent={quickViewIcon}
           isPremium={isPremiumQuickView}
           premiumPricing={premiumPricingData}
+          onClose={closeQuickView}
         />
       )}
     </Layout>
