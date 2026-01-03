@@ -126,10 +126,8 @@ Restore Hyper Wellness Team
   };
 
   const handleSubmit = async () => {
-    if (!formData.membershipTier) {
-      toast.error("Please select a membership tier");
-      return;
-    }
+    // Membership tier is optional - users are just expressing interest
+    // If no tier selected, use a default or empty value
     setIsSubmitting(true);
     // Convert goals array to comma-separated string for submission
     await submitMutation.mutateAsync({
@@ -139,7 +137,7 @@ Restore Hyper Wellness Team
       phone: formData.phone,
       studioId: formData.studioId,
       goal: formData.goals.join(", "),
-      membershipTier: formData.membershipTier,
+      membershipTier: formData.membershipTier || "Interested",
     });
   };
 
@@ -243,13 +241,19 @@ Restore Hyper Wellness Team
                     <span className="sm:hidden">Home</span>
                   </Button>
                 </Link>
-                <a href={selectedStudio ? `tel:${selectedStudio.phone}` : "#"} className="col-span-1 sm:flex-1">
-                  <Button className="w-full bg-[#1B5E7F] hover:bg-[#154a5f] text-white font-bold py-6 rounded-lg flex items-center justify-center gap-2 text-sm sm:text-base" size="lg">
-                    <Phone className="w-5 h-5" />
-                    <span className="hidden sm:inline">Call Studio Now</span>
-                    <span className="sm:hidden">Call Now</span>
-                  </Button>
-                </a>
+                <Button
+                  onClick={() => {
+                    if (selectedStudio?.phone) {
+                      window.location.href = `tel:${selectedStudio.phone}`;
+                    }
+                  }}
+                  className="col-span-1 sm:flex-1 w-full bg-[#1B5E7F] hover:bg-[#154a5f] text-white font-bold py-6 rounded-lg flex items-center justify-center gap-2 text-sm sm:text-base"
+                  size="lg"
+                >
+                  <Phone className="w-5 h-5" />
+                  <span className="hidden sm:inline">Call Studio Now</span>
+                  <span className="sm:hidden">Call Now</span>
+                </Button>
               </div>
             </Card>
           )}

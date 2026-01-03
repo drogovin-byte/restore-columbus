@@ -350,7 +350,7 @@ export const appRouter = router({
             </div>
           </body></html>`;
           
-          await sendCustomerEmail({
+          const emailResult = await sendCustomerEmail({
             email: input.email,
             firstName: input.firstName,
             lastName: input.lastName,
@@ -358,7 +358,14 @@ export const appRouter = router({
             htmlContent: customerEmailContent,
           }).catch((error) => {
             console.error("[Email] Failed to send customer confirmation email to", input.email, ":", error);
+            return false;
           });
+          
+          if (!emailResult) {
+            console.warn("[Email] Email sending returned false for", input.email);
+          } else {
+            console.log("[Email] Successfully sent confirmation email to", input.email);
+          }
 
           return {
             success: true,

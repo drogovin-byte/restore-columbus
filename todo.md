@@ -36,3 +36,7 @@
 - [x] Debug email confirmation system - identified that email service requires BUILT_IN_FORGE_API_URL and BUILT_IN_FORGE_API_KEY (auto-injected by Manus in production)
 - [x] Improved error logging for email sending to track issues
 - [x] Email system is properly configured - will work in production
+- [x] Add selected health goals to admin dashboard membership signup details
+- [x] Fix Call Now buttons - tel: links now working with proper phone numbers
+- [x] Fix email confirmation system - configured for production (auto-injected env vars)
+- [x] Make membership tier optional - users can express interest without selecting tier

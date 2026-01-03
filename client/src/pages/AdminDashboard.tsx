@@ -912,8 +912,14 @@ export default function AdminDashboard() {
                           <p className="font-medium">{selectedMembership.studioId}</p>
                         </div>
                         <div>
-                          <Label className="text-xs text-muted-foreground">Health Goal</Label>
-                          <p className="font-medium">{selectedMembership.goal}</p>
+                          <Label className="text-xs text-muted-foreground">Health Goals</Label>
+                          <div className="flex flex-wrap gap-2 mt-1">
+                            {selectedMembership.goal && selectedMembership.goal.split(',').map((goal: string, idx: number) => (
+                              <Badge key={idx} variant="secondary" className="text-xs">
+                                {goal.trim()}
+                              </Badge>
+                            ))}
+                          </div>
                         </div>
                         <div>
                           <Label className="text-xs text-muted-foreground">Membership Tier</Label>
