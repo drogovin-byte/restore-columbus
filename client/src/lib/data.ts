@@ -146,7 +146,7 @@ export const memberships = [
       "8 monthly credits for Core Therapies",
       "1 Credit = 1 Core Therapy (Cryo, Sauna, Compression, Red Light)",
       "4 Credits = IV Drip with 2 Signature Nutrients",
-      "30% off Specialty Services",
+      "30% off retail for Specialty Services",
       "Access to Members-Only events",
       "Use credits at any Restore location nationwide",
       "Book anytime, Pause anytime"
@@ -156,7 +156,7 @@ export const memberships = [
       "8 monthly credits",
       "Core Therapy access",
       "IV Drip redemption",
-      "30% Specialty discount",
+      "30% retail Specialty discount",
       "Members-Only events",
       "Nationwide access"
     ],
@@ -174,7 +174,7 @@ export const memberships = [
       "14 monthly credits for Core Therapies",
       "1 Credit = 1 Core Therapy (Cryo, Sauna, Compression, Red Light)",
       "4 Credits = IV Drip with 2 Signature Nutrients",
-      "30% off Specialty Services",
+      "30% off retail for Specialty Services",
       "Access to Members-Only events",
       "Use credits at any Restore location nationwide",
       "Book anytime, Pause anytime"
@@ -184,7 +184,7 @@ export const memberships = [
       "14 monthly credits",
       "Core Therapy access",
       "IV Drip redemption",
-      "30% Specialty discount",
+      "30% retail Specialty discount",
       "Members-Only events",
       "Nationwide access"
     ],
@@ -201,8 +201,8 @@ export const memberships = [
     benefits: [
       "31 monthly credits for Core Therapies",
       "1 Credit = 1 Core Therapy (Cryo, Sauna, Compression, Red Light)",
-      "Unlimited access to core modalities",
-      "30% off Specialty Services",
+      "Access to core modalities",
+      "30% off retail for Specialty Services",
       "Access to Members-Only events",
       "Use credits at any Restore location nationwide",
       "Book anytime, Pause anytime",
@@ -211,8 +211,8 @@ export const memberships = [
     isPopular: false,
     features: [
       "31 monthly credits",
-      "Unlimited Core Therapy",
-      "30% Specialty discount",
+      "Core Therapy access",
+      "30% retail Specialty discount",
       "Members-Only events",
       "Nationwide access",
       "Priority booking"

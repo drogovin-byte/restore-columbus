@@ -161,7 +161,7 @@ export default function Memberships() {
             <div className="space-y-2 bg-white rounded-lg p-6 border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
               <h3 className="font-semibold text-lg text-[#1B5E7F]">Do credits roll over each month?</h3>
               <p className="text-gray-700">
-                Credits are monthly and don't roll over. However, you can pause your membership if you need flexibility.
+                Credits are monthly and remain on your account for 90 days with an active membership. Use them consistently for best results.
               </p>
             </div>
 
@@ -180,16 +180,16 @@ export default function Memberships() {
             </div>
 
             <div className="space-y-2 bg-white rounded-lg p-6 border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
-              <h3 className="font-semibold text-lg text-[#1B5E7F]">Are there any cancellation fees?</h3>
+              <h3 className="font-semibold text-lg text-[#1B5E7F]">What's the commitment?</h3>
               <p className="text-gray-700">
-                No cancellation fees. You can cancel your membership anytime with no penalties or questions asked.
+                3 month minimum commitment. After that, you can cancel anytime with no penalties or questions asked.
               </p>
             </div>
 
             <div className="space-y-2 bg-white rounded-lg p-6 border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
               <h3 className="font-semibold text-lg text-[#1B5E7F]">Do specialty services require extra credits?</h3>
               <p className="text-gray-700">
-                Some specialty services (like HydraFacial or advanced TRT consultations) may require additional credits or payment, but members get 30% off all specialty services.
+                Some specialty services (like HydraFacial or advanced TRT consultations) may require additional credits or payment, but members get 30% off retail for all specialty services.
               </p>
             </div>
           </div>

@@ -253,7 +253,7 @@ export default function Pricing() {
                   
                   <div className="p-5 space-y-3 flex flex-col h-full">
                     <h3 className="text-lg font-bold text-slate-900 leading-tight">{service.title}</h3>
-                    <p className="text-slate-600 text-sm leading-relaxed line-clamp-2 flex-grow">{service.shortDesc}</p>
+                    <p className="text-slate-600 text-sm leading-relaxed flex-grow">{service.shortDesc}</p>
                     
                     <div className="bg-gradient-to-br from-slate-50 to-slate-100 p-4 rounded-xl border border-slate-200">
                       <p className="text-xs font-semibold text-slate-900">{service.pricing}</p>
@@ -305,7 +305,7 @@ export default function Pricing() {
                     
                     <div className="p-5 space-y-3 flex flex-col h-full">
                       <h3 className="text-lg font-bold text-slate-900 leading-tight">{service.title}</h3>
-                      <p className="text-slate-600 text-sm leading-relaxed line-clamp-2 flex-grow">{service.shortDesc}</p>
+                      <p className="text-slate-600 text-sm leading-relaxed flex-grow">{service.shortDesc}</p>
                       
                       <div className="bg-gradient-to-br from-slate-50 to-slate-100 p-4 rounded-xl border border-slate-200">
                         <p className="text-xs font-semibold text-slate-900">{service.pricing}</p>
@@ -346,7 +346,7 @@ export default function Pricing() {
                     
                     <div className="p-5 space-y-3 flex flex-col h-full">
                       <h3 className="text-lg font-bold text-slate-900 leading-tight">{service.title}</h3>
-                      <p className="text-slate-600 text-sm leading-relaxed line-clamp-2 flex-grow">{service.shortDesc}</p>
+                      <p className="text-slate-600 text-sm leading-relaxed flex-grow">{service.shortDesc}</p>
                       
                       <div className="bg-gradient-to-br from-slate-50 to-slate-100 p-4 rounded-xl border border-slate-200">
                         <p className="text-xs font-semibold text-slate-900">{service.pricing}</p>
