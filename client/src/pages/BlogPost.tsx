@@ -78,7 +78,7 @@ export default function BlogPost() {
                 </p>
               </div>
               <Button asChild className="bg-primary text-white hover:bg-primary/90 rounded-full">
-                <a href="https://www.restore.com/book-now" target="_blank" rel="noopener noreferrer">Book a Consultation</a>
+                <Link href="/book">Book a Consultation</Link>
               </Button>
             </div>
           </div>
