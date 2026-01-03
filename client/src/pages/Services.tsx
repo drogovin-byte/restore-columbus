@@ -118,9 +118,15 @@ export default function Services() {
 
               <div className="pt-8 pb-4" onClick={(e) => e.stopPropagation()}>
                 <Button asChild size="lg" className="bg-primary text-white hover:bg-primary/90 rounded-full px-8 w-full sm:w-auto">
-                  <a href="https://www.restore.com/book-now" itemProp="url" target="_blank" rel="noopener noreferrer">
-                    Book {service.title} <ArrowRight className="w-4 h-4 ml-2" />
-                  </a>
+                  {service.id === 'trt' ? (
+                    <Link href="/book" itemProp="url">
+                      Book {service.title} <ArrowRight className="w-4 h-4 ml-2" />
+                    </Link>
+                  ) : (
+                    <a href="https://www.restore.com/book-now" itemProp="url" target="_blank" rel="noopener noreferrer">
+                      Book {service.title} <ArrowRight className="w-4 h-4 ml-2" />
+                    </a>
+                  )}
                 </Button>
               </div>
             </div>
