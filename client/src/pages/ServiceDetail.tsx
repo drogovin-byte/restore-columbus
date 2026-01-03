@@ -263,7 +263,11 @@ export default function ServiceDetail() {
             Book your first session today and discover how {service.title} can transform your health and performance.
           </p>
           <Button asChild size="lg" className="bg-white text-primary hover:bg-gray-100 font-bold text-lg h-14 px-10 rounded-full">
-            <a href="https://www.restore.com/book-now" target="_blank" rel="noopener noreferrer">Book Your Session</a>
+            {service.id === 'trt' ? (
+              <Link href="/book">Book {service.title}</Link>
+            ) : (
+              <a href="https://www.restore.com/book-now" target="_blank" rel="noopener noreferrer">Book Your Session</a>
+            )}
           </Button>
         </div>
       </section>
