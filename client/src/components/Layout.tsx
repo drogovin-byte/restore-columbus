@@ -1,6 +1,6 @@
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Menu, X, MapPin, Phone, Instagram, Facebook, Linkedin } from "lucide-react";
+import { Menu, X, MapPin, Phone, Instagram, Facebook, Linkedin, Settings } from "lucide-react";
 import { useState, useEffect } from "react";
 import { locations } from "@/lib/data";
 
@@ -81,6 +81,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <Button asChild size="sm" className="bg-primary hover:bg-primary/90 text-white font-bold rounded-full px-6">
               <Link href="https://www.restore.com/book-now">Book Now</Link>
             </Button>
+            <Link href="/admin" className="ml-4 p-2 rounded-lg hover:bg-muted transition-colors" title="Admin Dashboard">
+              <Settings className="w-5 h-5 text-muted-foreground hover:text-primary" />
+            </Link>
           </nav>
 
           {/* Mobile Menu Toggle */}
@@ -121,6 +124,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <Button asChild className="bg-primary hover:bg-primary/90 text-white font-bold rounded-full w-full">
                 <Link href="https://www.restore.com/book-now">Book Now</Link>
               </Button>
+              <Link href="/admin" className="flex items-center gap-2 text-foreground hover:text-primary transition-colors">
+                <Settings className="w-4 h-4" /> Admin Dashboard
+              </Link>
             </nav>
           </div>
         )}
