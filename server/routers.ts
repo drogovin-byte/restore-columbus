@@ -153,7 +153,7 @@ export const appRouter = router({
             subject: "Appointment Request Received - Restore Hyper Wellness Columbus",
             htmlContent: customerEmailContent,
           }).catch((error) => {
-            console.error("Failed to send customer confirmation email:", error);
+            console.error("[Email] Failed to send customer confirmation email to", input.email, ":", error);
           });
 
           return {
@@ -357,7 +357,7 @@ export const appRouter = router({
             subject: "Membership Sign-up Received - Restore Hyper Wellness Columbus",
             htmlContent: customerEmailContent,
           }).catch((error) => {
-            console.error("Failed to send customer confirmation email:", error);
+            console.error("[Email] Failed to send customer confirmation email to", input.email, ":", error);
           });
 
           return {
