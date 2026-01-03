@@ -46,11 +46,11 @@ export default function Home() {
       <section className="relative h-[600px] md:h-[700px] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="/images/hero-wellness-columbus.jpg" 
+            src="/hero-image.0a9029b8.jpg" 
             alt="Restore Hyper Wellness Columbus Studio" 
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/70 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/40 via-primary/20 to-transparent" />
         </div>
         
         <div className="container relative z-10 text-white">
