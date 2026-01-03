@@ -52,7 +52,7 @@ export default function Blog() {
         </div>
       </div>
 
-      <section className="bg-primary text-white py-20">
+      <section className="bg-primary text-white py-20 pb-40 md:pb-20">
         <div className="container text-center space-y-8">
           <h2 className="font-heading font-bold text-3xl md:text-4xl">Stay in the Loop</h2>
           <p className="text-lg text-white/80 max-w-xl mx-auto">

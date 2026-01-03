@@ -136,7 +136,7 @@ export default function Locations() {
       </section>
 
       {/* Map Section */}
-      <section className="py-16 bg-muted/30">
+      <section className="py-16 bg-muted/30 pb-40 md:pb-16">
         <div className="container">
           <div className="mb-8">
             <h2 className="font-heading font-bold text-3xl text-foreground mb-2">
