@@ -40,3 +40,8 @@
 - [x] Fix Call Now buttons - tel: links now working with proper phone numbers
 - [x] Fix email confirmation system - configured for production (auto-injected env vars)
 - [x] Make membership tier optional - users can express interest without selecting tier
+- [x] Remove "Premium Service" copy from service cards
+- [x] Remove "30% Off" copy from service cards
+- [x] Remove "Member discount available" copy from service cards
+- [x] Ensure all service cards have consistent heights
+- [x] Align copy within service cards for visual consistency

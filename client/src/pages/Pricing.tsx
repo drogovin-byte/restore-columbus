@@ -298,21 +298,12 @@ export default function Pricing() {
                     <IconComponent className="w-10 h-10" />
                   </div>
                   
-                  <div className="p-5 space-y-3">
+                  <div className="p-5 space-y-3 flex flex-col h-full">
                     <h3 className="text-lg font-bold text-slate-900 leading-tight">{service.title}</h3>
-                    <p className="text-slate-600 text-sm leading-relaxed line-clamp-2">{service.shortDesc}</p>
+                    <p className="text-slate-600 text-sm leading-relaxed line-clamp-2 flex-grow">{service.shortDesc}</p>
                     
-                    <div className="bg-gradient-to-br from-slate-50 to-slate-100 p-4 rounded-xl border border-slate-200 space-y-2">
-                      <div className="flex items-center justify-between">
-                        <span className="text-xs font-semibold text-slate-900">Premium Service</span>
-                        <span className="inline-block px-2 py-0.5 bg-amber-100 text-amber-800 text-xs font-bold rounded-full">30% Off</span>
-                      </div>
-                      <p className="text-xs text-slate-500">
-                        Member discount available
-                      </p>
-                      <div className="border-t border-slate-200 pt-2 mt-2">
-                        <p className="text-xs font-semibold text-slate-900">{service.pricing}</p>
-                      </div>
+                    <div className="bg-gradient-to-br from-slate-50 to-slate-100 p-4 rounded-xl border border-slate-200">
+                      <p className="text-xs font-semibold text-slate-900">{service.pricing}</p>
                     </div>
 
                     <Button asChild className={`w-full bg-gradient-to-r ${colorSet.gradient} hover:opacity-90 text-white font-semibold h-10 rounded-lg transition-all text-sm`}>
