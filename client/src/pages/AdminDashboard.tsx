@@ -11,6 +11,7 @@ import { Download, Search, Filter, X, AlertCircle, LogOut } from "lucide-react";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import AdminLogin from "./AdminLogin";
+import ImageManager from "@/components/ImageManager";
 
 const statusColors: Record<string, string> = {
   new: "bg-blue-100 text-blue-800",
@@ -35,7 +36,7 @@ const statusLabels: Record<string, string> = {
 export default function AdminDashboard() {
   const [, navigate] = useLocation();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [activeTab, setActiveTab] = useState<"inquiries" | "appointments" | "memberships">("inquiries");
+  const [activeTab, setActiveTab] = useState<"inquiries" | "appointments" | "memberships" | "images">("inquiries");
 
   useEffect(() => {
     // Check if user is already authenticated in this session
@@ -291,6 +292,13 @@ export default function AdminDashboard() {
             className="rounded-none border-b-2 border-transparent data-[active=true]:border-primary"
           >
             Membership Sign-ups
+          </Button>
+          <Button
+            variant={activeTab === "images" ? "default" : "ghost"}
+            onClick={() => setActiveTab("images")}
+            className="rounded-none border-b-2 border-transparent data-[active=true]:border-primary"
+          >
+            Image Manager
           </Button>
         </div>
 
@@ -968,6 +976,13 @@ export default function AdminDashboard() {
                 </Card>
               )}
             </div>
+          </>
+        )}
+
+        {/* Image Manager Tab */}
+        {activeTab === "images" && (
+          <>
+            <ImageManager />
           </>
         )}
     </div>

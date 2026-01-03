@@ -300,3 +300,72 @@ export async function updateMembershipSignup(id: number, updates: { status?: str
     throw error;
   }
 }
+
+// Image management functions
+export async function createImage(data: {
+  filename: string;
+  url: string;
+  s3Key: string;
+  mimeType: string;
+  fileSize: number;
+  usage?: string;
+  usageId?: string;
+  altText?: string;
+}) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  const { images } = await import("../drizzle/schema");
+  const result = await db.insert(images).values(data);
+  return result;
+}
+
+export async function getAllImages() {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  const { desc } = await import("drizzle-orm");
+  const schema = await import("../drizzle/schema");
+  return await db.select().from(schema.images).orderBy(desc(schema.images.uploadedAt));
+}
+
+export async function getImageById(id: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  const { eq } = await import("drizzle-orm");
+  const schema = await import("../drizzle/schema");
+  const result = await db.select().from(schema.images).where(eq(schema.images.id, id));
+  return result[0] || null;
+}
+
+export async function getImagesByUsage(usage: string) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  const { eq } = await import("drizzle-orm");
+  const schema = await import("../drizzle/schema");
+  return await db.select().from(schema.images).where(eq(schema.images.usage, usage));
+}
+
+export async function updateImage(id: number, data: Partial<{
+  usage: string;
+  usageId: string;
+  altText: string;
+}>) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  const { eq } = await import("drizzle-orm");
+  const schema = await import("../drizzle/schema");
+  return await db.update(schema.images).set(data).where(eq(schema.images.id, id));
+}
+
+export async function deleteImage(id: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  const { eq } = await import("drizzle-orm");
+  const schema = await import("../drizzle/schema");
+  return await db.delete(schema.images).where(eq(schema.images.id, id));
+}

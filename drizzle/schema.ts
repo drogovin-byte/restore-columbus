@@ -75,3 +75,20 @@ export const membershipSignups = mysqlTable("membership_signups", {
 
 export type MembershipSignup = typeof membershipSignups.$inferSelect;
 export type InsertMembershipSignup = typeof membershipSignups.$inferInsert;
+export const images = mysqlTable("images", {
+  id: int("id").autoincrement().primaryKey(),
+  filename: varchar("filename", { length: 255 }).notNull(),
+  url: text("url").notNull(),
+  s3Key: varchar("s3_key", { length: 512 }).notNull(),
+  mimeType: varchar("mime_type", { length: 64 }).notNull(),
+  fileSize: int("file_size").notNull(),
+  usage: varchar("usage", { length: 64 }), // 'hero', 'location-easton', 'location-dublin', 'location-ua', 'service', 'blog', 'problem-state'
+  usageId: varchar("usage_id", { length: 255 }), // ID of the item using this image (service ID, blog slug, etc.)
+  altText: text("alt_text"),
+  uploadedAt: timestamp("uploaded_at").defaultNow().notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),
+});
+
+export type Image = typeof images.$inferSelect;
+export type InsertImage = typeof images.$inferInsert;

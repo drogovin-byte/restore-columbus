@@ -1,9 +1,10 @@
 import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
 import { publicProcedure, router } from "./_core/trpc";
+import { imageRouter } from "./imageRouter";
 import { z } from "zod";
 import { COOKIE_NAME } from "@shared/const";
-import { createMembershipLead, getAllMembershipLeads, getMembershipLeadById, updateMembershipLead, createAppointmentRequest, getAllAppointmentRequests, getAppointmentRequestById, updateAppointmentRequest, createMembershipSignup, getAllMembershipSignups, getMembershipSignupById, updateMembershipSignup } from "./db";
+import { createMembershipLead, getAllMembershipLeads, getMembershipLeadById, updateMembershipLead, createAppointmentRequest, getAllAppointmentRequests, getAppointmentRequestById, updateAppointmentRequest, createMembershipSignup, getAllMembershipSignups, getMembershipSignupById, updateMembershipSignup, createImage, getAllImages, getImageById, updateImage, deleteImage } from "./db";
 import { notifyOwner, sendCustomerEmail, sendStudioInquiryEmail } from "./_core/notification";
 
 const adminProcedure = publicProcedure.use(async (opts) => {
@@ -415,6 +416,8 @@ export const appRouter = router({
         return await updateMembershipSignup(input.id, { notes: input.notes });
       }),
   }),
+
+  images: imageRouter,
 });
 
 export type AppRouter = typeof appRouter;
