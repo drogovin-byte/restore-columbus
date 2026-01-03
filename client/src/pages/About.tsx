@@ -158,7 +158,7 @@ export default function About() {
             Experience the difference that local, science-backed wellness can make.
           </p>
           <Button asChild size="lg" className="bg-white text-primary hover:bg-gray-100 font-bold text-lg h-14 px-10 rounded-full">
-            <Link href="https://www.restore.com/book-now">Book Your First Session</Link>
+            <a href="https://www.restore.com/book-now" target="_blank" rel="noopener noreferrer">Book Your First Session</a>
           </Button>
         </div>
       </section>
