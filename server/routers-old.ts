@@ -1,8 +1,8 @@
+import { COOKIE_NAME } from "@shared/const";
 import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
 import { publicProcedure, router } from "./_core/trpc";
 import { z } from "zod";
-import { COOKIE_NAME } from "@shared/const";
 import { createMembershipLead, getAllMembershipLeads, getMembershipLeadById, updateMembershipLead, createAppointmentRequest, getAllAppointmentRequests, getAppointmentRequestById, updateAppointmentRequest, createMembershipSignup, getAllMembershipSignups, getMembershipSignupById, updateMembershipSignup } from "./db";
 import { notifyOwner, sendCustomerEmail, sendStudioInquiryEmail } from "./_core/notification";
 
@@ -113,38 +113,42 @@ export const appRouter = router({
           });
 
           // Send confirmation email to customer
-          const customerEmailContent = `<html><body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
-            <div style="max-width: 600px; margin: 0 auto; padding: 20px;">
-              <h2 style="color: #1B5E7F;">Appointment Request Received</h2>
-              <p>Hi ${input.firstName},</p>
-              <p>Thank you for your interest in Restore Hyper Wellness Columbus! We've received your appointment request.</p>
-              
-              <h3>Your Information:</h3>
-              <ul>
-                <li><strong>Name:</strong> ${input.firstName} ${input.lastName}</li>
-                <li><strong>Email:</strong> ${input.email}</li>
-                <li><strong>Phone:</strong> ${input.phone}</li>
-                <li><strong>Preferred Location:</strong> ${input.preferredLocation}</li>
-                <li><strong>Service of Interest:</strong> ${input.serviceOfInterest || "Not specified"}</li>
-              </ul>
-              
-              <p><strong>What's Next?</strong></p>
-              <p>Our wellness team will reach out to you within 24 hours to:</p>
-              <ul>
-                <li>Confirm your preferred appointment time</li>
-                <li>Answer any questions you may have</li>
-                <li>Provide information about our services and memberships</li>
-              </ul>
-              
-              <p>If you need to reach us sooner, feel free to call us directly at <strong>614-944-9041</strong> (Easton) or visit our website.</p>
-              
-              <p>Thank you for choosing Restore Hyper Wellness Columbus!</p>
-              <p style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd; font-size: 12px; color: #666;">
-                Restore Hyper Wellness Columbus<br>
-                Proudly serving Columbus, OH since 2019
-              </p>
-            </div>
-          </body></html>`;
+          const customerEmailContent = `
+            <html>
+              <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+                <div style="max-width: 600px; margin: 0 auto; padding: 20px;">
+                  <h2 style="color: #1B5E7F;">Appointment Request Received</h2>
+                  <p>Hi ${input.firstName},</p>
+                  <p>Thank you for submitting your appointment request to Restore Hyper Wellness Columbus! We've received your information and will contact you shortly to confirm your appointment.</p>
+                  
+                  <div style="background-color: #f5f5f5; padding: 15px; border-radius: 5px; margin: 20px 0;">
+                    <h3 style="margin-top: 0; color: #1B5E7F;">Your Request Details:</h3>
+                    <p><strong>Name:</strong> ${input.firstName} ${input.lastName}</p>
+                    <p><strong>Email:</strong> ${input.email}</p>
+                    <p><strong>Phone:</strong> ${input.phone}</p>
+                    <p><strong>Preferred Location:</strong> ${input.preferredLocation}</p>
+                    ${input.serviceOfInterest ? `<p><strong>Service of Interest:</strong> ${input.serviceOfInterest}</p>` : ""}
+                  </div>
+                  
+                  <p><strong>What's Next?</strong></p>
+                  <p>Our wellness team will reach out to you within 24 hours to:</p>
+                  <ul>
+                    <li>Confirm your preferred appointment time</li>
+                    <li>Answer any questions you may have</li>
+                    <li>Provide information about our services and memberships</li>
+                  </ul>
+                  
+                  <p>If you need to reach us sooner, feel free to call us directly at <strong>614-944-9041</strong> (Easton) or visit our website.</p>
+                  
+                  <p>Thank you for choosing Restore Hyper Wellness Columbus!</p>
+                  <p style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd; font-size: 12px; color: #666;">
+                    Restore Hyper Wellness Columbus<br>
+                    Proudly serving Columbus, OH since 2019
+                  </p>
+                </div>
+              </body>
+            </html>
+          `;
           
           await sendCustomerEmail({
             email: input.email,
@@ -277,135 +281,6 @@ export const appRouter = router({
 
         const csv = [headers, ...rows].map(row => row.map(cell => `"${cell}"`).join(",")).join("\n");
         return csv;
-      }),
-  }),
-
-  membershipSignups: router({
-    submit: publicProcedure
-      .input(z.object({
-        firstName: z.string().min(1),
-        lastName: z.string().min(1),
-        email: z.string().email(),
-        phone: z.string().min(10),
-        studioId: z.string().min(1),
-        goal: z.string().min(1),
-        membershipTier: z.string().min(1),
-      }))
-      .mutation(async ({ input }) => {
-        try {
-          await createMembershipSignup({
-            firstName: input.firstName,
-            lastName: input.lastName,
-            email: input.email,
-            phone: input.phone,
-            studioId: input.studioId,
-            goal: input.goal,
-            membershipTier: input.membershipTier,
-          });
-
-          const message = `New membership sign-up from ${input.firstName} ${input.lastName}\n\nEmail: ${input.email}\nPhone: ${input.phone}\nStudio: ${input.studioId}\nGoal: ${input.goal}\nMembership Tier: ${input.membershipTier}`;
-          
-          await notifyOwner({
-            title: `New Membership Sign-up: ${input.membershipTier}`,
-            content: message,
-          });
-
-          // Send email to specific studio
-          await sendStudioInquiryEmail({
-            studioId: input.studioId,
-            firstName: input.firstName,
-            lastName: input.lastName,
-            email: input.email,
-            phone: input.phone,
-            tier: input.membershipTier,
-          });
-
-          // Send confirmation email to customer
-          const customerEmailContent = `<html><body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
-            <div style="max-width: 600px; margin: 0 auto; padding: 20px;">
-              <h2 style="color: #1B5E7F;">Membership Sign-up Received</h2>
-              <p>Hi ${input.firstName},</p>
-              <p>Thank you for your interest in Restore Hyper Wellness Columbus! We have received your membership sign-up request.</p>
-              
-              <h3>Your Information:</h3>
-              <ul>
-                <li><strong>Name:</strong> ${input.firstName} ${input.lastName}</li>
-                <li><strong>Email:</strong> ${input.email}</li>
-                <li><strong>Phone:</strong> ${input.phone}</li>
-                <li><strong>Preferred Studio:</strong> ${input.studioId}</li>
-                <li><strong>Health Goal:</strong> ${input.goal}</li>
-                <li><strong>Membership Tier:</strong> ${input.membershipTier}</li>
-              </ul>
-              
-              <p><strong>What is Next?</strong></p>
-              <p>Our team will contact you within 24 hours to confirm your membership and answer any questions you may have about your selected tier and how we can help you achieve your health goals.</p>
-              
-              <p>If you need to reach us sooner, feel free to call us directly at <strong>614-944-9041</strong> (Easton) or visit our website.</p>
-              
-              <p>Thank you for choosing Restore Hyper Wellness Columbus!</p>
-              <p style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd; font-size: 12px; color: #666;">
-                Restore Hyper Wellness Columbus<br>
-                Proudly serving Columbus, OH since 2019
-              </p>
-            </div>
-          </body></html>`;
-          
-          await sendCustomerEmail({
-            email: input.email,
-            firstName: input.firstName,
-            lastName: input.lastName,
-            subject: "Membership Sign-up Received - Restore Hyper Wellness Columbus",
-            htmlContent: customerEmailContent,
-          }).catch((error) => {
-            console.error("Failed to send customer confirmation email:", error);
-          });
-
-          return {
-            success: true,
-            message: "Thank you for signing up! We will contact you shortly to confirm your membership.",
-          };
-        } catch (error) {
-          console.error("Membership signup error:", error);
-          throw error;
-        }
-      }),
-
-    list: publicProcedure
-      .input(z.object({
-        status: z.string().optional(),
-        studioId: z.string().optional(),
-        search: z.string().optional(),
-      }))
-      .query(async ({ input }) => {
-        return await getAllMembershipSignups({
-          status: input.status,
-          studioId: input.studioId,
-          search: input.search,
-        });
-      }),
-
-    getById: publicProcedure
-      .input(z.number())
-      .query(async ({ input }) => {
-        return await getMembershipSignupById(input);
-      }),
-
-    updateStatus: adminProcedure
-      .input(z.object({
-        id: z.number(),
-        status: z.enum(["new", "contacted", "converted", "not_interested"]),
-      }))
-      .mutation(async ({ input }) => {
-        return await updateMembershipSignup(input.id, { status: input.status });
-      }),
-
-    updateNotes: adminProcedure
-      .input(z.object({
-        id: z.number(),
-        notes: z.string().optional(),
-      }))
-      .mutation(async ({ input }) => {
-        return await updateMembershipSignup(input.id, { notes: input.notes });
       }),
   }),
 });

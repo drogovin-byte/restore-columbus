@@ -1,6 +1,6 @@
 import { eq, desc, and, or, like } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
-import { InsertUser, users, membershipLeads, InsertMembershipLead, appointmentRequests, InsertAppointmentRequest } from "../drizzle/schema";
+import { InsertUser, users, membershipLeads, InsertMembershipLead, appointmentRequests, InsertAppointmentRequest, membershipSignups, InsertMembershipSignup } from "../drizzle/schema";
 import { ENV } from './_core/env';
 
 let _db: ReturnType<typeof drizzle> | null = null;
@@ -226,6 +226,77 @@ export async function updateAppointmentRequest(id: number, updates: { status?: s
     return getAppointmentRequestById(id);
   } catch (error) {
     console.error("[Database] Failed to update appointment request:", error);
+    throw error;
+  }
+}
+
+
+export async function createMembershipSignup(data: InsertMembershipSignup) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  try {
+    const result = await db.insert(membershipSignups).values(data);
+    return result;
+  } catch (error) {
+    console.error("[Database] Failed to create membership signup:", error);
+    throw error;
+  }
+}
+
+export async function getAllMembershipSignups(filters?: { status?: string; studioId?: string; search?: string }) {
+  const db = await getDb();
+  if (!db) return [];
+
+  const conditions: any[] = [];
+  
+  if (filters?.status && filters.status !== "all") {
+    conditions.push(eq(membershipSignups.status, filters.status as any));
+  }
+  
+  if (filters?.studioId && filters.studioId !== "all") {
+    conditions.push(eq(membershipSignups.studioId, filters.studioId));
+  }
+  
+  if (filters?.search) {
+    conditions.push(
+      or(
+        like(membershipSignups.firstName, `%${filters.search}%`),
+        like(membershipSignups.lastName, `%${filters.search}%`),
+        like(membershipSignups.email, `%${filters.search}%`),
+        like(membershipSignups.phone, `%${filters.search}%`)
+      )
+    );
+  }
+
+  if (conditions.length > 0) {
+    return await db.select().from(membershipSignups).where(and(...conditions)).orderBy(desc(membershipSignups.createdAt));
+  }
+
+  return await db.select().from(membershipSignups).orderBy(desc(membershipSignups.createdAt));
+}
+
+export async function getMembershipSignupById(id: number) {
+  const db = await getDb();
+  if (!db) return null;
+
+  const result = await db.select().from(membershipSignups).where(eq(membershipSignups.id, id)).limit(1);
+  return result.length > 0 ? result[0] : null;
+}
+
+export async function updateMembershipSignup(id: number, updates: { status?: string; notes?: string }) {
+  const db = await getDb();
+  if (!db) return null;
+
+  try {
+    const updateSet: Record<string, any> = { updatedAt: new Date() };
+    if (updates.status) updateSet.status = updates.status;
+    if (updates.notes !== undefined) updateSet.notes = updates.notes;
+
+    await db.update(membershipSignups).set(updateSet).where(eq(membershipSignups.id, id));
+    return getMembershipSignupById(id);
+  } catch (error) {
+    console.error("[Database] Failed to update membership signup:", error);
     throw error;
   }
 }

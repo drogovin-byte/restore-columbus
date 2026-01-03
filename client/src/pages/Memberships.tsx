@@ -112,15 +112,11 @@ export default function Memberships() {
 
                       {/* CTA Button */}
                       <Button
-                        asChild
                         className="w-full mt-6 font-bold text-base py-6 rounded-lg bg-white hover:bg-gray-100 text-[#1B5E7F] transition-all duration-200 shadow-md hover:shadow-lg"
                         size="lg"
+                        asChild
                       >
-                        <a
-                          href="https://www.restore.com/book-now"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
+                        <a href="/membership-signup">
                           Get Started
                         </a>
                       </Button>

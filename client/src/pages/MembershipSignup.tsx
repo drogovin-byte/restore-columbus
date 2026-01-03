@@ -1,189 +1,282 @@
 import { useState } from "react";
-import { useRoute } from "wouter";
 import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import Layout from "@/components/Layout";
 import { trpc } from "@/lib/trpc";
 import { toast } from "sonner";
-import { Loader2, ArrowLeft } from "lucide-react";
-import { Link } from "wouter";
-
-const membershipTiers: Record<string, { name: string; price: number; credits: number }> = {
-  "level-up": { name: "Level Up", price: 170, credits: 8 },
-  "elevate": { name: "Elevate", price: 260, credits: 14 },
-  "core": { name: "Core", price: 300, credits: 31 },
-};
+import { locations, memberships, problemStates } from "@/lib/data";
 
 export default function MembershipSignup() {
-  const [, params] = useRoute("/membership/:id");
-  const membershipId = params?.id || "";
-  const membership = membershipTiers[membershipId];
-
+  const [step, setStep] = useState<"info" | "goal" | "membership">("info");
   const [formData, setFormData] = useState({
-    name: "",
+    firstName: "",
+    lastName: "",
     email: "",
     phone: "",
+    studioId: "",
+    goal: "",
+    membershipTier: "",
   });
-
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const signupMutation = trpc.membership.signup.useMutation({
+  const submitMutation = trpc.membershipSignups.submit.useMutation({
     onSuccess: () => {
-      toast.success("Thank you! We will contact you soon to complete your membership.");
-      setFormData({ name: "", email: "", phone: "" });
-      setTimeout(() => {
-        window.location.href = "/";
-      }, 2000);
+      toast.success("Thank you! We'll contact you shortly to confirm your membership.");
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        studioId: "",
+        goal: "",
+        membershipTier: "",
+      });
+      setStep("info");
+      setIsSubmitting(false);
     },
     onError: (error) => {
-      toast.error(error.message || "Failed to submit. Please try again.");
+      toast.error(error.message || "Failed to submit membership sign-up");
+      setIsSubmitting(false);
     },
   });
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+  const handleInputChange = (field: string, value: string) => {
+    setFormData(prev => ({ ...prev, [field]: value }));
+  };
 
-    try {
-      await signupMutation.mutateAsync({
-        membershipTier: membership.name,
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone,
-      });
-    } finally {
-      setIsSubmitting(false);
+  const handleNext = () => {
+    if (step === "info") {
+      if (!formData.firstName || !formData.lastName || !formData.email || !formData.phone || !formData.studioId) {
+        toast.error("Please fill in all fields");
+        return;
+      }
+      setStep("goal");
+    } else if (step === "goal") {
+      if (!formData.goal) {
+        toast.error("Please select a health goal");
+        return;
+      }
+      setStep("membership");
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+  const handleSubmit = async () => {
+    if (!formData.membershipTier) {
+      toast.error("Please select a membership tier");
+      return;
+    }
+    setIsSubmitting(true);
+    await submitMutation.mutateAsync(formData);
   };
 
-  if (!membership) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-background">
-        <div className="text-center space-y-4">
-          <h1 className="text-2xl font-bold text-primary">Membership not found</h1>
-          <Button asChild>
-            <Link href="/">Back to Home</Link>
-          </Button>
-        </div>
-      </div>
-    );
-  }
+  const goalOptions = problemStates.map(state => ({
+    id: state.id,
+    title: state.title,
+    description: state.problem,
+  }));
+
+  const studioOptions = locations.map(loc => ({
+    id: loc.id,
+    name: loc.name.replace("Restore Hyper Wellness - ", ""),
+  }));
+
+  const membershipOptions = memberships.map(m => ({
+    id: m.name,
+    name: m.name,
+    price: m.price,
+    credits: m.credits,
+  }));
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary/5 to-secondary/5 py-12 px-4">
-      <div className="max-w-2xl mx-auto space-y-6">
-        <Link href="/">
-          <Button variant="ghost" className="gap-2">
-            <ArrowLeft className="w-4 h-4" />
-            Back
-          </Button>
-        </Link>
+    <Layout>
+      <div className="min-h-screen bg-gradient-to-b from-white to-blue-50 py-12">
+        <div className="container max-w-2xl">
+          {/* Header */}
+          <div className="text-center mb-12">
+            <h1 className="text-4xl font-bold text-[#1B5E7F] mb-4">Join Restore Membership</h1>
+            <p className="text-lg text-gray-600">
+              Start your wellness journey with a membership tailored to your goals
+            </p>
+          </div>
 
-        <div className="text-center space-y-2">
-          <h1 className="text-4xl font-bold text-primary">Join {membership.name}</h1>
-          <p className="text-lg text-muted-foreground">
-            Complete your membership signup and we will contact you shortly
-          </p>
-        </div>
+          {/* Progress Indicator */}
+          <div className="flex justify-between mb-8">
+            <div className={`flex-1 h-2 mx-1 rounded ${step === "info" || step === "goal" || step === "membership" ? "bg-[#1B5E7F]" : "bg-gray-300"}`}></div>
+            <div className={`flex-1 h-2 mx-1 rounded ${step === "goal" || step === "membership" ? "bg-[#1B5E7F]" : "bg-gray-300"}`}></div>
+            <div className={`flex-1 h-2 mx-1 rounded ${step === "membership" ? "bg-[#1B5E7F]" : "bg-gray-300"}`}></div>
+          </div>
 
-        <Card className="bg-white border-2 border-accent/20">
-          <CardHeader>
-            <CardTitle className="text-2xl text-primary">{membership.name}</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-3">
-            <div className="flex justify-between items-center">
-              <span className="text-muted-foreground">Monthly Price:</span>
-              <span className="text-3xl font-bold text-primary">${membership.price}</span>
-            </div>
-            <div className="flex justify-between items-center">
-              <span className="text-muted-foreground">Credits per Month:</span>
-              <span className="text-xl font-semibold text-accent">{membership.credits} Credits</span>
-            </div>
-            <div className="pt-2 border-t">
-              <p className="text-sm text-muted-foreground">
-                3-month commitment required. Terms and restrictions apply.
-              </p>
-            </div>
-          </CardContent>
-        </Card>
+          {/* Step 1: Personal Info & Studio */}
+          {step === "info" && (
+            <Card className="p-8 border-0 shadow-lg rounded-2xl">
+              <h2 className="text-2xl font-bold text-[#1B5E7F] mb-6">Your Information</h2>
+              
+              <div className="space-y-4 mb-6">
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">First Name</label>
+                    <Input
+                      placeholder="John"
+                      value={formData.firstName}
+                      onChange={(e) => handleInputChange("firstName", e.target.value)}
+                      className="rounded-lg"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
+                    <Input
+                      placeholder="Doe"
+                      value={formData.lastName}
+                      onChange={(e) => handleInputChange("lastName", e.target.value)}
+                      className="rounded-lg"
+                    />
+                  </div>
+                </div>
 
-        <Card>
-          <CardHeader>
-            <CardTitle>Your Information</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="space-y-2">
-                <Label htmlFor="name">Full Name *</Label>
-                <Input
-                  id="name"
-                  name="name"
-                  placeholder="John Doe"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  disabled={isSubmitting}
-                />
-              </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                  <Input
+                    type="email"
+                    placeholder="john@example.com"
+                    value={formData.email}
+                    onChange={(e) => handleInputChange("email", e.target.value)}
+                    className="rounded-lg"
+                  />
+                </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="email">Email Address *</Label>
-                <Input
-                  id="email"
-                  name="email"
-                  type="email"
-                  placeholder="john@example.com"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  disabled={isSubmitting}
-                />
-              </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                  <Input
+                    placeholder="(614) 555-0123"
+                    value={formData.phone}
+                    onChange={(e) => handleInputChange("phone", e.target.value)}
+                    className="rounded-lg"
+                  />
+                </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="phone">Phone Number *</Label>
-                <Input
-                  id="phone"
-                  name="phone"
-                  type="tel"
-                  placeholder="(614) 555-0123"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  required
-                  disabled={isSubmitting}
-                />
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Preferred Studio</label>
+                  <Select value={formData.studioId} onValueChange={(value) => handleInputChange("studioId", value)}>
+                    <SelectTrigger className="rounded-lg">
+                      <SelectValue placeholder="Select a studio" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {studioOptions.map(studio => (
+                        <SelectItem key={studio.id} value={studio.id}>
+                          {studio.name}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
               </div>
 
               <Button
-                type="submit"
-                className="w-full bg-accent text-accent-foreground hover:bg-accent/90 font-bold text-lg h-12"
-                disabled={isSubmitting}
+                onClick={handleNext}
+                className="w-full bg-[#1B5E7F] hover:bg-[#154a5f] text-white font-bold py-6 rounded-lg"
+                size="lg"
               >
-                {isSubmitting ? (
-                  <>
-                    <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                    Processing...
-                  </>
-                ) : (
-                  `Complete ${membership.name} Signup`
-                )}
+                Continue to Goals
               </Button>
+            </Card>
+          )}
 
-              <p className="text-xs text-muted-foreground text-center pt-2">
-                We will contact you shortly to confirm your membership and answer any questions.
-              </p>
-            </form>
-          </CardContent>
-        </Card>
+          {/* Step 2: Health Goal */}
+          {step === "goal" && (
+            <Card className="p-8 border-0 shadow-lg rounded-2xl">
+              <h2 className="text-2xl font-bold text-[#1B5E7F] mb-6">What's Your Health Goal?</h2>
+              
+              <div className="space-y-3 mb-6">
+                {goalOptions.map(goal => (
+                  <div
+                    key={goal.id}
+                    onClick={() => handleInputChange("goal", goal.id)}
+                    className={`p-4 border-2 rounded-lg cursor-pointer transition-all ${
+                      formData.goal === goal.id
+                        ? "border-[#1B5E7F] bg-blue-50"
+                        : "border-gray-200 hover:border-gray-300"
+                    }`}
+                  >
+                    <h3 className="font-bold text-gray-900">{goal.title}</h3>
+                    <p className="text-sm text-gray-600 mt-1">{goal.description}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex gap-3">
+                <Button
+                  onClick={() => setStep("info")}
+                  variant="outline"
+                  className="flex-1 py-6 rounded-lg"
+                  size="lg"
+                >
+                  Back
+                </Button>
+                <Button
+                  onClick={handleNext}
+                  className="flex-1 bg-[#1B5E7F] hover:bg-[#154a5f] text-white font-bold py-6 rounded-lg"
+                  size="lg"
+                >
+                  Continue to Membership
+                </Button>
+              </div>
+            </Card>
+          )}
+
+          {/* Step 3: Membership Selection */}
+          {step === "membership" && (
+            <Card className="p-8 border-0 shadow-lg rounded-2xl">
+              <h2 className="text-2xl font-bold text-[#1B5E7F] mb-6">Select Your Membership</h2>
+              
+              <div className="space-y-3 mb-6">
+                {membershipOptions.map(membership => (
+                  <div
+                    key={membership.id}
+                    onClick={() => handleInputChange("membershipTier", membership.id)}
+                    className={`p-4 border-2 rounded-lg cursor-pointer transition-all ${
+                      formData.membershipTier === membership.id
+                        ? "border-[#1B5E7F] bg-blue-50"
+                        : "border-gray-200 hover:border-gray-300"
+                    }`}
+                  >
+                    <div className="flex justify-between items-start">
+                      <div>
+                        <h3 className="font-bold text-gray-900">{membership.name}</h3>
+                        <p className="text-sm text-gray-600 mt-1">{membership.credits} Credits/Month</p>
+                      </div>
+                      <div className="text-right">
+                        <p className="text-2xl font-bold text-[#1B5E7F]">${membership.price}</p>
+                        <p className="text-xs text-gray-600">/month</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex gap-3">
+                <Button
+                  onClick={() => setStep("goal")}
+                  variant="outline"
+                  className="flex-1 py-6 rounded-lg"
+                  size="lg"
+                >
+                  Back
+                </Button>
+                <Button
+                  onClick={handleSubmit}
+                  disabled={isSubmitting}
+                  className="flex-1 bg-[#1B5E7F] hover:bg-[#154a5f] text-white font-bold py-6 rounded-lg"
+                  size="lg"
+                >
+                  {isSubmitting ? "Submitting..." : "Complete Sign-up"}
+                </Button>
+              </div>
+            </Card>
+          )}
+        </div>
       </div>
-    </div>
+    </Layout>
   );
 }

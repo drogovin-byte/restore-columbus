@@ -57,3 +57,21 @@ export const appointmentRequests = mysqlTable("appointment_requests", {
 
 export type AppointmentRequest = typeof appointmentRequests.$inferSelect;
 export type InsertAppointmentRequest = typeof appointmentRequests.$inferInsert;
+
+export const membershipSignups = mysqlTable("membership_signups", {
+  id: int("id").autoincrement().primaryKey(),
+  firstName: varchar("first_name", { length: 255 }).notNull(),
+  lastName: varchar("last_name", { length: 255 }).notNull(),
+  email: varchar("email", { length: 320 }).notNull(),
+  phone: varchar("phone", { length: 20 }).notNull(),
+  studioId: varchar("studio_id", { length: 64 }).notNull(),
+  goal: varchar("goal", { length: 255 }).notNull(),
+  membershipTier: varchar("membership_tier", { length: 64 }).notNull(),
+  status: mysqlEnum("status", ["new", "contacted", "converted", "not_interested"]).default("new").notNull(),
+  notes: text("notes"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type MembershipSignup = typeof membershipSignups.$inferSelect;
+export type InsertMembershipSignup = typeof membershipSignups.$inferInsert;

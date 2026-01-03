@@ -51,6 +51,7 @@ function Router() {
       <Route path={"memberships"} component={Memberships} />
       <Route path={"pricing"} component={Pricing} />
       <Route path={"contact"} component={Contact} />
+      <Route path="/membership-signup" component={MembershipSignup} />
       <Route path="/membership/:id" component={MembershipSignup} />
       <Route path="/admin" component={() => <Layout><AdminDashboard /></Layout>} />
       <Route path={"/first-time-offer"} component={FirstTimeOffer} />

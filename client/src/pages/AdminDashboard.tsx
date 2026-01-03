@@ -35,7 +35,7 @@ const statusLabels: Record<string, string> = {
 export default function AdminDashboard() {
   const [, navigate] = useLocation();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [activeTab, setActiveTab] = useState<"inquiries" | "appointments">("inquiries");
+  const [activeTab, setActiveTab] = useState<"inquiries" | "appointments" | "memberships">("inquiries");
 
   useEffect(() => {
     // Check if user is already authenticated in this session
@@ -63,8 +63,15 @@ export default function AdminDashboard() {
     search: "",
   });
 
+  const [membershipFilters, setMembershipFilters] = useState({
+    status: "all",
+    studioId: "all",
+    search: "",
+  });
+
   const [selectedLead, setSelectedLead] = useState<any>(null);
   const [selectedAppointment, setSelectedAppointment] = useState<any>(null);
+  const [selectedMembership, setSelectedMembership] = useState<any>(null);
   const [editingNotes, setEditingNotes] = useState("");
   const [editingStatus, setEditingStatus] = useState("");
   const [lastRefresh, setLastRefresh] = useState<number>(Date.now());
@@ -72,6 +79,7 @@ export default function AdminDashboard() {
   const { data: user, isLoading: userLoading } = trpc.auth.me.useQuery();
   const { data: inquiries, refetch: refetchInquiries } = trpc.inquiries.list.useQuery(inquiryFilters);
   const { data: appointments, refetch: refetchAppointments } = trpc.appointments.list.useQuery(appointmentFilters);
+  const { data: memberships, refetch: refetchMemberships } = trpc.membershipSignups.list.useQuery(membershipFilters);
 
   const updateInquiryStatusMutation = trpc.inquiries.updateStatus.useMutation({
     onSuccess: () => {
@@ -276,6 +284,13 @@ export default function AdminDashboard() {
             className="rounded-none border-b-2 border-transparent data-[active=true]:border-primary"
           >
             Appointment Requests
+          </Button>
+          <Button
+            variant={activeTab === "memberships" ? "default" : "ghost"}
+            onClick={() => setActiveTab("memberships")}
+            className="rounded-none border-b-2 border-transparent data-[active=true]:border-primary"
+          >
+            Membership Sign-ups
           </Button>
         </div>
 
@@ -773,6 +788,182 @@ export default function AdminDashboard() {
           </Card>
         </div>
       )}
+
+        {/* Membership Sign-ups Tab */}
+        {activeTab === "memberships" && (
+          <>
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+              <Card>
+                <CardHeader className="pb-3">
+                  <CardTitle className="text-sm font-medium text-muted-foreground">Total Sign-ups</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="text-3xl font-bold">{memberships?.length || 0}</div>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader className="pb-3">
+                  <CardTitle className="text-sm font-medium text-muted-foreground">New</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="text-3xl font-bold text-blue-600">{memberships?.filter((m: any) => m.status === "new").length || 0}</div>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader className="pb-3">
+                  <CardTitle className="text-sm font-medium text-muted-foreground">Contacted</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="text-3xl font-bold text-yellow-600">{memberships?.filter((m: any) => m.status === "contacted").length || 0}</div>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader className="pb-3">
+                  <CardTitle className="text-sm font-medium text-muted-foreground">Converted</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="text-3xl font-bold text-green-600">{memberships?.filter((m: any) => m.status === "converted").length || 0}</div>
+                </CardContent>
+              </Card>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+              <Card className="lg:col-span-2">
+                <CardHeader>
+                  <CardTitle>Membership Sign-ups ({memberships?.length || 0})</CardTitle>
+                  <div className="flex gap-2 mt-4">
+                    <Input
+                      placeholder="Search by name or email..."
+                      value={membershipFilters.search}
+                      onChange={(e) => setMembershipFilters({...membershipFilters, search: e.target.value})}
+                      className="flex-1"
+                    />
+                    <Select value={membershipFilters.status} onValueChange={(value) => setMembershipFilters({...membershipFilters, status: value})}>
+                      <SelectTrigger className="w-40">
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="all">All Status</SelectItem>
+                        <SelectItem value="new">New</SelectItem>
+                        <SelectItem value="contacted">Contacted</SelectItem>
+                        <SelectItem value="converted">Converted</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-2 max-h-96 overflow-y-auto">
+                    {memberships?.map((membership: any) => (
+                      <div
+                        key={membership.id}
+                        onClick={() => setSelectedMembership(membership)}
+                        className={`p-3 border rounded-lg cursor-pointer transition-colors ${
+                          selectedMembership?.id === membership.id
+                            ? "bg-primary/10 border-primary"
+                            : "hover:bg-gray-50 border-gray-200"
+                        }`}
+                      >
+                        <div className="flex justify-between items-start">
+                          <div className="flex-1">
+                            <p className="font-medium">{membership.firstName} {membership.lastName}</p>
+                            <p className="text-sm text-gray-600">{membership.email}</p>
+                            <p className="text-xs text-gray-500 mt-1">{membership.studioId} • {membership.membershipTier}</p>
+                          </div>
+                          <Badge className={statusColors[membership.status] || "bg-gray-100"}>
+                            {statusLabels[membership.status] || membership.status}
+                          </Badge>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+
+              {selectedMembership && (
+                <Card>
+                  <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3">
+                    <CardTitle>Details</CardTitle>
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => setSelectedMembership(null)}
+                    >
+                      <X className="w-4 h-4" />
+                    </Button>
+                  </CardHeader>
+                  <CardContent className="space-y-6">
+                    <div className="space-y-3">
+                      <h3 className="font-semibold text-primary">Contact Information</h3>
+                      <div className="space-y-2">
+                        <div>
+                          <Label className="text-xs text-muted-foreground">Name</Label>
+                          <p className="font-medium">{selectedMembership.firstName} {selectedMembership.lastName}</p>
+                        </div>
+                        <div>
+                          <Label className="text-xs text-muted-foreground">Email</Label>
+                          <p className="font-medium text-sm break-all">{selectedMembership.email}</p>
+                        </div>
+                        <div>
+                          <Label className="text-xs text-muted-foreground">Phone</Label>
+                          <p className="font-medium">{selectedMembership.phone}</p>
+                        </div>
+                        <div>
+                          <Label className="text-xs text-muted-foreground">Studio</Label>
+                          <p className="font-medium">{selectedMembership.studioId}</p>
+                        </div>
+                        <div>
+                          <Label className="text-xs text-muted-foreground">Health Goal</Label>
+                          <p className="font-medium">{selectedMembership.goal}</p>
+                        </div>
+                        <div>
+                          <Label className="text-xs text-muted-foreground">Membership Tier</Label>
+                          <p className="font-medium">{selectedMembership.membershipTier}</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="space-y-3">
+                      <h3 className="font-semibold text-primary">Status</h3>
+                      <Select value={editingStatus} onValueChange={setEditingStatus}>
+                        <SelectTrigger>
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="new">New</SelectItem>
+                          <SelectItem value="contacted">Contacted</SelectItem>
+                          <SelectItem value="converted">Converted</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+
+                    <div className="space-y-3">
+                      <h3 className="font-semibold text-primary">Notes</h3>
+                      <Textarea
+                        placeholder="Add internal notes..."
+                        value={editingNotes}
+                        onChange={(e) => setEditingNotes(e.target.value)}
+                        className="min-h-[120px]"
+                      />
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-4 text-sm text-muted-foreground">
+                      <div>
+                        <Label className="text-xs">Created</Label>
+                        <p>{new Date(selectedMembership.createdAt).toLocaleString()}</p>
+                      </div>
+                      <div>
+                        <Label className="text-xs">Updated</Label>
+                        <p>{new Date(selectedMembership.updatedAt).toLocaleString()}</p>
+                      </div>
+                    </div>
+
+                    <Button className="w-full">Save Changes</Button>
+                  </CardContent>
+                </Card>
+              )}
+            </div>
+          </>
+        )}
     </div>
   );
 }
