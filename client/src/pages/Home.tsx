@@ -50,11 +50,11 @@ export default function Home() {
             alt="Restore Hyper Wellness Columbus Studio" 
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/40 via-primary/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/30 via-primary/10 to-transparent" />
         </div>
         
         <div className="container relative z-10 text-white">
-          <div className="max-w-2xl space-y-6 animate-in fade-in slide-in-from-bottom-10 duration-700">
+          <div className="max-w-2xl space-y-6 animate-in fade-in slide-in-from-bottom-10 duration-700 bg-gradient-to-r from-black/30 via-black/20 to-transparent p-8 rounded-lg backdrop-blur-sm">
             <Badge className="bg-accent text-accent-foreground hover:bg-accent/90 px-4 py-1 text-sm font-bold uppercase tracking-wider mb-2 border-none">
               Columbus' Premier Wellness Destination
             </Badge>
@@ -68,7 +68,7 @@ export default function Home() {
               <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-white hover:text-primary font-bold text-lg h-14 px-8 rounded-full shadow-lg transition-all hover:scale-105">
                 <a href="https://www.restore.com/book-now" target="_blank" rel="noopener noreferrer">Book Appointment</a>
               </Button>
-              <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-primary font-bold text-lg h-14 px-8 rounded-full backdrop-blur-sm transition-all hover:scale-105">
+              <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-primary font-bold text-lg h-14 px-8 rounded-full backdrop-blur-sm bg-white/10 transition-all hover:scale-105">
                 <Link href="/services">Explore Therapies</Link>
               </Button>
             </div>
