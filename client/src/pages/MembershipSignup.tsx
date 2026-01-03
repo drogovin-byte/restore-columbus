@@ -30,7 +30,58 @@ export default function MembershipSignup() {
   }, [step]);
 
   const submitMutation = trpc.membershipSignups.submit.useMutation({
-    onSuccess: () => {
+    onSuccess: async (data) => {
+      // Send confirmation email
+      try {
+        const selectedGoalsText = formData.goals
+          .map(goalId => {
+            const goal = goalOptions.find(g => g.id === goalId);
+            return goal ? goal.title : goalId;
+          })
+          .join(", ");
+
+        const membershipInfo = memberships.find(m => m.name === formData.membershipTier);
+        const emailBody = `
+Hello ${formData.firstName},
+
+Thank you for expressing your interest in a Restore Hyper Wellness membership!
+
+--- YOUR SELECTION ---
+Membership Tier: ${formData.membershipTier} - $${membershipInfo?.price}/month (${membershipInfo?.credits} credits/month)
+Health Goals: ${selectedGoalsText}
+Preferred Studio: ${selectedStudio?.name.replace("Restore Hyper Wellness - ", "")}
+
+--- STUDIO CONTACT ---
+Phone: ${selectedStudio?.phone}
+Address: ${selectedStudio?.address}, ${selectedStudio?.city}, ${selectedStudio?.state} ${selectedStudio?.zip}
+Hours: ${selectedStudio?.hours}
+
+Our wellness team will reach out within 24 hours to discuss your goals and help you get started.
+
+For faster response, call your selected studio directly at ${selectedStudio?.phone}.
+
+Best regards,
+Restore Hyper Wellness Team
+        `;
+
+        // Send email via API
+        const response = await fetch("/api/send-email", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            to: formData.email,
+            subject: "Restore Hyper Wellness - Membership Interest Confirmation",
+            text: emailBody,
+          }),
+        });
+
+        if (!response.ok) {
+          console.error("Email send failed, but form submission succeeded");
+        }
+      } catch (error) {
+        console.error("Error sending confirmation email:", error);
+      }
+
       setStep("confirmation");
       setIsSubmitting(false);
     },
@@ -98,16 +149,16 @@ export default function MembershipSignup() {
     description: state.problem,
   }));
 
-  const studioOptions = locations.map(loc => ({
-    id: loc.id,
-    name: loc.name.replace("Restore Hyper Wellness - ", ""),
-  }));
-
   const membershipOptions = memberships.map(m => ({
     id: m.name,
     name: m.name,
     price: m.price,
     credits: m.credits,
+  }));
+
+  const studioOptions = locations.map(loc => ({
+    id: loc.id,
+    name: loc.name.replace("Restore Hyper Wellness - ", ""),
   }));
 
   return (
@@ -122,12 +173,19 @@ export default function MembershipSignup() {
             </p>
           </div>
 
-          {/* Progress Indicator */}
+          {/* Progress Indicator with Step Numbers */}
           {step !== "confirmation" && (
-            <div className="flex justify-between mb-8">
-              <div className={`flex-1 h-2 mx-1 rounded ${step === "info" || step === "goal" || step === "membership" ? "bg-[#1B5E7F]" : "bg-gray-300"}`}></div>
-              <div className={`flex-1 h-2 mx-1 rounded ${step === "goal" || step === "membership" ? "bg-[#1B5E7F]" : "bg-gray-300"}`}></div>
-              <div className={`flex-1 h-2 mx-1 rounded ${step === "membership" ? "bg-[#1B5E7F]" : "bg-gray-300"}`}></div>
+            <div className="mb-8">
+              <div className="flex justify-between mb-2">
+                <span className="text-sm font-semibold text-[#1B5E7F]">
+                  {step === "info" ? "Step 1 of 3" : step === "goal" ? "Step 2 of 3" : "Step 3 of 3"}
+                </span>
+              </div>
+              <div className="flex justify-between gap-1">
+                <div className={`flex-1 h-2 rounded ${step === "info" || step === "goal" || step === "membership" ? "bg-[#1B5E7F]" : "bg-gray-300"}`}></div>
+                <div className={`flex-1 h-2 rounded ${step === "goal" || step === "membership" ? "bg-[#1B5E7F]" : "bg-gray-300"}`}></div>
+                <div className={`flex-1 h-2 rounded ${step === "membership" ? "bg-[#1B5E7F]" : "bg-gray-300"}`}></div>
+              </div>
             </div>
           )}
 
@@ -140,8 +198,11 @@ export default function MembershipSignup() {
                 <p className="text-lg text-gray-600 mb-4">
                   Thank you, {formData.firstName}! We've received your membership interest.
                 </p>
-                <p className="text-gray-600 mb-6">
+                <p className="text-gray-600 mb-4">
                   Our wellness team will reach out within 24 hours to discuss your goals and help you get started with your selected membership tier.
+                </p>
+                <p className="text-sm text-gray-500 mb-6">
+                  A confirmation email has been sent to <strong>{formData.email}</strong>
                 </p>
               </div>
 

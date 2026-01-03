@@ -26,3 +26,5 @@
 - [x] Add "Contact Studio Directly" option with phone number on confirmation page
 - [x] Allow multiple health goal selection in membership signup (change from single to multi-select)
 - [x] Fix scroll anchor issue - ensure page stays at top when navigating between steps
+- [x] Add email confirmation for membership signup submissions
+- [x] Add progress step numbers (1 of 3, 2 of 3, 3 of 3) to the form progress bar
