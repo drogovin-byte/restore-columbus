@@ -112,3 +112,93 @@ export async function notifyOwner(
     return false;
   }
 }
+
+
+export type CustomerEmailPayload = {
+  email: string;
+  firstName: string;
+  lastName: string;
+  subject: string;
+  htmlContent: string;
+};
+
+/**
+ * Sends a customer email through the Manus Notification Service.
+ * Returns `true` if the request was accepted, `false` when the upstream service
+ * cannot be reached. Validation errors bubble up as TRPC errors.
+ */
+export async function sendCustomerEmail(
+  payload: CustomerEmailPayload
+): Promise<boolean> {
+  const { email, firstName, lastName, subject, htmlContent } = payload;
+
+  if (!email || !email.includes("@")) {
+    throw new TRPCError({
+      code: "BAD_REQUEST",
+      message: "Valid customer email is required.",
+    });
+  }
+
+  if (!subject || subject.trim().length === 0) {
+    throw new TRPCError({
+      code: "BAD_REQUEST",
+      message: "Email subject is required.",
+    });
+  }
+
+  if (!htmlContent || htmlContent.trim().length === 0) {
+    throw new TRPCError({
+      code: "BAD_REQUEST",
+      message: "Email content is required.",
+    });
+  }
+
+  if (!ENV.forgeApiUrl) {
+    throw new TRPCError({
+      code: "INTERNAL_SERVER_ERROR",
+      message: "Email service URL is not configured.",
+    });
+  }
+
+  if (!ENV.forgeApiKey) {
+    throw new TRPCError({
+      code: "INTERNAL_SERVER_ERROR",
+      message: "Email service API key is not configured.",
+    });
+  }
+
+  const endpoint = buildEndpointUrl(ENV.forgeApiUrl);
+
+  try {
+    const response = await fetch(endpoint, {
+      method: "POST",
+      headers: {
+        accept: "application/json",
+        authorization: `Bearer ${ENV.forgeApiKey}`,
+        "content-type": "application/json",
+        "connect-protocol-version": "1",
+      },
+      body: JSON.stringify({
+        title: subject,
+        content: htmlContent,
+        recipientEmail: email,
+        recipientName: `${firstName} ${lastName}`,
+      }),
+    });
+
+    if (!response.ok) {
+      const detail = await response.text().catch(() => "");
+      console.warn(
+        `[Email] Failed to send customer email to ${email} (${response.status} ${response.statusText})${
+          detail ? `: ${detail}` : ""
+        }`
+      );
+      return false;
+    }
+
+    return true;
+  } catch (error) {
+    console.warn("[Email] Error calling email service:", error);
+    return false;
+  }
+}

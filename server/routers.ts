@@ -4,7 +4,7 @@ import { systemRouter } from "./_core/systemRouter";
 import { publicProcedure, router } from "./_core/trpc";
 import { z } from "zod";
 import { createMembershipLead, getAllMembershipLeads, getMembershipLeadById, updateMembershipLead, createAppointmentRequest, getAllAppointmentRequests, getAppointmentRequestById, updateAppointmentRequest } from "./db";
-import { notifyOwner } from "./_core/notification";
+import { notifyOwner, sendCustomerEmail } from "./_core/notification";
 
 const adminProcedure = publicProcedure.use(async (opts) => {
   if (opts.ctx.user?.role !== "admin") {
@@ -94,6 +94,54 @@ export const appRouter = router({
           await notifyOwner({
             title: `New Appointment Request from ${input.firstName} ${input.lastName}`,
             content: message,
+          });
+
+          // Send confirmation email to customer
+          const customerEmailContent = `
+            <html>
+              <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+                <div style="max-width: 600px; margin: 0 auto; padding: 20px;">
+                  <h2 style="color: #1B5E7F;">Appointment Request Received</h2>
+                  <p>Hi ${input.firstName},</p>
+                  <p>Thank you for submitting your appointment request to Restore Hyper Wellness Columbus! We've received your information and will contact you shortly to confirm your appointment.</p>
+                  
+                  <div style="background-color: #f5f5f5; padding: 15px; border-radius: 5px; margin: 20px 0;">
+                    <h3 style="margin-top: 0; color: #1B5E7F;">Your Request Details:</h3>
+                    <p><strong>Name:</strong> ${input.firstName} ${input.lastName}</p>
+                    <p><strong>Email:</strong> ${input.email}</p>
+                    <p><strong>Phone:</strong> ${input.phone}</p>
+                    <p><strong>Preferred Location:</strong> ${input.preferredLocation}</p>
+                    ${input.serviceOfInterest ? `<p><strong>Service of Interest:</strong> ${input.serviceOfInterest}</p>` : ""}
+                  </div>
+                  
+                  <p><strong>What's Next?</strong></p>
+                  <p>Our wellness team will reach out to you within 24 hours to:</p>
+                  <ul>
+                    <li>Confirm your preferred appointment time</li>
+                    <li>Answer any questions you may have</li>
+                    <li>Provide information about our services and memberships</li>
+                  </ul>
+                  
+                  <p>If you need to reach us sooner, feel free to call us directly at <strong>614-944-9041</strong> (Easton) or visit our website.</p>
+                  
+                  <p>Thank you for choosing Restore Hyper Wellness Columbus!</p>
+                  <p style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd; font-size: 12px; color: #666;">
+                    Restore Hyper Wellness Columbus<br>
+                    Proudly serving Columbus, OH since 2019
+                  </p>
+                </div>
+              </body>
+            </html>
+          `;
+          
+          await sendCustomerEmail({
+            email: input.email,
+            firstName: input.firstName,
+            lastName: input.lastName,
+            subject: "Appointment Request Received - Restore Hyper Wellness Columbus",
+            htmlContent: customerEmailContent,
+          }).catch((error) => {
+            console.error("Failed to send customer confirmation email:", error);
           });
 
           return {
