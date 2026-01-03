@@ -10,7 +10,7 @@ import GoogleReviews from "@/components/GoogleReviews";
 import { MapView } from "@/components/Map";
 
 export default function LocationDetail() {
-  const [match, params] = useRoute("/location/:id");
+  const [match, params] = useRoute("/locations/:id");
   const location = locations.find(l => l.id === params?.id);
 
   useEffect(() => {

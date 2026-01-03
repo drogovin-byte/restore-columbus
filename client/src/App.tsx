@@ -40,7 +40,7 @@ function Router() {
       <Route path={"/comparisons"} component={Comparisons} />
       <Route path={"/comparison/:slug"} component={ComparisonDetail} />
       <Route path={"/locations"} component={Locations} />
-      <Route path={"/location/:id"} component={LocationDetail} />
+      <Route path={"/locations/:id"} component={LocationDetail} />
       <Route path={"/blog"} component={Blog} />
       <Route path={"/blog/:slug"} component={BlogPost} />
       <Route path={"/science"} component={Science} />
