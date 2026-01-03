@@ -65,3 +65,4 @@
 - [x] Combine exclusive services and services available into one unified section
 - [x] Fix Easton map showing Dublin location instead of Easton
 - [x] Update Easton reviews count to 650+
+- [x] Make location reviews independent - each location displays its own review count

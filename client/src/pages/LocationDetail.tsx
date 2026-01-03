@@ -312,7 +312,7 @@ export default function LocationDetail() {
                     ))}
                   </div>
                   <span className="font-bold text-primary">4.9/5</span>
-                  <span className="text-sm text-muted-foreground">(650+ reviews)</span>
+                  <span className="text-sm text-muted-foreground">({location.totalReviews}+ reviews)</span>
                 </div>
                 <p className="text-sm text-muted-foreground italic">
                   "Amazing experience! The staff is knowledgeable and the facilities are top-notch. Highly recommend!"
