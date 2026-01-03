@@ -6,6 +6,7 @@ import { MapPin, Phone, Clock, Navigation } from "lucide-react";
 import { locations } from "@/lib/data";
 import { MapView } from "@/components/Map";
 import { useState } from "react";
+import { Link } from "wouter";
 
 export default function Locations() {
   const [selectedLocation, setSelectedLocation] = useState(locations[0]);
@@ -52,15 +53,11 @@ export default function Locations() {
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {locations.map((loc) => (
-              <Card 
-                key={loc.id}
-                className={`cursor-pointer transition-all duration-300 border-2 overflow-hidden hover:shadow-lg ${
-                  selectedLocation.id === loc.id 
-                    ? "border-accent shadow-lg scale-[1.02]" 
-                    : "border-border hover:border-accent/50"
-                }`}
-                onClick={() => setSelectedLocation(loc)}
-              >
+              <Link href={`/locations/${loc.id}`} key={loc.id}>
+                <Card 
+                  className="cursor-pointer transition-all duration-300 border-2 overflow-hidden hover:shadow-lg hover:border-accent/50 h-full"
+                >
+
                 {/* Location Image */}
                 <div className="h-48 overflow-hidden bg-muted">
                   <img 
@@ -130,6 +127,7 @@ export default function Locations() {
                   </div>
                 </CardContent>
               </Card>
+              </Link>
             ))}
           </div>
         </div>

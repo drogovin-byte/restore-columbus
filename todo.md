@@ -46,3 +46,6 @@
 - [x] Ensure all service cards have consistent heights
 - [x] Align copy within service cards for visual consistency
 - [x] Reorganize Specialty Services on Pricing page - medical services (IV, TRT, IM Shots, mHBOT) in top row, skin health (HydraFacial, Neveskin Facial/Shape/Tone) in bottom row
+- [x] Make location cards clickable to navigate to individual studio pages
+- [x] Update Google review counts - Easton: 550+, verify Dublin & Upper Arlington counts
+- [ ] Add admin panel for updating review counts manually
