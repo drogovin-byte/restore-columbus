@@ -202,7 +202,11 @@ export default function ServiceDetail() {
                   })}
                 </div>
                 <Button asChild className="w-full bg-accent text-accent-foreground hover:bg-accent/90 font-bold h-12">
-                  <a href="https://www.restore.com/book-now" target="_blank" rel="noopener noreferrer">Book Now</a>
+                  {service.id === 'trt' ? (
+                    <Link href="/book">Book Now</Link>
+                  ) : (
+                    <a href="https://www.restore.com/book-now" target="_blank" rel="noopener noreferrer">Book Now</a>
+                  )}
                 </Button>
                 <Button asChild variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-white font-bold h-12">
                   <Link href="/memberships">View Memberships</Link>

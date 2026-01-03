@@ -61,7 +61,11 @@ export default function ProblemDetail() {
               {problem.description}
             </p>
             <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-white hover:text-primary font-bold text-lg h-14 px-8 rounded-full shadow-lg transition-all hover:scale-105 w-fit">
-              <a href="https://www.restore.com/book-now" target="_blank" rel="noopener noreferrer">Book Consultation</a>
+              {(problem.id === 'mens-health' || problem.id === 'womens-wellness') ? (
+                <Link href="/book">Book Consultation</Link>
+              ) : (
+                <a href="https://www.restore.com/book-now" target="_blank" rel="noopener noreferrer">Book Consultation</a>
+              )}
             </Button>
           </div>
         </div>
