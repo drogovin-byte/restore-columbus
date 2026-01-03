@@ -13,7 +13,7 @@ export const locations = [
     mapUrl: "https://goo.gl/maps/easton",
     image: "/images/hero-wellness-columbus.jpg",
     averageRating: 4.9,
-    totalReviews: 550,
+    totalReviews: 650,
     specialServices: ["Hyperbaric Oxygen Therapy", "Neveskin Shape, Tone, Facials", "Medical Weight Loss GLP-1", "Hydrafacial"],
     reviews: [
       { author: "Sarah M.", rating: 5, text: "Amazing experience! The staff is incredibly knowledgeable and the cryotherapy session left me feeling energized. Highly recommend Restore!", date: "2 weeks ago" },
