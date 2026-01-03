@@ -24,3 +24,5 @@
 - [x] Add studio contact information to confirmation page (show selected studio details)
 - [x] Add "Return to Home" button on confirmation page
 - [x] Add "Contact Studio Directly" option with phone number on confirmation page
+- [x] Allow multiple health goal selection in membership signup (change from single to multi-select)
+- [x] Fix scroll anchor issue - ensure page stays at top when navigating between steps

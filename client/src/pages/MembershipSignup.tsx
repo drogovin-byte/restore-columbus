@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -8,7 +8,7 @@ import { trpc } from "@/lib/trpc";
 import { toast } from "sonner";
 import { locations, memberships, problemStates } from "@/lib/data";
 import { Link } from "wouter";
-import { CheckCircle, Phone, Home } from "lucide-react";
+import { CheckCircle, Phone, Home, Check } from "lucide-react";
 
 export default function MembershipSignup() {
   const [step, setStep] = useState<"info" | "goal" | "membership" | "confirmation">("info");
@@ -18,11 +18,16 @@ export default function MembershipSignup() {
     email: "",
     phone: "",
     studioId: "",
-    goal: "",
+    goals: [] as string[], // Changed to array for multiple goals
     membershipTier: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [selectedStudio, setSelectedStudio] = useState<typeof locations[0] | null>(null);
+
+  // Scroll to top when step changes
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [step]);
 
   const submitMutation = trpc.membershipSignups.submit.useMutation({
     onSuccess: () => {
@@ -39,6 +44,15 @@ export default function MembershipSignup() {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
 
+  const handleGoalToggle = (goalId: string) => {
+    setFormData(prev => ({
+      ...prev,
+      goals: prev.goals.includes(goalId)
+        ? prev.goals.filter(g => g !== goalId)
+        : [...prev.goals, goalId]
+    }));
+  };
+
   const handleNext = () => {
     if (step === "info") {
       if (!formData.firstName || !formData.lastName || !formData.email || !formData.phone || !formData.studioId) {
@@ -52,8 +66,8 @@ export default function MembershipSignup() {
       }
       setStep("goal");
     } else if (step === "goal") {
-      if (!formData.goal) {
-        toast.error("Please select a health goal");
+      if (formData.goals.length === 0) {
+        toast.error("Please select at least one health goal");
         return;
       }
       setStep("membership");
@@ -66,7 +80,16 @@ export default function MembershipSignup() {
       return;
     }
     setIsSubmitting(true);
-    await submitMutation.mutateAsync(formData);
+    // Convert goals array to comma-separated string for submission
+    await submitMutation.mutateAsync({
+      firstName: formData.firstName,
+      lastName: formData.lastName,
+      email: formData.email,
+      phone: formData.phone,
+      studioId: formData.studioId,
+      goal: formData.goals.join(", "),
+      membershipTier: formData.membershipTier,
+    });
   };
 
   const goalOptions = problemStates.map(state => ({
@@ -255,24 +278,38 @@ export default function MembershipSignup() {
             </Card>
           )}
 
-          {/* Step 2: Health Goal */}
+          {/* Step 2: Health Goals - Now with multiple selection */}
           {step === "goal" && (
             <Card className="p-8 border-0 shadow-lg rounded-2xl">
-              <h2 className="text-2xl font-bold text-[#1B5E7F] mb-6">Step 2: What's Your Health Goal?</h2>
+              <h2 className="text-2xl font-bold text-[#1B5E7F] mb-2">Step 2: What's Your Health Goal?</h2>
+              <p className="text-gray-600 mb-6">Select one or more goals that resonate with you</p>
               
               <div className="space-y-3 mb-6">
                 {goalOptions.map(goal => (
                   <div
                     key={goal.id}
-                    onClick={() => handleInputChange("goal", goal.id)}
+                    onClick={() => handleGoalToggle(goal.id)}
                     className={`p-4 border-2 rounded-lg cursor-pointer transition-all ${
-                      formData.goal === goal.id
+                      formData.goals.includes(goal.id)
                         ? "border-[#1B5E7F] bg-blue-50"
                         : "border-gray-200 hover:border-gray-300"
                     }`}
                   >
-                    <h3 className="font-bold text-gray-900">{goal.title}</h3>
-                    <p className="text-sm text-gray-600 mt-1">{goal.description}</p>
+                    <div className="flex items-start gap-3">
+                      <div className={`mt-1 w-5 h-5 rounded border-2 flex items-center justify-center flex-shrink-0 ${
+                        formData.goals.includes(goal.id)
+                          ? "bg-[#1B5E7F] border-[#1B5E7F]"
+                          : "border-gray-300"
+                      }`}>
+                        {formData.goals.includes(goal.id) && (
+                          <Check className="w-4 h-4 text-white" />
+                        )}
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="font-bold text-gray-900">{goal.title}</h3>
+                        <p className="text-sm text-gray-600 mt-1">{goal.description}</p>
+                      </div>
+                    </div>
                   </div>
                 ))}
               </div>
