@@ -54,7 +54,7 @@ export default function Home() {
         </div>
         
         <div className="container relative z-10 text-white">
-          <div className="max-w-2xl space-y-6 animate-in fade-in slide-in-from-bottom-10 duration-700 bg-gradient-to-r from-black/30 via-black/20 to-transparent p-8 rounded-lg backdrop-blur-sm">
+          <div className="max-w-2xl space-y-6 animate-in fade-in slide-in-from-bottom-10 duration-700 bg-gradient-to-r from-black/10 via-black/5 to-transparent p-8 rounded-lg backdrop-blur-xs">
             <Badge className="bg-accent text-accent-foreground hover:bg-accent/90 px-4 py-1 text-sm font-bold uppercase tracking-wider mb-2 border-none">
               Columbus' Premier Wellness Destination
             </Badge>
