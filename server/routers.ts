@@ -3,7 +3,7 @@ import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
 import { publicProcedure, router } from "./_core/trpc";
 import { z } from "zod";
-import { createMembershipLead, getAllMembershipLeads, getMembershipLeadById, updateMembershipLead } from "./db";
+import { createMembershipLead, getAllMembershipLeads, getMembershipLeadById, updateMembershipLead, createAppointmentRequest, getAllAppointmentRequests, getAppointmentRequestById, updateAppointmentRequest } from "./db";
 import { notifyOwner } from "./_core/notification";
 
 const adminProcedure = publicProcedure.use(async (opts) => {
@@ -65,6 +65,81 @@ export const appRouter = router({
           console.error("Membership signup error:", error);
           throw error;
         }
+      }),
+  }),
+
+  appointments: router({
+    submit: publicProcedure
+      .input(z.object({
+        firstName: z.string().min(1),
+        lastName: z.string().min(1),
+        email: z.string().email(),
+        phone: z.string().min(10),
+        preferredLocation: z.string().min(1),
+        serviceOfInterest: z.string().optional(),
+      }))
+      .mutation(async ({ input }) => {
+        try {
+          await createAppointmentRequest({
+            firstName: input.firstName,
+            lastName: input.lastName,
+            email: input.email,
+            phone: input.phone,
+            preferredLocation: input.preferredLocation,
+            serviceOfInterest: input.serviceOfInterest,
+          });
+
+          const message = `New appointment request from ${input.firstName} ${input.lastName}\n\nEmail: ${input.email}\nPhone: ${input.phone}\nPreferred Location: ${input.preferredLocation}\nService: ${input.serviceOfInterest || "Not specified"}`;
+          
+          await notifyOwner({
+            title: `New Appointment Request from ${input.firstName} ${input.lastName}`,
+            content: message,
+          });
+
+          return {
+            success: true,
+            message: "Request received! We'll call you shortly to confirm your appointment.",
+          };
+        } catch (error) {
+          console.error("Appointment request error:", error);
+          throw error;
+        }
+      }),
+
+    list: staffProcedure
+      .input(z.object({
+        status: z.string().optional(),
+        search: z.string().optional(),
+      }))
+      .query(async ({ input }) => {
+        return await getAllAppointmentRequests({
+          status: input.status,
+          search: input.search,
+        });
+      }),
+
+    getById: staffProcedure
+      .input(z.number())
+      .query(async ({ input }) => {
+        return await getAppointmentRequestById(input);
+      }),
+
+    updateStatus: adminProcedure
+      .input(z.object({
+        id: z.number(),
+        status: z.enum(["new", "contacted", "scheduled", "completed", "cancelled"]),
+      }))
+      .mutation(async ({ input }) => {
+        return await updateAppointmentRequest(input.id, { status: input.status });
+      }),
+
+    updateNotes: adminProcedure
+      .input(z.object({
+        id: z.number(),
+        notes: z.string().optional(),
+      }))
+      .mutation(async ({ input }) => {
+        return await updateAppointmentRequest(input.id, { notes: input.notes });
       }),
   }),
 

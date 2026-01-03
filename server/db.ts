@@ -1,6 +1,6 @@
 import { eq, desc, and, or, like } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
-import { InsertUser, users, membershipLeads, InsertMembershipLead } from "../drizzle/schema";
+import { InsertUser, users, membershipLeads, InsertMembershipLead, appointmentRequests, InsertAppointmentRequest } from "../drizzle/schema";
 import { ENV } from './_core/env';
 
 let _db: ReturnType<typeof drizzle> | null = null;
@@ -157,6 +157,75 @@ export async function updateMembershipLead(id: number, updates: { status?: strin
     return getMembershipLeadById(id);
   } catch (error) {
     console.error("[Database] Failed to update membership lead:", error);
+    throw error;
+  }
+}
+
+export async function createAppointmentRequest(request: InsertAppointmentRequest) {
+  const db = await getDb();
+  if (!db) {
+    console.warn("[Database] Cannot create appointment request: database not available");
+    return null;
+  }
+
+  try {
+    const result = await db.insert(appointmentRequests).values(request);
+    return result;
+  } catch (error) {
+    console.error("[Database] Failed to create appointment request:", error);
+    throw error;
+  }
+}
+
+export async function getAllAppointmentRequests(filters?: { status?: string; search?: string }) {
+  const db = await getDb();
+  if (!db) return [];
+
+  const conditions: any[] = [];
+
+  if (filters?.status && filters.status !== "all") {
+    conditions.push(eq(appointmentRequests.status, filters.status as any));
+  }
+
+  if (filters?.search) {
+    conditions.push(
+      or(
+        like(appointmentRequests.firstName, `%${filters.search}%`),
+        like(appointmentRequests.lastName, `%${filters.search}%`),
+        like(appointmentRequests.email, `%${filters.search}%`),
+        like(appointmentRequests.phone, `%${filters.search}%`)
+      )
+    );
+  }
+
+  if (conditions.length > 0) {
+    return await db.select().from(appointmentRequests).where(and(...conditions)).orderBy(desc(appointmentRequests.createdAt));
+  }
+
+  return await db.select().from(appointmentRequests).orderBy(desc(appointmentRequests.createdAt));
+}
+
+export async function getAppointmentRequestById(id: number) {
+  const db = await getDb();
+  if (!db) return null;
+
+  const result = await db.select().from(appointmentRequests).where(eq(appointmentRequests.id, id)).limit(1);
+  return result.length > 0 ? result[0] : null;
+}
+
+export async function updateAppointmentRequest(id: number, updates: { status?: string; notes?: string }) {
+  const db = await getDb();
+  if (!db) return null;
+
+  try {
+    const updateSet: Record<string, any> = { updatedAt: new Date() };
+    if (updates.status) updateSet.status = updates.status;
+    if (updates.notes !== undefined) updateSet.notes = updates.notes;
+
+    await db.update(appointmentRequests).set(updateSet).where(eq(appointmentRequests.id, id));
+    return getAppointmentRequestById(id);
+  } catch (error) {
+    console.error("[Database] Failed to update appointment request:", error);
     throw error;
   }
 }
