@@ -27,6 +27,7 @@ import Memberships from "./pages/Memberships";
 import Pricing from "./pages/Pricing";
 import MembershipSignup from "./pages/MembershipSignup";
 import AdminDashboard from "./pages/AdminDashboard";
+import Layout from "./components/Layout";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -51,7 +52,7 @@ function Router() {
       <Route path={"pricing"} component={Pricing} />
       <Route path={"contact"} component={Contact} />
       <Route path="/membership/:id" component={MembershipSignup} />
-      <Route path="/admin/dashboard" component={AdminDashboard} />
+      <Route path="/admin" component={() => <Layout><AdminDashboard /></Layout>} />
       <Route path={"/first-time-offer"} component={FirstTimeOffer} />
       <Route path={"/404"} component={NotFound} />
       
