@@ -54,3 +54,4 @@
 - [x] Update Easton location landmarks - replace Columbus Zoo with Columbus Airport CMH and Gahanna High School with New Albany
 - [x] Fix map coordinates for Easton location (4158 Easton Gateway)
 - [x] Update Google reviews count for Easton location
+- [x] Fix map coordinates for Dublin location (6780 Longshore Street, Dublin, OH 43017)

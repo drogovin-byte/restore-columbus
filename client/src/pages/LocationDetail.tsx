@@ -185,15 +185,15 @@ export default function LocationDetail() {
                 <MapView
                   className="w-full h-full"
                   initialCenter={{
-                    lat: location.id === 'easton' ? 40.056673 : location.id === 'dublin' ? 40.1103 : 40.0086,
-                    lng: location.id === 'easton' ? -82.9077847 : location.id === 'dublin' ? -83.1141 : -83.0556
+                    lat: location.id === 'easton' ? 40.056673 : location.id === 'dublin' ? 40.1051554 : 40.0086,
+                    lng: location.id === 'easton' ? -82.9077847 : location.id === 'dublin' ? -83.1100015 : -83.0556
                   }}
                   initialZoom={15}
                   onMapReady={(map: google.maps.Map) => {
                     new google.maps.Marker({
                       position: {
-                        lat: location.id === 'easton' ? 40.056673 : location.id === 'dublin' ? 40.1103 : 40.0086,
-                        lng: location.id === 'easton' ? -82.9077847 : location.id === 'dublin' ? -83.1141 : -83.0556
+                        lat: location.id === 'easton' ? 40.056673 : location.id === 'dublin' ? 40.1051554 : 40.0086,
+                        lng: location.id === 'easton' ? -82.9077847 : location.id === 'dublin' ? -83.1100015 : -83.0556
                       },
                       map: map,
                       title: location.name
