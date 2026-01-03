@@ -13,7 +13,7 @@ export const locations = [
     mapUrl: "https://goo.gl/maps/easton",
     image: "/images/hero-wellness-columbus.jpg",
     averageRating: 4.9,
-    totalReviews: 652,
+    totalReviews: 550,
     reviews: [
       { author: "Sarah M.", rating: 5, text: "Amazing experience! The staff is incredibly knowledgeable and the cryotherapy session left me feeling energized. Highly recommend Restore!", date: "2 weeks ago" },
       { author: "James T.", rating: 5, text: "Best recovery tool I've found. After my workouts, the compression therapy at Restore has made a huge difference in my performance.", date: "1 month ago" },

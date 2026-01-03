@@ -52,3 +52,5 @@
 - [x] Fix nested anchor tag error on Locations page
 - [x] Fix 404 error on /locations/easton route
 - [x] Update Easton location landmarks - replace Columbus Zoo with Columbus Airport CMH and Gahanna High School with New Albany
+- [x] Fix map coordinates for Easton location (4158 Easton Gateway)
+- [x] Update Google reviews count for Easton location
