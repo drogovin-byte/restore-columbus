@@ -16,9 +16,6 @@ export default function ProblemDetail() {
   }, [params?.id]);
 
   if (!match || !problem) {
-    useEffect(() => {
-      window.scrollTo(0, 0);
-    }, []);
     return (
       <Layout>
         <div className="container py-20 text-center">
