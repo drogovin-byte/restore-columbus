@@ -276,7 +276,7 @@ export default function Pricing() {
           <div className="mb-16 text-center">
             <h2 className="text-4xl font-bold mb-4 text-slate-900">Specialty Services</h2>
             <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              Enhance your wellness routine. 30% off with membership.
+              Enhance your wellness routine. 30% off retail with membership.
             </p>
           </div>
 
