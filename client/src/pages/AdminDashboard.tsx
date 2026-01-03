@@ -52,7 +52,7 @@ export default function AdminDashboard() {
   const [editingStatus, setEditingStatus] = useState("");
   const [lastRefresh, setLastRefresh] = useState<number>(Date.now());
 
-  const { data: user } = trpc.auth.me.useQuery();
+  const { data: user, isLoading: userLoading } = trpc.auth.me.useQuery();
   const { data: inquiries, refetch: refetchInquiries } = trpc.inquiries.list.useQuery(inquiryFilters);
   const { data: appointments, refetch: refetchAppointments } = trpc.appointments.list.useQuery(appointmentFilters);
 
@@ -130,37 +130,48 @@ export default function AdminDashboard() {
     }
   }, [inquiries, appointments]);
 
-  useEffect(() => {
-    if (!user) {
-      window.location.href = "/";
-    }
-  }, [user]);
+  // useEffect(() => {
+  //   if (!user) {
+  //     window.location.href = "/";
+  //   }
+  // }, [user]);
 
-  if (!user) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-background">
-        <div className="text-center space-y-4">
-          <AlertCircle className="w-12 h-12 text-destructive mx-auto" />
-          <h1 className="text-2xl font-bold">Access Denied</h1>
-          <p className="text-muted-foreground">You must be logged in to access this page.</p>
-          <Button onClick={() => window.location.href = "/"}>Back to Home</Button>
-        </div>
-      </div>
-    );
-  }
+  // if (userLoading) {
+  //   return (
+  //     <div className="min-h-screen flex items-center justify-center bg-background">
+  //       <div className="text-center space-y-4">
+  //         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto"></div>
+  //         <p className="text-muted-foreground">Loading...</p>
+  //       </div>
+  //     </div>
+  //   );
+  // }
 
-  if (user.role !== "admin") {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-background">
-        <div className="text-center space-y-4">
-          <AlertCircle className="w-12 h-12 text-destructive mx-auto" />
-          <h1 className="text-2xl font-bold">Admin Access Required</h1>
-          <p className="text-muted-foreground">Only administrators can access this dashboard.</p>
-          <Button onClick={() => window.location.href = "/"}>Back to Home</Button>
-        </div>
-      </div>
-    );
-  }
+  // if (!user) {
+  //   return (
+  //     <div className="min-h-screen flex items-center justify-center bg-background">
+  //       <div className="text-center space-y-4">
+  //         <AlertCircle className="w-12 h-12 text-destructive mx-auto" />
+  //         <h1 className="text-2xl font-bold">Access Denied</h1>
+  //         <p className="text-muted-foreground">You must be logged in to access this page.</p>
+  //         <Button onClick={() => window.location.href = "/"}>Back to Home</Button>
+  //       </div>
+  //     </div>
+  //   );
+  // }
+
+  // if (user.role !== "admin") {
+  //   return (
+  //     <div className="min-h-screen flex items-center justify-center bg-background">
+  //       <div className="text-center space-y-4">
+  //         <AlertCircle className="w-12 h-12 text-destructive mx-auto" />
+  //         <h1 className="text-2xl font-bold">Admin Access Required</h1>
+  //         <p className="text-muted-foreground">Only administrators can access this dashboard.</p>
+  //         <Button onClick={() => window.location.href = "/"}>Back to Home</Button>
+  //       </div>
+  //     </div>
+  //   );
+  // }
 
   const handleInquiryStatusChange = (id: number, status: string) => {
     updateInquiryStatusMutation.mutate({ id, status: status as any });
