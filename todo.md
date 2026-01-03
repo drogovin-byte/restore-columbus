@@ -60,3 +60,4 @@
 - [x] Fix 404 errors on footer location links
 - [x] Fix map coordinates for Upper Arlington location (3094 Kingsdale Center)
 - [x] Update Upper Arlington hours - Monday closed, Tues-Fri 10am-6pm, Sat 10am-5pm, Sun 11am-4pm
+- [x] Fix Upper Arlington hours display to show Monday as closed

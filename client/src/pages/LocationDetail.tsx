@@ -162,18 +162,41 @@ export default function LocationDetail() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="pt-6 space-y-2 text-sm">
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">Mon-Fri:</span>
-                    <span className="font-semibold">10am - 6pm</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">Saturday:</span>
-                    <span className="font-semibold">10am - 5pm</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">Sunday:</span>
-                    <span className="font-semibold">11am - 4pm</span>
-                  </div>
+                  {location.id === 'upper-arlington' ? (
+                    <>
+                      <div className="flex justify-between">
+                        <span className="text-muted-foreground">Monday:</span>
+                        <span className="font-semibold text-destructive">Closed</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-muted-foreground">Tues-Fri:</span>
+                        <span className="font-semibold">10am - 6pm</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-muted-foreground">Saturday:</span>
+                        <span className="font-semibold">10am - 5pm</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-muted-foreground">Sunday:</span>
+                        <span className="font-semibold">11am - 4pm</span>
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="flex justify-between">
+                        <span className="text-muted-foreground">Mon-Fri:</span>
+                        <span className="font-semibold">10am - 6pm</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-muted-foreground">Saturday:</span>
+                        <span className="font-semibold">10am - 5pm</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-muted-foreground">Sunday:</span>
+                        <span className="font-semibold">11am - 4pm</span>
+                      </div>
+                    </>
+                  )}
                 </CardContent>
               </Card>
             </div>
