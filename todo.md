@@ -64,3 +64,4 @@
 - [x] Add location-specific services (Hyperbaric Oxygen, Neveskin, GLP-1 to all; Hydrafacial to Easton & Dublin)
 - [x] Combine exclusive services and services available into one unified section
 - [x] Fix Easton map showing Dublin location instead of Easton
+- [x] Update Easton reviews count to 650+
