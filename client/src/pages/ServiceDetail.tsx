@@ -252,7 +252,7 @@ export default function ServiceDetail() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-primary text-white pb-40 md:pb-16">
+      <section className="py-16 bg-primary text-white">
         <div className="container text-center space-y-6">
           <h2 className="font-heading font-bold text-3xl">Ready to Experience {service.title}?</h2>
           <p className="text-lg text-white/80 max-w-2xl mx-auto">

@@ -128,7 +128,7 @@ export default function Services() {
         ))}
       </div>
 
-      <section className="bg-muted/30 py-20 pb-40 md:pb-20">
+      <section className="bg-muted/30 py-20">
         <div className="container text-center space-y-8">
           <h2 className="font-heading font-bold text-3xl md:text-4xl text-primary">Not Sure Where to Start?</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">

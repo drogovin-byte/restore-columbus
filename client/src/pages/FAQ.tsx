@@ -191,7 +191,7 @@ export default function FAQ() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-secondary/30 pb-40 md:pb-20">
+      <section className="py-20 bg-secondary/30">
         <div className="container max-w-2xl text-center space-y-6">
           <h2 className="font-heading font-bold text-3xl text-primary">Still Have Questions?</h2>
           <p className="text-muted-foreground text-lg">
