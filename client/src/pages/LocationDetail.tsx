@@ -259,7 +259,7 @@ export default function LocationDetail() {
                   <a href={`tel:${location.phone}`}>Call Now</a>
                 </Button>
                 <p className="text-sm text-white/80 text-center">
-                  First-time visitors get a free 15-minute consultation
+                  First-time visitors get a free consultation
                 </p>
               </CardContent>
             </Card>
