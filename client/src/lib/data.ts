@@ -14,6 +14,7 @@ export const locations = [
     image: "/images/hero-wellness-columbus.jpg",
     averageRating: 4.9,
     totalReviews: 550,
+    specialServices: ["Hyperbaric Oxygen Therapy", "Neveskin Shape, Tone, Facials", "Medical Weight Loss GLP-1", "Hydrafacial"],
     reviews: [
       { author: "Sarah M.", rating: 5, text: "Amazing experience! The staff is incredibly knowledgeable and the cryotherapy session left me feeling energized. Highly recommend Restore!", date: "2 weeks ago" },
       { author: "James T.", rating: 5, text: "Best recovery tool I've found. After my workouts, the compression therapy at Restore has made a huge difference in my performance.", date: "1 month ago" },
@@ -33,6 +34,7 @@ export const locations = [
     phone: "614-553-7207",
     hours: "Mon-Fri: 10am-7pm | Sat: 9am-5pm | Sun: 11am-4pm",
     mapUrl: "https://goo.gl/maps/dublin",
+    specialServices: ["Hyperbaric Oxygen Therapy", "Neveskin Shape, Tone, Facials", "Medical Weight Loss GLP-1", "Hydrafacial"],
     image: "/images/cryotherapy-session.jpg",
     averageRating: 4.9,
     totalReviews: 271,
@@ -55,6 +57,7 @@ export const locations = [
     phone: "614-745-0966",
     hours: "Monday: Closed | Tues-Fri: 10am-6pm | Sat: 10am-5pm | Sun: 11am-4pm",
     mapUrl: "https://goo.gl/maps/ua",
+    specialServices: ["Hyperbaric Oxygen Therapy", "Neveskin Shape, Tone, Facials", "Medical Weight Loss GLP-1"],
     image: "/images/iv-drip-lounge.jpg",
     averageRating: 5.0,
     totalReviews: 79,

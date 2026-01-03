@@ -253,6 +253,21 @@ export default function LocationDetail() {
               </div>
             </div>
 
+            {/* Location-Specific Services */}
+            {location.specialServices && location.specialServices.length > 0 && (
+              <div className="space-y-4">
+                <h2 className="font-heading font-bold text-2xl text-primary">Exclusive Services at This Location</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                  {location.specialServices.map((service, i) => (
+                    <div key={i} className="flex items-center gap-2 p-3 bg-accent/10 border border-accent rounded-lg">
+                      <CheckCircle2 className="w-5 h-5 text-accent shrink-0" />
+                      <span className="font-semibold text-foreground">{service}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
             {/* Services Available */}
             <div className="space-y-4">
               <h2 className="font-heading font-bold text-2xl text-primary">Services Available</h2>
