@@ -8,13 +8,6 @@ import TherapyQuiz from "@/components/TherapyQuiz";
 import { comparisons } from "@/lib/data";
 
 export default function Comparisons() {
-  const accentColors = [
-    { bg: 'from-blue-500/15 to-cyan-500/15', border: 'border-l-blue-500', accent: 'text-blue-600' },
-    { bg: 'from-purple-500/15 to-pink-500/15', border: 'border-l-purple-500', accent: 'text-purple-600' },
-    { bg: 'from-amber-500/15 to-orange-500/15', border: 'border-l-amber-500', accent: 'text-amber-600' },
-    { bg: 'from-emerald-500/15 to-teal-500/15', border: 'border-l-emerald-500', accent: 'text-emerald-600' },
-  ];
-
   return (
     <Layout>
       {/* Hero */}
@@ -33,49 +26,31 @@ export default function Comparisons() {
       <section className="py-20 bg-background">
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {comparisons.map((comp, idx) => {
-              const colors = accentColors[idx % accentColors.length];
-              
-              return (
-                <Link key={comp.id} href={`/comparison/${comp.slug}`}>
-                  <Card className={`group h-full overflow-hidden border-none shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 bg-card cursor-pointer border-l-4 ${colors.border} relative`}>
-                    {/* Animated gradient background */}
-                    <div className={`absolute inset-0 bg-gradient-to-br ${colors.bg} opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none`} />
+            {comparisons.map((comp) => (
+              <Link key={comp.id} href={`/comparison/${comp.slug}`}>
+                <Card className="group h-full overflow-hidden border border-border/50 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-card cursor-pointer">
+                  {/* Subtle top accent line */}
+                  <div className="h-1 bg-gradient-to-r from-accent via-accent/60 to-transparent" />
+                  
+                  <CardHeader className="pb-3">
+                    <CardTitle className="text-lg font-bold text-primary group-hover:text-secondary-foreground transition-colors duration-200">
+                      {comp.title}
+                    </CardTitle>
+                  </CardHeader>
+                  
+                  <CardContent className="space-y-4">
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {comp.excerpt}
+                    </p>
                     
-                    {/* Decorative floating element */}
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-accent/5 to-transparent rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-500" />
-                    
-                    {/* Top accent bar */}
-                    <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${colors.bg}`} />
-                    
-                    <CardHeader className="relative z-10 bg-gradient-to-r from-primary/10 to-transparent pb-4">
-                      <div className="flex items-start justify-between gap-4">
-                        <CardTitle className="text-primary group-hover:text-secondary-foreground transition-colors text-lg font-bold leading-tight">
-                          {comp.title}
-                        </CardTitle>
-                        <div className={`w-10 h-10 rounded-lg bg-gradient-to-br from-accent/20 to-accent/10 flex items-center justify-center group-hover:from-accent/40 group-hover:to-accent/20 transition-all flex-shrink-0`}>
-                          <ArrowRight className="w-5 h-5 text-accent opacity-60 group-hover:opacity-100 transition-opacity" />
-                        </div>
-                      </div>
-                    </CardHeader>
-                    
-                    <CardContent className="pt-4 space-y-4 relative z-10">
-                      <p className="text-muted-foreground leading-relaxed text-sm">
-                        {comp.excerpt}
-                      </p>
-                      
-                      {/* Subtle divider */}
-                      <div className="h-px bg-gradient-to-r from-accent/0 via-accent/20 to-accent/0" />
-                      
-                      <div className="pt-2 flex items-center text-sm font-semibold text-secondary-foreground group-hover:text-accent-foreground transition-colors">
-                        Read Full Comparison 
-                        <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1 duration-300" />
-                      </div>
-                    </CardContent>
-                  </Card>
-                </Link>
-              );
-            })}
+                    <div className="pt-2 flex items-center text-sm font-semibold text-secondary-foreground group-hover:text-accent transition-colors duration-200">
+                      Read Full Comparison 
+                      <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1 duration-200" />
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
