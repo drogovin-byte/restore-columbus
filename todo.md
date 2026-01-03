@@ -49,3 +49,4 @@
 - [x] Make location cards clickable to navigate to individual studio pages
 - [x] Update Google review counts - Easton: 550+, verify Dublin & Upper Arlington counts
 - [ ] Add admin panel for updating review counts manually
+- [x] Fix nested anchor tag error on Locations page

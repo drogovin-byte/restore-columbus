@@ -53,10 +53,11 @@ export default function Locations() {
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {locations.map((loc) => (
-              <Link href={`/locations/${loc.id}`} key={loc.id}>
-                <Card 
-                  className="cursor-pointer transition-all duration-300 border-2 overflow-hidden hover:shadow-lg hover:border-accent/50 h-full"
-                >
+              <Card 
+                key={loc.id}
+                className="cursor-pointer transition-all duration-300 border-2 overflow-hidden hover:shadow-lg hover:border-accent/50 h-full"
+                onClick={() => window.location.href = `/locations/${loc.id}`}
+              >
 
                 {/* Location Image */}
                 <div className="h-48 overflow-hidden bg-muted">
@@ -89,6 +90,7 @@ export default function Locations() {
                       <a 
                         href={`tel:${loc.phone.replace(/\D/g,'')}`} 
                         className="text-muted-foreground hover:text-primary transition-colors font-medium"
+                        onClick={(e) => e.stopPropagation()}
                       >
                         {loc.phone}
                       </a>
@@ -104,7 +106,7 @@ export default function Locations() {
                   </div>
 
                   {/* Action Buttons */}
-                  <div className="pt-4 flex gap-2">
+                  <div className="pt-4 flex gap-2" onClick={(e) => e.stopPropagation()}>
                     <Button 
                       className="flex-1 bg-primary text-white hover:bg-primary/90 font-semibold" 
                       asChild
@@ -127,7 +129,6 @@ export default function Locations() {
                   </div>
                 </CardContent>
               </Card>
-              </Link>
             ))}
           </div>
         </div>
