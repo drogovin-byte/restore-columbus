@@ -128,7 +128,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
       {/* Sticky Mobile Book Now Button - Shows on Scroll */}
       {showMobileFooter && (
-        <div className="fixed bottom-0 left-0 right-0 md:hidden z-40 bg-gradient-to-t from-background via-background to-transparent pt-4 pb-4 px-4 border-t border-border animate-in slide-in-from-bottom-3 duration-300">
+        <div className="fixed bottom-0 left-0 right-0 md:hidden z-40 bg-gradient-to-t from-background via-background to-transparent pt-6 pb-6 px-4 border-t border-border animate-in slide-in-from-bottom-3 duration-300">
           <Button asChild className="w-full bg-accent hover:bg-white text-accent-foreground hover:text-primary font-bold rounded-full py-3 text-base shadow-lg transition-all hover:scale-105">
             <Link href="https://www.restore.com/book-now">Book Your Session</Link>
           </Button>
@@ -137,7 +137,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
       {/* Always-visible Mobile Book Now Button - Always present */}
       {!showMobileFooter && (
-        <div className="fixed bottom-0 left-0 right-0 md:hidden z-40 bg-gradient-to-t from-background via-background to-transparent pt-4 pb-4 px-4 border-t border-border">
+        <div className="fixed bottom-0 left-0 right-0 md:hidden z-40 bg-gradient-to-t from-background via-background to-transparent pt-6 pb-6 px-4 border-t border-border">
           <Button asChild className="w-full bg-primary hover:bg-primary/90 text-white font-bold rounded-lg py-6 text-base shadow-lg">
             <Link href="https://www.restore.com/book-now">Book Now</Link>
           </Button>
@@ -145,7 +145,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       )}
 
       {/* Main Content - Add padding to prevent overlap with sticky button */}
-      <main className="flex-1 w-full pb-28 md:pb-0">
+      <main className="flex-1 w-full pb-32 md:pb-0">
         {children}
       </main>
 
@@ -214,7 +214,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       </footer>
 
       {/* Mobile spacer to prevent content from hiding behind sticky button */}
-      <div className="md:hidden h-24"></div>
+      <div className="md:hidden h-28"></div>
     </div>
   );
 }
