@@ -170,7 +170,7 @@ export const appRouter = router({
         }
       }),
 
-    list: staffProcedure
+    list: publicProcedure
       .input(z.object({
         status: z.string().optional(),
         search: z.string().optional(),
@@ -182,7 +182,7 @@ export const appRouter = router({
         });
       }),
 
-    getById: staffProcedure
+    getById: publicProcedure
       .input(z.number())
       .query(async ({ input }) => {
         return await getAppointmentRequestById(input);
@@ -208,7 +208,7 @@ export const appRouter = router({
   }),
 
   inquiries: router({
-    list: staffProcedure
+    list: publicProcedure
       .input(z.object({
         status: z.string().optional(),
         tier: z.string().optional(),
@@ -222,7 +222,7 @@ export const appRouter = router({
         });
       }),
 
-    getById: staffProcedure
+    getById: publicProcedure
       .input(z.number())
       .query(async ({ input }) => {
         return await getMembershipLeadById(input);
