@@ -35,7 +35,7 @@ export default function Pricing() {
 
   // Separate medical services from skin health
   const medicalServices = otherSpecialtyServices.filter(s => 
-    ["iv-drip", "trt", "im-shots", "mild-hyperbaric-oxygen"].includes(s.id)
+    ["iv-drip", "trt", "im-shots", "mild-hyperbaric-oxygen", "biomarker-assessments", "glp1-weight-loss"].includes(s.id)
   );
 
   const skinHealthServices = otherSpecialtyServices.filter(s => 
@@ -60,6 +60,8 @@ export default function Pricing() {
     "neveskin-shape": CircleDot,
     "neveskin-tone": Waves,
     "mild-hyperbaric-oxygen": Atom,
+    "biomarker-assessments": Dna,
+    "glp1-weight-loss": Heart,
   };
 
   // Color mapping for core therapies
@@ -77,6 +79,8 @@ export default function Pricing() {
     { bg: '#EC4899', gradient: 'from-pink-500 to-rose-500' },          // TRT
     { bg: '#F59E0B', gradient: 'from-amber-500 to-orange-500' },       // IM Shots
     { bg: '#10B981', gradient: 'from-emerald-500 to-teal-500' },       // mHBOT
+    { bg: '#3B82F6', gradient: 'from-blue-500 to-indigo-500' },        // Biomarker Assessments
+    { bg: '#DC2626', gradient: 'from-red-600 to-red-500' },            // GLP-1 Weight Loss
     // Skin Health Services (bottom row)
     { bg: '#8B5CF6', gradient: 'from-violet-500 to-purple-500' },      // HydraFacial
     { bg: '#EF4444', gradient: 'from-red-500 to-rose-500' },           // Neveskin Facial

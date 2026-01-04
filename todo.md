@@ -87,3 +87,11 @@
 - [x] Add breadcrumbs to BlogPost page
 - [x] Fix inconsistent background colors for services on location detail pages
 - [x] Make special services on location pages clickable to navigate to service detail pages
+- [x] Add comprehensive IV menu to data.ts with all 8 signature drips and ingredients
+- [x] Add IV nutrient options (Signature, Premium) to data.ts
+- [x] Add IM shot options to data.ts
+- [x] Create IV Menu component with tabbed interface (Drips, Nutrients, IM Shots)
+- [x] Update IV Therapy service detail page to display full IV menu
+- [x] Add pricing for all IV menu items
+- [x] Add ingredient lists for each IV drip
+- [x] Add benefit descriptions for each nutrient

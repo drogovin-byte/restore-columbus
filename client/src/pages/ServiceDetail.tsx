@@ -8,6 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { CheckCircle2, AlertCircle, Clock, DollarSign, Users, X, ArrowRight } from "lucide-react";
 import { Link, useRoute } from "wouter";
 import { services, problemStates } from "@/lib/data";
+import IVMenu from "@/components/IVMenu";
 
 export default function ServiceDetail() {
   const [match, params] = useRoute("/service/:id");
@@ -173,6 +174,17 @@ export default function ServiceDetail() {
                 ))}
               </div>
             </div>
+
+            {/* IV Menu - Only show for IV Therapy service */}
+            {service.id === "iv-drip" && (
+              <div className="space-y-6">
+                <h2 className="font-heading font-bold text-2xl text-primary">Our IV Menu</h2>
+                <p className="text-muted-foreground leading-relaxed text-lg">
+                  Each formulation was carefully crafted by our Medical Team to deliver real results. Ask your Nurse about the nutrients that best support your goals.
+                </p>
+                <IVMenu />
+              </div>
+            )}
 
             {/* FAQs */}
             <div className="space-y-6">

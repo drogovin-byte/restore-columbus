@@ -224,6 +224,66 @@ export const memberships = [
   }
 ];
 
+// IV Menu Data
+export const ivMenu = {
+  drips: [
+    { id: "wonder-juice", name: "Wonder Juice", category: "Energy", description: "A powerful blend to keep you focused and strong.", ingredients: ["Glutathione", "B12", "L-Carnitine", "Glutamine", "Vitamin C", "B Complex"], memberPrice: 161, retailPrice: 203 },
+    { id: "recharge", name: "Recharge", category: "Recovery", description: "Revitalize from the inside out for a total body reset.", ingredients: ["Glutathione", "Proline", "Taurine", "Vitamin C"], memberPrice: 144, retailPrice: 181 },
+    { id: "defender", name: "Defender", category: "Immunity", description: "Keeps your system resilient and ready for anything.", ingredients: ["Glutathione", "B12", "Taurine", "Lysine", "2x Vitamin C", "Zinc"], memberPrice: 210, retailPrice: 265 },
+    { id: "amplified-beauty", name: "Amplified Beauty", category: "Skin Health", description: "Nourish your skin from within for a healthy, youthful glow.", ingredients: ["Glutathione", "Magnesium", "B12", "Biotin", "Lysine", "Glutamine", "Proline", "2x Vitamin C", "B Complex"], memberPrice: 276, retailPrice: 349 },
+    { id: "fog-lifter", name: "Fog Lifter", category: "Brain Health", description: "Sharpens focus to keep your mind clear and energized.", ingredients: ["Glutathione", "B12", "Taurine", "B Complex"], memberPrice: 144, retailPrice: 181 },
+    { id: "the-edge", name: "The Edge", category: "Athletic Performance", description: "Fuels endurance, reduces fatigue so you can train harder.", ingredients: ["Magnesium", "B12", "L-Carnitine", "Taurine", "Glutamine", "Proline"], memberPrice: 188, retailPrice: 237 },
+    { id: "lose-it", name: "Lose It", category: "Weight Management", description: "Fire up your metabolism and convert stored energy into fuel.", ingredients: ["Magnesium", "B12", "L-Carnitine", "Proline", "B Complex"], memberPrice: 166, retailPrice: 209 }
+  ],
+  nutrients: {
+    signature: [
+      { name: "Amino Blend", benefit: "Performance", description: "Supports the function of healthy joints and muscles.", memberPrice: 19, retailPrice: 24 },
+      { name: "B5", benefit: "Metabolism", description: "Helps break down fats, proteins and carbs for energy.", memberPrice: 19, retailPrice: 24 },
+      { name: "B6", benefit: "Mood", description: "Supports brain health and may help regulate mood.", memberPrice: 19, retailPrice: 24 },
+      { name: "B12", benefit: "Energy", description: "Aids in energy production and red blood cell formation.", memberPrice: 19, retailPrice: 24 },
+      { name: "B Complex", benefit: "Energy, Stress Reliever", description: "Increases energy and reduces stress.", memberPrice: 19, retailPrice: 24 },
+      { name: "Biotin", benefit: "Metabolism", description: "Supports metabolic health and helps stabilize blood sugar.", memberPrice: 19, retailPrice: 24 },
+      { name: "Vitamin C", benefit: "Cellular Health", description: "Reduces cellular damage caused by environmental stress.", memberPrice: 19, retailPrice: 24 },
+      { name: "Vitamin D", benefit: "Bone Health", description: "Helps the body absorb and retain calcium.", memberPrice: 19, retailPrice: 24 },
+      { name: "Glutamine", benefit: "Recovery", description: "Helps improve muscle recovery and fights fatigue.", memberPrice: 19, retailPrice: 24 },
+      { name: "Glutathione", benefit: "Cellular Health", description: "A potent antioxidant that helps reduce cellular damage.", memberPrice: 19, retailPrice: 24 },
+      { name: "L-Carnitine", benefit: "Fat Burner", description: "Helps support optimal body composition.", memberPrice: 19, retailPrice: 24 },
+      { name: "Lysine", benefit: "Tissue Health", description: "Helps maintain healthy muscles and connective tissue.", memberPrice: 19, retailPrice: 24 },
+      { name: "Magnesium Sulfate", benefit: "Relaxation", description: "Mineral that supports muscle and nerve health.", memberPrice: 19, retailPrice: 24 },
+      { name: "NAC", benefit: "Improves Resilience", description: "Reduce cellular damage, stressors and free radicals.", memberPrice: 19, retailPrice: 24 },
+      { name: "Proline", benefit: "Skin Health", description: "Essential for collagen production.", memberPrice: 19, retailPrice: 24 },
+      { name: "Taurine", benefit: "Heart Health", description: "Amino acid that supports cardiovascular health.", memberPrice: 19, retailPrice: 24 },
+      { name: "Toradol", benefit: "Anti-Inflammatory", description: "Relieves discomfort from headaches and migraines.", memberPrice: 19, retailPrice: 24 },
+      { name: "Zinc", benefit: "Immune Support", description: "Boosts sleep quality, immunity and metabolic function.", memberPrice: 19, retailPrice: 24 },
+      { name: "Zofran", benefit: "Anti-Nausea", description: "Reduces feelings of nausea and may prevent vomiting.", memberPrice: 19, retailPrice: 24 }
+    ],
+    premium: [
+      { name: "ALA (Alpha-Lipoic Acid)", benefit: "Weight Management", description: "A potent antioxidant that may help manage weight.", memberPrice: 38, retailPrice: 48 },
+      { name: "Trace Elements", benefit: "Recharge", description: "Helps recharge and maximize natural defenses (Zinc, Copper, Selenium & Manganese).", memberPrice: 38, retailPrice: 48 },
+      { name: "Extra 500 mL Hydration", benefit: "Hydration", description: "Assists recent dehydration with additional support.", memberPrice: 38, retailPrice: 48 }
+    ]
+  },
+  imShots: {
+    signature: [
+      { name: "Amino Blend", benefit: "Performance", description: "Supports the function of healthy joints and muscles.", memberPrice: 27, retailPrice: 42 },
+      { name: "B12", benefit: "Energy", description: "Aids in energy production and red blood cell formation.", memberPrice: 27, retailPrice: 42 },
+      { name: "B Complex", benefit: "Energy, Stress Reliever", description: "Increases energy and reduces stress.", memberPrice: 27, retailPrice: 42 },
+      { name: "Biotin", benefit: "Metabolism", description: "Supports metabolic health and helps stabilize blood sugar.", memberPrice: 27, retailPrice: 42 },
+      { name: "Vitamin D3", benefit: "Bone Health", description: "Helps the body absorb and retain calcium.", memberPrice: 27, retailPrice: 42 },
+      { name: "L-Carnitine", benefit: "Fat Burner", description: "Helps support optimal body composition.", memberPrice: 27, retailPrice: 42 },
+      { name: "Toradol", benefit: "Anti-Inflammatory", description: "Relieves discomfort from headaches and migraines.", memberPrice: 27, retailPrice: 42 },
+      { name: "Zofran", benefit: "Anti-Nausea", description: "Reduces feelings of nausea and may prevent vomiting.", memberPrice: 27, retailPrice: 42 },
+      { name: "CoQ10", benefit: "Heart Health", description: "Supports cardiovascular health and blood sugar regulation.", memberPrice: 27, retailPrice: 42 },
+      { name: "Lipo", benefit: "Metabolism", description: "Helps boost the body's metabolic power.", memberPrice: 27, retailPrice: 42 },
+      { name: "Tri-Immune Blend", benefit: "Immune Support", description: "Helps build resilience; supports the body's immune response.", memberPrice: 27, retailPrice: 42 }
+    ],
+    premium: [
+      { name: "B12 + B Complex", benefit: "Energy & Mood", description: "Improves energy, mood and response to stress.", memberPrice: 35, retailPrice: 50 },
+      { name: "Lipo + B12", benefit: "Energy & Metabolism", description: "Improves energy levels and supports metabolic health.", memberPrice: 35, retailPrice: 50 }
+    ]
+  }
+};
+
 // Services with UNIQUE images - NO DUPLICATES
 export const services = [
   // Core Therapies
@@ -496,7 +556,7 @@ export const services = [
     benefits: ["Rapid nutrient delivery", "Energy boost (B12)", "Immune support (Vitamin D)", "Detoxification (Glutathione)", "Quick and convenient", "Affordable"],
     whoItsFor: ["Anyone seeking quick boost", "People with B12 deficiency", "Those wanting immune support", "Athletes seeking recovery", "Busy professionals"],
     whoItsNotFor: ["People with needle phobia", "Those with certain allergies"],
-    pricing: "Starting at $30 per shot | Included in memberships",
+    pricing: "Starting at $30 per shot",
     icon: Zap,
     image: "/images/service_14_NAD+_IM_Shot_vials.webp",
     category: "Optimization",
@@ -529,7 +589,7 @@ export const services = [
     benefits: ["Remove clogged pores", "Reduce wrinkles and fine lines", "Improve skin firmness", "Hydrate deeply", "Brighten complexion", "Reduce hyperpigmentation"],
     whoItsFor: ["Anyone with dull skin", "People with clogged pores", "Those with fine lines", "Anyone seeking glow", "All skin types"],
     whoItsNotFor: ["Those with active acne", "People with severe rosacea"],
-    pricing: "Member $150-280 | Retail $190-340",
+    pricing: "Member $150-$280 | Retail $190-$340",
     icon: Smile,
     image: "/images/service_17_Relaxed_woman_receiving_a_Hydr.webp",
     category: "Skin Health",
@@ -657,7 +717,7 @@ export const services = [
     benefits: ["Optimized sleep", "Repaired muscles", "Increased cognitive clarity", "Decreased athletic recovery time", "Increased energy"],
     whoItsFor: ["Athletes seeking faster recovery", "People with sleep issues", "Those recovering from injury or illness", "Anyone wanting cognitive enhancement", "Individuals seeking improved immunity"],
     whoItsNotFor: ["People with uncontrolled fever", "Those with severe claustrophobia", "Certain respiratory conditions"],
-    pricing: "Premium Service | 30% member discount available",
+    pricing: "Member $75 | Retail $105",
     icon: Heart,
     image: "/images/service_34_Smiling_woman_sitting_inside_a.webp",
     category: "Recovery & Wellness",
