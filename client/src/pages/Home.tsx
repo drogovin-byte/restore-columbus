@@ -50,7 +50,7 @@ export default function Home() {
             alt="Restore Hyper Wellness Columbus Studio" 
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/40 to-black/20" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/70 to-black/50" />
         </div>
         
         <div className="container relative z-10 text-white">
@@ -58,10 +58,10 @@ export default function Home() {
             <Badge className="bg-accent text-accent-foreground hover:bg-accent/90 px-4 py-1 text-sm font-bold uppercase tracking-wider mb-2 border-none">
               Columbus' Premier Wellness Destination
             </Badge>
-            <h1 className="font-heading font-bold text-4xl md:text-6xl leading-tight drop-shadow-lg">
+            <h1 className="font-heading font-bold text-4xl md:text-6xl leading-tight" style={{textShadow: '0 4px 12px rgba(0,0,0,0.9), 0 2px 4px rgba(0,0,0,0.8)'}}>
               Do More of What You Love in <span className="text-accent">Columbus</span>
             </h1>
-            <p className="text-lg md:text-xl text-white leading-relaxed max-w-xl drop-shadow-md">
+            <p className="text-lg md:text-xl text-white leading-relaxed max-w-xl" style={{textShadow: '0 3px 10px rgba(0,0,0,0.9), 0 1px 3px rgba(0,0,0,0.8)'}}>
               Look and feel your best with science-backed therapies. From cryotherapy to IV drips, we help Columbus residents recover faster and live longer.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
