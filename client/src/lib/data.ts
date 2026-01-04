@@ -659,7 +659,7 @@ export const services = [
     whoItsNotFor: ["People with uncontrolled fever", "Those with severe claustrophobia", "Certain respiratory conditions"],
     pricing: "Premium Service | 30% member discount available",
     icon: Heart,
-    image: "/images/service_hyperbaric.jpg",
+    image: "/images/service_34_Smiling_woman_sitting_inside_a.webp",
     category: "Recovery & Wellness",
     faqs: [
       {
