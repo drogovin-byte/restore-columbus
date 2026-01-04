@@ -28,24 +28,24 @@ export default function IVMenu() {
   return (
     <div className="w-full space-y-8">
       <Tabs value={selectedTab} onValueChange={setSelectedTab} className="w-full">
-        <TabsList className="grid w-full grid-cols-3 mb-8 bg-gradient-to-r from-cyan-50 to-teal-50 p-1 rounded-xl border-2 border-cyan-300 shadow-sm gap-2 overflow-hidden">
+        <TabsList className="grid w-full grid-cols-3 mb-8 bg-transparent p-0 rounded-none shadow-none gap-2">
           <TabsTrigger 
             value="drips" 
-            className="relative text-base font-semibold transition-all duration-300 data-[state=active]:bg-gradient-to-r data-[state=active]:from-cyan-500 data-[state=active]:to-teal-600 data-[state=active]:text-white data-[state=active]:shadow-md data-[state=inactive]:text-slate-700 data-[state=inactive]:hover:text-cyan-600 rounded-lg py-2.5"
+            className="text-base font-semibold transition-all duration-300 border-2 border-cyan-300 rounded-lg py-2.5 px-4 data-[state=active]:bg-gradient-to-r data-[state=active]:from-cyan-500 data-[state=active]:to-teal-600 data-[state=active]:text-white data-[state=active]:shadow-md data-[state=active]:border-cyan-500 data-[state=inactive]:bg-white data-[state=inactive]:text-slate-700 data-[state=inactive]:hover:text-cyan-600 data-[state=inactive]:hover:border-cyan-400"
           >
             <Zap className="inline-block w-4 h-4 mr-2" />
             IV Drips
           </TabsTrigger>
           <TabsTrigger 
             value="nutrients" 
-            className="relative text-base font-semibold transition-all duration-300 data-[state=active]:bg-gradient-to-r data-[state=active]:from-cyan-500 data-[state=active]:to-teal-600 data-[state=active]:text-white data-[state=active]:shadow-md data-[state=inactive]:text-slate-700 data-[state=inactive]:hover:text-cyan-600 rounded-lg py-2.5"
+            className="text-base font-semibold transition-all duration-300 border-2 border-cyan-300 rounded-lg py-2.5 px-4 data-[state=active]:bg-gradient-to-r data-[state=active]:from-cyan-500 data-[state=active]:to-teal-600 data-[state=active]:text-white data-[state=active]:shadow-md data-[state=active]:border-cyan-500 data-[state=inactive]:bg-white data-[state=inactive]:text-slate-700 data-[state=inactive]:hover:text-cyan-600 data-[state=inactive]:hover:border-cyan-400"
           >
             <Pill className="inline-block w-4 h-4 mr-2" />
             Add-On Nutrients
           </TabsTrigger>
           <TabsTrigger 
             value="imshots" 
-            className="relative text-base font-semibold transition-all duration-300 data-[state=active]:bg-gradient-to-r data-[state=active]:from-cyan-500 data-[state=active]:to-teal-600 data-[state=active]:text-white data-[state=active]:shadow-md data-[state=inactive]:text-slate-700 data-[state=inactive]:hover:text-cyan-600 rounded-lg py-2.5"
+            className="text-base font-semibold transition-all duration-300 border-2 border-cyan-300 rounded-lg py-2.5 px-4 data-[state=active]:bg-gradient-to-r data-[state=active]:from-cyan-500 data-[state=active]:to-teal-600 data-[state=active]:text-white data-[state=active]:shadow-md data-[state=active]:border-cyan-500 data-[state=inactive]:bg-white data-[state=inactive]:text-slate-700 data-[state=inactive]:hover:text-cyan-600 data-[state=inactive]:hover:border-cyan-400"
           >
             <Syringe className="inline-block w-4 h-4 mr-2" />
             IM Shots
