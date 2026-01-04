@@ -1,5 +1,6 @@
 import Layout from "@/components/Layout";
 import SEO from "@/components/SEO";
+import { Breadcrumb } from "@/components/Breadcrumb";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { MapPin, Phone, Clock, Navigation } from "lucide-react";
@@ -38,6 +39,15 @@ export default function Locations() {
           }))
         }}
       />
+      {/* Breadcrumb Navigation */}
+      <div className="container pt-6 pb-4">
+        <Breadcrumb 
+          items={[
+            { label: "Home", href: "/" },
+            { label: "Locations" }
+          ]}
+        />
+      </div>
       {/* Hero Section */}
       <div className="bg-primary text-white py-20">
         <div className="container text-center space-y-6">
