@@ -627,7 +627,7 @@ export const services = [
     whoItsNotFor: ["Pregnant women", "Those with certain implants"],
     pricing: "Member $180 | Retail $220",
     icon: Smile,
-    image: "/images/service_18_Woman_receiving_Neveskin™_Faci.webp",
+    image: "/images/service_18_neveskin_facial.webp",
     category: "Skin Health",
     faqs: [
       {
@@ -659,7 +659,7 @@ export const services = [
     whoItsNotFor: ["Pregnant women", "Those with certain implants"],
     pricing: "Member $280 | Retail $340",
     icon: Smile,
-    image: "/images/service_19_Woman_receiving_Neveskin™_Shap.webp",
+    image: "/images/service_19_neveskin_shape.webp",
     category: "Skin Health",
     faqs: [
       {
@@ -691,7 +691,7 @@ export const services = [
     whoItsNotFor: ["Pregnant women", "Those with certain implants"],
     pricing: "Member $280 | Retail $340",
     icon: Smile,
-    image: "/images/service_20_Person_receiving_Neveskin™_Ton.webp",
+    image: "/images/service_20_neveskin_tone.webp",
     category: "Skin Health",
     faqs: [
       {
