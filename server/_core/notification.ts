@@ -180,7 +180,7 @@ export async function sendCustomerEmail(
       },
       body: JSON.stringify({
         title: subject,
-        content: htmlContent,
+        htmlContent: htmlContent,
         recipientEmail: email,
         recipientName: `${firstName} ${lastName}`,
       }),
@@ -287,7 +287,7 @@ export async function sendStudioInquiryEmail(
       },
       body: JSON.stringify({
         title: `New Membership Inquiry - ${studioName} Studio`,
-        content: htmlContent,
+        htmlContent: htmlContent,
         recipientEmail: studioEmail,
         recipientName: `${studioName} Studio`,
       }),
@@ -315,7 +315,7 @@ export async function sendStudioInquiryEmail(
         },
         body: JSON.stringify({
           title: `New Membership Inquiry - ${studioName} Studio`,
-          content: htmlContent,
+          htmlContent: htmlContent,
           recipientEmail: LEAD_MANAGER_EMAIL,
           recipientName: "Lead Manager",
         }),
@@ -394,7 +394,7 @@ export async function sendAppointmentInquiryEmail(
       },
       body: JSON.stringify({
         title: `New Appointment Request - ${firstName} ${lastName}`,
-        content: htmlContent,
+        htmlContent: htmlContent,
         recipientEmail: LEAD_MANAGER_EMAIL,
         recipientName: "Lead Manager",
       }),
