@@ -142,7 +142,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       {/* Footer */}
       <footer className="bg-primary text-primary-foreground py-12 md:py-16 relative z-30">
         <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-6 gap-8 mb-8">
             {/* Brand */}
             <div>
               <h3 className="font-bold text-lg mb-4">Restore Hyper Wellness</h3>
@@ -171,11 +171,49 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <div>
               <h4 className="font-bold mb-4">Services</h4>
               <ul className="space-y-2 text-sm">
-                <li><Link href="/services" className="hover:opacity-80 transition-opacity">All Services</Link></li>
-                <li><Link href="/services" className="hover:opacity-80 transition-opacity">Cryotherapy</Link></li>
-                <li><Link href="/services" className="hover:opacity-80 transition-opacity">IV Therapy</Link></li>
-                <li><Link href="/services" className="hover:opacity-80 transition-opacity">Red Light</Link></li>
-                <li><Link href="/services" className="hover:opacity-80 transition-opacity">Skin Health</Link></li>
+                <li><Link href="/services" className="hover:opacity-80 transition-opacity font-medium">All Services</Link></li>
+              </ul>
+            </div>
+
+            {/* Recovery Therapies */}
+            <div>
+              <h4 className="font-bold mb-4 text-xs uppercase tracking-wider opacity-90">Recovery</h4>
+              <ul className="space-y-2 text-sm">
+                <li><Link href="/service/cryotherapy" className="hover:opacity-80 transition-opacity">Cryotherapy</Link></li>
+                <li><Link href="/service/compression" className="hover:opacity-80 transition-opacity">Compression Therapy</Link></li>
+                <li><Link href="/service/infrared-sauna" className="hover:opacity-80 transition-opacity">Infrared Sauna</Link></li>
+                <li><Link href="/service/mild-hyperbaric-oxygen" className="hover:opacity-80 transition-opacity">Hyperbaric Oxygen</Link></li>
+              </ul>
+            </div>
+
+            {/* Optimization */}
+            <div>
+              <h4 className="font-bold mb-4 text-xs uppercase tracking-wider opacity-90">Optimization</h4>
+              <ul className="space-y-2 text-sm">
+                <li><Link href="/service/iv-drip" className="hover:opacity-80 transition-opacity">IV Therapy</Link></li>
+                <li><Link href="/service/nad-iv" className="hover:opacity-80 transition-opacity">NAD+ IV</Link></li>
+                <li><Link href="/service/niagen-nr-iv" className="hover:opacity-80 transition-opacity">Niagen (NR) IV</Link></li>
+                <li><Link href="/service/im-shots" className="hover:opacity-80 transition-opacity">IM Injections</Link></li>
+              </ul>
+            </div>
+
+            {/* Wellness */}
+            <div>
+              <h4 className="font-bold mb-4 text-xs uppercase tracking-wider opacity-90">Wellness</h4>
+              <ul className="space-y-2 text-sm">
+                <li><Link href="/service/red-light" className="hover:opacity-80 transition-opacity">Red Light Therapy</Link></li>
+                <li><Link href="/service/trt" className="hover:opacity-80 transition-opacity">Testosterone Therapy</Link></li>
+              </ul>
+            </div>
+
+            {/* Aesthetic */}
+            <div>
+              <h4 className="font-bold mb-4 text-xs uppercase tracking-wider opacity-90">Aesthetic</h4>
+              <ul className="space-y-2 text-sm">
+                <li><Link href="/service/hydrafacial" className="hover:opacity-80 transition-opacity">HydraPeptide Facial</Link></li>
+                <li><Link href="/service/neveskin" className="hover:opacity-80 transition-opacity">Neveskin Facial</Link></li>
+                <li><Link href="/service/neveskin-shape" className="hover:opacity-80 transition-opacity">Neveskin Shape</Link></li>
+                <li><Link href="/service/neveskin-tone" className="hover:opacity-80 transition-opacity">Neveskin Tone</Link></li>
               </ul>
             </div>
 
