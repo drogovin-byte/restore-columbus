@@ -106,3 +106,4 @@
 - [x] Add Cold & Flu IV drip with ingredients and pricing
 - [x] Add Unstoppable IV drip with ingredients and pricing
 - [x] Fix IV Menu tab buttons mobile display - text is being cut off on small screens
+- [x] Create Upper Arlington neighborhood-specific blog post and add to blog page
