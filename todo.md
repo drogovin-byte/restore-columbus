@@ -75,3 +75,6 @@
 - [x] Add section headers to Services page (Core Therapies, Power Up at Cellular Level, Reveal Youthful Skin, Medical Services, Weight Loss)
 - [x] Add Biomarker Assessments service with details from restore.com
 - [x] Add GLP-1 Weight Loss Programs service with details from restore.com
+- [x] Remove dashed borders from service cards - replace with solid border or shadow
+- [x] Fix GLP-1 image - assign appropriate service image from existing files
+- [x] Fix Biomarker Assessments image - assign appropriate service image from existing files

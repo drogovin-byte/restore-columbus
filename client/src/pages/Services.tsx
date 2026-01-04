@@ -90,7 +90,7 @@ export default function Services() {
                   <div 
                     key={service.id}
                     id={service.id}
-                    className="border-2 border-dashed border-primary/30 rounded-xl p-6 hover:border-primary/60 hover:shadow-lg transition-all cursor-pointer group"
+                    className="border border-border rounded-xl p-6 shadow-sm hover:shadow-md transition-all cursor-pointer group bg-card"
                     itemScope 
                     itemType="https://schema.org/Service"
                     onClick={(e) => handleCardClick(e, service.id)}

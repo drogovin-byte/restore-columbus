@@ -691,7 +691,7 @@ export const services = [
     whoItsNotFor: ["Those with needle phobia"],
     pricing: "Premium Service | Consultation required",
     icon: Brain,
-    image: "/images/service_biomarker.webp",
+    image: "/images/service_11_Young_couple_relaxing_while_en.webp",
     category: "Medical Services",
     faqs: [
       {
@@ -723,7 +723,7 @@ export const services = [
     whoItsNotFor: ["Pregnant or nursing women", "Those with certain medical conditions", "People unwilling to commit to lifestyle changes"],
     pricing: "Consultation + labs required | Ongoing monthly cost | Membership credits do not apply",
     icon: TrendingUp,
-    image: "/images/service_glp1.webp",
+    image: "/images/service_35_Smiling_woman_in_athletic_atti.webp",
     category: "Weight Loss",
     faqs: [
       {
