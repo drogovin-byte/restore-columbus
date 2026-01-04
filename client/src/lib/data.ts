@@ -11,7 +11,7 @@ export const locations = [
     phone: "614-944-9041",
     hours: "Mon-Fri: 10am-7pm | Sat: 9am-5pm | Sun: 11am-4pm",
     mapUrl: "https://goo.gl/maps/easton",
-    image: "/images/hero-wellness-columbus.jpg",
+    image: "/images/location-hero-studio.webp",
     averageRating: 4.9,
     totalReviews: 650,
     specialServices: ["Hyperbaric Oxygen Therapy", "Neveskin Shape, Tone, Facials", "Medical Weight Loss GLP-1", "Hydrafacial"],
@@ -35,7 +35,7 @@ export const locations = [
     hours: "Mon-Fri: 10am-7pm | Sat: 9am-5pm | Sun: 11am-4pm",
     mapUrl: "https://goo.gl/maps/dublin",
     specialServices: ["Hyperbaric Oxygen Therapy", "Neveskin Shape, Tone, Facials", "Medical Weight Loss GLP-1", "Hydrafacial"],
-    image: "/images/cryotherapy-session.jpg",
+    image: "/images/location-hero-studio.webp",
     averageRating: 4.9,
     totalReviews: 271,
     reviews: [
@@ -58,7 +58,7 @@ export const locations = [
     hours: "Monday: Closed | Tues-Fri: 10am-6pm | Sat: 10am-5pm | Sun: 11am-4pm",
     mapUrl: "https://goo.gl/maps/ua",
     specialServices: ["Hyperbaric Oxygen Therapy", "Neveskin Shape, Tone, Facials", "Medical Weight Loss GLP-1"],
-    image: "/images/iv-drip-lounge.jpg",
+    image: "/images/location-hero-studio.webp",
     averageRating: 5.0,
     totalReviews: 79,
     reviews: [
@@ -781,7 +781,7 @@ export const blogPosts = [
     date: "2025-12-15",
     author: "Dr. Sarah Chen",
     category: "Athletic Recovery",
-    image: "/images/cryotherapy-session.jpg",
+    image: "/images/location-hero-studio.webp",
     tags: ["Marathon", "Recovery", "Columbus", "Athletic Performance"]
   },
   {
@@ -817,7 +817,7 @@ export const blogPosts = [
     date: "2026-01-02",
     author: "Restore Team",
     category: "Local Guide",
-    image: "/images/hero-wellness-columbus.jpg",
+    image: "/images/location-hero-studio.webp",
     tags: ["Dublin", "Bridge Park", "Wellness Guide", "Local"]
   }
 ];
