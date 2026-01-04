@@ -86,3 +86,4 @@
 - [x] Add breadcrumbs to LocationDetail page
 - [x] Add breadcrumbs to BlogPost page
 - [x] Fix inconsistent background colors for services on location detail pages
+- [x] Make special services on location pages clickable to navigate to service detail pages
