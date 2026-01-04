@@ -71,3 +71,7 @@
 - [x] Modify hero image - replace "WELLNESS COLUMBUS" text with correct Restore logo (circular needle icon) in white on blue wall
 - [x] Fix footer layout - Aesthetic now in top row with 6-column grid
 - [x] Fix disclaimer visibility - text now visible by default with collapse/expand button
+- [x] Redesign service cards with center images, "MAY HELP" benefits format, and dashed borders
+- [x] Add section headers to Services page (Core Therapies, Power Up at Cellular Level, Reveal Youthful Skin, Medical Services, Weight Loss)
+- [x] Add Biomarker Assessments service with details from restore.com
+- [x] Add GLP-1 Weight Loss Programs service with details from restore.com

@@ -679,8 +679,74 @@ export const services = [
         a: "We recommend 1-2 sessions daily with at least 4 hours between sessions. A minimum of 10 sessions is recommended to achieve results."
       }
     ]
+  },
+  {
+    id: "biomarker-assessments",
+    title: "Biomarker Assessments",
+    shortDesc: "Discover deficiencies and genetic markers that may indicate inefficiencies needing attention.",
+    fullDesc: "Biomarker Assessments help identify deficiencies and genetic markers that may indicate inefficiencies or faults in your health. This comprehensive testing provides actionable insights for personalized wellness optimization.",
+    whatToExpect: "A simple blood draw and consultation. Results are analyzed by medical professionals who provide personalized recommendations based on your unique biomarker profile.",
+    benefits: ["Decreased symptoms from imbalances, such as fatigue", "Enhanced immunity with antioxidants", "Improved nourishment", "Boosted energy", "Optimized overall well-being"],
+    whoItsFor: ["Anyone seeking health optimization", "People with unexplained fatigue", "Those wanting preventative health insights", "Athletes seeking performance optimization", "Anyone over 40 seeking longevity"],
+    whoItsNotFor: ["Those with needle phobia"],
+    pricing: "Premium Service | Consultation required",
+    icon: Brain,
+    image: "/images/service_biomarker.webp",
+    category: "Medical Services",
+    faqs: [
+      {
+        q: "What biomarkers are tested?",
+        a: "We test comprehensive panels including metabolic markers, immune function, nutrient levels, hormonal balance, and genetic markers relevant to your health goals."
+      },
+      {
+        q: "How long until I get results?",
+        a: "Results typically available within 3-5 business days. A medical professional will review and discuss personalized recommendations."
+      },
+      {
+        q: "What happens after testing?",
+        a: "You will receive a detailed report with personalized recommendations for therapies, supplements, and lifestyle changes to optimize your health."
+      },
+      {
+        q: "How often should I test?",
+        a: "Initial baseline testing recommended. Follow-up testing every 3-6 months to track progress and adjust protocols."
+      }
+    ]
+  },
+  {
+    id: "glp1-weight-loss",
+    title: "GLP-1 Weight Loss Programs",
+    shortDesc: "Experience safe, medicated weight loss with a customized treatment plan.",
+    fullDesc: "GLP-1 Weight Loss Programs provide medically-supervised, safe weight loss using FDA-approved medications. Our doctors customize treatment plans based on your unique health profile and weight loss goals.",
+    whatToExpect: "Initial medical consultation and labs. Weekly or bi-weekly injections (self-administered at home). Regular monitoring and adjustments. Comprehensive nutritional and lifestyle support throughout.",
+    benefits: ["Better regulate appetite", "Increased feelings of fullness", "Lose weight and retain muscle", "Sustainable long-term results", "Medically supervised safety", "Personalized treatment protocols"],
+    whoItsFor: ["People seeking sustainable weight loss", "Those with metabolic challenges", "Individuals with obesity or overweight", "Anyone wanting medically-supervised support", "People seeking lasting lifestyle change"],
+    whoItsNotFor: ["Pregnant or nursing women", "Those with certain medical conditions", "People unwilling to commit to lifestyle changes"],
+    pricing: "Consultation + labs required | Ongoing monthly cost | Membership credits do not apply",
+    icon: TrendingUp,
+    image: "/images/service_glp1.webp",
+    category: "Weight Loss",
+    faqs: [
+      {
+        q: "Is GLP-1 therapy safe?",
+        a: "Yes, when medically supervised. We monitor labs regularly and adjust dosages. Our doctors have extensive GLP-1 experience and prioritize safety."
+      },
+      {
+        q: "How much weight can I lose?",
+        a: "Results vary by individual. Most people lose 10-15% of body weight over 6-12 months with consistent use and lifestyle changes."
+      },
+      {
+        q: "What are the side effects?",
+        a: "Common side effects are mild and temporary (nausea, reduced appetite). Most resolve within 1-2 weeks. We manage side effects proactively."
+      },
+      {
+        q: "Will I regain weight after stopping?",
+        a: "Long-term success requires commitment to lifestyle changes. We provide ongoing support and can adjust treatment protocols as needed."
+      }
+    ]
   }
 ];
+
+// Comparison Content
 
 // Comparison Content
 export const comparisons = [

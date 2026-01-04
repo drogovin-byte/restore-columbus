@@ -8,6 +8,16 @@ import { services } from "@/lib/data";
 export default function Services() {
   const [, setLocation] = useLocation();
   
+  // Group services by category
+  const servicesByCategory = {
+    "Core Therapies": services.filter(s => s.category === "Recovery" || s.category === "Wellness"),
+    "Power Up at the Cellular Level": services.filter(s => s.category === "Optimization" || s.category === "Longevity"),
+    "Reveal Youthful, Beautiful Skin": services.filter(s => s.category === "Skin Health"),
+    "Medical Services": services.filter(s => s.category === "Medical Services"),
+    "Weight Loss": services.filter(s => s.category === "Weight Loss"),
+    "Recovery & Wellness": services.filter(s => s.category === "Recovery & Wellness" || s.category === "Men's Health")
+  };
+
   // Generate Service schema markup for each service
   const generateServiceSchema = (service: any) => ({
     "@context": "https://schema.org",
@@ -65,73 +75,83 @@ export default function Services() {
         </div>
       </div>
 
-      <div className="container py-20 space-y-32">
-        {services.map((service, index) => (
-          <div key={service.id} id={service.id} className={`flex flex-col gap-12 items-stretch ${index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} cursor-pointer hover:opacity-90 transition-opacity`} itemScope itemType="https://schema.org/Service" onClick={(e) => handleCardClick(e, service.id)}>
-            <div className="flex-1 w-full min-w-0">
-              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl group cursor-pointer">
-                <img 
-                  src={service.image} 
-                  alt={service.title} 
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                  itemProp="image"
-                />
-                <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent" />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
-                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform group-hover:scale-100 scale-75">
-                    <ArrowRight className="w-12 h-12 text-white drop-shadow-lg" />
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div className="flex-1 space-y-8">
-              <div className="space-y-4">
-                <Badge variant="outline" className="border-accent text-accent-foreground font-bold px-3 py-1">
-                  <span itemProp="serviceType">{service.category}</span>
-                </Badge>
-                <h2 className="font-heading font-bold text-3xl md:text-4xl text-primary" itemProp="name">{service.title}</h2>
-                <p className="text-lg text-muted-foreground leading-relaxed" itemProp="description">
-                  {service.fullDesc}
-                </p>
+      <div className="container py-20 space-y-24">
+        {Object.entries(servicesByCategory).map(([category, categoryServices]) => 
+          categoryServices.length > 0 ? (
+            <div key={category} className="space-y-12">
+              {/* Section Header */}
+              <div className="text-center space-y-3 pb-8 border-b-2 border-accent/20">
+                <h2 className="font-heading font-bold text-3xl md:text-4xl text-primary">{category}</h2>
               </div>
 
-              <div className="space-y-6 border-t border-border pt-6">
-                <div className="space-y-3">
-                  <h3 className="font-bold text-lg text-primary">Pricing:</h3>
-                  <p className="text-base text-muted-foreground font-medium">{service.pricing}</p>
-                </div>
-              </div>
-
-              <div className="space-y-4">
-                <h3 className="font-bold text-lg text-primary">Potential Benefits:</h3>
-                <meta itemProp="areaServed" content="Columbus, OH" />
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {service.benefits.map((benefit, i) => (
-                    <div key={i} className="flex items-center gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-secondary-foreground shrink-0" />
-                      <span className="text-muted-foreground">{benefit}</span>
+              {/* Service Cards Grid */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                {categoryServices.map((service) => (
+                  <div 
+                    key={service.id}
+                    id={service.id}
+                    className="border-2 border-dashed border-primary/30 rounded-xl p-6 hover:border-primary/60 hover:shadow-lg transition-all cursor-pointer group"
+                    itemScope 
+                    itemType="https://schema.org/Service"
+                    onClick={(e) => handleCardClick(e, service.id)}
+                  >
+                    {/* Service Image - Center */}
+                    <div className="mb-6">
+                      <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-md group-hover:shadow-xl transition-shadow">
+                        <img 
+                          src={service.image} 
+                          alt={service.title} 
+                          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                          itemProp="image"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent" />
+                      </div>
                     </div>
-                  ))}
-                </div>
-              </div>
 
-              <div className="pt-8 pb-4" onClick={(e) => e.stopPropagation()}>
-                <Button asChild size="lg" className="bg-primary text-white hover:bg-primary/90 rounded-full px-8 w-full sm:w-auto">
-                  {service.id === 'trt' ? (
-                    <Link href="/book" itemProp="url">
-                      Book {service.title} <ArrowRight className="w-4 h-4 ml-2" />
-                    </Link>
-                  ) : (
-                    <a href="https://www.restore.com/book-now" itemProp="url" target="_blank" rel="noopener noreferrer">
-                      Book {service.title} <ArrowRight className="w-4 h-4 ml-2" />
-                    </a>
-                  )}
-                </Button>
+                    {/* Service Info - Left Side */}
+                    <div className="space-y-4">
+                      <div>
+                        <h3 className="font-heading font-bold text-xl text-primary mb-2" itemProp="name">
+                          {service.title}
+                        </h3>
+                        <p className="text-sm text-muted-foreground" itemProp="description">
+                          {service.shortDesc}
+                        </p>
+                      </div>
+
+                      {/* MAY HELP Benefits */}
+                      <div className="space-y-3 pt-4 border-t border-border">
+                        <p className="font-bold text-sm text-primary">MAY HELP</p>
+                        <ul className="space-y-2">
+                          {service.benefits.slice(0, 3).map((benefit, i) => (
+                            <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                              <span className="text-accent font-bold mt-0.5">—</span>
+                              <span>{benefit}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      {/* Learn More Link */}
+                      <div className="pt-4" onClick={(e) => e.stopPropagation()}>
+                        <Button 
+                          asChild 
+                          variant="ghost" 
+                          className="text-accent hover:text-accent hover:bg-accent/10 p-0 h-auto font-semibold text-sm group/link"
+                        >
+                          <a href={`/service/${service.id}`} className="flex items-center gap-1">
+                            Learn about {service.title}
+                            <ArrowRight className="w-4 h-4 transition-transform group-hover/link:translate-x-1" />
+                          </a>
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
-          </div>
-        ))}
+          ) : null
+        )}
       </div>
 
       <section className="bg-muted/30 py-20">
