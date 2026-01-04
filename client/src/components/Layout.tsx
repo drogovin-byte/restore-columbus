@@ -227,7 +227,21 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <div className="flex gap-6 mt-4 md:mt-0">
                 <Link href="#" className="hover:opacity-100 transition-opacity">Privacy Policy</Link>
                 <Link href="#" className="hover:opacity-100 transition-opacity">Terms of Service</Link>
+                <button className="hover:opacity-100 transition-opacity text-accent" onClick={(e) => {const d = document.getElementById('footer-disclaimer'); if (d) d.classList.toggle('hidden');}}>Disclaimers</button>
               </div>
+            </div>
+            
+            {/* Collapsible Disclaimer */}
+            <div id="footer-disclaimer" className="hidden mt-6 pt-6 border-t border-primary-foreground/20 text-xs opacity-75 space-y-3 max-h-64 overflow-y-auto">
+              <p><strong>Disclaimers:</strong> Terms and restrictions may apply. Prices and services subject to change without warning. Discounts cannot be combined or redeemed for cash value. Medical services are provided by an independently-owned physician practice. Some services may require medical clearance and a prescription. We reserve the right to refuse service to anyone. Services, therapies, nutrients and prices may vary per location.</p>
+              
+              <p>Restore does not provide medical advice, diagnosis or treatment. Our services are not intended to replace the care of a qualified healthcare professional. Always consult your physician or other licensed medical provider regarding any questions about your health, medical conditions or before beginning any new therapy.</p>
+              
+              <p>The content on our site, blog posts, educational materials, app, promotional newsletters and any other written content are not intended to replace an evaluation with a qualified healthcare professional and are not intended as medical advice.</p>
+              
+              <p>Testimonials reflect individual experiences of real customers, are applicable solely to the individual depicted, and are not necessarily representative of all who use Restore Hyper Wellness products and services. Results do vary and are unique to each individual. Testimonials are not intended to make claims that these products can be used to diagnose treat, cure, mitigate or prevent any disease. Medical services available to clients of Restore are provided by an independently owned physician practice.</p>
+              
+              <p>For all active Members: A $30 up-charge will be added to Universal Membership IV appointments in California studios.</p>
             </div>
           </div>
         </div>

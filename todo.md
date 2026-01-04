@@ -70,3 +70,4 @@
 - [x] Update Free Consultation link in ProblemDetail to Manus booking app
 - [x] Modify hero image - replace "WELLNESS COLUMBUS" text with correct Restore logo (circular needle icon) in white on blue wall
 - [x] Fix footer layout - Aesthetic now in top row with 6-column grid
+- [x] Add comprehensive disclaimer language to footer without increasing height (collapsible button implementation)
