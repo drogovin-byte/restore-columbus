@@ -57,8 +57,8 @@
   --secondary: oklch(0.95 0.03 160); /* Very light sage for backgrounds */
   --secondary-foreground: oklch(0.25 0.06 160);
   
-  --accent: oklch(0.92 0.04 210); /* Light teal for hover/accents */
-  --accent-foreground: oklch(0.25 0.06 210);
+  --accent: oklch(0.55 0.12 210); /* Vibrant teal for better visibility */
+  --accent-foreground: oklch(0.98 0.01 210);
   
   --background: oklch(0.99 0.005 260); /* Crisp white with tiny cool tint */
   --foreground: oklch(0.23 0.06 260); /* Deep Navy for text instead of black */
@@ -77,7 +77,7 @@
   
   --border: oklch(0.92 0.02 260);
   --input: oklch(0.92 0.02 260);
-  --ring: oklch(0.7 0.14 210); /* Teal ring */
+  --ring: oklch(0.55 0.12 210); /* Teal ring - matches new accent */
   
   --radius: 0.5rem;
   
@@ -104,8 +104,8 @@
   --secondary: oklch(0.25 0.06 160);
   --secondary-foreground: oklch(0.98 0.01 160);
   
-  --accent: oklch(0.25 0.06 210);
-  --accent-foreground: oklch(0.98 0.01 210);
+  --accent: oklch(0.75 0.15 210); /* Bright teal for dark mode visibility */
+  --accent-foreground: oklch(0.15 0.04 210);
   
   --background: oklch(0.15 0.04 260); /* Dark Navy */
   --foreground: oklch(0.98 0.01 260);

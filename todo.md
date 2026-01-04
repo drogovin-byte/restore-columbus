@@ -79,3 +79,4 @@
 - [x] Fix GLP-1 image - assign appropriate service image from existing files
 - [x] Fix Biomarker Assessments image - assign appropriate service image from existing files
 - [x] Update Services page consultation button to link to local booking page
+- [x] Change light blue CTA links to more prominent color for better visibility
