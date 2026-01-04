@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ChevronDown } from "lucide-react";
 import { Link } from "wouter";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const faqs = [
   {
@@ -121,6 +121,9 @@ export default function FAQ() {
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
+    "url": "https://restorecolumbus.us/faq",
+    "name": "Frequently Asked Questions - Restore Hyper Wellness Columbus",
+    "description": "Common questions about Restore Hyper Wellness Columbus services, pricing, memberships, and safety. Get answers about cryotherapy, IV drips, and more.",
     "mainEntity": faqs.flatMap(category =>
       category.questions.map(q => ({
         "@type": "Question",
@@ -133,12 +136,41 @@ export default function FAQ() {
     )
   };
 
+  // Generate breadcrumb schema
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://restorecolumbus.us"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "FAQ",
+        "item": "https://restorecolumbus.us/faq"
+      }
+    ]
+  };
+
+  // Combine schemas
+  const combinedSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      faqSchema,
+      breadcrumbSchema
+    ]
+  };
+
   return (
     <Layout>
       <SEO 
         title="Frequently Asked Questions"
         description="Common questions about Restore Hyper Wellness Columbus services, pricing, memberships, and safety. Get answers about cryotherapy, IV drips, and more."
-        schema={faqSchema}
+        schema={combinedSchema}
       />
       {/* Hero */}
       <section className="py-20 bg-primary text-white">
@@ -156,7 +188,7 @@ export default function FAQ() {
       <section className="py-20 bg-background">
         <div className="container max-w-3xl space-y-12">
           {faqs.map((category, catIndex) => (
-            <div key={catIndex} className="space-y-4">
+            <div key={`faq-category-${catIndex}`} className="space-y-4">
               <h2 className="font-heading font-bold text-2xl text-primary">{category.category}</h2>
               <div className="space-y-3">
                 {category.questions.map((faq, qIndex) => {
@@ -164,7 +196,7 @@ export default function FAQ() {
                   const isExpanded = expandedIndex === globalIndex;
 
                   return (
-                    <Card key={qIndex} className="border-none shadow-md bg-card overflow-hidden">
+                    <Card key={`faq-question-${catIndex}-${qIndex}`} className="border-none shadow-md bg-card overflow-hidden">
                       <button
                         onClick={() => setExpandedIndex(isExpanded ? null : globalIndex)}
                         className="w-full p-6 flex items-start justify-between hover:bg-muted/50 transition-colors text-left"
@@ -207,6 +239,14 @@ export default function FAQ() {
           </div>
         </div>
       </section>
+
+      {/* FAQ Schema Verification */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(combinedSchema)
+        }}
+      />
     </Layout>
   );
 }
