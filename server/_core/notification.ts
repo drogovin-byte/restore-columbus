@@ -211,6 +211,9 @@ export const studioEmails: Record<string, string> = {
   "upper-arlington": "frontdeskoh038@restore.com",
 };
 
+// Lead manager email for inquiry copies
+const LEAD_MANAGER_EMAIL = "drogovin@restore.com";
+
 export type StudioInquiryPayload = {
   studioId: string;
   firstName: string;
@@ -300,9 +303,108 @@ export async function sendStudioInquiryEmail(
       return false;
     }
 
+    // Send copy to lead manager
+    try {
+      await fetch(endpoint, {
+        method: "POST",
+        headers: {
+          accept: "application/json",
+          authorization: `Bearer ${ENV.forgeApiKey}`,
+          "content-type": "application/json",
+          "connect-protocol-version": "1",
+        },
+        body: JSON.stringify({
+          title: `New Membership Inquiry - ${studioName} Studio`,
+          content: htmlContent,
+          recipientEmail: LEAD_MANAGER_EMAIL,
+          recipientName: "Lead Manager",
+        }),
+      }).catch((error) => {
+        console.warn("[Lead Manager Email] Error sending copy to lead manager:", error);
+      });
+    } catch (error) {
+      console.warn("[Lead Manager Email] Error:", error);
+    }
+
     return true;
   } catch (error) {
     console.warn("[Studio Email] Error calling email service:", error);
+    return false;
+  }
+}
+
+export type AppointmentInquiryPayload = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  preferredLocation: string;
+  serviceOfInterest?: string;
+};
+
+/**
+ * Sends appointment inquiry email to lead manager.
+ * Returns `true` if the request was accepted, `false` when the upstream service
+ * cannot be reached.
+ */
+export async function sendAppointmentInquiryEmail(
+  payload: AppointmentInquiryPayload
+): Promise<boolean> {
+  const { firstName, lastName, email, phone, preferredLocation, serviceOfInterest } = payload;
+
+  const htmlContent = `
+    <h2>New Appointment Request</h2>
+    <p>A new appointment request has been submitted.</p>
+    
+    <h3>Customer Information:</h3>
+    <ul>
+      <li><strong>Name:</strong> ${firstName} ${lastName}</li>
+      <li><strong>Email:</strong> ${email}</li>
+      <li><strong>Phone:</strong> ${phone}</li>
+      <li><strong>Preferred Location:</strong> ${preferredLocation}</li>
+      <li><strong>Service of Interest:</strong> ${serviceOfInterest || "Not specified"}</li>
+    </ul>
+    
+    <p>Please follow up with this customer to schedule their appointment and answer any questions they may have.</p>
+    
+    <p>Best regards,<br/>Restore Hyper Wellness System</p>
+  `;
+
+  if (!ENV.forgeApiUrl) {
+    console.error("Email service URL is not configured.");
+    return false;
+  }
+
+  if (!ENV.forgeApiKey) {
+    console.error("Email service API key is not configured.");
+    return false;
+  }
+
+  const endpoint = buildEndpointUrl(ENV.forgeApiUrl);
+
+  try {
+    // Send to lead manager
+    await fetch(endpoint, {
+      method: "POST",
+      headers: {
+        accept: "application/json",
+        authorization: `Bearer ${ENV.forgeApiKey}`,
+        "content-type": "application/json",
+        "connect-protocol-version": "1",
+      },
+      body: JSON.stringify({
+        title: `New Appointment Request - ${firstName} ${lastName}`,
+        content: htmlContent,
+        recipientEmail: LEAD_MANAGER_EMAIL,
+        recipientName: "Lead Manager",
+      }),
+    }).catch((error) => {
+      console.warn("[Lead Manager Email] Error sending appointment inquiry:", error);
+    });
+
+    return true;
+  } catch (error) {
+    console.warn("[Appointment Email] Error calling email service:", error);
     return false;
   }
 }

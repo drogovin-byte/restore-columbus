@@ -5,7 +5,7 @@ import { imageRouter } from "./imageRouter";
 import { z } from "zod";
 import { COOKIE_NAME } from "@shared/const";
 import { createMembershipLead, getAllMembershipLeads, getMembershipLeadById, updateMembershipLead, createAppointmentRequest, getAllAppointmentRequests, getAppointmentRequestById, updateAppointmentRequest, createMembershipSignup, getAllMembershipSignups, getMembershipSignupById, updateMembershipSignup, createImage, getAllImages, getImageById, updateImage, deleteImage } from "./db";
-import { notifyOwner, sendCustomerEmail, sendStudioInquiryEmail } from "./_core/notification";
+import { notifyOwner, sendCustomerEmail, sendStudioInquiryEmail, sendAppointmentInquiryEmail } from "./_core/notification";
 
 const adminProcedure = publicProcedure.use(async (opts) => {
   if (opts.ctx.user?.role !== "admin") {
@@ -155,6 +155,18 @@ export const appRouter = router({
             htmlContent: customerEmailContent,
           }).catch((error) => {
             console.error("[Email] Failed to send customer confirmation email to", input.email, ":", error);
+          });
+
+          // Send copy to lead manager
+          await sendAppointmentInquiryEmail({
+            firstName: input.firstName,
+            lastName: input.lastName,
+            email: input.email,
+            phone: input.phone,
+            preferredLocation: input.preferredLocation,
+            serviceOfInterest: input.serviceOfInterest,
+          }).catch((error) => {
+            console.error("[Email] Failed to send appointment inquiry to lead manager:", error);
           });
 
           return {

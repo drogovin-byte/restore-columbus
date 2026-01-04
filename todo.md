@@ -109,3 +109,4 @@
 - [x] Create Upper Arlington neighborhood-specific blog post and add to blog page
 - [x] Implement FAQ schema markup on FAQ page for rich snippets
 - [x] Fix Neveskin Shape and Neveskin Tone image display - images showing as broken
+- [x] Forward all lead landing page inquiries to drogovin@restore.com in addition to studio emails
