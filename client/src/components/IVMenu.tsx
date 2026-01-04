@@ -28,14 +28,26 @@ export default function IVMenu() {
   return (
     <div className="w-full space-y-8">
       <Tabs value={selectedTab} onValueChange={setSelectedTab} className="w-full">
-        <TabsList className="grid w-full grid-cols-3 mb-8 bg-slate-100 p-1 rounded-lg">
-          <TabsTrigger value="drips" className="text-base data-[state=active]:bg-white data-[state=active]:text-slate-900 data-[state=active]:shadow-sm">
+        <TabsList className="grid w-full grid-cols-3 mb-8 bg-gradient-to-r from-cyan-50 to-teal-50 p-1.5 rounded-xl border border-cyan-200 shadow-sm gap-1">
+          <TabsTrigger 
+            value="drips" 
+            className="relative text-base font-semibold transition-all duration-300 data-[state=active]:bg-gradient-to-r data-[state=active]:from-cyan-500 data-[state=active]:to-teal-600 data-[state=active]:text-white data-[state=active]:shadow-md data-[state=inactive]:text-slate-700 data-[state=inactive]:hover:text-cyan-600 rounded-lg py-2.5"
+          >
+            <Zap className="inline-block w-4 h-4 mr-2" />
             IV Drips
           </TabsTrigger>
-          <TabsTrigger value="nutrients" className="text-base data-[state=active]:bg-white data-[state=active]:text-slate-900 data-[state=active]:shadow-sm">
+          <TabsTrigger 
+            value="nutrients" 
+            className="relative text-base font-semibold transition-all duration-300 data-[state=active]:bg-gradient-to-r data-[state=active]:from-cyan-500 data-[state=active]:to-teal-600 data-[state=active]:text-white data-[state=active]:shadow-md data-[state=inactive]:text-slate-700 data-[state=inactive]:hover:text-cyan-600 rounded-lg py-2.5"
+          >
+            <Pill className="inline-block w-4 h-4 mr-2" />
             Add-On Nutrients
           </TabsTrigger>
-          <TabsTrigger value="imshots" className="text-base data-[state=active]:bg-white data-[state=active]:text-slate-900 data-[state=active]:shadow-sm">
+          <TabsTrigger 
+            value="imshots" 
+            className="relative text-base font-semibold transition-all duration-300 data-[state=active]:bg-gradient-to-r data-[state=active]:from-cyan-500 data-[state=active]:to-teal-600 data-[state=active]:text-white data-[state=active]:shadow-md data-[state=inactive]:text-slate-700 data-[state=inactive]:hover:text-cyan-600 rounded-lg py-2.5"
+          >
+            <Syringe className="inline-block w-4 h-4 mr-2" />
             IM Shots
           </TabsTrigger>
         </TabsList>
