@@ -173,7 +173,7 @@ export default function Home() {
             {services.slice(0, 6).map((service: any, idx: number) => (
               <div key={`service-${service.id}-${idx}`} className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 h-full cursor-pointer">
                 <div className="aspect-video overflow-hidden bg-muted relative">
-                  <img src={service.image} alt={service.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
+                  <img src={service.image} alt={service.title} className={`w-full h-full object-cover group-hover:scale-110 transition-transform duration-300 ${service.id === 'cryotherapy' ? 'object-top' : ''}`} />
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 text-white">
                     <h3 className="font-heading font-bold text-xl mb-2">{service.title}</h3>
                     <p className="text-sm text-white/90 mb-4 line-clamp-2">{service.shortDesc}</p>
