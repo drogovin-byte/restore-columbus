@@ -142,7 +142,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       {/* Footer */}
       <footer className="bg-primary text-primary-foreground py-12 md:py-16 relative z-30">
         <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-6 gap-8 mb-8">
             {/* Brand */}
             <div>
               <h3 className="font-bold text-lg mb-4">Restore Hyper Wellness</h3>
