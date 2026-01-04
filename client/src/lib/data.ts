@@ -233,7 +233,11 @@ export const ivMenu = {
     { id: "amplified-beauty", name: "Amplified Beauty", category: "Skin Health", description: "Nourish your skin from within for a healthy, youthful glow.", ingredients: ["Glutathione", "Magnesium", "B12", "Biotin", "Lysine", "Glutamine", "Proline", "2x Vitamin C", "B Complex"], memberPrice: 276, retailPrice: 349 },
     { id: "fog-lifter", name: "Fog Lifter", category: "Brain Health", description: "Sharpens focus to keep your mind clear and energized.", ingredients: ["Glutathione", "B12", "Taurine", "B Complex"], memberPrice: 144, retailPrice: 181 },
     { id: "the-edge", name: "The Edge", category: "Athletic Performance", description: "Fuels endurance, reduces fatigue so you can train harder.", ingredients: ["Magnesium", "B12", "L-Carnitine", "Taurine", "Glutamine", "Proline"], memberPrice: 188, retailPrice: 237 },
-    { id: "lose-it", name: "Lose It", category: "Weight Management", description: "Fire up your metabolism and convert stored energy into fuel.", ingredients: ["Magnesium", "B12", "L-Carnitine", "Proline", "B Complex"], memberPrice: 166, retailPrice: 209 }
+    { id: "lose-it", name: "Lose It", category: "Weight Management", description: "Fire up your metabolism and convert stored energy into fuel.", ingredients: ["Magnesium", "B12", "L-Carnitine", "Proline", "B Complex"], memberPrice: 166, retailPrice: 209 },
+    { id: "unstoppable", name: "Unstoppable", category: "Athletic Performance", description: "Get supercharged for peak performance clarity.", ingredients: ["B12", "2x Taurine", "L-Carnitine", "2x B Complex"], memberPrice: 188, retailPrice: 237 },
+    { id: "new-myers", name: "New Myers", category: "Stress & Recovery", description: "Works to combat stress, fatigue and inflammation.", ingredients: ["Glutathione", "Magnesium", "Zinc", "2x Vitamin C", "B Complex"], memberPrice: 188, retailPrice: 237 },
+    { id: "hangover", name: "Hangover", category: "Recovery", description: "Go from rough to refreshed in no time.", ingredients: ["Glutathione", "Magnesium", "Vitamin C", "Toradol", "B12", "Zofran", "B Complex"], memberPrice: 210, retailPrice: 265 },
+    { id: "cold-flu", name: "Cold & Flu", category: "Immunity", description: "Fast-acting support when you need it most.", ingredients: ["Glutathione", "Vitamin D", "2x Vitamin C", "Toradol", "B12", "Zinc"], memberPrice: 210, retailPrice: 265 }
   ],
   nutrients: {
     signature: [

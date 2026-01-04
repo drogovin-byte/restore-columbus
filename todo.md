@@ -100,3 +100,8 @@
 - [x] Update IV menu cards to use Restore.com blue color palette instead of multi-colored scheme
 - [x] Enhance tab navigation with colored underlines, icons, gradient background, and hover effects
 - [x] Fix tab border styling - move border from container to individual tabs
+- [x] Update pricing section copy on IV Therapy service page to be more welcoming about variable pricing
+- [x] Add Hangover IV drip with ingredients and pricing
+- [x] Add Myers (New Myers) IV drip with ingredients and pricing
+- [x] Add Cold & Flu IV drip with ingredients and pricing
+- [x] Add Unstoppable IV drip with ingredients and pricing

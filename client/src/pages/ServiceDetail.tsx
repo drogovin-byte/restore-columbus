@@ -211,6 +211,12 @@ export default function ServiceDetail() {
                 </CardTitle>
               </CardHeader>
               <CardContent className="p-6 space-y-6">
+                {/* Pricing intro text */}
+                <div className="space-y-3">
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Our IV therapies start at <span className="font-semibold text-foreground">Member $144</span>. Pricing varies based on your chosen formulation and add-on nutrients. Let's find the perfect option for your wellness goals!
+                  </p>
+                </div>
                 <div className="space-y-4">
                   {service.pricing.split('||').map((tier, idx) => {
                     const [dosage, member, retail] = tier.split('|').map(p => p.trim());
