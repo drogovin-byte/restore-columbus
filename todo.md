@@ -69,3 +69,4 @@
 - [x] Update Easton totalReviews to 650 in data.ts
 - [x] Update Free Consultation link in ProblemDetail to Manus booking app
 - [x] Modify hero image - replace "WELLNESS COLUMBUS" text with correct Restore logo (circular needle icon) in white on blue wall
+- [x] Remove Services header and All Services link from footer to allow Aesthetic to move to top row

@@ -142,7 +142,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       {/* Footer */}
       <footer className="bg-primary text-primary-foreground py-12 md:py-16 relative z-30">
         <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-6 gap-8 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-8">
             {/* Brand */}
             <div>
               <h3 className="font-bold text-lg mb-4">Restore Hyper Wellness</h3>
@@ -165,14 +165,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   </Link>
                 ))}
               </div>
-            </div>
-
-            {/* Services */}
-            <div>
-              <h4 className="font-bold mb-4">Services</h4>
-              <ul className="space-y-2 text-sm">
-                <li><Link href="/services" className="hover:opacity-80 transition-opacity font-medium">All Services</Link></li>
-              </ul>
             </div>
 
             {/* Recovery Therapies */}
