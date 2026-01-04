@@ -272,7 +272,7 @@ export default function LocationDetail() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {/* Location-Specific Services First */}
                 {location.specialServices && location.specialServices.map((service, i) => (
-                  <div key={`special-${i}`} className="flex items-center gap-2 p-3 bg-accent/10 border border-accent rounded-lg">
+                  <div key={`special-${i}`} className="flex items-center gap-2 p-3 bg-secondary/30 border border-border rounded-lg hover:border-primary hover:bg-secondary/50 transition-all">
                     <CheckCircle2 className="w-5 h-5 text-accent shrink-0" />
                     <span className="font-semibold text-foreground">{service}</span>
                   </div>
@@ -280,7 +280,7 @@ export default function LocationDetail() {
                 {/* Standard Services */}
                 {services.slice(0, 8).map((service) => (
                   <Link key={service.id} href={`/service/${service.id}`}>
-                    <div className="flex items-center gap-2 p-3 bg-card border border-border rounded-lg hover:border-primary hover:bg-primary/5 transition-all cursor-pointer">
+                    <div className="flex items-center gap-2 p-3 bg-secondary/30 border border-border rounded-lg hover:border-primary hover:bg-secondary/50 transition-all cursor-pointer">
                       <CheckCircle2 className="w-5 h-5 text-accent shrink-0" />
                       <span className="font-semibold text-foreground hover:text-primary transition-colors">{service.title}</span>
                     </div>
