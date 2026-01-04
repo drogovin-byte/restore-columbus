@@ -110,3 +110,5 @@
 - [x] Implement FAQ schema markup on FAQ page for rich snippets
 - [x] Fix Neveskin Shape and Neveskin Tone image display - images showing as broken
 - [x] Forward all lead landing page inquiries to drogovin@restore.com in addition to studio emails
+- [ ] Set up SMS notifications for lead inquiries via Twilio (deferred - waiting for Twilio credentials)
+- [x] Fix appointment request confirmation email formatting - HTML tags displaying as raw text

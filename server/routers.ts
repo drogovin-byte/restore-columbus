@@ -114,9 +114,7 @@ export const appRouter = router({
           });
 
           // Send confirmation email to customer
-          const customerEmailContent = `<html><body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
-            <div style="max-width: 600px; margin: 0 auto; padding: 20px;">
-              <h2 style="color: #1B5E7F;">Appointment Request Received</h2>
+          const customerEmailContent = `<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><style>body{font-family:Arial,sans-serif;line-height:1.6;color:#333}h2{color:#1B5E7F}</style></head><body><div style="max-width: 600px; margin: 0 auto; padding: 20px;"><h2 style="color: #1B5E7F;">Appointment Request Received</h2>
               <p>Hi ${input.firstName},</p>
               <p>Thank you for your interest in Restore Hyper Wellness Columbus! We've received your appointment request.</p>
               
