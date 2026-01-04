@@ -267,27 +267,29 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {locations.map((loc, idx: number) => (
-              <div key={`location-${loc.id}-${idx}`} className="bg-card border rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-                <div className="h-48 overflow-hidden">
-                  <img src={loc.image} alt={loc.name} className="w-full h-full object-cover" />
-                </div>
-                <div className="p-6 space-y-4">
-                  <h3 className="font-heading font-bold text-xl text-primary">{loc.name.replace("Restore Hyper Wellness - ", "")}</h3>
-                  <div className="space-y-2 text-sm text-muted-foreground">
-                    <div className="flex items-start gap-2">
-                      <MapPin className="w-4 h-4 mt-1 text-accent shrink-0" />
-                      <span>{loc.address}<br/>{loc.city}, {loc.state} {loc.zip}</span>
+              <Link key={`location-${loc.id}-${idx}`} href={`/locations/${loc.id}`}>
+                <div className="bg-card border rounded-xl overflow-hidden shadow-sm hover:shadow-lg hover:scale-105 transition-all cursor-pointer h-full">
+                  <div className="h-48 overflow-hidden">
+                    <img src={loc.image} alt={loc.name} className="w-full h-full object-cover" />
+                  </div>
+                  <div className="p-6 space-y-4">
+                    <h3 className="font-heading font-bold text-xl text-primary">{loc.name.replace("Restore Hyper Wellness - ", "")}</h3>
+                    <div className="space-y-2 text-sm text-muted-foreground">
+                      <div className="flex items-start gap-2">
+                        <MapPin className="w-4 h-4 mt-1 text-accent shrink-0" />
+                        <span>{loc.address}<br/>{loc.city}, {loc.state} {loc.zip}</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-accent shrink-0" />
+                        <span>{loc.phone}</span>
+                      </div>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-accent shrink-0" />
-                      <span>{loc.phone}</span>
+                    <div className="text-accent font-semibold flex items-center gap-2 pt-2">
+                      View Details <ArrowRight className="w-4 h-4" />
                     </div>
                   </div>
-                  <Button asChild variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-white">
-                    <Link href={`/locations#${loc.id}`}>View Details</Link>
-                  </Button>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
