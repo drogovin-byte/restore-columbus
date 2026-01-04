@@ -232,7 +232,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </div>
             
             {/* Collapsible Disclaimer */}
-            <div id="footer-disclaimer" className="hidden mt-6 pt-6 border-t border-primary-foreground/20 text-xs opacity-75 space-y-3 max-h-64 overflow-y-auto">
+            <div id="footer-disclaimer" className="mt-6 pt-6 border-t border-primary-foreground/20 text-xs opacity-75 space-y-3 max-h-96 overflow-y-auto">
               <p><strong>Disclaimers:</strong> Terms and restrictions may apply. Prices and services subject to change without warning. Discounts cannot be combined or redeemed for cash value. Medical services are provided by an independently-owned physician practice. Some services may require medical clearance and a prescription. We reserve the right to refuse service to anyone. Services, therapies, nutrients and prices may vary per location.</p>
               
               <p>Restore does not provide medical advice, diagnosis or treatment. Our services are not intended to replace the care of a qualified healthcare professional. Always consult your physician or other licensed medical provider regarding any questions about your health, medical conditions or before beginning any new therapy.</p>
