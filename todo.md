@@ -95,3 +95,4 @@
 - [x] Add pricing for all IV menu items
 - [x] Add ingredient lists for each IV drip
 - [x] Add benefit descriptions for each nutrient
+- [x] Enhance IV Menu cards with vibrant colors, gradients, and icons
