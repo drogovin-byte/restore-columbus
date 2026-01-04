@@ -97,3 +97,4 @@
 - [x] Add benefit descriptions for each nutrient
 - [x] Enhance IV Menu cards with vibrant colors, gradients, and icons
 - [x] Enhance nutrient cards with colored badges, gradients, and benefit-specific styling
+- [x] Update IV menu cards to use Restore.com blue color palette instead of multi-colored scheme
