@@ -31,24 +31,27 @@ export default function IVMenu() {
         <TabsList className="grid w-full grid-cols-3 mb-8 bg-transparent p-0 rounded-none shadow-none gap-2">
           <TabsTrigger 
             value="drips" 
-            className="text-base font-semibold transition-all duration-300 border-2 border-cyan-300 rounded-lg py-2.5 px-4 data-[state=active]:bg-gradient-to-r data-[state=active]:from-cyan-500 data-[state=active]:to-teal-600 data-[state=active]:text-white data-[state=active]:shadow-md data-[state=active]:border-cyan-500 data-[state=inactive]:bg-white data-[state=inactive]:text-slate-700 data-[state=inactive]:hover:text-cyan-600 data-[state=inactive]:hover:border-cyan-400"
+            className="text-xs sm:text-sm md:text-base font-semibold transition-all duration-300 border-2 border-cyan-300 rounded-lg py-2 sm:py-2.5 px-2 sm:px-4 data-[state=active]:bg-gradient-to-r data-[state=active]:from-cyan-500 data-[state=active]:to-teal-600 data-[state=active]:text-white data-[state=active]:shadow-md data-[state=active]:border-cyan-500 data-[state=inactive]:bg-white data-[state=inactive]:text-slate-700 data-[state=inactive]:hover:text-cyan-600 data-[state=inactive]:hover:border-cyan-400"
           >
-            <Zap className="inline-block w-4 h-4 mr-2" />
-            IV Drips
+            <Zap className="inline-block w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
+            <span className="hidden sm:inline">IV Drips</span>
+            <span className="sm:hidden">Drips</span>
           </TabsTrigger>
           <TabsTrigger 
             value="nutrients" 
-            className="text-base font-semibold transition-all duration-300 border-2 border-cyan-300 rounded-lg py-2.5 px-4 data-[state=active]:bg-gradient-to-r data-[state=active]:from-cyan-500 data-[state=active]:to-teal-600 data-[state=active]:text-white data-[state=active]:shadow-md data-[state=active]:border-cyan-500 data-[state=inactive]:bg-white data-[state=inactive]:text-slate-700 data-[state=inactive]:hover:text-cyan-600 data-[state=inactive]:hover:border-cyan-400"
+            className="text-xs sm:text-sm md:text-base font-semibold transition-all duration-300 border-2 border-cyan-300 rounded-lg py-2 sm:py-2.5 px-2 sm:px-4 data-[state=active]:bg-gradient-to-r data-[state=active]:from-cyan-500 data-[state=active]:to-teal-600 data-[state=active]:text-white data-[state=active]:shadow-md data-[state=active]:border-cyan-500 data-[state=inactive]:bg-white data-[state=inactive]:text-slate-700 data-[state=inactive]:hover:text-cyan-600 data-[state=inactive]:hover:border-cyan-400"
           >
-            <Pill className="inline-block w-4 h-4 mr-2" />
-            Add-On Nutrients
+            <Pill className="inline-block w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
+            <span className="hidden sm:inline">Add-On Nutrients</span>
+            <span className="sm:hidden">Nutrients</span>
           </TabsTrigger>
           <TabsTrigger 
             value="imshots" 
-            className="text-base font-semibold transition-all duration-300 border-2 border-cyan-300 rounded-lg py-2.5 px-4 data-[state=active]:bg-gradient-to-r data-[state=active]:from-cyan-500 data-[state=active]:to-teal-600 data-[state=active]:text-white data-[state=active]:shadow-md data-[state=active]:border-cyan-500 data-[state=inactive]:bg-white data-[state=inactive]:text-slate-700 data-[state=inactive]:hover:text-cyan-600 data-[state=inactive]:hover:border-cyan-400"
+            className="text-xs sm:text-sm md:text-base font-semibold transition-all duration-300 border-2 border-cyan-300 rounded-lg py-2 sm:py-2.5 px-2 sm:px-4 data-[state=active]:bg-gradient-to-r data-[state=active]:from-cyan-500 data-[state=active]:to-teal-600 data-[state=active]:text-white data-[state=active]:shadow-md data-[state=active]:border-cyan-500 data-[state=inactive]:bg-white data-[state=inactive]:text-slate-700 data-[state=inactive]:hover:text-cyan-600 data-[state=inactive]:hover:border-cyan-400"
           >
-            <Syringe className="inline-block w-4 h-4 mr-2" />
-            IM Shots
+            <Syringe className="inline-block w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
+            <span className="hidden sm:inline">IM Shots</span>
+            <span className="sm:hidden">Shots</span>
           </TabsTrigger>
         </TabsList>
 

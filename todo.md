@@ -105,3 +105,4 @@
 - [x] Add Myers (New Myers) IV drip with ingredients and pricing
 - [x] Add Cold & Flu IV drip with ingredients and pricing
 - [x] Add Unstoppable IV drip with ingredients and pricing
+- [x] Fix IV Menu tab buttons mobile display - text is being cut off on small screens
