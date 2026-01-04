@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import Layout from "@/components/Layout";
+import { Breadcrumb } from "@/components/Breadcrumb";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -35,6 +36,17 @@ export default function ProblemDetail() {
 
   return (
     <Layout>
+      {/* Breadcrumb Navigation */}
+      <div className="container">
+        <Breadcrumb 
+          items={[
+            { label: "Home", href: "/" },
+            { label: "Health Goals", href: "/comparisons" },
+            { label: problem.title }
+          ]}
+        />
+      </div>
+
       {/* Hero Section */}
       <section className="relative h-[450px] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">

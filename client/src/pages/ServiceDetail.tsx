@@ -1,5 +1,6 @@
 import Layout from "@/components/Layout";
 import SEO from "@/components/SEO";
+import { Breadcrumb } from "@/components/Breadcrumb";
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -67,6 +68,17 @@ export default function ServiceDetail() {
           }
         }}
       />
+      {/* Breadcrumb Navigation */}
+      <div className="container">
+        <Breadcrumb 
+          items={[
+            { label: "Home", href: "/" },
+            { label: "Therapies", href: "/services" },
+            { label: service.title }
+          ]}
+        />
+      </div>
+
       {/* Hero Section */}
       <section className="relative h-[400px] flex items-end overflow-hidden">
         <div className="absolute inset-0 z-0">

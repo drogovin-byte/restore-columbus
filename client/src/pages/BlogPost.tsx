@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout";
+import { Breadcrumb } from "@/components/Breadcrumb";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, Calendar, User } from "lucide-react";
@@ -15,6 +16,17 @@ export default function BlogPost() {
 
   return (
     <Layout>
+      {/* Breadcrumb Navigation */}
+      <div className="container">
+        <Breadcrumb 
+          items={[
+            { label: "Home", href: "/" },
+            { label: "Blog", href: "/blog" },
+            { label: post.title }
+          ]}
+        />
+      </div>
+
       <article className="min-h-screen pb-20">
         {/* Hero Header */}
         <div className="relative h-[400px] md:h-[500px] w-full overflow-hidden">
