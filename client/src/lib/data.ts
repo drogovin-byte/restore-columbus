@@ -398,7 +398,7 @@ export const services = [
     whoItsNotFor: ["Pregnant women", "People with certain medical conditions"],
     pricing: "500 mg | $440 | $550 || 750 mg | $530 | $670 || 125 mg Add-On | $110 | $138 || 125 mg IM | $115 | $144",
     icon: Brain,
-    image: "/images/service_12_Smiling_woman_receiving_nad_therapy.webp",
+    image: "/images/service_12_Smiling_woman_receiving_a_NAD+.webp",
     category: "Longevity",
     faqs: [
       {
@@ -430,7 +430,7 @@ export const services = [
     whoItsNotFor: ["Pregnant women", "People with certain medical conditions"],
     pricing: "500 mg | $690 | $860 || 1000 mg | $1,380 | $1,720 || 125 mg Add-On | $173 | $215 || 125 mg IM | $205 | $245",
     icon: Zap,
-    image: "/images/service_12_Smiling_woman_receiving_nad_therapy.webp",
+    image: "/images/service_12_Smiling_woman_receiving_a_NAD+.webp",
     category: "Longevity",
     faqs: [
       {
@@ -765,7 +765,7 @@ export const comparisons = [
       }
     },
     recommendation: "NAD+ IV is worth it if you're serious about longevity, performance, or cognitive enhancement. Start with 4-6 sessions to assess benefits.",
-    image: "/images/service_12_Smiling_woman_receiving_nad_therapy.webp",
+    image: "/images/service_12_Smiling_woman_receiving_a_NAD+.webp",
     fullContent: "## What is NAD+?\n\nNAD+ is a coenzyme found in every cell in your body. It is essential for energy production, DNA repair, cellular stress resistance, and longevity. But NAD+ levels decline by 50% between age 20 and 50, and continue dropping with age. This decline is linked to aging, cognitive decline, reduced athletic performance, and increased disease risk.\n\nNAD+ IV therapy at Restore Hyper Wellness delivers high-dose NAD+ directly into your bloodstream, bypassing the digestive system and achieving blood concentrations that oral supplements simply cannot match.\n\n## Key Benefits\n\n### Cellular Energy\nNAD+ is a critical cofactor in the electron transport chain, the process that generates ATP. By restoring NAD+ levels, you are essentially upgrading your cellular power plant. Clients report feeling more energized, focused, and mentally sharp within hours of their NAD+ infusion.\n\n### Cognitive Enhancement\nNAD+ supports brain function and neuroplasticity. Studies show that elevated NAD+ improves memory, focus, and mental clarity. For professionals, students, and anyone seeking peak cognitive performance, NAD+ IV therapy delivers measurable results.\n\n### Athletic Performance\nAthletes use NAD+ to enhance recovery, reduce fatigue, and improve endurance. NAD+ supports mitochondrial function in muscle tissue, meaning faster recovery and better performance in your next workout.\n\n### Anti-Aging at the Cellular Level\nNAD+ activates sirtuins, proteins that regulate cellular aging and longevity. By restoring NAD+ levels, you are literally supporting your body's natural anti-aging mechanisms at the cellular level.\n\n### Addiction Recovery Support\nNAD+ IV therapy has shown promise in supporting recovery from substance abuse by restoring cellular function and reducing cravings. Many addiction specialists recommend NAD+ as part of a comprehensive recovery program.\n\n## Is It Worth The Investment?\n\nThat depends on your goals and timeline. If you are looking for marginal improvements, oral supplements might suffice. But if you are serious about peak performance, cognitive enhancement, athletic recovery, or anti-aging, if you want to feel and perform at your absolute best, NAD+ IV therapy delivers results that other modalities cannot match.\n\nWe recommend starting with a series of 4-6 sessions to assess your individual response. Many clients then transition to monthly maintenance infusions. At Restore, we have worked with executives, athletes, and wellness-focused individuals who have made NAD+ IV therapy a cornerstone of their health optimization strategy. The investment pays dividends in energy, performance, and longevity."
   }
 ];
