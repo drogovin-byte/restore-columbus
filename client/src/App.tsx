@@ -27,6 +27,8 @@ import Memberships from "./pages/Memberships";
 import Pricing from "./pages/Pricing";
 import MembershipSignup from "./pages/MembershipSignup";
 import AdminDashboard from "./pages/AdminDashboard";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
 import Layout from "./components/Layout";
 
 function Router() {
@@ -54,6 +56,8 @@ function Router() {
       <Route path="/membership-signup" component={MembershipSignup} />
       <Route path="/membership/:id" component={MembershipSignup} />
       <Route path="/admin" component={() => <Layout><AdminDashboard /></Layout>} />
+      <Route path="/privacy" component={PrivacyPolicy} />
+      <Route path="/terms" component={TermsOfService} />
       <Route path={"/first-time-offer"} component={FirstTimeOffer} />
       <Route path={"/404"} component={NotFound} />
       

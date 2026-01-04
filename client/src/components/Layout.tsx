@@ -195,6 +195,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <ul className="space-y-2 text-sm">
                 <li><Link href="/service/red-light" className="hover:opacity-80 transition-opacity">Red Light Therapy</Link></li>
                 <li><Link href="/service/trt" className="hover:opacity-80 transition-opacity">Testosterone Therapy</Link></li>
+                <li><Link href="/service/glp1-weight-loss" className="hover:opacity-80 transition-opacity">GLP-1 Weight Loss</Link></li>
+                <li><Link href="/service/biomarker-assessments" className="hover:opacity-80 transition-opacity">Biomarker Tests</Link></li>
               </ul>
             </div>
 
@@ -225,8 +227,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <div className="flex flex-col md:flex-row justify-between items-center">
               <p>&copy; 2025 Restore Hyper Wellness Columbus. All rights reserved.</p>
               <div className="flex gap-6 mt-4 md:mt-0">
-                <Link href="#" className="hover:opacity-100 transition-opacity">Privacy Policy</Link>
-                <Link href="#" className="hover:opacity-100 transition-opacity">Terms of Service</Link>
+                <a href="/privacy" className="hover:opacity-100 transition-opacity">Privacy Policy</a>
+                <a href="/terms" className="hover:opacity-100 transition-opacity">Terms of Service</a>
                 <button className="hover:opacity-100 transition-opacity text-accent" onClick={(e) => {const d = document.getElementById('footer-disclaimer'); if (d) d.classList.toggle('hidden');}}>Disclaimers</button>
               </div>
             </div>
