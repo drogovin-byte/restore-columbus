@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card } from "@/components/ui/card";
 import { ivMenu } from "@/lib/data";
-import { Zap, Heart, Shield, Sparkles, Brain, Flame, Droplet, Pill, Syringe } from "lucide-react";
+import { Zap, Heart, Shield, Sparkles, Brain, Flame, Droplet, Pill, Syringe, Dumbbell, Leaf, AlertCircle, Moon, Wind, Zap as ZapIcon } from "lucide-react";
 
 // Color mapping for each drip category
 const dripColorMap: Record<string, { bg: string; header: string; border: string; icon: React.ReactNode; textColor: string }> = {
@@ -57,38 +57,34 @@ const dripColorMap: Record<string, { bg: string; header: string; border: string;
   },
 };
 
-const nutrientColorMap = {
-  signature: {
-    bg: "bg-gradient-to-br from-slate-50 to-gray-50",
-    border: "border-l-4 border-slate-400",
-    header: "text-slate-700",
-    badge: "bg-slate-100 text-slate-700"
-  },
-  premium: {
-    bg: "bg-gradient-to-br from-amber-50 to-yellow-50",
-    border: "border-l-4 border-amber-500",
-    header: "text-amber-700",
-    badge: "bg-amber-100 text-amber-700"
-  }
-};
-
-const imShotColorMap = {
-  signature: {
-    bg: "bg-gradient-to-br from-indigo-50 to-blue-50",
-    border: "border-l-4 border-indigo-400",
-    header: "text-indigo-700",
-    badge: "bg-indigo-100 text-indigo-700"
-  },
-  premium: {
-    bg: "bg-gradient-to-br from-violet-50 to-purple-50",
-    border: "border-l-4 border-violet-500",
-    header: "text-violet-700",
-    badge: "bg-violet-100 text-violet-700"
-  }
+// Benefit color mapping for nutrients
+const benefitColorMap: Record<string, { bg: string; badge: string; border: string; icon: React.ReactNode }> = {
+  "PERFORMANCE": { bg: "bg-gradient-to-br from-orange-50 to-amber-50", badge: "bg-orange-100 text-orange-700", border: "border-l-4 border-orange-400", icon: <Dumbbell className="w-4 h-4" /> },
+  "METABOLISM": { bg: "bg-gradient-to-br from-yellow-50 to-amber-50", badge: "bg-yellow-100 text-yellow-700", border: "border-l-4 border-yellow-400", icon: <Flame className="w-4 h-4" /> },
+  "MOOD": { bg: "bg-gradient-to-br from-purple-50 to-pink-50", badge: "bg-purple-100 text-purple-700", border: "border-l-4 border-purple-400", icon: <Sparkles className="w-4 h-4" /> },
+  "ENERGY": { bg: "bg-gradient-to-br from-amber-50 to-orange-50", badge: "bg-amber-100 text-amber-700", border: "border-l-4 border-amber-400", icon: <Zap className="w-4 h-4" /> },
+  "ENERGY, STRESS RELIEVER": { bg: "bg-gradient-to-br from-cyan-50 to-blue-50", badge: "bg-cyan-100 text-cyan-700", border: "border-l-4 border-cyan-400", icon: <Wind className="w-4 h-4" /> },
+  "CELLULAR HEALTH": { bg: "bg-gradient-to-br from-green-50 to-emerald-50", badge: "bg-green-100 text-green-700", border: "border-l-4 border-green-400", icon: <Leaf className="w-4 h-4" /> },
+  "FAT BURNER": { bg: "bg-gradient-to-br from-red-50 to-orange-50", badge: "bg-red-100 text-red-700", border: "border-l-4 border-red-400", icon: <Flame className="w-4 h-4" /> },
+  "TISSUE HEALTH": { bg: "bg-gradient-to-br from-teal-50 to-cyan-50", badge: "bg-teal-100 text-teal-700", border: "border-l-4 border-teal-400", icon: <Heart className="w-4 h-4" /> },
+  "RELAXATION": { bg: "bg-gradient-to-br from-indigo-50 to-purple-50", badge: "bg-indigo-100 text-indigo-700", border: "border-l-4 border-indigo-400", icon: <Moon className="w-4 h-4" /> },
+  "IMPROVES RESILIENCE": { bg: "bg-gradient-to-br from-emerald-50 to-green-50", badge: "bg-emerald-100 text-emerald-700", border: "border-l-4 border-emerald-400", icon: <Shield className="w-4 h-4" /> },
+  "BONE HEALTH": { bg: "bg-gradient-to-br from-slate-50 to-gray-50", badge: "bg-slate-100 text-slate-700", border: "border-l-4 border-slate-400", icon: <Dumbbell className="w-4 h-4" /> },
+  "ANTI-NAUSEA": { bg: "bg-gradient-to-br from-pink-50 to-rose-50", badge: "bg-pink-100 text-pink-700", border: "border-l-4 border-pink-400", icon: <AlertCircle className="w-4 h-4" /> },
+  "WEIGHT MANAGEMENT": { bg: "bg-gradient-to-br from-blue-50 to-cyan-50", badge: "bg-blue-100 text-blue-700", border: "border-l-4 border-blue-400", icon: <Droplet className="w-4 h-4" /> },
+  "RECHARGE": { bg: "bg-gradient-to-br from-teal-50 to-cyan-50", badge: "bg-teal-100 text-teal-700", border: "border-l-4 border-teal-400", icon: <Zap className="w-4 h-4" /> },
+  "HYDRATION": { bg: "bg-gradient-to-br from-cyan-50 to-blue-50", badge: "bg-cyan-100 text-cyan-700", border: "border-l-4 border-cyan-400", icon: <Droplet className="w-4 h-4" /> },
+  "IMMUNE SUPPORT": { bg: "bg-gradient-to-br from-emerald-50 to-green-50", badge: "bg-emerald-100 text-emerald-700", border: "border-l-4 border-emerald-400", icon: <Shield className="w-4 h-4" /> },
+  "ENERGY & MOOD": { bg: "bg-gradient-to-br from-amber-50 to-purple-50", badge: "bg-amber-100 text-amber-700", border: "border-l-4 border-amber-400", icon: <Zap className="w-4 h-4" /> },
+  "ENERGY & METABOLISM": { bg: "bg-gradient-to-br from-amber-50 to-yellow-50", badge: "bg-amber-100 text-amber-700", border: "border-l-4 border-amber-400", icon: <Zap className="w-4 h-4" /> },
 };
 
 export default function IVMenu() {
   const [selectedTab, setSelectedTab] = useState("drips");
+
+  const getNutrientColors = (benefit: string) => {
+    return benefitColorMap[benefit] || benefitColorMap["ENERGY"];
+  };
 
   return (
     <div className="w-full space-y-8">
@@ -184,31 +180,49 @@ export default function IVMenu() {
             </div>
             <p className="text-slate-600 ml-9">Add to any IV drip for enhanced benefits</p>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {ivMenu.nutrients.signature.map((nutrient: any, idx: number) => (
-                <Card
-                  key={idx}
-                  className={`p-4 border-0 ${nutrientColorMap.signature.bg} ${nutrientColorMap.signature.border} hover:shadow-lg transition-all duration-300 hover:-translate-y-1`}
-                >
-                  <div className="space-y-3">
-                    <div>
-                      <h4 className="font-bold text-slate-900 text-lg">
-                        {nutrient.name}
-                      </h4>
-                      <p className={`text-xs font-semibold ${nutrientColorMap.signature.badge} inline-block px-2 py-1 rounded mt-1 uppercase`}>
-                        {nutrient.benefit}
+              {ivMenu.nutrients.signature.map((nutrient: any, idx: number) => {
+                const colors = getNutrientColors(nutrient.benefit);
+                return (
+                  <Card
+                    key={idx}
+                    className={`p-5 border-0 ${colors.bg} ${colors.border} hover:shadow-lg transition-all duration-300 hover:-translate-y-1`}
+                  >
+                    <div className="space-y-3">
+                      {/* Header with Icon */}
+                      <div className="flex items-start justify-between">
+                        <div className="flex-1">
+                          <h4 className="font-bold text-slate-900 text-lg mb-2">
+                            {nutrient.name}
+                          </h4>
+                          <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full font-semibold text-xs uppercase ${colors.badge}`}>
+                            {colors.icon}
+                            {nutrient.benefit}
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Description */}
+                      <p className="text-sm text-slate-700 leading-relaxed pt-2">
+                        {nutrient.description}
                       </p>
+
+                      {/* Pricing */}
+                      <div className="pt-3 border-t border-slate-300">
+                        <div className="flex items-center justify-between">
+                          <div>
+                            <p className="text-xs text-slate-600 font-medium">Member</p>
+                            <p className="font-bold text-slate-900">${nutrient.memberPrice}</p>
+                          </div>
+                          <div className="text-right">
+                            <p className="text-xs text-slate-600 font-medium">Retail</p>
+                            <p className="font-bold text-slate-900">${nutrient.retailPrice}</p>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <p className="text-sm text-slate-700">
-                      {nutrient.description}
-                    </p>
-                    <div className="pt-3 border-t border-slate-300">
-                      <p className="text-xs text-slate-600">
-                        <span className="font-bold text-slate-900">${nutrient.memberPrice}</span> member / <span className="font-bold text-slate-900">${nutrient.retailPrice}</span> retail
-                      </p>
-                    </div>
-                  </div>
-                </Card>
-              ))}
+                  </Card>
+                );
+              })}
             </div>
           </div>
 
@@ -220,31 +234,49 @@ export default function IVMenu() {
             </div>
             <p className="text-slate-600 ml-9">Advanced add-ons for maximum impact</p>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {ivMenu.nutrients.premium.map((nutrient: any, idx: number) => (
-                <Card
-                  key={idx}
-                  className={`p-4 border-0 ${nutrientColorMap.premium.bg} ${nutrientColorMap.premium.border} hover:shadow-lg transition-all duration-300 hover:-translate-y-1`}
-                >
-                  <div className="space-y-3">
-                    <div>
-                      <h4 className="font-bold text-slate-900 text-lg">
-                        {nutrient.name}
-                      </h4>
-                      <p className={`text-xs font-semibold ${nutrientColorMap.premium.badge} inline-block px-2 py-1 rounded mt-1 uppercase`}>
-                        {nutrient.benefit}
+              {ivMenu.nutrients.premium.map((nutrient: any, idx: number) => {
+                const colors = getNutrientColors(nutrient.benefit);
+                return (
+                  <Card
+                    key={idx}
+                    className={`p-5 border-0 ${colors.bg} ${colors.border} hover:shadow-lg transition-all duration-300 hover:-translate-y-1`}
+                  >
+                    <div className="space-y-3">
+                      {/* Header with Icon */}
+                      <div className="flex items-start justify-between">
+                        <div className="flex-1">
+                          <h4 className="font-bold text-slate-900 text-lg mb-2">
+                            {nutrient.name}
+                          </h4>
+                          <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full font-semibold text-xs uppercase ${colors.badge}`}>
+                            {colors.icon}
+                            {nutrient.benefit}
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Description */}
+                      <p className="text-sm text-slate-700 leading-relaxed pt-2">
+                        {nutrient.description}
                       </p>
+
+                      {/* Pricing */}
+                      <div className="pt-3 border-t border-slate-300">
+                        <div className="flex items-center justify-between">
+                          <div>
+                            <p className="text-xs text-slate-600 font-medium">Member</p>
+                            <p className="font-bold text-slate-900">${nutrient.memberPrice}</p>
+                          </div>
+                          <div className="text-right">
+                            <p className="text-xs text-slate-600 font-medium">Retail</p>
+                            <p className="font-bold text-slate-900">${nutrient.retailPrice}</p>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <p className="text-sm text-slate-700">
-                      {nutrient.description}
-                    </p>
-                    <div className="pt-3 border-t border-amber-300">
-                      <p className="text-xs text-slate-600">
-                        <span className="font-bold text-slate-900">${nutrient.memberPrice}</span> member / <span className="font-bold text-slate-900">${nutrient.retailPrice}</span> retail
-                      </p>
-                    </div>
-                  </div>
-                </Card>
-              ))}
+                  </Card>
+                );
+              })}
             </div>
           </div>
         </TabsContent>
@@ -259,31 +291,49 @@ export default function IVMenu() {
             </div>
             <p className="text-slate-600 ml-9">Quick intramuscular injections for targeted benefits</p>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {ivMenu.imShots.signature.map((shot: any, idx: number) => (
-                <Card
-                  key={idx}
-                  className={`p-4 border-0 ${imShotColorMap.signature.bg} ${imShotColorMap.signature.border} hover:shadow-lg transition-all duration-300 hover:-translate-y-1`}
-                >
-                  <div className="space-y-3">
-                    <div>
-                      <h4 className="font-bold text-slate-900 text-lg">
-                        {shot.name}
-                      </h4>
-                      <p className={`text-xs font-semibold ${imShotColorMap.signature.badge} inline-block px-2 py-1 rounded mt-1 uppercase`}>
-                        {shot.benefit}
+              {ivMenu.imShots.signature.map((shot: any, idx: number) => {
+                const colors = getNutrientColors(shot.benefit);
+                return (
+                  <Card
+                    key={idx}
+                    className={`p-5 border-0 ${colors.bg} ${colors.border} hover:shadow-lg transition-all duration-300 hover:-translate-y-1`}
+                  >
+                    <div className="space-y-3">
+                      {/* Header with Icon */}
+                      <div className="flex items-start justify-between">
+                        <div className="flex-1">
+                          <h4 className="font-bold text-slate-900 text-lg mb-2">
+                            {shot.name}
+                          </h4>
+                          <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full font-semibold text-xs uppercase ${colors.badge}`}>
+                            {colors.icon}
+                            {shot.benefit}
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Description */}
+                      <p className="text-sm text-slate-700 leading-relaxed pt-2">
+                        {shot.description}
                       </p>
+
+                      {/* Pricing */}
+                      <div className="pt-3 border-t border-slate-300">
+                        <div className="flex items-center justify-between">
+                          <div>
+                            <p className="text-xs text-slate-600 font-medium">Member</p>
+                            <p className="font-bold text-slate-900">${shot.memberPrice}</p>
+                          </div>
+                          <div className="text-right">
+                            <p className="text-xs text-slate-600 font-medium">Retail</p>
+                            <p className="font-bold text-slate-900">${shot.retailPrice}</p>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <p className="text-sm text-slate-700">
-                      {shot.description}
-                    </p>
-                    <div className="pt-3 border-t border-indigo-300">
-                      <p className="text-xs text-slate-600">
-                        <span className="font-bold text-slate-900">${shot.memberPrice}</span> member / <span className="font-bold text-slate-900">${shot.retailPrice}</span> retail
-                      </p>
-                    </div>
-                  </div>
-                </Card>
-              ))}
+                  </Card>
+                );
+              })}
             </div>
           </div>
 
@@ -295,31 +345,49 @@ export default function IVMenu() {
             </div>
             <p className="text-slate-600 ml-9">Powerful nutrient combinations for enhanced results</p>
             <div className="grid md:grid-cols-2 gap-4">
-              {ivMenu.imShots.premium.map((combo: any, idx: number) => (
-                <Card
-                  key={idx}
-                  className={`p-4 border-0 ${imShotColorMap.premium.bg} ${imShotColorMap.premium.border} hover:shadow-lg transition-all duration-300 hover:-translate-y-1`}
-                >
-                  <div className="space-y-3">
-                    <div>
-                      <h4 className="font-bold text-slate-900 text-lg">
-                        {combo.name}
-                      </h4>
-                      <p className={`text-xs font-semibold ${imShotColorMap.premium.badge} inline-block px-2 py-1 rounded mt-1 uppercase`}>
-                        {combo.benefit}
+              {ivMenu.imShots.premium.map((combo: any, idx: number) => {
+                const colors = getNutrientColors(combo.benefit);
+                return (
+                  <Card
+                    key={idx}
+                    className={`p-5 border-0 ${colors.bg} ${colors.border} hover:shadow-lg transition-all duration-300 hover:-translate-y-1`}
+                  >
+                    <div className="space-y-3">
+                      {/* Header with Icon */}
+                      <div className="flex items-start justify-between">
+                        <div className="flex-1">
+                          <h4 className="font-bold text-slate-900 text-lg mb-2">
+                            {combo.name}
+                          </h4>
+                          <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full font-semibold text-xs uppercase ${colors.badge}`}>
+                            {colors.icon}
+                            {combo.benefit}
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Description */}
+                      <p className="text-sm text-slate-700 leading-relaxed pt-2">
+                        {combo.description}
                       </p>
+
+                      {/* Pricing */}
+                      <div className="pt-3 border-t border-slate-300">
+                        <div className="flex items-center justify-between">
+                          <div>
+                            <p className="text-xs text-slate-600 font-medium">Member</p>
+                            <p className="font-bold text-slate-900">${combo.memberPrice}</p>
+                          </div>
+                          <div className="text-right">
+                            <p className="text-xs text-slate-600 font-medium">Retail</p>
+                            <p className="font-bold text-slate-900">${combo.retailPrice}</p>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <p className="text-sm text-slate-700">
-                      {combo.description}
-                    </p>
-                    <div className="pt-3 border-t border-violet-300">
-                      <p className="text-xs text-slate-600">
-                        <span className="font-bold text-slate-900">${combo.memberPrice}</span> member / <span className="font-bold text-slate-900">${combo.retailPrice}</span> retail
-                      </p>
-                    </div>
-                  </div>
-                </Card>
-              ))}
+                  </Card>
+                );
+              })}
             </div>
           </div>
         </TabsContent>
