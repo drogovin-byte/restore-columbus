@@ -103,16 +103,16 @@ export default function Home() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {problemStates.map((state: any, idx: number) => {
-              // Define gradient and icon based on problem type
-              const cardStyles: Record<string, { gradient: string; icon: React.ReactNode }> = {
-                "fatigue-burnout": { gradient: "from-amber-500 to-orange-400", icon: <Battery className="w-10 h-10" /> },
-                "athletic-recovery": { gradient: "from-blue-500 to-cyan-400", icon: <Activity className="w-10 h-10" /> },
-                "pain-inflammation": { gradient: "from-red-500 to-rose-400", icon: <AlertCircle className="w-10 h-10" /> },
-                "stress-sleep": { gradient: "from-purple-500 to-indigo-400", icon: <Moon className="w-10 h-10" /> },
-                "mens-health": { gradient: "from-emerald-500 to-teal-400", icon: <TrendingUp className="w-10 h-10" /> },
-                "womens-wellness": { gradient: "from-pink-500 to-rose-400", icon: <Heart className="w-10 h-10" /> }
+              // Define gradient, icon, and CTA text based on problem type
+              const cardStyles: Record<string, { gradient: string; icon: React.ReactNode; cta: string }> = {
+                "fatigue-burnout": { gradient: "from-amber-500 to-orange-400", icon: <Battery className="w-10 h-10" />, cta: "Restore My Energy" },
+                "athletic-recovery": { gradient: "from-blue-500 to-cyan-400", icon: <Activity className="w-10 h-10" />, cta: "Recover Faster" },
+                "pain-inflammation": { gradient: "from-red-500 to-rose-400", icon: <AlertCircle className="w-10 h-10" />, cta: "Get Relief" },
+                "stress-sleep": { gradient: "from-purple-500 to-indigo-400", icon: <Moon className="w-10 h-10" />, cta: "Sleep Better" },
+                "mens-health": { gradient: "from-emerald-500 to-teal-400", icon: <TrendingUp className="w-10 h-10" />, cta: "Optimize My Performance" },
+                "womens-wellness": { gradient: "from-pink-500 to-rose-400", icon: <Heart className="w-10 h-10" />, cta: "Support My Hormones" }
               };
-              const style = cardStyles[state.id] || { gradient: "from-accent to-primary", icon: <Target className="w-10 h-10" /> };
+              const style = cardStyles[state.id] || { gradient: "from-accent to-primary", icon: <Target className="w-10 h-10" />, cta: "Learn More" };
               
               return (
                 <Link key={`problem-${state.id}-${idx}`} href={`/problem/${state.id}`}>
@@ -139,7 +139,7 @@ export default function Home() {
                       
                       {/* CTA */}
                       <div className="flex items-center gap-2 text-primary font-bold group-hover:gap-4 transition-all group-hover:text-accent">
-                        <span>Learn More</span>
+                        <span>{style.cta}</span>
                         <ArrowRight className="w-5 h-5" />
                       </div>
                     </div>
