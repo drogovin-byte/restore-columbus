@@ -11,7 +11,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const DATA_FILE_PATH = path.join(__dirname, '../client/src/lib/data.ts');
 const PUBLIC_DIR = path.join(__dirname, '../client/public');
-const BASE_URL = 'https://restore-columbus.manus.space';
+const BASE_URL = 'https://restorecolumbus.us';
 
 // Helper to extract IDs/slugs from data.ts content using regex
 function extractIds(content, arrayName, idField = 'id') {
