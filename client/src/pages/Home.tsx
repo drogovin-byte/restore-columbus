@@ -121,7 +121,7 @@ export default function Home() {
                     <div className={`absolute top-0 left-0 right-0 h-2 bg-gradient-to-r ${style.gradient}`} />
                     
                     {/* Card content */}
-                    <div className="p-8 pt-10">
+                    <div className="p-8 pt-10 flex flex-col h-full">
                       {/* Icon with gradient background */}
                       <div className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${style.gradient} flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
                         {style.icon}
@@ -133,7 +133,7 @@ export default function Home() {
                       </h3>
                       
                       {/* Description */}
-                      <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                      <p className="text-lg text-muted-foreground leading-relaxed mb-6 flex-grow">
                         {state.description}
                       </p>
                       
