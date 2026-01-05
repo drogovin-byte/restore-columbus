@@ -166,6 +166,19 @@
 }
 
 @layer components {
+  @keyframes arrow-slide {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(4px);
+    }
+  }
+
+  .arrow-slide {
+    animation: arrow-slide 0.3s ease-in-out;
+  }
+
   .container {
     width: 100%;
     margin-left: auto;

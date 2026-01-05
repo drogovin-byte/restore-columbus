@@ -140,7 +140,7 @@ export default function Home() {
                       {/* CTA */}
                       <div className="flex items-center gap-2 text-primary font-bold group-hover:gap-4 transition-all group-hover:text-accent">
                         <span>{style.cta}</span>
-                        <ArrowRight className="w-5 h-5" />
+                        <ArrowRight className="w-5 h-5 group-hover:arrow-slide" />
                       </div>
                     </div>
                     
