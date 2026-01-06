@@ -971,7 +971,7 @@ export const blogPosts = [
     date: "2026-01-06",
     author: "Restore Team",
     category: "Longevity",
-    image: "/images/location-hero-studio.webp",
+    image: "/images/dublin-longevity-blog.jpg",
     tags: ["Dublin", "Longevity", "New Year", "Wellness", "2026", "Recovery", "Health"]
   },
 ];
