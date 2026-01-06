@@ -820,7 +820,7 @@ export const comparisonGuides = [
     title: "Reduce Inflammation & Accelerate Recovery",
     description: "Which therapy is right for your recovery goals?",
     excerpt: "Combat inflammation and speed up recovery with the right therapy combination.",
-    cardImage: "/images/comparison-inflammation.jpg",
+    cardImage: "/images/service_03_Man_in_cryotherapy_chamber.webp",
     solutions: [
       {
         id: "cryotherapy",
@@ -850,7 +850,7 @@ export const comparisonGuides = [
     title: "Sleep Better & Detoxify",
     description: "Which therapy helps you rest and cleanse?",
     excerpt: "Improve sleep quality and support your body's natural detoxification processes.",
-    cardImage: "/images/comparison-sleep-detox.jpg",
+    cardImage: "/images/service_09_Woman_relaxing_in_infrared_sauna.webp",
     solutions: [
       {
         id: "infrared-sauna",
@@ -874,7 +874,7 @@ export const comparisonGuides = [
     title: "Combat Fatigue & Brain Fog",
     description: "Restore energy and mental clarity",
     excerpt: "Boost energy and eliminate brain fog with proven cellular energy restoration.",
-    cardImage: "/images/comparison-energy.jpg",
+    cardImage: "/images/service_12_Smiling_woman_receiving_a_NAD+.webp",
     solutions: [
       {
         id: "nad-iv",
@@ -898,7 +898,7 @@ export const comparisonGuides = [
     title: "Restore Skin Health & Vitality",
     description: "Which therapy supports your skin and anti-aging goals?",
     excerpt: "Enhance skin appearance and support cellular anti-aging from the inside out.",
-    cardImage: "/images/comparison-skin.jpg",
+    cardImage: "/images/service_06_Woman_receiving_red_light_therapy.webp",
     solutions: [
       {
         id: "redlight",
@@ -922,7 +922,7 @@ export const comparisonGuides = [
     title: "Enhance Performance & Recovery",
     description: "Which therapy optimizes your athletic potential?",
     excerpt: "Boost performance, accelerate recovery, and prevent injuries with targeted therapies.",
-    cardImage: "/images/comparison-athletic.jpg",
+    cardImage: "/images/service_03_Man_in_cryotherapy_chamber.webp",
     solutions: [
       {
         id: "iv-therapy",
@@ -946,7 +946,7 @@ export const comparisonGuides = [
     title: "Melt Stress & Find Calm",
     description: "Which therapy helps you relax and recover?",
     excerpt: "Activate your parasympathetic nervous system and experience deep stress relief.",
-    cardImage: "/images/comparison-stress.jpg",
+    cardImage: "/images/service_09_Woman_relaxing_in_infrared_sauna.webp",
     solutions: [
       {
         id: "infrared-sauna",
