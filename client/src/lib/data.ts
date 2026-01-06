@@ -826,19 +826,37 @@ export const comparisonGuides = [
         id: "cryotherapy",
         name: "Cryotherapy",
         description: "3 minutes of extreme cold exposure that triggers rapid anti-inflammatory response",
-        link: "/service/cryotherapy"
+        link: "/service/cryotherapy",
+        benefits: [
+          "Reduces inflammation and muscle soreness",
+          "Boosts mood and mental clarity",
+          "Accelerates muscle recovery between workouts",
+          "Improves circulation and athletic performance"
+        ]
       },
       {
         id: "redlight",
         name: "Red Light Therapy",
         description: "Stimulates cellular repair and reduces inflammation at the mitochondrial level",
-        link: "/service/red-light-therapy"
+        link: "/service/red-light-therapy",
+        benefits: [
+          "Stimulates collagen production",
+          "Boosts cellular energy and ATP production",
+          "Improves skin health and appearance",
+          "Supports muscle recovery and repair"
+        ]
       },
       {
         id: "iv-therapy",
         name: "IV Therapy",
         description: "Delivers anti-inflammatory compounds directly into your bloodstream",
-        link: "/service/iv-therapy"
+        link: "/service/iv-therapy",
+        benefits: [
+          "100% nutrient absorption bypassing digestion",
+          "Rapid hydration and energy restoration",
+          "Customizable formulas for specific goals",
+          "Immediate results and sustained benefits"
+        ]
       }
     ],
     cta: "Reduce Inflammation & Accelerate Recovery",
@@ -856,13 +874,25 @@ export const comparisonGuides = [
         id: "infrared-sauna",
         name: "Infrared Sauna",
         description: "Deep heat triggers detoxification through sweat and promotes parasympathetic relaxation",
-        link: "/service/infrared-sauna"
+        link: "/service/infrared-sauna",
+        benefits: [
+          "Deep detoxification through sweat",
+          "Improves sleep quality and duration",
+          "Enhances cardiovascular health",
+          "Reduces stress and promotes relaxation"
+        ]
       },
       {
         id: "redlight",
         name: "Red Light Therapy",
         description: "Supports circadian rhythm and melatonin production for deeper sleep",
-        link: "/service/red-light-therapy"
+        link: "/service/red-light-therapy",
+        benefits: [
+          "Supports circadian rhythm regulation",
+          "Enhances melatonin production",
+          "Improves sleep quality and duration",
+          "Reduces blue light effects on sleep"
+        ]
       }
     ],
     cta: "Sleep Better & Detoxify",
@@ -880,13 +910,25 @@ export const comparisonGuides = [
         id: "nad-iv",
         name: "NAD+ IV Therapy",
         description: "Restores cellular energy at the mitochondrial level for rapid mental clarity and sustained energy",
-        link: "/service/nad-iv-therapy"
+        link: "/service/nad-iv",
+        benefits: [
+          "Restores cellular energy at mitochondrial level",
+          "Supports DNA repair and longevity",
+          "Enhances mental clarity and focus",
+          "Improves athletic performance and recovery"
+        ]
       },
       {
         id: "niagen",
         name: "Niagen (NR)",
         description: "Natural NAD+ precursor for daily energy support and cognitive enhancement",
-        link: "/service/niagen"
+        link: "/service/niagen-nr-iv",
+        benefits: [
+          "Natural NAD+ precursor for daily support",
+          "Faster infusion with fewer side effects",
+          "Sustainable cellular energy production",
+          "Supports cognitive enhancement and vitality"
+        ]
       }
     ],
     cta: "Restore Energy & Mental Clarity",
@@ -904,13 +946,25 @@ export const comparisonGuides = [
         id: "redlight",
         name: "Red Light Therapy",
         description: "Stimulates collagen production and cellular repair for glowing, youthful skin",
-        link: "/service/red-light-therapy"
+        link: "/service/red-light-therapy",
+        benefits: [
+          "Stimulates collagen production",
+          "Reduces fine lines and wrinkles",
+          "Improves skin texture and radiance",
+          "Supports cellular regeneration"
+        ]
       },
       {
         id: "iv-therapy",
         name: "IV Therapy",
         description: "Delivers hydration and antioxidants that support skin health and radiance",
-        link: "/service/iv-therapy"
+        link: "/service/iv-therapy",
+        benefits: [
+          "Deep hydration from within",
+          "Delivers antioxidants and vitamins",
+          "Supports skin elasticity and glow",
+          "Promotes cellular renewal"
+        ]
       }
     ],
     cta: "Restore Skin Health & Vitality",
@@ -928,13 +982,25 @@ export const comparisonGuides = [
         id: "iv-therapy",
         name: "IV Therapy",
         description: "Delivers amino acids, electrolytes, and nutrients for rapid recovery and performance enhancement",
-        link: "/service/iv-therapy"
+        link: "/service/iv-therapy",
+        benefits: [
+          "Rapid amino acid delivery for muscle repair",
+          "Electrolyte replenishment and hydration",
+          "Enhanced oxygen delivery to muscles",
+          "Accelerated recovery between training sessions"
+        ]
       },
       {
         id: "cryotherapy",
         name: "Cryotherapy",
         description: "Reduces inflammation and muscle soreness, accelerating recovery between workouts",
-        link: "/service/cryotherapy"
+        link: "/service/cryotherapy",
+        benefits: [
+          "Reduces inflammation and muscle soreness",
+          "Accelerates muscle recovery",
+          "Improves athletic performance",
+          "Enhances endurance and strength"
+        ]
       }
     ],
     cta: "Enhance Performance & Recovery",
@@ -952,13 +1018,25 @@ export const comparisonGuides = [
         id: "infrared-sauna",
         name: "Infrared Sauna",
         description: "Deep heat relaxation that melts tension and activates your body's relaxation response",
-        link: "/service/infrared-sauna"
+        link: "/service/infrared-sauna",
+        benefits: [
+          "Deep heat relaxation and tension relief",
+          "Activates parasympathetic nervous system",
+          "Reduces cortisol and stress hormones",
+          "Promotes deep relaxation and calm"
+        ]
       },
       {
         id: "hyperbaric",
         name: "Hyperbaric Oxygen Therapy",
         description: "Increases oxygen delivery to reduce stress hormones and promote deep relaxation",
-        link: "/service/hyperbaric-oxygen"
+        link: "/service/hyperbaric-oxygen",
+        benefits: [
+          "Increases oxygen delivery to cells",
+          "Reduces stress hormones and anxiety",
+          "Promotes deep relaxation and calm",
+          "Enhances cognitive function and clarity"
+        ]
       }
     ],
     cta: "Melt Stress & Find Calm",
