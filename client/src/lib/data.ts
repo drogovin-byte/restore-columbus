@@ -971,7 +971,7 @@ export const blogPosts = [
     date: "2026-01-06",
     author: "Restore Team",
     category: "Longevity",
-    image: "/images/dublin-longevity-blog.jpg",
+    image: "/images/dublin-fitness-energy.jpg",
     tags: ["Dublin", "Longevity", "New Year", "Wellness", "2026", "Recovery", "Health"]
   },
 ];
