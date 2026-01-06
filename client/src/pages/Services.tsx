@@ -109,7 +109,7 @@ export default function Services() {
                     </div>
 
                     {/* Service Info - Left Side */}
-                    <div className="space-y-4">
+                    <div className="space-y-4 overflow-hidden">
                       <div>
                         <h3 className="font-heading font-bold text-xl text-primary mb-2" itemProp="name">
                           {service.title}
@@ -133,14 +133,14 @@ export default function Services() {
                       </div>
 
                       {/* Learn More Link */}
-                      <div className="pt-4" onClick={(e) => e.stopPropagation()}>
+                      <div className="pt-4 overflow-hidden" onClick={(e) => e.stopPropagation()}>
                         <Button 
                           asChild 
                           variant="ghost" 
-                          className="text-accent hover:text-accent hover:bg-accent/10 p-0 h-auto font-semibold text-sm group/link w-full justify-start"
+                          className="text-accent hover:text-accent hover:bg-accent/10 p-0 h-auto font-semibold text-sm group/link w-full justify-start min-w-0"
                         >
-                          <a href={`/service/${service.id}`} className="flex items-center gap-1 flex-wrap">
-                            <span className="flex items-center gap-1">
+                          <a href={`/service/${service.id}`} className="flex items-center gap-1 min-w-0">
+                            <span className="flex items-center gap-1 min-w-0 truncate">
                               Learn about {service.title}
                               <ArrowRight className="w-4 h-4 transition-transform group-hover/link:translate-x-1 flex-shrink-0" />
                             </span>
