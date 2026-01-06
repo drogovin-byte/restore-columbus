@@ -131,9 +131,8 @@ export default function ComparisonDetail() {
         <img 
           src={comparison.image} 
           alt={comparison.title}
-          className={`w-full h-full object-cover ${
-            comparison.slug === 'skin-health-anti-aging' ? 'object-bottom' : ''
-          }`}
+          className="w-full h-full object-cover"
+          style={comparison.slug === 'skin-health-anti-aging' ? { objectPosition: '50% 35%' } : {}}
         />
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent" />
