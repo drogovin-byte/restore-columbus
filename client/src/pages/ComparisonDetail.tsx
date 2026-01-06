@@ -1,23 +1,22 @@
 import Layout from "@/components/Layout";
 import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
 import { ArrowLeft, Check, Star, Users, Clock, Zap } from "lucide-react";
 import { Link, useRoute } from "wouter";
 import { comparisonGuides } from "@/lib/data";
 
 // Color scheme for different services
-const serviceColors: Record<string, { bg: string; border: string; text: string; accent: string }> = {
-  "cryotherapy": { bg: "from-blue-50 to-cyan-50", border: "border-blue-300", text: "text-blue-700", accent: "bg-blue-100" },
-  "infrared-sauna": { bg: "from-orange-50 to-amber-50", border: "border-orange-300", text: "text-orange-700", accent: "bg-orange-100" },
-  "redlight": { bg: "from-red-50 to-rose-50", border: "border-red-300", text: "text-red-700", accent: "bg-red-100" },
-  "red-light": { bg: "from-red-50 to-rose-50", border: "border-red-300", text: "text-red-700", accent: "bg-red-100" },
-  "iv-therapy": { bg: "from-purple-50 to-violet-50", border: "border-purple-300", text: "text-purple-700", accent: "bg-purple-100" },
-  "compression": { bg: "from-emerald-50 to-teal-50", border: "border-emerald-300", text: "text-emerald-700", accent: "bg-emerald-100" },
-  "hyperbaric": { bg: "from-cyan-50 to-blue-50", border: "border-cyan-300", text: "text-cyan-700", accent: "bg-cyan-100" },
-  "nad-iv": { bg: "from-indigo-50 to-purple-50", border: "border-indigo-300", text: "text-indigo-700", accent: "bg-indigo-100" },
-  "niagen": { bg: "from-violet-50 to-purple-50", border: "border-violet-300", text: "text-violet-700", accent: "bg-violet-100" },
+const serviceColors: Record<string, { headerBg: string; headerText: string; border: string; checkmark: string }> = {
+  "cryotherapy": { headerBg: "bg-blue-50", headerText: "text-blue-700", border: "border-t-4 border-blue-500", checkmark: "text-blue-500" },
+  "infrared-sauna": { headerBg: "bg-orange-50", headerText: "text-orange-700", border: "border-t-4 border-orange-500", checkmark: "text-orange-500" },
+  "redlight": { headerBg: "bg-red-50", headerText: "text-red-700", border: "border-t-4 border-red-500", checkmark: "text-red-500" },
+  "red-light": { headerBg: "bg-red-50", headerText: "text-red-700", border: "border-t-4 border-red-500", checkmark: "text-red-500" },
+  "iv-therapy": { headerBg: "bg-purple-50", headerText: "text-purple-700", border: "border-t-4 border-purple-500", checkmark: "text-purple-500" },
+  "compression": { headerBg: "bg-emerald-50", headerText: "text-emerald-700", border: "border-t-4 border-emerald-500", checkmark: "text-emerald-500" },
+  "hyperbaric": { headerBg: "bg-cyan-50", headerText: "text-cyan-700", border: "border-t-4 border-cyan-500", checkmark: "text-cyan-500" },
+  "nad-iv": { headerBg: "bg-indigo-50", headerText: "text-indigo-700", border: "border-t-4 border-indigo-500", checkmark: "text-indigo-500" },
+  "niagen": { headerBg: "bg-violet-50", headerText: "text-violet-700", border: "border-t-4 border-violet-500", checkmark: "text-violet-500" },
 };
 
 // Service-specific benefits
@@ -208,22 +207,27 @@ export default function ComparisonDetail() {
               const benefits = serviceBenefits[solution.id] || serviceBenefits["cryotherapy"];
               
               return (
-                <Card key={solution.id} className={`border-2 ${colors.border} hover:shadow-lg transition-all overflow-hidden`}>
-                  <CardHeader className={`bg-gradient-to-r ${colors.bg} pb-6 border-b-2 ${colors.border}`}>
-                    <CardTitle className={`text-2xl ${colors.text} text-center`}>{solution.name}</CardTitle>
-                  </CardHeader>
-                  <CardContent className="pt-6 space-y-6">
+                <Card key={solution.id} className={`border border-border overflow-hidden shadow-sm hover:shadow-md transition-shadow ${colors.border}`}>
+                  {/* Header with centered title */}
+                  <div className={`${colors.headerBg} flex items-center justify-center py-8 px-6 border-b border-border`}>
+                    <h3 className={`text-2xl font-bold ${colors.headerText} text-center`}>
+                      {solution.name}
+                    </h3>
+                  </div>
+
+                  <CardContent className="pt-8 space-y-6">
+                    {/* Description */}
                     <p className="text-base text-foreground leading-relaxed">
                       {solution.description}
                     </p>
 
                     {/* Key Benefits */}
                     <div className="space-y-3">
-                      <p className={`font-bold text-sm ${colors.text} uppercase tracking-wide`}>Key Benefits:</p>
+                      <p className={`font-bold text-sm ${colors.headerText} uppercase tracking-wide`}>Key Benefits:</p>
                       <ul className="space-y-2">
                         {benefits.map((benefit, idx) => (
                           <li key={idx} className="flex items-start gap-3">
-                            <Check className={`w-5 h-5 flex-shrink-0 mt-0.5 ${colors.text}`} />
+                            <Check className={`w-5 h-5 flex-shrink-0 mt-0.5 ${colors.checkmark}`} />
                             <span className="text-sm text-muted-foreground">{benefit}</span>
                           </li>
                         ))}
@@ -231,17 +235,18 @@ export default function ComparisonDetail() {
                     </div>
 
                     {/* CTA Button */}
-                    <Button asChild className={`w-full text-white font-bold h-12 rounded-lg mt-6 transition-all hover:shadow-md`}
+                    <Button asChild className="w-full font-bold h-12 rounded-lg mt-6 transition-all"
                       style={{
-                        backgroundColor: colors.text.replace('text-', '').split('-')[0] === 'blue' ? '#0369a1' :
-                                       colors.text.replace('text-', '').split('-')[0] === 'orange' ? '#ea580c' :
-                                       colors.text.replace('text-', '').split('-')[0] === 'red' ? '#dc2626' :
-                                       colors.text.replace('text-', '').split('-')[0] === 'purple' ? '#7c3aed' :
-                                       colors.text.replace('text-', '').split('-')[0] === 'emerald' ? '#059669' :
-                                       colors.text.replace('text-', '').split('-')[0] === 'cyan' ? '#0891b2' :
-                                       colors.text.replace('text-', '').split('-')[0] === 'indigo' ? '#4f46e5' :
-                                       colors.text.replace('text-', '').split('-')[0] === 'violet' ? '#7c3aed' :
-                                       '#0369a1'
+                        backgroundColor: colors.headerText.includes('blue') ? '#0369a1' :
+                                       colors.headerText.includes('orange') ? '#ea580c' :
+                                       colors.headerText.includes('red') ? '#dc2626' :
+                                       colors.headerText.includes('purple') ? '#7c3aed' :
+                                       colors.headerText.includes('emerald') ? '#059669' :
+                                       colors.headerText.includes('cyan') ? '#0891b2' :
+                                       colors.headerText.includes('indigo') ? '#4f46e5' :
+                                       colors.headerText.includes('violet') ? '#7c3aed' :
+                                       '#0369a1',
+                        color: 'white'
                       }}
                     >
                       <Link href={solution.link}>
