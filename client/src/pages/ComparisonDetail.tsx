@@ -329,7 +329,7 @@ export default function ComparisonDetail() {
 
       {/* Final CTA */}
       <section className="py-20 bg-gradient-to-r from-primary to-secondary text-white">
-        <div className="container max-w-2xl text-center space-y-8">
+        <div className="container max-w-3xl text-center space-y-8">
           <div>
             <h2 className="font-heading font-bold text-4xl md:text-5xl mb-4">
               Ready to Transform Your Wellness?
@@ -345,11 +345,27 @@ export default function ComparisonDetail() {
                 Book Your Session
               </a>
             </Button>
-            <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white/10 font-bold text-lg h-14 px-8 rounded-lg">
-              <a href="tel:614-944-9041">
-                Call Us: 614-944-9041
-              </a>
-            </Button>
+          </div>
+
+          <div className="space-y-3">
+            <p className="text-sm text-white/80 font-semibold">Or call your preferred location:</p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+              <Button asChild variant="outline" className="border-white text-white hover:bg-white/10 font-bold text-base h-12 rounded-lg">
+                <a href="tel:614-944-9041">
+                  Easton: 614-944-9041
+                </a>
+              </Button>
+              <Button asChild variant="outline" className="border-white text-white hover:bg-white/10 font-bold text-base h-12 rounded-lg">
+                <a href="tel:614-553-7207">
+                  Dublin: 614-553-7207
+                </a>
+              </Button>
+              <Button asChild variant="outline" className="border-white text-white hover:bg-white/10 font-bold text-base h-12 rounded-lg">
+                <a href="tel:614-745-0966">
+                  Upper Arlington: 614-745-0966
+                </a>
+              </Button>
+            </div>
           </div>
 
           <p className="text-sm text-white/80">

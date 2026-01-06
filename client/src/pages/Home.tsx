@@ -338,7 +338,7 @@ export default function Home() {
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-primary to-secondary text-white">
-        <div className="container text-center space-y-6">
+        <div className="container max-w-3xl text-center space-y-6">
           <h2 className="font-heading font-bold text-3xl md:text-4xl">Ready to Feel Your Best?</h2>
           <p className="text-lg text-white/90 max-w-2xl mx-auto">
             Join thousands of Columbus residents who have made Restore a part of their weekly wellness routine.
@@ -346,6 +346,26 @@ export default function Home() {
           <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-white hover:text-primary font-bold text-lg h-14 px-8 rounded-full shadow-lg transition-all hover:scale-105">
             <a href="https://www.restore.com/book-now" target="_blank" rel="noopener noreferrer">Book Your First Session</a>
           </Button>
+          <div className="space-y-3 pt-2">
+            <p className="text-sm text-white/80 font-semibold">Or call your preferred location:</p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+              <Button asChild variant="outline" className="border-white text-white hover:bg-white/10 font-bold text-base h-12 rounded-lg">
+                <a href="tel:614-944-9041">
+                  Easton: 614-944-9041
+                </a>
+              </Button>
+              <Button asChild variant="outline" className="border-white text-white hover:bg-white/10 font-bold text-base h-12 rounded-lg">
+                <a href="tel:614-553-7207">
+                  Dublin: 614-553-7207
+                </a>
+              </Button>
+              <Button asChild variant="outline" className="border-white text-white hover:bg-white/10 font-bold text-base h-12 rounded-lg">
+                <a href="tel:614-745-0966">
+                  Upper Arlington: 614-745-0966
+                </a>
+              </Button>
+            </div>
+          </div>
         </div>
       </section>
 

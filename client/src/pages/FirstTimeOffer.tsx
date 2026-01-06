@@ -199,7 +199,7 @@ export default function FirstTimeOffer() {
 
       {/* Final CTA */}
       <section className="py-20 bg-background">
-        <div className="container max-w-2xl text-center space-y-8">
+        <div className="container max-w-3xl text-center space-y-8">
           <h2 className="font-heading font-bold text-4xl text-primary">
             Ready to Transform Your Wellness?
           </h2>
@@ -209,8 +209,30 @@ export default function FirstTimeOffer() {
           <Button asChild size="lg" className="bg-primary text-white hover:bg-primary/90 font-bold text-xl h-16 px-12 rounded-full shadow-lg">
             <a href="https://www.restore.com/book-now" target="_blank" rel="noopener noreferrer">Claim Your Free Session Now</a>
           </Button>
+          
+          <div className="space-y-3 pt-4">
+            <p className="text-sm text-muted-foreground font-semibold">Or call your preferred location:</p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+              <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary/10 font-bold text-base h-12 rounded-lg">
+                <a href="tel:614-944-9041">
+                  Easton: 614-944-9041
+                </a>
+              </Button>
+              <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary/10 font-bold text-base h-12 rounded-lg">
+                <a href="tel:614-553-7207">
+                  Dublin: 614-553-7207
+                </a>
+              </Button>
+              <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary/10 font-bold text-base h-12 rounded-lg">
+                <a href="tel:614-745-0966">
+                  Upper Arlington: 614-745-0966
+                </a>
+              </Button>
+            </div>
+          </div>
+          
           <p className="text-sm text-muted-foreground">
-            Valid at Easton, Dublin, and Upper Arlington locations. No credit card required.
+            Valid at all three locations. No credit card required.
           </p>
         </div>
       </section>

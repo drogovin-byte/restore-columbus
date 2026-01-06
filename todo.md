@@ -122,3 +122,13 @@
 - [x] Add FAQ section to address common objections
 - [x] Add final CTA section with dual buttons (Book + Call)
 - [x] Verify all 6 comparison pages display consistently
+
+## Current Sprint: Multi-Location Phone Numbers
+
+- [x] Update ComparisonDetail CTA section to display all 3 location phone numbers
+- [x] Make phone numbers clickable with tel: links
+- [x] Update FirstTimeOffer CTA section with all 3 locations
+- [x] Update Home.tsx final CTA section with all 3 locations
+- [x] Update any other CTA sections with multi-location phone numbers
+- [x] Test clickable phone numbers on mobile and desktop
+- [x] Verify tel: links work correctly for all 3 locations
