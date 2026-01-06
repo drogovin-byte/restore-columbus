@@ -158,3 +158,10 @@
 - [x] Add test to npm scripts for CI/CD integration
 - [x] Verify test runs successfully and catches broken links
 - [x] Fixed 6 invalid comparison guide links (red-light-therapy → red-light, iv-therapy → iv-drip)
+
+
+## Current Issue: Missing Hero Images on Comparison Pages
+
+- [x] Audit all 6 comparison detail pages for missing hero images
+- [x] Generate or assign hero images for pages without them (created hero images for Skin Health and Athletic Performance pages)
+- [x] Verify all hero images load correctly - all 6 comparison pages now have professional hero images
