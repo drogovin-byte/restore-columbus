@@ -820,7 +820,7 @@ export const comparisonGuides = [
     title: "Reduce Inflammation & Accelerate Recovery",
     description: "Which therapy is right for your recovery goals?",
     excerpt: "Combat inflammation and speed up recovery with the right therapy combination.",
-    cardImage: "/images/service_03_Man_in_cryotherapy_chamber.webp",
+    cardImage: "/images/service_10_A_man_wearing_Normatec_compres.webp",
     solutions: [
       {
         id: "cryotherapy",
@@ -850,7 +850,7 @@ export const comparisonGuides = [
     title: "Sleep Better & Detoxify",
     description: "Which therapy helps you rest and cleanse?",
     excerpt: "Improve sleep quality and support your body's natural detoxification processes.",
-    cardImage: "/images/service_09_Woman_relaxing_in_infrared_sauna.webp",
+    cardImage: "/images/service_09_Woman_relaxing_in_an_infrared_.webp",
     solutions: [
       {
         id: "infrared-sauna",
@@ -898,7 +898,7 @@ export const comparisonGuides = [
     title: "Restore Skin Health & Vitality",
     description: "Which therapy supports your skin and anti-aging goals?",
     excerpt: "Enhance skin appearance and support cellular anti-aging from the inside out.",
-    cardImage: "/images/service_06_Woman_receiving_red_light_therapy.webp",
+    cardImage: "/images/service_08_Woman_with_her_hands_above_her.webp",
     solutions: [
       {
         id: "redlight",
@@ -922,7 +922,7 @@ export const comparisonGuides = [
     title: "Enhance Performance & Recovery",
     description: "Which therapy optimizes your athletic potential?",
     excerpt: "Boost performance, accelerate recovery, and prevent injuries with targeted therapies.",
-    cardImage: "/images/service_03_Man_in_cryotherapy_chamber.webp",
+    cardImage: "/images/service_10_A_man_wearing_Normatec_compres.webp",
     solutions: [
       {
         id: "iv-therapy",
