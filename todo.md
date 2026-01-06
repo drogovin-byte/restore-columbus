@@ -175,3 +175,4 @@
 - [x] Remove text overlays from Skin Health hero image
 - [x] Verify cleaned images display correctly on comparison pages
 - [x] Reposition Skin Health hero image to show client face prominently
+- [x] Fix CTA button text overflow on mobile - reduced font size and padding for mobile viewports

@@ -298,7 +298,7 @@ export default function ServiceDetail() {
           <p className="text-lg text-white/80 max-w-2xl mx-auto">
             Book your first session today and discover how {service.title} can transform your health and performance.
           </p>
-          <Button asChild size="lg" className="bg-white text-primary hover:bg-gray-100 font-bold text-lg h-auto md:h-14 px-4 md:px-10 rounded-full whitespace-normal md:whitespace-nowrap">
+          <Button asChild size="lg" className="bg-white text-primary hover:bg-gray-100 font-bold text-xs sm:text-sm md:text-lg h-auto md:h-14 px-3 sm:px-6 md:px-10 rounded-full whitespace-normal md:whitespace-nowrap">
             {service.id === 'trt' ? (
               <Link href="/book" className="block py-2 md:py-0">Book {service.title}</Link>
             ) : (
