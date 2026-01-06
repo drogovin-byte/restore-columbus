@@ -213,17 +213,17 @@ export default function FirstTimeOffer() {
           <div className="space-y-3 pt-4">
             <p className="text-sm text-muted-foreground font-semibold">Or call your preferred location:</p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-              <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary/10 font-bold text-base h-12 rounded-lg">
+              <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary/10 font-bold text-sm md:text-base h-auto py-3 px-3 rounded-lg whitespace-normal">
                 <a href="tel:614-944-9041">
                   Easton: 614-944-9041
                 </a>
               </Button>
-              <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary/10 font-bold text-base h-12 rounded-lg">
+              <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary/10 font-bold text-sm md:text-base h-auto py-3 px-3 rounded-lg whitespace-normal">
                 <a href="tel:614-553-7207">
                   Dublin: 614-553-7207
                 </a>
               </Button>
-              <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary/10 font-bold text-base h-12 rounded-lg">
+              <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary/10 font-bold text-sm md:text-base h-auto py-3 px-3 rounded-lg whitespace-normal">
                 <a href="tel:614-745-0966">
                   Upper Arlington: 614-745-0966
                 </a>

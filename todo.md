@@ -132,3 +132,9 @@
 - [x] Update any other CTA sections with multi-location phone numbers
 - [x] Test clickable phone numbers on mobile and desktop
 - [x] Verify tel: links work correctly for all 3 locations
+
+## Bug Fixes
+
+- [x] Fix Upper Arlington phone button text overflow - text getting squeezed/cut off
+- [x] Adjust phone button styling to allow text wrapping or reduce font size on smaller screens
+- [x] Test phone buttons on mobile and tablet viewports
