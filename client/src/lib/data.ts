@@ -968,7 +968,7 @@ export const comparisonGuides = [
       }
     ],
     cta: "Restore Skin Health & Vitality",
-    image: "/images/restore_skin_health_facial_treatment_clean.png"
+    image: "/images/skin-health-hero.jpg"
   },
   {
     id: "athletic-performance",
