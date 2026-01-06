@@ -132,7 +132,7 @@ export default function ComparisonDetail() {
           src={comparison.image} 
           alt={comparison.title}
           className={`w-full h-full object-cover ${
-            comparison.slug === 'skin-health-anti-aging' ? 'object-top' : ''
+            comparison.slug === 'skin-health-anti-aging' ? 'object-bottom' : ''
           }`}
         />
         {/* Dark overlay */}
