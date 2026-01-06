@@ -171,3 +171,6 @@
 - [x] Replace Athletic Performance & Recovery hero image with athlete lifestyle photo from restore.com
 - [x] Replace Skin Health & Vitality hero image with beauty/wellness lifestyle photo from restore.com
 - [x] Verify both comparison pages display new images correctly
+- [x] Remove text overlays from Athletic Performance hero image
+- [x] Remove text overlays from Skin Health hero image
+- [x] Verify cleaned images display correctly on comparison pages

@@ -968,7 +968,7 @@ export const comparisonGuides = [
       }
     ],
     cta: "Restore Skin Health & Vitality",
-    image: "/images/restore_skin_health_facial_treatment.webp"
+    image: "/images/restore_skin_health_facial_treatment_clean.png"
   },
   {
     id: "athletic-performance",
@@ -1004,7 +1004,7 @@ export const comparisonGuides = [
       }
     ],
     cta: "Enhance Performance & Recovery",
-    image: "/images/restore_hero_athlete_wellness_journey.webp"
+    image: "/images/restore_hero_athlete_wellness_journey_clean.png"
   },
   {
     id: "stress-relief",
