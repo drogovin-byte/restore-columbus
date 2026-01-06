@@ -813,90 +813,156 @@ export const services = [
 // Comparison Content
 
 // Comparison Content
-export const comparisons = [
+export const comparisonGuides = [
   {
-    id: "cryo-vs-coldplunge",
-    slug: "cryo-vs-coldplunge",
-    title: "Cryotherapy vs Cold Plunge",
-    description: "Which cold therapy is right for you?",
-    excerpt: "Which cold therapy is right for you?",
-    cardImage: "/images/comparison-cryo-cold.jpg",
-    comparison: {
-      cryotherapy: {
-        pros: ["Extreme cold (-200°F to -300°F)", "Rapid results (2-3 min)", "No water immersion", "Whole body exposure", "Professional equipment"],
-        cons: ["More expensive", "Requires facility visit", "Intense sensation"]
+    id: "inflammation-recovery",
+    slug: "inflammation-recovery",
+    title: "Reduce Inflammation & Accelerate Recovery",
+    description: "Which therapy is right for your recovery goals?",
+    excerpt: "Combat inflammation and speed up recovery with the right therapy combination.",
+    cardImage: "/images/comparison-inflammation.jpg",
+    solutions: [
+      {
+        id: "cryotherapy",
+        name: "Cryotherapy",
+        description: "3 minutes of extreme cold exposure that triggers rapid anti-inflammatory response",
+        link: "/service/cryotherapy"
       },
-      coldplunge: {
-        pros: ["Can do at home", "Lower cost", "Familiar sensation", "Customizable temperature"],
-        cons: ["Slower results", "Water immersion", "Requires discipline", "Less extreme cold"]
+      {
+        id: "redlight",
+        name: "Red Light Therapy",
+        description: "Stimulates cellular repair and reduces inflammation at the mitochondrial level",
+        link: "/service/red-light-therapy"
+      },
+      {
+        id: "iv-therapy",
+        name: "IV Therapy",
+        description: "Delivers anti-inflammatory compounds directly into your bloodstream",
+        link: "/service/iv-therapy"
       }
-    },
-    recommendation: "For fastest results and athletic recovery, cryotherapy wins. For home convenience, cold plunges are effective but require consistency.",
-    image: "/images/service_07_Woman_wearing_protective_robe,.webp",
-    fullContent: "## The Cold Therapy Difference\n\nAt Restore Hyper Wellness, we offer whole-body cryotherapy—a cutting-edge recovery technology that exposes your body to extreme cold (-200 to -300 degrees) for just 2-3 minutes. This is not your typical ice bath. Our cryotherapy chamber uses nitrogen vapor to rapidly cool your skin, triggering a cascade of physiological responses that accelerate recovery and reduce inflammation.\n\n## How Cryotherapy Works\n\nWhen you step into our cryotherapy chamber, your body enters a state of controlled cold stress. Blood vessels constrict, pushing blood away from your extremities toward your core organs. Once you exit, vasodilation occurs—blood rushes back to your muscles, delivering oxygen and nutrients at an accelerated rate. This process reduces inflammation, decreases muscle soreness (DOMS), and speeds up recovery by 30-50% compared to passive rest.\n\n## Why Athletes Choose Cryotherapy\n\nAthletes love cryotherapy because it works fast. A 3-minute session can reduce inflammation and soreness for 24-48 hours. You can do it between workouts, on rest days, or even before competition to reduce injury risk. The whole-body exposure means every muscle group benefits simultaneously.\n\n## Cold Plunges: The Alternative\n\nCold plunges, while effective, require you to immerse your entire body in ice-cold water (typically 50-60 degrees) for 5-15 minutes. The experience is intense and takes discipline to maintain regularly. You get similar benefits—reduced inflammation, improved circulation, enhanced recovery—but it takes longer and requires more mental toughness.\n\n## The Verdict\n\nThe key difference? Intensity and efficiency. Cryotherapy delivers extreme cold in minimal time, making it perfect for busy athletes and professionals. Cold plunges are more accessible for home use but require consistency and tolerance for prolonged cold exposure.\n\nAt Restore, our cryotherapy is administered by trained professionals in a controlled environment. You get the science-backed benefits without the hassle of maintaining an ice bath at home. Whether you are recovering from intense workouts, managing chronic inflammation, or optimizing athletic performance, our cryotherapy chamber delivers results fast."
+    ],
+    cta: "Reduce Inflammation & Accelerate Recovery",
+    image: "/images/service_07_Woman_wearing_protective_robe,.webp"
   },
   {
-    id: "iv-vs-supplements",
-    slug: "iv-vs-supplements",
-    title: "IV Therapy vs Oral Supplements",
-    description: "Why IV therapy is 5-10x more effective",
-    excerpt: "Why IV therapy is 5-10x more effective",
-    cardImage: "/images/comparison-iv-therapy.jpg",
-    comparison: {
-      iv: {
-        pros: ["100% absorption", "Immediate results", "Bypass digestive issues", "Customizable formulas", "Professional administration"],
-        cons: ["More expensive", "Requires facility visit", "Needle insertion"]
+    id: "sleep-detox",
+    slug: "sleep-detox",
+    title: "Sleep Better & Detoxify",
+    description: "Which therapy helps you rest and cleanse?",
+    excerpt: "Improve sleep quality and support your body's natural detoxification processes.",
+    cardImage: "/images/comparison-sleep-detox.jpg",
+    solutions: [
+      {
+        id: "infrared-sauna",
+        name: "Infrared Sauna",
+        description: "Deep heat triggers detoxification through sweat and promotes parasympathetic relaxation",
+        link: "/service/infrared-sauna"
       },
-      oral: {
-        pros: ["Convenient", "Lower cost", "No needles", "Easy to do at home"],
-        cons: ["Only 10-20% absorption", "Slow results", "Digestive issues", "Less effective"]
+      {
+        id: "redlight",
+        name: "Red Light Therapy",
+        description: "Supports circadian rhythm and melatonin production for deeper sleep",
+        link: "/service/red-light-therapy"
       }
-    },
-    recommendation: "For rapid results and maximum absorption, IV therapy is superior. Oral supplements work but are less effective.",
-    image: "/images/service_11_Young_couple_relaxing_while_en.webp",
-    fullContent: "## The Absorption Problem\n\nHere's the fundamental problem with oral supplements: **your digestive system is a filter, not a delivery system**. When you swallow a vitamin, mineral, or nutrient, it travels through your stomach and intestines where it's broken down and absorbed. But your body can only absorb **10-20%** of what you consume. The rest is either metabolized inefficiently or eliminated as waste.\n\n## The IV Advantage\n\nIV therapy bypasses this entire process. At Restore Hyper Wellness, we deliver vitamins, minerals, amino acids, and specialized compounds **directly into your bloodstream** through intravenous infusion. This means **100% bioavailability**.\n\n## The Science\n\nThe science is compelling. A study published in the *Journal of Alternative and Complementary Medicine* found that IV nutrient therapy delivers **10-25 times higher concentrations** of nutrients to tissues compared to oral supplementation. For energy, immune support, athletic recovery, and anti-aging benefits, this difference is transformative.\n\n## Customizable Formulas\n\nOur IV therapy programs at Restore include customizable formulas designed for your specific goals:\n\n- **Energy Boost:** High-dose vitamin C and B-complex vitamins\n- **Athletic Recovery:** Amino acids and electrolytes\n- **Immune Support:** Zinc and glutathione\n- **Anti-Aging:** NAD+ and antioxidants\n\n## Immediate Results\n\nResults are immediate. Many clients report feeling more energized, focused, and recovered within **30 minutes** of completing their IV therapy session. Oral supplements take days or weeks to build up in your system.\n\n## The Verdict\n\nOral supplements still have a place for daily maintenance and preventative health. But if you're serious about **rapid recovery, peak performance, or addressing specific health challenges**, IV therapy at Restore delivers results that oral supplements cannot match. You're ensuring your body actually uses the nutrients."
+    ],
+    cta: "Sleep Better & Detoxify",
+    image: "/images/service_08_Woman_with_her_hands_above_her.webp"
   },
   {
-    id: "redlight-vs-sauna",
-    slug: "redlight-vs-sauna",
-    title: "Red Light Therapy vs Infrared Sauna",
-    description: "Both are powerful - here's the difference",
-    excerpt: "Both are powerful - here's the difference",
-    cardImage: "/images/comparison-red-light.jpg",
-    comparison: {
-      redlight: {
-        pros: ["Cellular energy boost", "Targeted treatment", "Quick sessions (15-20 min)", "No sweating", "Skin benefits"],
-        cons: ["Less detoxification", "Shorter sessions"]
+    id: "fatigue-brain-fog",
+    slug: "fatigue-brain-fog",
+    title: "Combat Fatigue & Brain Fog",
+    description: "Restore energy and mental clarity",
+    excerpt: "Boost energy and eliminate brain fog with proven cellular energy restoration.",
+    cardImage: "/images/comparison-energy.jpg",
+    solutions: [
+      {
+        id: "nad-iv",
+        name: "NAD+ IV Therapy",
+        description: "Restores cellular energy at the mitochondrial level for rapid mental clarity and sustained energy",
+        link: "/service/nad-iv-therapy"
       },
-      sauna: {
-        pros: ["Deep detoxification", "Longer relaxation (30-45 min)", "Cardiovascular benefits", "Muscle relaxation"],
-        cons: ["More time commitment", "Sweating", "Less cellular energy boost"]
+      {
+        id: "niagen",
+        name: "Niagen (NR)",
+        description: "Natural NAD+ precursor for daily energy support and cognitive enhancement",
+        link: "/service/niagen"
       }
-    },
-    recommendation: "Use red light for energy and skin. Use sauna for detox and relaxation. Many people do both for comprehensive benefits.",
-    image: "/images/service_08_Woman_with_her_hands_above_her.webp",
-    fullContent: "## Different Mechanisms\n\nRed light therapy and infrared sauna are both powerful wellness tools, but they work through completely different mechanisms.\n\n## Red Light Therapy: Cellular Energy\n\nRed light therapy uses specific wavelengths of red and near-infrared light to stimulate **mitochondrial function** in your cells. When light photons penetrate your skin and reach the mitochondria, they energize the cytochrome c oxidase enzyme in the electron transport chain. This increases **ATP cellular energy production by up to 40%**.\n\nAt Restore, our red light therapy beds deliver therapeutic wavelengths across your entire body in just **15-20 minutes**. Clients experience:\n\n- Improved energy\n- Faster muscle recovery\n- Enhanced skin appearance\n- Better circulation\n- Reduced inflammation\n\n## Infrared Sauna: Deep Detox\n\nInfrared sauna works differently. Our infrared sauna cabins use infrared heat to penetrate **1.5 inches below the skin surface**, raising your core body temperature. This triggers several powerful responses:\n\n- Increased heart rate and circulation\n- Profuse sweating which detoxifies through your largest organ\n- Muscle relaxation\n- Parasympathetic nervous system activation\n\nA **30-45 minute** infrared sauna session at Restore can burn **200-600 calories**, eliminate heavy metals and toxins through sweat, improve cardiovascular function, reduce muscle tension, and promote deep relaxation.\n\n## Which Should You Choose?\n\nThe answer is **both**. They are complementary.\n\n- Use **Red Light Therapy** for rapid cellular energy, athletic recovery, and skin health.\n- Use **Infrared Sauna** for deep detoxification, cardiovascular conditioning, and stress relief.\n\n## The Ultimate Combo\n\nMany of our most committed members do both: **15 minutes of red light therapy followed by 30 minutes in the infrared sauna** for a comprehensive recovery and wellness session. At Restore Hyper Wellness, we have invested in premium equipment for both therapies because we believe optimal wellness requires a multi-modal approach."
+    ],
+    cta: "Restore Energy & Mental Clarity",
+    image: "/images/service_12_Smiling_woman_receiving_a_NAD+.webp"
   },
   {
-    id: "nad-vs-other",
-    slug: "nad-vs-other",
-    title: "Is NAD+ IV Therapy Worth It?",
-    description: "Understanding the investment in cellular longevity",
-    excerpt: "Understanding the investment in cellular longevity",
-    cardImage: "/images/comparison-nad-therapy.jpg",
-    comparison: {
-      benefits: {
-        pros: ["Rapid cellular energy", "Anti-aging support", "Cognitive enhancement", "Athletic performance", "Addiction recovery support"],
-        cons: ["Higher cost", "Requires multiple sessions", "Effects build over time"]
+    id: "skin-health-anti-aging",
+    slug: "skin-health-anti-aging",
+    title: "Restore Skin Health & Vitality",
+    description: "Which therapy supports your skin and anti-aging goals?",
+    excerpt: "Enhance skin appearance and support cellular anti-aging from the inside out.",
+    cardImage: "/images/comparison-skin.jpg",
+    solutions: [
+      {
+        id: "redlight",
+        name: "Red Light Therapy",
+        description: "Stimulates collagen production and cellular repair for glowing, youthful skin",
+        link: "/service/red-light-therapy"
       },
-      alternatives: {
-        pros: ["Lower cost", "Convenient", "Accessible"],
-        cons: ["Slower results", "Lower absorption", "Less dramatic effects"]
+      {
+        id: "iv-therapy",
+        name: "IV Therapy",
+        description: "Delivers hydration and antioxidants that support skin health and radiance",
+        link: "/service/iv-therapy"
       }
-    },
-    recommendation: "NAD+ IV is worth it if you're serious about longevity, performance, or cognitive enhancement. Start with 4-6 sessions to assess benefits.",
-    image: "/images/service_12_Smiling_woman_receiving_a_NAD+.webp",
-    fullContent: "## What is NAD+?\n\nNAD+ is a coenzyme found in every cell in your body. It is essential for energy production, DNA repair, cellular stress resistance, and longevity. But NAD+ levels decline by 50% between age 20 and 50, and continue dropping with age. This decline is linked to aging, cognitive decline, reduced athletic performance, and increased disease risk.\n\nNAD+ IV therapy at Restore Hyper Wellness delivers high-dose NAD+ directly into your bloodstream, bypassing the digestive system and achieving blood concentrations that oral supplements simply cannot match.\n\n## Key Benefits\n\n### Cellular Energy\nNAD+ is a critical cofactor in the electron transport chain, the process that generates ATP. By restoring NAD+ levels, you are essentially upgrading your cellular power plant. Clients report feeling more energized, focused, and mentally sharp within hours of their NAD+ infusion.\n\n### Cognitive Enhancement\nNAD+ supports brain function and neuroplasticity. Studies show that elevated NAD+ improves memory, focus, and mental clarity. For professionals, students, and anyone seeking peak cognitive performance, NAD+ IV therapy delivers measurable results.\n\n### Athletic Performance\nAthletes use NAD+ to enhance recovery, reduce fatigue, and improve endurance. NAD+ supports mitochondrial function in muscle tissue, meaning faster recovery and better performance in your next workout.\n\n### Anti-Aging at the Cellular Level\nNAD+ activates sirtuins, proteins that regulate cellular aging and longevity. By restoring NAD+ levels, you are literally supporting your body's natural anti-aging mechanisms at the cellular level.\n\n### Addiction Recovery Support\nNAD+ IV therapy has shown promise in supporting recovery from substance abuse by restoring cellular function and reducing cravings. Many addiction specialists recommend NAD+ as part of a comprehensive recovery program.\n\n## Is It Worth The Investment?\n\nThat depends on your goals and timeline. If you are looking for marginal improvements, oral supplements might suffice. But if you are serious about peak performance, cognitive enhancement, athletic recovery, or anti-aging, if you want to feel and perform at your absolute best, NAD+ IV therapy delivers results that other modalities cannot match.\n\nWe recommend starting with a series of 4-6 sessions to assess your individual response. Many clients then transition to monthly maintenance infusions. At Restore, we have worked with executives, athletes, and wellness-focused individuals who have made NAD+ IV therapy a cornerstone of their health optimization strategy. The investment pays dividends in energy, performance, and longevity."
+    ],
+    cta: "Restore Skin Health & Vitality",
+    image: "/images/service_06_Woman_receiving_red_light_therapy.webp"
+  },
+  {
+    id: "athletic-performance",
+    slug: "athletic-performance",
+    title: "Enhance Performance & Recovery",
+    description: "Which therapy optimizes your athletic potential?",
+    excerpt: "Boost performance, accelerate recovery, and prevent injuries with targeted therapies.",
+    cardImage: "/images/comparison-athletic.jpg",
+    solutions: [
+      {
+        id: "iv-therapy",
+        name: "IV Therapy",
+        description: "Delivers amino acids, electrolytes, and nutrients for rapid recovery and performance enhancement",
+        link: "/service/iv-therapy"
+      },
+      {
+        id: "cryotherapy",
+        name: "Cryotherapy",
+        description: "Reduces inflammation and muscle soreness, accelerating recovery between workouts",
+        link: "/service/cryotherapy"
+      }
+    ],
+    cta: "Enhance Performance & Recovery",
+    image: "/images/service_03_Man_in_cryotherapy_chamber.webp"
+  },
+  {
+    id: "stress-relief",
+    slug: "stress-relief",
+    title: "Melt Stress & Find Calm",
+    description: "Which therapy helps you relax and recover?",
+    excerpt: "Activate your parasympathetic nervous system and experience deep stress relief.",
+    cardImage: "/images/comparison-stress.jpg",
+    solutions: [
+      {
+        id: "infrared-sauna",
+        name: "Infrared Sauna",
+        description: "Deep heat relaxation that melts tension and activates your body's relaxation response",
+        link: "/service/infrared-sauna"
+      },
+      {
+        id: "hyperbaric",
+        name: "Hyperbaric Oxygen Therapy",
+        description: "Increases oxygen delivery to reduce stress hormones and promote deep relaxation",
+        link: "/service/hyperbaric-oxygen"
+      }
+    ],
+    cta: "Melt Stress & Find Calm",
+    image: "/images/service_09_Woman_relaxing_in_infrared_sauna.webp"
   }
 ];
 

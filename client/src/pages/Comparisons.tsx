@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { Link } from "wouter";
 import TherapyQuiz from "@/components/TherapyQuiz";
-import { comparisons } from "@/lib/data";
+import { comparisonGuides } from "@/lib/data";
 
 export default function Comparisons() {
   return (
@@ -26,7 +26,7 @@ export default function Comparisons() {
       <section className="py-20 bg-background">
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {comparisons.map((comp) => (
+            {comparisonGuides.map((comp) => (
               <Link key={comp.id} href={`/comparison/${comp.slug}`}>
                 <Card className="group h-full overflow-hidden border-none shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 bg-card cursor-pointer">
                   {/* Image Container */}
