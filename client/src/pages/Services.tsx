@@ -137,11 +137,13 @@ export default function Services() {
                         <Button 
                           asChild 
                           variant="ghost" 
-                          className="text-accent hover:text-accent hover:bg-accent/10 p-0 h-auto font-semibold text-sm group/link"
+                          className="text-accent hover:text-accent hover:bg-accent/10 p-0 h-auto font-semibold text-sm group/link w-full justify-start"
                         >
-                          <a href={`/service/${service.id}`} className="flex items-center gap-1">
-                            Learn about {service.title}
-                            <ArrowRight className="w-4 h-4 transition-transform group-hover/link:translate-x-1" />
+                          <a href={`/service/${service.id}`} className="flex items-center gap-1 flex-wrap">
+                            <span className="flex items-center gap-1">
+                              Learn about {service.title}
+                              <ArrowRight className="w-4 h-4 transition-transform group-hover/link:translate-x-1 flex-shrink-0" />
+                            </span>
                           </a>
                         </Button>
                       </div>
