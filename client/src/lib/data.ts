@@ -946,7 +946,7 @@ export const comparisonGuides = [
     title: "Melt Stress & Find Calm",
     description: "Which therapy helps you relax and recover?",
     excerpt: "Activate your parasympathetic nervous system and experience deep stress relief.",
-    cardImage: "/images/service_09_Woman_relaxing_in_infrared_sauna.webp",
+    cardImage: "/images/service_09_Woman_relaxing_in_an_infrared_.webp",
     solutions: [
       {
         id: "infrared-sauna",
@@ -962,7 +962,7 @@ export const comparisonGuides = [
       }
     ],
     cta: "Melt Stress & Find Calm",
-    image: "/images/service_09_Woman_relaxing_in_an_infrared_.webp"
+    image: "/images/sauna-official.jpg"
   }
 ];
 

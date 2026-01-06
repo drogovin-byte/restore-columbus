@@ -140,3 +140,8 @@
 - [x] Test phone buttons on mobile and tablet viewports
 - [x] Fix phone number breaking across lines - redesign layout to keep numbers on single line
 - [x] Test phone buttons display correctly without line breaks on all pages
+
+## Current Issue: Missing Images
+
+- [x] Fix missing images on comparison guide cards (Melt Stress & Find Calm showing placeholder)
+- [x] Verify all comparison guide cards have images loading correctly
