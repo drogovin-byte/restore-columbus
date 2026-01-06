@@ -521,7 +521,7 @@ export const services = [
   },
   {
     id: "trt",
-    title: "Testosterone Replacement Therapy (TRT)",
+    title: "Testosterone Replacement (TRT)",
     shortDesc: "Medically-supervised hormone optimization for men seeking vitality and performance.",
     fullDesc: "TRT is a medically-supervised treatment that restores testosterone to optimal levels for men with deficiency. Our doctors customize protocols based on individual labs and goals.",
     whatToExpect: "Initial consultation with labs. Weekly or bi-weekly injections (self-administered at home). Regular monitoring and adjustments. Comprehensive support throughout.",
@@ -553,7 +553,7 @@ export const services = [
   },
   {
     id: "im-shots",
-    title: "IM Shots (Intramuscular Injections)",
+    title: "IM Shots",
     shortDesc: "Quick nutrient injections for targeted wellness benefits.",
     fullDesc: "IM shots deliver concentrated nutrients directly into muscle tissue for rapid absorption and targeted benefits. Popular options include B12, Vitamin D, Glutathione, and more.",
     whatToExpect: "Quick injection (30 seconds). Minimal discomfort. Immediate absorption. You're done in minutes.",
@@ -714,7 +714,7 @@ export const services = [
   },
   {
     id: "mild-hyperbaric-oxygen",
-    title: "Mild Hyperbaric Oxygen Therapy",
+    title: "Hyperbaric Oxygen Therapy",
     shortDesc: "60-90 minute therapy session to support wound healing, inflammation, immunity and sleep.",
     fullDesc: "Mild Hyperbaric Oxygen Therapy (mHBOT) is a modern medical therapy that helps enhance total well-being. It's ideal for individuals looking to speed up recovery, enhance cognitive function and reduce inflammation.",
     whatToExpect: "A relaxing, non-invasive session where you breathe enhanced oxygen in a pressurized chamber. You can sit up and work or lie down and relax. Most clients report feeling more relaxed and rested immediately after.",
