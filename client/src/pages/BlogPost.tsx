@@ -35,7 +35,8 @@ export default function BlogPost() {
             alt={post.title} 
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/20" />
+          <div className="absolute inset-0 bg-black/30" />
           
           <div className="absolute bottom-0 left-0 w-full p-8 md:p-12">
             <div className="container max-w-4xl mx-auto space-y-6 animate-in fade-in slide-in-from-bottom-5 duration-700">
@@ -59,7 +60,7 @@ export default function BlogPost() {
                 </div>
               </div>
 
-              <h1 className="font-heading font-bold text-3xl md:text-5xl text-white leading-tight">
+              <h1 className="font-heading font-bold text-3xl md:text-5xl text-white leading-tight drop-shadow-lg shadow-black">
                 {post.title}
               </h1>
             </div>
