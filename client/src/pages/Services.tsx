@@ -68,7 +68,7 @@ export default function Services() {
       
       <div className="bg-primary text-white py-20">
         <div className="container text-center space-y-6">
-          <h1 className="font-heading font-bold text-4xl md:text-6xl">Our Services</h1>
+          <h1 className="font-heading font-bold text-4xl md:text-6xl">Our Therapies</h1>
           <p className="text-xl text-white/80 max-w-2xl mx-auto">
             Comprehensive, science-backed therapies designed to help you feel your best, recover faster, and live longer.
           </p>
