@@ -112,3 +112,13 @@
 - [x] Forward all lead landing page inquiries to drogovin@restore.com in addition to studio emails
 - [ ] Set up SMS notifications for lead inquiries via Twilio (deferred - waiting for Twilio credentials)
 - [x] Fix appointment request confirmation email formatting - HTML tags displaying as raw text
+- [x] Fix missing "Melt Stress & Find Calm" comparison guide image
+- [x] Redesign comparison detail pages with conversion-focused layout
+- [x] Add full-width hero images to comparison detail pages
+- [x] Add trust indicators section (client count, rating, established date, science-backed)
+- [x] Add solution comparison cards with key benefits
+- [x] Add "Why Choose Restore" section with differentiators
+- [x] Add real client testimonials with 5-star ratings
+- [x] Add FAQ section to address common objections
+- [x] Add final CTA section with dual buttons (Book + Call)
+- [x] Verify all 6 comparison pages display consistently

@@ -962,7 +962,7 @@ export const comparisonGuides = [
       }
     ],
     cta: "Melt Stress & Find Calm",
-    image: "/images/service_09_Woman_relaxing_in_infrared_sauna.webp"
+    image: "/images/service_09_Woman_relaxing_in_an_infrared_.webp"
   }
 ];
 
