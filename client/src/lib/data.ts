@@ -968,7 +968,7 @@ export const comparisonGuides = [
       }
     ],
     cta: "Restore Skin Health & Vitality",
-    image: "/images/service_06_Woman_receiving_red_light_therapy.webp"
+    image: "/images/restore_skin_health_facial_treatment.webp"
   },
   {
     id: "athletic-performance",
@@ -1004,7 +1004,7 @@ export const comparisonGuides = [
       }
     ],
     cta: "Enhance Performance & Recovery",
-    image: "/images/service_03_Man_in_cryotherapy_chamber.webp"
+    image: "/images/restore_hero_athlete_wellness_journey.webp"
   },
   {
     id: "stress-relief",

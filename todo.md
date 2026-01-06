@@ -165,3 +165,9 @@
 - [x] Audit all 6 comparison detail pages for missing hero images
 - [x] Generate or assign hero images for pages without them (created hero images for Skin Health and Athletic Performance pages)
 - [x] Verify all hero images load correctly - all 6 comparison pages now have professional hero images
+
+## Current Sprint: Replace Comparison Page Images with Restore.com Lifestyle Images
+
+- [x] Replace Athletic Performance & Recovery hero image with athlete lifestyle photo from restore.com
+- [x] Replace Skin Health & Vitality hero image with beauty/wellness lifestyle photo from restore.com
+- [x] Verify both comparison pages display new images correctly
