@@ -260,7 +260,7 @@ export default function MembershipCalculator() {
               className="w-full bg-primary text-white hover:bg-primary/90 font-semibold"
             >
               <a
-                href="https://www.restore.com/book-now"
+                href="https://manus.im/app/gDb7fBedok5ZZ3AQc00pA1"
                 target="_blank"
                 rel="noopener noreferrer"
               >
