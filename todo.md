@@ -145,3 +145,7 @@
 
 - [x] Fix missing images on comparison guide cards (Melt Stress & Find Calm showing placeholder)
 - [x] Verify all comparison guide cards have images loading correctly
+
+## Current Issue: Service Routing Bug
+
+- [x] Fix Hyperbaric Oxygen service routing on "Melt Stress & Find Calm" comparison detail page - shows "service not found" when clicking "Learn More & Book" button

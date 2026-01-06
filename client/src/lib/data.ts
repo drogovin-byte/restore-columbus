@@ -1030,7 +1030,7 @@ export const comparisonGuides = [
         id: "hyperbaric",
         name: "Hyperbaric Oxygen Therapy",
         description: "Increases oxygen delivery to reduce stress hormones and promote deep relaxation",
-        link: "/service/hyperbaric-oxygen",
+        link: "/service/mild-hyperbaric-oxygen",
         benefits: [
           "Increases oxygen delivery to cells",
           "Reduces stress hormones and anxiety",
