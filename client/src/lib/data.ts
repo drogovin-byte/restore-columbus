@@ -838,7 +838,7 @@ export const comparisonGuides = [
         id: "redlight",
         name: "Red Light Therapy",
         description: "Stimulates cellular repair and reduces inflammation at the mitochondrial level",
-        link: "/service/red-light-therapy",
+        link: "/service/red-light",
         benefits: [
           "Stimulates collagen production",
           "Boosts cellular energy and ATP production",
@@ -850,7 +850,7 @@ export const comparisonGuides = [
         id: "iv-therapy",
         name: "IV Therapy",
         description: "Delivers anti-inflammatory compounds directly into your bloodstream",
-        link: "/service/iv-therapy",
+        link: "/service/iv-drip",
         benefits: [
           "100% nutrient absorption bypassing digestion",
           "Rapid hydration and energy restoration",
@@ -886,7 +886,7 @@ export const comparisonGuides = [
         id: "redlight",
         name: "Red Light Therapy",
         description: "Supports circadian rhythm and melatonin production for deeper sleep",
-        link: "/service/red-light-therapy",
+        link: "/service/red-light",
         benefits: [
           "Supports circadian rhythm regulation",
           "Enhances melatonin production",
@@ -946,7 +946,7 @@ export const comparisonGuides = [
         id: "redlight",
         name: "Red Light Therapy",
         description: "Stimulates collagen production and cellular repair for glowing, youthful skin",
-        link: "/service/red-light-therapy",
+        link: "/service/red-light",
         benefits: [
           "Stimulates collagen production",
           "Reduces fine lines and wrinkles",
@@ -958,7 +958,7 @@ export const comparisonGuides = [
         id: "iv-therapy",
         name: "IV Therapy",
         description: "Delivers hydration and antioxidants that support skin health and radiance",
-        link: "/service/iv-therapy",
+        link: "/service/iv-drip",
         benefits: [
           "Deep hydration from within",
           "Delivers antioxidants and vitamins",
@@ -982,7 +982,7 @@ export const comparisonGuides = [
         id: "iv-therapy",
         name: "IV Therapy",
         description: "Delivers amino acids, electrolytes, and nutrients for rapid recovery and performance enhancement",
-        link: "/service/iv-therapy",
+        link: "/service/iv-drip",
         benefits: [
           "Rapid amino acid delivery for muscle repair",
           "Electrolyte replenishment and hydration",

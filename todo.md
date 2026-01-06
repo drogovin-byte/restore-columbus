@@ -149,3 +149,12 @@
 ## Current Issue: Service Routing Bug
 
 - [x] Fix Hyperbaric Oxygen service routing on "Melt Stress & Find Calm" comparison detail page - shows "service not found" when clicking "Learn More & Book" button
+
+
+## Current Sprint: Automated Link Testing
+
+- [x] Create vitest test suite for comparison guide link validation
+- [x] Implement link validation to check all comparison links point to valid service IDs
+- [x] Add test to npm scripts for CI/CD integration
+- [x] Verify test runs successfully and catches broken links
+- [x] Fixed 6 invalid comparison guide links (red-light-therapy → red-light, iv-therapy → iv-drip)
