@@ -196,7 +196,7 @@ export default function Home() {
           <div className="mt-12 bg-accent/10 border border-accent/20 rounded-xl p-8 text-center space-y-4">
             <h3 className="font-heading font-bold text-2xl text-primary">Confused about which therapy is right for you?</h3>
             <Button asChild variant="link" className="text-primary font-bold text-lg p-0 h-auto hover:text-secondary-foreground">
-              <Link href="/comparisons">Read Our Comparison Guides → </Link>
+              <Link href="/comparisons">Explore Our Solutions → </Link>
             </Button>
           </div>
         </div>

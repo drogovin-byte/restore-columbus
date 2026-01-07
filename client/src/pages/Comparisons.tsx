@@ -14,10 +14,10 @@ export default function Comparisons() {
       <section className="py-20 bg-primary text-white">
         <div className="container max-w-3xl text-center space-y-6">
           <h1 className="font-heading font-bold text-4xl md:text-5xl">
-            Comparison Guides
+            Wellness Solutions
           </h1>
           <p className="text-lg text-white/80">
-            Confused about which therapy is right for you? We break down the science and help you make an informed decision.
+            Discover outcome-focused therapy combinations designed to address your specific health goals.
           </p>
         </div>
       </section>

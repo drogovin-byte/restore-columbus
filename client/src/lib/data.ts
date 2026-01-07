@@ -820,7 +820,7 @@ export const comparisonGuides = [
     title: "Reduce Inflammation & Accelerate Recovery",
     description: "Which therapy is right for your recovery goals?",
     excerpt: "Combat inflammation and speed up recovery with the right therapy combination.",
-    cardImage: "/images/service_10_A_man_wearing_Normatec_compres.webp",
+    cardImage: "/solution-recovery.jpg",
     solutions: [
       {
         id: "cryotherapy",
@@ -860,7 +860,7 @@ export const comparisonGuides = [
       }
     ],
     cta: "Reduce Inflammation & Accelerate Recovery",
-    image: "/images/service_07_Woman_wearing_protective_robe,.webp"
+    image: "/solution-recovery.jpg"
   },
   {
     id: "sleep-detox",
@@ -868,7 +868,7 @@ export const comparisonGuides = [
     title: "Sleep Better & Detoxify",
     description: "Which therapy helps you rest and cleanse?",
     excerpt: "Improve sleep quality and support your body's natural detoxification processes.",
-    cardImage: "/images/service_09_Woman_relaxing_in_an_infrared_.webp",
+    cardImage: "/solution-sleep.jpg",
     solutions: [
       {
         id: "infrared-sauna",
@@ -896,7 +896,7 @@ export const comparisonGuides = [
       }
     ],
     cta: "Sleep Better & Detoxify",
-    image: "/images/service_08_Woman_with_her_hands_above_her.webp"
+    image: "/solution-sleep.jpg"
   },
   {
     id: "fatigue-brain-fog",
@@ -904,7 +904,7 @@ export const comparisonGuides = [
     title: "Combat Fatigue & Brain Fog",
     description: "Restore energy and mental clarity",
     excerpt: "Boost energy and eliminate brain fog with proven cellular energy restoration.",
-    cardImage: "/images/service_12_Smiling_woman_receiving_a_NAD+.webp",
+    cardImage: "/solution-energy.jpg",
     solutions: [
       {
         id: "nad-iv",
@@ -932,7 +932,7 @@ export const comparisonGuides = [
       }
     ],
     cta: "Restore Energy & Mental Clarity",
-    image: "/images/service_12_Smiling_woman_receiving_a_NAD+.webp"
+    image: "/solution-energy.jpg"
   },
   {
     id: "skin-health-anti-aging",
@@ -940,7 +940,7 @@ export const comparisonGuides = [
     title: "Restore Skin Health & Vitality",
     description: "Which therapy supports your skin and anti-aging goals?",
     excerpt: "Enhance skin appearance and support cellular anti-aging from the inside out.",
-    cardImage: "/images/service_08_Woman_with_her_hands_above_her.webp",
+    cardImage: "/solution-skin.jpg",
     solutions: [
       {
         id: "redlight",
@@ -968,7 +968,7 @@ export const comparisonGuides = [
       }
     ],
     cta: "Restore Skin Health & Vitality",
-    image: "/images/skin-health-hero.jpg"
+    image: "/solution-skin.jpg"
   },
   {
     id: "athletic-performance",
@@ -976,7 +976,7 @@ export const comparisonGuides = [
     title: "Enhance Performance & Recovery",
     description: "Which therapy optimizes your athletic potential?",
     excerpt: "Boost performance, accelerate recovery, and prevent injuries with targeted therapies.",
-    cardImage: "/images/service_10_A_man_wearing_Normatec_compres.webp",
+    cardImage: "/solution-performance.jpg",
     solutions: [
       {
         id: "iv-therapy",
@@ -1004,7 +1004,7 @@ export const comparisonGuides = [
       }
     ],
     cta: "Enhance Performance & Recovery",
-    image: "/images/restore_hero_athlete_wellness_journey.webp"
+    image: "/solution-performance.jpg"
   },
   {
     id: "stress-relief",
@@ -1012,7 +1012,7 @@ export const comparisonGuides = [
     title: "Melt Stress & Find Calm",
     description: "Which therapy helps you relax and recover?",
     excerpt: "Activate your parasympathetic nervous system and experience deep stress relief.",
-    cardImage: "/images/service_09_Woman_relaxing_in_an_infrared_.webp",
+    cardImage: "/solution-calm.jpg",
     solutions: [
       {
         id: "infrared-sauna",
@@ -1040,7 +1040,7 @@ export const comparisonGuides = [
       }
     ],
     cta: "Melt Stress & Find Calm",
-    image: "/images/sauna-official.jpg"
+    image: "/solution-calm.jpg"
   }
 ];
 

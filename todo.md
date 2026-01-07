@@ -192,3 +192,28 @@
 - [ ] Test performance on PageSpeed Insights
 - [ ] Verify visual design unchanged
 - [ ] Deploy optimized version
+
+## Current Sprint: Rename "Comparisons" to "Solutions"
+
+- [x] Update main navigation menu - change "Comparisons" to "Solutions" (Layout.tsx desktop and mobile)
+- [x] Update home page section heading and CTA button text (Home.tsx)
+- [x] Update Comparisons page title and description (Comparisons.tsx)
+- [x] Update ComparisonDetail breadcrumb and error messages (ComparisonDetail.tsx)
+- [x] Update footer links if applicable (no footer links found)
+- [x] Update breadcrumbs on solution detail pages (updated in ComparisonDetail.tsx)
+- [x] Keep /comparisons URL for SEO, display text now shows Solutions
+- [x] Test all navigation links work correctly
+- [x] Verify no broken references to old terminology
+## Current Sprint: Reorder Main Navigation
+
+- [x] Reorder navigation: Therapies → Solutions → Pricing → Memberships → Locations → Blog → FAQ
+- [x] Update desktop navigation in Layout.tsx
+- [x] Update mobile navigation in Layout.tsx
+- [x] Test navigation order on both desktop and mobile
+
+## Current Sprint: Update Solution Card Images with Aspirational Imagery
+
+- [x] Generate six aspirational solution card images with Restore brand consistency
+- [x] Update all cardImage paths in data.ts to use new generated images
+- [x] Update all image paths in data.ts to use new generated images
+- [x] Verify all six solution cards display new images correctly on Solutions page

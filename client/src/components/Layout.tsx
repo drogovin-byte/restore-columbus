@@ -65,22 +65,22 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               Therapies
             </Link>
             <Link href="/comparisons" className={`transition-colors hover:text-primary ${location === '/comparisons' ? 'text-primary font-bold' : 'text-muted-foreground'}`}>
-              Comparisons
+              Solutions
+            </Link>
+            <Link href="/pricing" className={`transition-colors hover:text-primary ${location === '/pricing' ? 'text-primary font-bold' : 'text-muted-foreground'}`}>
+              Pricing
+            </Link>
+            <Link href="/memberships" className={`transition-colors hover:text-primary ${location === '/memberships' ? 'text-primary font-bold' : 'text-muted-foreground'}`}>
+              Memberships
+            </Link>
+            <Link href="/locations" className={`transition-colors hover:text-primary ${location === '/locations' ? 'text-primary font-bold' : 'text-muted-foreground'}`}>
+              Locations
             </Link>
             <Link href="/blog" className={`transition-colors hover:text-primary ${location === '/blog' ? 'text-primary font-bold' : 'text-muted-foreground'}`}>
               Blog
             </Link>
             <Link href="/faq" className={`transition-colors hover:text-primary ${location === '/faq' ? 'text-primary font-bold' : 'text-muted-foreground'}`}>
               FAQ
-            </Link>
-            <Link href="/memberships" className={`transition-colors hover:text-primary ${location === '/memberships' ? 'text-primary font-bold' : 'text-muted-foreground'}`}>
-              Memberships
-            </Link>
-            <Link href="/pricing" className={`transition-colors hover:text-primary ${location === '/pricing' ? 'text-primary font-bold' : 'text-muted-foreground'}`}>
-              Pricing
-            </Link>
-            <Link href="/locations" className={`transition-colors hover:text-primary ${location === '/locations' ? 'text-primary font-bold' : 'text-muted-foreground'}`}>
-              Locations
             </Link>
             <Button asChild size="sm" className="bg-primary hover:bg-primary/90 text-white font-bold rounded-full px-6">
               <a href="https://www.restore.com/book-now" target="_blank" rel="noopener noreferrer">Book Now</a>
@@ -108,22 +108,22 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 Services
               </Link>
               <Link href="/comparisons" className="text-foreground hover:text-primary transition-colors">
-                Comparisons
+                Solutions
+              </Link>
+              <Link href="/pricing" className="text-foreground hover:text-primary transition-colors">
+                Pricing
+              </Link>
+              <Link href="/memberships" className="text-foreground hover:text-primary transition-colors">
+                Memberships
+              </Link>
+              <Link href="/locations" className="text-foreground hover:text-primary transition-colors">
+                Locations
               </Link>
               <Link href="/blog" className="text-foreground hover:text-primary transition-colors">
                 Blog
               </Link>
               <Link href="/faq" className="text-foreground hover:text-primary transition-colors">
                 FAQ
-              </Link>
-              <Link href="/memberships" className="text-foreground hover:text-primary transition-colors">
-                Memberships
-              </Link>
-              <Link href="/pricing" className="text-foreground hover:text-primary transition-colors">
-                Pricing
-              </Link>
-              <Link href="/locations" className="text-foreground hover:text-primary transition-colors">
-                Locations
               </Link>
               <Button asChild className="bg-primary hover:bg-primary/90 text-white font-bold rounded-full w-full">
                 <a href="https://www.restore.com/book-now" target="_blank" rel="noopener noreferrer">Book Now</a>

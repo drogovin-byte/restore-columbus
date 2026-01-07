@@ -85,9 +85,9 @@ export default function ComparisonDetail() {
     return (
       <Layout>
         <div className="container py-20 text-center">
-          <h1 className="text-3xl font-bold text-primary mb-4">Comparison Not Found</h1>
+          <h1 className="text-3xl font-bold text-primary mb-4">Solution Not Found</h1>
           <Button asChild>
-            <Link href="/comparisons">Back to Comparisons</Link>
+            <Link href="/comparisons">Back to Solutions</Link>
           </Button>
         </div>
       </Layout>
@@ -141,7 +141,7 @@ export default function ComparisonDetail() {
           <div className="container max-w-4xl">
             <Link href="/comparisons" className="inline-flex items-center gap-2 text-white/90 hover:text-white mb-6 transition-colors">
               <ArrowLeft className="w-4 h-4" />
-              Back to Comparisons
+              Back to Solutions
             </Link>
             <h1 className="font-heading font-bold text-4xl md:text-6xl leading-tight text-white mb-4 max-w-2xl">
               {comparison.title}
