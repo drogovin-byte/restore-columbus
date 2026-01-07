@@ -102,7 +102,7 @@ export const problemStates = [
     problem: "Chronic pain or inflammation is affecting your quality of life. You want relief that doesn't come from a pill bottle.",
     solution: "Our anti-inflammatory therapies target the root cause of pain and promote natural healing.",
     recommendedServices: ["cryotherapy", "red-light", "infrared-sauna", "iv-drip"],
-    image: "/images/red-light-official.webp"
+    image: "/images/hero-recovery-active.jpg"
   },
   {
     id: "stress-sleep",
