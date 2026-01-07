@@ -1004,7 +1004,7 @@ export const comparisonGuides = [
       }
     ],
     cta: "Enhance Performance & Recovery",
-    image: "/images/restore_hero_athlete_wellness_journey_clean.png"
+    image: "/images/restore_hero_athlete_wellness_journey.webp"
   },
   {
     id: "stress-relief",
@@ -1103,7 +1103,7 @@ export const blogPosts = [
     date: "2026-01-04",
     author: "Restore Team",
     category: "Local Guide",
-    image: "/images/upper-arlington-lifestyle.jpg",
+    image: "/images/upper-arlington-lifestyle.webp",
     tags: ["Upper Arlington", "Kingsdale Center", "Wellness Guide", "Local", "Recovery"]
   },
   {
@@ -1127,7 +1127,7 @@ export const blogPosts = [
     date: "2026-01-06",
     author: "Restore Team",
     category: "Local Guide",
-    image: "/images/westerville-professional-wellness.jpg",
+    image: "/images/westerville-professional-wellness.webp",
     tags: ["Westerville", "Professional Wellness", "Lunch Break", "Recovery", "Easton", "Productivity"]
   },
   {

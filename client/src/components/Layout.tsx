@@ -26,6 +26,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="min-h-screen flex flex-col font-sans text-foreground bg-background selection:bg-secondary selection:text-secondary-foreground">
+      {/* Skip to Content Link */}
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-50 focus:bg-primary focus:text-white focus:p-2 focus:rounded">Skip to main content</a>
+
       {/* Top Bar - Local Focus */}
       <div className="bg-primary text-primary-foreground py-2 text-xs md:text-sm font-medium">
         <div className="container flex justify-between items-center">
@@ -34,11 +37,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <span className="md:hidden">Columbus, OH</span>
           </div>
           <div className="flex items-center gap-4">
-            <a href="tel:6149449041" className="hover:text-accent transition-colors flex items-center gap-1">
-              <Phone className="w-3 h-3" /> <span className="hidden sm:inline">Call Us</span>
+            <a href="tel:6149449041" className="hover:text-accent transition-colors flex items-center gap-1" aria-label="Call Easton studio at 614-944-9041">
+              <Phone className="w-3 h-3" aria-hidden="true" /> <span className="hidden sm:inline">Call Us</span>
             </a>
-            <Link href="/locations" className="hover:text-accent transition-colors flex items-center gap-1">
-              <MapPin className="w-3 h-3" /> Find Your Studio
+            <Link href="/locations" className="hover:text-accent transition-colors flex items-center gap-1" aria-label="Find your studio location">
+              <MapPin className="w-3 h-3" aria-hidden="true" /> Find Your Studio
             </Link>
           </div>
         </div>
@@ -49,6 +52,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         className={`sticky top-0 z-50 w-full border-b transition-all duration-300 ${
           scrolled ? "bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 shadow-sm py-2" : "bg-background py-4"
         }`}
+        role="banner"
       >
         <div className="container flex h-14 items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
@@ -56,7 +60,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-8 font-medium text-sm">
+          <nav className="hidden md:flex items-center gap-8 font-medium text-sm" aria-label="Main navigation">
             <Link href="/services" className={`transition-colors hover:text-primary ${location === '/services' ? 'text-primary font-bold' : 'text-muted-foreground'}`}>
               Therapies
             </Link>
@@ -81,8 +85,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <Button asChild size="sm" className="bg-primary hover:bg-primary/90 text-white font-bold rounded-full px-6">
               <a href="https://www.restore.com/book-now" target="_blank" rel="noopener noreferrer">Book Now</a>
             </Button>
-            <Link href="/admin" className="ml-4 p-2 rounded-lg hover:bg-muted transition-colors" title="Admin Dashboard">
-              <Settings className="w-5 h-5 text-muted-foreground hover:text-primary" />
+            <Link href="/admin" className="ml-4 p-2 rounded-lg hover:bg-muted transition-colors" title="Admin Dashboard" aria-label="Admin Dashboard">
+              <Settings className="w-5 h-5 text-muted-foreground hover:text-primary" aria-hidden="true" />
             </Link>
           </nav>
 
@@ -99,7 +103,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         {/* Mobile Nav */}
         {isMenuOpen && (
           <div className="md:hidden border-t bg-background">
-            <nav className="container py-4 flex flex-col gap-4 font-medium">
+            <nav className="container py-4 flex flex-col gap-4 font-medium" aria-label="Mobile navigation">
               <Link href="/services" className="text-foreground hover:text-primary transition-colors">
                 Services
               </Link>
@@ -135,12 +139,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
 
       {/* Main Content */}
-      <main className="flex-1 w-full">
+      <main className="flex-1 w-full" id="main-content">
         {children}
       </main>
 
       {/* Footer */}
-      <footer className="bg-primary text-primary-foreground py-12 md:py-16 relative z-30">
+      <footer className="bg-primary text-primary-foreground py-12 md:py-16 relative z-30" role="contentinfo">
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-6 gap-8 mb-8">
             {/* Brand */}
@@ -148,15 +152,15 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <h3 className="font-bold text-lg mb-4">Restore Hyper Wellness</h3>
               <p className="text-sm opacity-90 mb-4">Local wellness authority in Columbus, Ohio. Science-backed therapies for recovery, energy, and longevity.</p>
               <div className="flex gap-4">
-                <a href="#" className="hover:opacity-80 transition-opacity"><Instagram className="w-5 h-5" /></a>
-                <a href="#" className="hover:opacity-80 transition-opacity"><Facebook className="w-5 h-5" /></a>
-                <a href="#" className="hover:opacity-80 transition-opacity"><Linkedin className="w-5 h-5" /></a>
+                <a href="#" className="hover:opacity-80 transition-opacity" aria-label="Visit us on Instagram"><Instagram className="w-5 h-5" aria-hidden="true" /></a>
+                <a href="#" className="hover:opacity-80 transition-opacity" aria-label="Visit us on Facebook"><Facebook className="w-5 h-5" aria-hidden="true" /></a>
+                <a href="#" className="hover:opacity-80 transition-opacity" aria-label="Visit us on LinkedIn"><Linkedin className="w-5 h-5" aria-hidden="true" /></a>
               </div>
             </div>
 
             {/* Locations */}
             <div>
-              <h4 className="font-bold mb-4">Locations</h4>
+              <h4 className="font-bold mb-4" id="footer-locations">Locations</h4>
               <div className="space-y-3 text-sm">
                 {locations.map(loc => (
                   <Link key={loc.id} href={`/locations/${loc.id}`} className="hover:opacity-80 transition-opacity block">
@@ -169,7 +173,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
             {/* Recovery Therapies */}
             <div>
-              <h4 className="font-bold mb-4 text-xs uppercase tracking-wider opacity-90">Recovery</h4>
+              <h4 className="font-bold mb-4 text-xs uppercase tracking-wider opacity-90" id="footer-recovery">Recovery</h4>
               <ul className="space-y-2 text-sm">
                 <li><Link href="/service/cryotherapy" className="hover:opacity-80 transition-opacity">Cryotherapy</Link></li>
                 <li><Link href="/service/compression" className="hover:opacity-80 transition-opacity">Compression Therapy</Link></li>
@@ -180,7 +184,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
             {/* Optimization */}
             <div>
-              <h4 className="font-bold mb-4 text-xs uppercase tracking-wider opacity-90">Optimization</h4>
+              <h4 className="font-bold mb-4 text-xs uppercase tracking-wider opacity-90" id="footer-optimization">Optimization</h4>
               <ul className="space-y-2 text-sm">
                 <li><Link href="/service/iv-drip" className="hover:opacity-80 transition-opacity">IV Therapy</Link></li>
                 <li><Link href="/service/nad-iv" className="hover:opacity-80 transition-opacity">NAD+ IV</Link></li>
@@ -191,7 +195,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
             {/* Wellness */}
             <div>
-              <h4 className="font-bold mb-4 text-xs uppercase tracking-wider opacity-90">Wellness</h4>
+              <h4 className="font-bold mb-4 text-xs uppercase tracking-wider opacity-90" id="footer-wellness">Wellness</h4>
               <ul className="space-y-2 text-sm">
                 <li><Link href="/service/red-light" className="hover:opacity-80 transition-opacity">Red Light Therapy</Link></li>
                 <li><Link href="/service/trt" className="hover:opacity-80 transition-opacity">Testosterone Therapy</Link></li>
@@ -202,7 +206,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
             {/* Aesthetic */}
             <div>
-              <h4 className="font-bold mb-4 text-xs uppercase tracking-wider opacity-90">Aesthetic</h4>
+              <h4 className="font-bold mb-4 text-xs uppercase tracking-wider opacity-90" id="footer-aesthetic">Aesthetic</h4>
               <ul className="space-y-2 text-sm">
                 <li><Link href="/service/hydrafacial" className="hover:opacity-80 transition-opacity">HydraPeptide Facial</Link></li>
                 <li><Link href="/service/neveskin" className="hover:opacity-80 transition-opacity">Neveskin Facial</Link></li>
@@ -213,10 +217,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
             {/* Contact */}
             <div>
-              <h4 className="font-bold mb-4">Contact</h4>
+              <h4 className="font-bold mb-4" id="footer-contact">Contact</h4>
               <div className="space-y-2 text-sm">
-                <a href="tel:6149449041" className="hover:opacity-80 transition-opacity block">Call: 614-944-9041</a>
-                <a href="mailto:info@restorecolumbus.com" className="hover:opacity-80 transition-opacity block">Email: frontdeskOH001@restore.com</a>
+                <a href="tel:6149449041" className="hover:opacity-80 transition-opacity block" aria-label="Call Easton studio at 614-944-9041">Call: 614-944-9041</a>
+                <a href="mailto:info@restorecolumbus.com" className="hover:opacity-80 transition-opacity block" aria-label="Email frontdeskOH001@restore.com">Email: frontdeskOH001@restore.com</a>
                 <Link href="/book" className="hover:opacity-80 transition-opacity block font-medium text-accent">Book Appointment</Link>
               </div>
             </div>
@@ -229,7 +233,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <div className="flex gap-6 mt-4 md:mt-0">
                 <a href="/privacy" className="hover:opacity-100 transition-opacity">Privacy Policy</a>
                 <a href="/terms" className="hover:opacity-100 transition-opacity">Terms of Service</a>
-                <button className="hover:opacity-100 transition-opacity text-accent" onClick={(e) => {const d = document.getElementById('footer-disclaimer'); if (d) d.classList.toggle('hidden');}}>Disclaimers</button>
+                <button className="hover:opacity-100 transition-opacity text-accent" onClick={(e) => {const d = document.getElementById('footer-disclaimer'); if (d) d.classList.toggle('hidden');}} aria-label="Toggle disclaimers section" aria-expanded={!document.getElementById('footer-disclaimer')?.classList.contains('hidden')} aria-controls="footer-disclaimer">Disclaimers</button>
               </div>
             </div>
             

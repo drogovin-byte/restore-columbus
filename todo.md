@@ -176,3 +176,19 @@
 - [x] Verify cleaned images display correctly on comparison pages
 - [x] Reposition Skin Health hero image to show client face prominently
 - [x] Fix CTA button text overflow on mobile - reduced font size and padding for mobile viewports
+
+## Performance Optimization (PageSpeed Insights Mobile: 60 → 85+)
+
+- [ ] Analyze current assets and image usage
+- [ ] Convert hero and service images to WebP format
+- [ ] Implement responsive image srcset attributes
+- [ ] Add image lazy loading (loading="lazy")
+- [ ] Preload critical hero images to fix LCP (19.0s → <2.5s)
+- [ ] Defer non-critical JavaScript (reduce unused JS: 442 KiB)
+- [ ] Fix render-blocking requests (1,570 ms savings)
+- [ ] Fix accessibility: contrast ratio issues
+- [ ] Fix accessibility: add aria-labels to links
+- [ ] Remove user-scalable="no" from viewport meta tag
+- [ ] Test performance on PageSpeed Insights
+- [ ] Verify visual design unchanged
+- [ ] Deploy optimized version

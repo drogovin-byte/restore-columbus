@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+      content="width=device-width, initial-scale=1.0" />
     <meta name="google-site-verification" content="imcSz2aMlOKTaHGDJTmIEm74AUFqqLuQCY1SvaPzKl0" />
     <title>Restore Hyper Wellness Columbus</title>
     
@@ -99,6 +99,11 @@
       ]
     }
     </script>    
+    <!-- Preload critical hero images for LCP optimization -->
+    <link rel="preload" as="image" href="/images/restore_hero_athlete_wellness_journey.webp" type="image/webp" />
+    <link rel="preload" as="image" href="/images/restore_skin_health_facial_treatment.webp" type="image/webp" />
+    
+    <!-- Font preconnects -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -106,7 +111,7 @@
 
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <script type="module" src="/src/main.tsx" defer></script>
     <script
       defer
       src="%VITE_ANALYTICS_ENDPOINT%/umami"

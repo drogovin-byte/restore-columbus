@@ -10,6 +10,9 @@ import { vitePluginManusRuntime } from "vite-plugin-manus-runtime";
 const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime()];
 
 export default defineConfig({
+  define: {
+    'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'production'),
+  },
   plugins,
   resolve: {
     alias: {
@@ -24,6 +27,21 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'vendor': ['react', 'react-dom', 'wouter', '@tanstack/react-query'],
+          'ui': ['@radix-ui/react-dialog', '@radix-ui/react-dropdown-menu', '@radix-ui/react-select'],
+        },
+      },
+    },
+    chunkSizeWarningLimit: 1500,
+    cssCodeSplit: true,
+    sourcemap: false,
+    reportCompressedSize: false,
+  },
+  optimizeDeps: {
+    include: ['react', 'react-dom', 'wouter', '@tanstack/react-query', '@trpc/client'],
   },
   server: {
     host: true,
@@ -40,5 +58,13 @@ export default defineConfig({
       strict: true,
       deny: ["**/.*"],
     },
+    hmr: {
+      protocol: 'wss',
+      host: '169.254.0.21',
+      port: 3000,
+    },
+  },
+  ssr: {
+    noExternal: ['@trpc/client'],
   },
 });

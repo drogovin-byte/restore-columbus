@@ -243,7 +243,7 @@ function ImageCard({ image, onDelete, onUpdateUsage }: {
               </Button>
             </DialogTrigger>
             <DialogContent className="max-w-2xl">
-              <img src={image.url} alt={image.altText || image.filename} className="w-full" />
+              <img src={image.url} alt={image.altText || image.filename} className="w-full" loading="lazy" />
             </DialogContent>
           </Dialog>
         </div>
