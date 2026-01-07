@@ -87,6 +87,7 @@ export default function ServiceDetail() {
             src={service.image} 
             alt={service.title} 
             className="w-full h-full object-cover"
+            style={service.id === 'mild-hyperbaric-oxygen' ? { objectPosition: '30% 20%' } : undefined}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
         </div>

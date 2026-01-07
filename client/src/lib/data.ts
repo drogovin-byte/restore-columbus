@@ -820,7 +820,7 @@ export const comparisonGuides = [
     title: "Reduce Inflammation & Accelerate Recovery",
     description: "Which therapy is right for your recovery goals?",
     excerpt: "Combat inflammation and speed up recovery with the right therapy combination.",
-    cardImage: "/solution-recovery.jpg",
+    cardImage: "/images/solution-recovery.jpg",
     solutions: [
       {
         id: "cryotherapy",
@@ -860,7 +860,7 @@ export const comparisonGuides = [
       }
     ],
     cta: "Reduce Inflammation & Accelerate Recovery",
-    image: "/solution-recovery.jpg"
+    image: "/images/solution-recovery.jpg"
   },
   {
     id: "sleep-detox",

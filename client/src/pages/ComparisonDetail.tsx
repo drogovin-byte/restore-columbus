@@ -194,10 +194,10 @@ export default function ComparisonDetail() {
         <div className="container max-w-4xl">
           <div className="mb-12 text-center">
             <h2 className="font-heading font-bold text-3xl md:text-4xl text-primary mb-4">
-              Which Therapy Is Right for You?
+              {comparison.title}
             </h2>
             <p className="text-lg text-muted-foreground">
-              Compare our recommended therapies and choose the one that fits your wellness goals
+              {comparison.excerpt}
             </p>
           </div>
 
