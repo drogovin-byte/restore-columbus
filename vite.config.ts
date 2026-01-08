@@ -1,19 +1,13 @@
 import { jsxLocPlugin } from "@builder.io/vite-plugin-jsx-loc";
 import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
-
+import fs from "node:fs";
 import path from "path";
 import { defineConfig } from "vite";
 import { vitePluginManusRuntime } from "vite-plugin-manus-runtime";
 
 
-
-const plugins = [
-  react(),
-  tailwindcss(),
-  jsxLocPlugin(),
-  vitePluginManusRuntime(),
-];
+const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime()];
 
 export default defineConfig({
   define: {
@@ -28,7 +22,6 @@ export default defineConfig({
     },
   },
   envDir: path.resolve(import.meta.dirname),
-
   root: path.resolve(import.meta.dirname, "client"),
   publicDir: path.resolve(import.meta.dirname, "client", "public"),
   build: {
@@ -36,41 +29,19 @@ export default defineConfig({
     emptyOutDir: true,
     rollupOptions: {
       output: {
-        manualChunks: (id) => {
-          // Vendor chunks
-          if (id.includes('node_modules')) {
-            if (id.includes('react') || id.includes('react-dom')) {
-              return 'vendor-react';
-            }
-            if (id.includes('@radix-ui')) {
-              return 'vendor-ui';
-            }
-            if (id.includes('@tanstack')) {
-              return 'vendor-query';
-            }
-            if (id.includes('lucide-react')) {
-              return 'vendor-icons';
-            }
-            return 'vendor-other';
-          }
-          // Page-level chunks
-          if (id.includes('pages/')) {
-            const match = id.match(/pages\/([^\/]+)\.tsx/);
-            if (match) return `page-${match[1]}`;
-          }
+        manualChunks: {
+          'vendor': ['react', 'react-dom', 'wouter', '@tanstack/react-query'],
+          'ui': ['@radix-ui/react-dialog', '@radix-ui/react-dropdown-menu', '@radix-ui/react-select'],
         },
       },
     },
-    chunkSizeWarningLimit: 1000,
+    chunkSizeWarningLimit: 1500,
     cssCodeSplit: true,
-    target: 'esnext',
     sourcemap: false,
     reportCompressedSize: false,
-    minify: 'terser',
   },
   optimizeDeps: {
-    include: ['react', 'react-dom', 'wouter', '@tanstack/react-query', '@trpc/client', 'lucide-react'],
-    exclude: ['@vite/client'],
+    include: ['react', 'react-dom', 'wouter', '@tanstack/react-query', '@trpc/client'],
   },
   server: {
     host: true,
@@ -92,7 +63,6 @@ export default defineConfig({
       host: '169.254.0.21',
       port: 3000,
     },
-    middlewareMode: false,
   },
   ssr: {
     noExternal: ['@trpc/client'],
