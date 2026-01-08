@@ -99,21 +99,35 @@
       ]
     }
     </script>    
-    <!-- Preload critical hero images for LCP optimization -->
-    <link rel="preload" as="image" href="/images/restore_hero_athlete_wellness_journey.webp" type="image/webp" />
-    <link rel="preload" as="image" href="/images/restore_skin_health_facial_treatment.webp" type="image/webp" />
+    <!-- Performance optimizations -->
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="theme-color" content="#001f3f" />
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" as="image" href="/hero-wellness-columbus.jpg" type="image/jpeg" fetchpriority="high" />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@400;500;600;700&display=swap" crossorigin />
+    
+    <!-- DNS prefetch for external resources -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://i.pravatar.cc" />
+    <link rel="dns-prefetch" href="https://www.google.com" />
     
     <!-- Font preconnects -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <!-- Prefetch for likely navigation targets -->
+    <link rel="prefetch" href="/services" />
+    <link rel="prefetch" href="/pricing" />
   </head>
 
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx" defer></script>
+    <!-- Analytics - loaded asynchronously to not block rendering -->
     <script
-      defer
+      async
       src="%VITE_ANALYTICS_ENDPOINT%/umami"
       data-website-id="%VITE_ANALYTICS_WEBSITE_ID%"></script>
   </body>
