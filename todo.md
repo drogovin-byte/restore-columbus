@@ -217,3 +217,5 @@
 - [x] Update all cardImage paths in data.ts to use new generated images
 - [x] Update all image paths in data.ts to use new generated images
 - [x] Verify all six solution cards display new images correctly on Solutions page
+
+- [x] Update Solutions page CTA from "Read Full Comparison" to "Explore This Solution"
