@@ -54,7 +54,7 @@ export default function Comparisons() {
                     
                     {/* CTA */}
                     <div className="pt-2 inline-flex items-center text-sm font-bold text-accent group-hover:text-accent-foreground transition-colors duration-200">
-                      Read Full Comparison 
+                      Click Here For The Solution 
                       <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1 duration-200" />
                     </div>
                   </CardContent>
