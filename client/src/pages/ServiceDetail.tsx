@@ -176,8 +176,8 @@ export default function ServiceDetail() {
               </div>
             </div>
 
-            {/* IV Menu - Only show for IV Therapy service */}
-            {service.id === "iv-drip" && (
+            {/* IV Menu - Show for IV Therapy and IM Shots services */}
+            {(service.id === "iv-drip" || service.id === "im-shots") && (
               <div className="space-y-6">
                 <h2 className="font-heading font-bold text-2xl text-primary">Our IV Menu</h2>
                 <p className="text-muted-foreground leading-relaxed text-lg">
@@ -217,6 +217,10 @@ export default function ServiceDetail() {
                   {service.id === 'iv-drip' ? (
                     <p className="text-sm text-muted-foreground leading-relaxed">
                       Our IV therapies start at <span className="font-semibold text-foreground">Member $144</span>. Pricing varies based on your chosen formulation and add-on nutrients. Let's find the perfect option for your wellness goals!
+                    </p>
+                  ) : service.id === 'im-shots' ? (
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      Each IM shot is carefully formulated for targeted benefits. <span className="font-semibold text-foreground">Member $27 | Retail $42</span> for signature shots. Ask our team about premium combinations and membership options to save 30%!
                     </p>
                   ) : (
                     <p className="text-sm text-muted-foreground leading-relaxed">

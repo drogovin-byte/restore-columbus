@@ -211,9 +211,15 @@
 - [x] Update mobile navigation in Layout.tsx
 - [x] Test navigation order on both desktop and mobile
 
-## Current Sprint: Update Solution Card Images with Aspirational Imagery
+## Current Sprint:- [x] Update Solution Card Images with Aspirational Imagery
 
 - [x] Generate six aspirational solution card images with Restore brand consistency
 - [x] Update all cardImage paths in data.ts to use new generated images
 - [x] Update all image paths in data.ts to use new generated images
 - [x] Verify all six solution cards display new images correctly on Solutions page
+
+## Current Sprint: Add IM Shot Pricing to IM Shots Tab
+
+- [x] Add IM shot pricing display to IVMenu component IM Shots tab
+- [x] Display Member $27 | Retail $42 pricing for each IM shot
+- [x] Match pricing card styling to IV Drips and Add-On Nutrients tabs
