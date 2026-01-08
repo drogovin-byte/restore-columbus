@@ -7,7 +7,9 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Star, CheckCircle2, MapPin, Target, Battery, Activity, AlertCircle, Moon, TrendingUp, Heart } from "lucide-react";
 import { Link } from "wouter";
 import { services, blogPosts, locations, problemStates, memberships } from "@/lib/data";
-import GoogleReviews from "@/components/GoogleReviews";
+import { lazy, Suspense } from "react";
+
+const GoogleReviews = lazy(() => import("@/components/GoogleReviews"));
 
 export default function Home() {
   // The userAuth hooks provides authentication state
@@ -49,6 +51,8 @@ export default function Home() {
             src="/hero-wellness-columbus.jpg" 
             alt="Restore Hyper Wellness Columbus Studio" 
             className="w-full h-full object-cover"
+            decoding="async"
+            fetchPriority="high"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/70 to-black/50" />
         </div>
@@ -76,7 +80,7 @@ export default function Home() {
               <div className="flex -space-x-2">
                 {[1,2,3,4].map(i => (
                   <div key={`avatar-${i}`} className="w-8 h-8 rounded-full bg-gray-200 border-2 border-primary overflow-hidden">
-                    <img src={`https://i.pravatar.cc/100?img=${i+10}`} alt={`User ${i}`} />
+                    <img src={`https://i.pravatar.cc/100?img=${i+10}`} alt={`User ${i}`} loading="lazy" decoding="async" />
                   </div>
                 ))}
               </div>
@@ -173,7 +177,7 @@ export default function Home() {
             {services.slice(0, 6).map((service: any, idx: number) => (
               <div key={`service-${service.id}-${idx}`} className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 h-full cursor-pointer">
                 <div className="aspect-video overflow-hidden bg-muted relative">
-                  <img src={service.image} alt={service.title} loading="lazy" className={`w-full h-full object-cover group-hover:scale-110 transition-transform duration-300 ${service.id === 'cryotherapy' ? 'object-top' : ''}`} />
+                  <img src={service.image} alt={service.title} loading="lazy" decoding="async" className={`w-full h-full object-cover group-hover:scale-110 transition-transform duration-300 ${service.id === 'cryotherapy' ? 'object-top' : ''}`} />
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 text-white">
                     <h3 className="font-heading font-bold text-xl mb-2">{service.title}</h3>
                     <p className="text-sm text-white/90 mb-4 line-clamp-2">{service.shortDesc}</p>
@@ -270,7 +274,7 @@ export default function Home() {
               <Link key={`location-${loc.id}-${idx}`} href={`/locations/${loc.id}`}>
                 <div className="bg-card border rounded-xl overflow-hidden shadow-sm hover:shadow-lg hover:scale-105 transition-all cursor-pointer h-full">
                   <div className="h-48 overflow-hidden">
-                    <img src={loc.image} alt={loc.name} loading="lazy" className="w-full h-full object-cover" />
+                    <img src={loc.image} alt={loc.name} loading="lazy" decoding="async" className="w-full h-full object-cover" />
                   </div>
                   <div className="p-6 space-y-4">
                     <h3 className="font-heading font-bold text-xl text-primary">{loc.name.replace("Restore Hyper Wellness - ", "")}</h3>
@@ -370,7 +374,9 @@ export default function Home() {
       </section>
 
       {/* Reviews Section */}
-      <GoogleReviews locationName="Restore Hyper Wellness Columbus" reviews={[]} averageRating={4.9} totalReviews={500} />
+      <Suspense fallback={<div className="py-20 bg-background" />}>
+        <GoogleReviews locationName="Restore Hyper Wellness Columbus" reviews={[]} averageRating={4.9} totalReviews={500} />
+      </Suspense>
     </Layout>
   );
 }
