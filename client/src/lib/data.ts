@@ -31,7 +31,7 @@ export const locations = [
     city: "Dublin",
     state: "OH",
     zip: "43017",
-    phone: "614-553-7207",
+    phone: "614-944-9041",
     hours: "Mon-Fri: 10am-7pm | Sat: 9am-5pm | Sun: 11am-4pm",
     mapUrl: "https://goo.gl/maps/dublin",
     specialServices: ["Hyperbaric Oxygen Therapy", "Neveskin Shape, Tone, Facials", "Medical Weight Loss GLP-1", "Hydrafacial"],
