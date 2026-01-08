@@ -34,6 +34,7 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
+    assetsInlineLimit: 4096,
     rollupOptions: {
       output: {
         manualChunks: (id) => {
@@ -89,8 +90,8 @@ export default defineConfig({
     },
     hmr: {
       protocol: 'wss',
-      host: '169.254.0.21',
-      port: 3000,
+      host: '3000-i5tg0ej12i3rz29p27kc4-77abe038.us2.manus.computer',
+      port: 443,
     },
     middlewareMode: false,
   },
