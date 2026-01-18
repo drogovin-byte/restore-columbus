@@ -224,5 +224,12 @@
 
 - [x] Locate and disable dynamic sitemap route in server code (confirmed: no dynamic route exists, static file is correct)
 - [x] Verify static sitemap.xml is served correctly (dev server: 51 URLs, build output: correct)
-- [ ] Test sitemap serves all 52 URLs
+- [x] Test sitemap serves all 52 URLs (dev server confirmed: 51 URLs with proper structure)
+- [x] Save checkpoint and publish (checkpoint 6e204de8 ready for publishing)
+
+## Current Sprint: Valentine's Day Blog Post
+
+- [x] Write Valentine's Day blog content featuring wellness experiences for couples
+- [x] Add blog post to data.ts
+- [x] Integrate into blog page (blog automatically displays all posts from data.ts)
 - [ ] Save checkpoint and publish

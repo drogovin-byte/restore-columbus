@@ -11,9 +11,10 @@ export const locations = [
     phone: "614-944-9041",
     hours: "Mon-Fri: 10am-7pm | Sat: 9am-5pm | Sun: 11am-4pm",
     mapUrl: "https://goo.gl/maps/easton",
-    image: "/images/hero-wellness-columbus.jpg",
+    image: "/images/location-hero-studio.webp",
     averageRating: 4.9,
-    totalReviews: 652,
+    totalReviews: 650,
+    specialServices: ["Hyperbaric Oxygen Therapy", "Neveskin Shape, Tone, Facials", "Medical Weight Loss GLP-1", "Hydrafacial"],
     reviews: [
       { author: "Sarah M.", rating: 5, text: "Amazing experience! The staff is incredibly knowledgeable and the cryotherapy session left me feeling energized. Highly recommend Restore!", date: "2 weeks ago" },
       { author: "James T.", rating: 5, text: "Best recovery tool I've found. After my workouts, the compression therapy at Restore has made a huge difference in my performance.", date: "1 month ago" },
@@ -30,10 +31,11 @@ export const locations = [
     city: "Dublin",
     state: "OH",
     zip: "43017",
-    phone: "614-553-7207",
+    phone: "614-944-9041",
     hours: "Mon-Fri: 10am-7pm | Sat: 9am-5pm | Sun: 11am-4pm",
     mapUrl: "https://goo.gl/maps/dublin",
-    image: "/images/cryotherapy-session.jpg",
+    specialServices: ["Hyperbaric Oxygen Therapy", "Neveskin Shape, Tone, Facials", "Medical Weight Loss GLP-1", "Hydrafacial"],
+    image: "/images/location-hero-studio.webp",
     averageRating: 4.9,
     totalReviews: 271,
     reviews: [
@@ -53,9 +55,10 @@ export const locations = [
     state: "OH",
     zip: "43221",
     phone: "614-745-0966",
-    hours: "Mon-Fri: 10am-7pm | Sat: 9am-5pm | Sun: 11am-4pm",
+    hours: "Monday: Closed | Tues-Fri: 10am-6pm | Sat: 10am-5pm | Sun: 11am-4pm",
     mapUrl: "https://goo.gl/maps/ua",
-    image: "/images/iv-drip-lounge.jpg",
+    specialServices: ["Hyperbaric Oxygen Therapy", "Neveskin Shape, Tone, Facials", "Medical Weight Loss GLP-1"],
+    image: "/images/location-hero-studio.webp",
     averageRating: 5.0,
     totalReviews: 79,
     reviews: [
@@ -99,7 +102,7 @@ export const problemStates = [
     problem: "Chronic pain or inflammation is affecting your quality of life. You want relief that doesn't come from a pill bottle.",
     solution: "Our anti-inflammatory therapies target the root cause of pain and promote natural healing.",
     recommendedServices: ["cryotherapy", "red-light", "infrared-sauna", "iv-drip"],
-    image: "/images/red-light-official.webp"
+    image: "/images/hero-recovery-active.jpg"
   },
   {
     id: "stress-sleep",
@@ -135,6 +138,7 @@ export const problemStates = [
 
 export const memberships = [
   {
+    id: "level-up",
     name: "Level Up",
     price: 170,
     value: 336,
@@ -143,9 +147,9 @@ export const memberships = [
     perTherapy: 21.25,
     benefits: [
       "8 monthly credits for Core Therapies",
-      "1 Credit = 1 Core Therapy (Cryo, Sauna, Compression, Red Light, IV)",
+      "1 Credit = 1 Core Therapy (Cryo, Sauna, Compression, Red Light)",
       "4 Credits = IV Drip with 2 Signature Nutrients",
-      "30% off Specialty Services",
+      "30% off retail for Specialty Services",
       "Access to Members-Only events",
       "Use credits at any Restore location nationwide",
       "Book anytime, Pause anytime"
@@ -155,13 +159,14 @@ export const memberships = [
       "8 monthly credits",
       "Core Therapy access",
       "IV Drip redemption",
-      "30% Specialty discount",
+      "30% retail Specialty discount",
       "Members-Only events",
       "Nationwide access"
     ],
     description: "Perfect for getting started with consistent wellness"
   },
   {
+    id: "elevate",
     name: "Elevate",
     price: 260,
     value: 588,
@@ -170,9 +175,9 @@ export const memberships = [
     perTherapy: 18.57,
     benefits: [
       "14 monthly credits for Core Therapies",
-      "1 Credit = 1 Core Therapy (Cryo, Sauna, Compression, Red Light, IV)",
+      "1 Credit = 1 Core Therapy (Cryo, Sauna, Compression, Red Light)",
       "4 Credits = IV Drip with 2 Signature Nutrients",
-      "30% off Specialty Services",
+      "30% off retail for Specialty Services",
       "Access to Members-Only events",
       "Use credits at any Restore location nationwide",
       "Book anytime, Pause anytime"
@@ -182,13 +187,14 @@ export const memberships = [
       "14 monthly credits",
       "Core Therapy access",
       "IV Drip redemption",
-      "30% Specialty discount",
+      "30% retail Specialty discount",
       "Members-Only events",
       "Nationwide access"
     ],
     description: "Most popular - consistent wellness with flexibility"
   },
   {
+    id: "core",
     name: "Core",
     price: 300,
     value: 1302,
@@ -197,9 +203,9 @@ export const memberships = [
     perTherapy: 9.68,
     benefits: [
       "31 monthly credits for Core Therapies",
-      "1 Credit = 1 Core Therapy (Cryo, Sauna, Compression, Red Light, IV)",
-      "Unlimited access to core modalities",
-      "30% off Specialty Services",
+      "1 Credit = 1 Core Therapy (Cryo, Sauna, Compression, Red Light)",
+      "Access to core modalities",
+      "30% off retail for Specialty Services",
       "Access to Members-Only events",
       "Use credits at any Restore location nationwide",
       "Book anytime, Pause anytime",
@@ -208,8 +214,8 @@ export const memberships = [
     isPopular: false,
     features: [
       "31 monthly credits",
-      "Unlimited Core Therapy",
-      "30% Specialty discount",
+      "Core Therapy access",
+      "30% retail Specialty discount",
       "Members-Only events",
       "Nationwide access",
       "Priority booking"
@@ -217,6 +223,70 @@ export const memberships = [
     description: "Maximum benefits for serious wellness enthusiasts"
   }
 ];
+
+// IV Menu Data
+export const ivMenu = {
+  drips: [
+    { id: "wonder-juice", name: "Wonder Juice", category: "Energy", description: "A powerful blend to keep you focused and strong.", ingredients: ["Glutathione", "B12", "L-Carnitine", "Glutamine", "Vitamin C", "B Complex"], memberPrice: 161, retailPrice: 203 },
+    { id: "recharge", name: "Recharge", category: "Recovery", description: "Revitalize from the inside out for a total body reset.", ingredients: ["Glutathione", "Proline", "Taurine", "Vitamin C"], memberPrice: 144, retailPrice: 181 },
+    { id: "defender", name: "Defender", category: "Immunity", description: "Keeps your system resilient and ready for anything.", ingredients: ["Glutathione", "B12", "Taurine", "Lysine", "2x Vitamin C", "Zinc"], memberPrice: 210, retailPrice: 265 },
+    { id: "amplified-beauty", name: "Amplified Beauty", category: "Skin Health", description: "Nourish your skin from within for a healthy, youthful glow.", ingredients: ["Glutathione", "Magnesium", "B12", "Biotin", "Lysine", "Glutamine", "Proline", "2x Vitamin C", "B Complex"], memberPrice: 276, retailPrice: 349 },
+    { id: "fog-lifter", name: "Fog Lifter", category: "Brain Health", description: "Sharpens focus to keep your mind clear and energized.", ingredients: ["Glutathione", "B12", "Taurine", "B Complex"], memberPrice: 144, retailPrice: 181 },
+    { id: "the-edge", name: "The Edge", category: "Athletic Performance", description: "Fuels endurance, reduces fatigue so you can train harder.", ingredients: ["Magnesium", "B12", "L-Carnitine", "Taurine", "Glutamine", "Proline"], memberPrice: 188, retailPrice: 237 },
+    { id: "lose-it", name: "Lose It", category: "Weight Management", description: "Fire up your metabolism and convert stored energy into fuel.", ingredients: ["Magnesium", "B12", "L-Carnitine", "Proline", "B Complex"], memberPrice: 166, retailPrice: 209 },
+    { id: "unstoppable", name: "Unstoppable", category: "Athletic Performance", description: "Get supercharged for peak performance clarity.", ingredients: ["B12", "2x Taurine", "L-Carnitine", "2x B Complex"], memberPrice: 188, retailPrice: 237 },
+    { id: "new-myers", name: "New Myers", category: "Stress & Recovery", description: "Works to combat stress, fatigue and inflammation.", ingredients: ["Glutathione", "Magnesium", "Zinc", "2x Vitamin C", "B Complex"], memberPrice: 188, retailPrice: 237 },
+    { id: "hangover", name: "Hangover", category: "Recovery", description: "Go from rough to refreshed in no time.", ingredients: ["Glutathione", "Magnesium", "Vitamin C", "Toradol", "B12", "Zofran", "B Complex"], memberPrice: 210, retailPrice: 265 },
+    { id: "cold-flu", name: "Cold & Flu", category: "Immunity", description: "Fast-acting support when you need it most.", ingredients: ["Glutathione", "Vitamin D", "2x Vitamin C", "Toradol", "B12", "Zinc"], memberPrice: 210, retailPrice: 265 }
+  ],
+  nutrients: {
+    signature: [
+      { name: "Amino Blend", benefit: "Performance", description: "Supports the function of healthy joints and muscles.", memberPrice: 19, retailPrice: 24 },
+      { name: "B5", benefit: "Metabolism", description: "Helps break down fats, proteins and carbs for energy.", memberPrice: 19, retailPrice: 24 },
+      { name: "B6", benefit: "Mood", description: "Supports brain health and may help regulate mood.", memberPrice: 19, retailPrice: 24 },
+      { name: "B12", benefit: "Energy", description: "Aids in energy production and red blood cell formation.", memberPrice: 19, retailPrice: 24 },
+      { name: "B Complex", benefit: "Energy, Stress Reliever", description: "Increases energy and reduces stress.", memberPrice: 19, retailPrice: 24 },
+      { name: "Biotin", benefit: "Metabolism", description: "Supports metabolic health and helps stabilize blood sugar.", memberPrice: 19, retailPrice: 24 },
+      { name: "Vitamin C", benefit: "Cellular Health", description: "Reduces cellular damage caused by environmental stress.", memberPrice: 19, retailPrice: 24 },
+      { name: "Vitamin D", benefit: "Bone Health", description: "Helps the body absorb and retain calcium.", memberPrice: 19, retailPrice: 24 },
+      { name: "Glutamine", benefit: "Recovery", description: "Helps improve muscle recovery and fights fatigue.", memberPrice: 19, retailPrice: 24 },
+      { name: "Glutathione", benefit: "Cellular Health", description: "A potent antioxidant that helps reduce cellular damage.", memberPrice: 19, retailPrice: 24 },
+      { name: "L-Carnitine", benefit: "Fat Burner", description: "Helps support optimal body composition.", memberPrice: 19, retailPrice: 24 },
+      { name: "Lysine", benefit: "Tissue Health", description: "Helps maintain healthy muscles and connective tissue.", memberPrice: 19, retailPrice: 24 },
+      { name: "Magnesium Sulfate", benefit: "Relaxation", description: "Mineral that supports muscle and nerve health.", memberPrice: 19, retailPrice: 24 },
+      { name: "NAC", benefit: "Improves Resilience", description: "Reduce cellular damage, stressors and free radicals.", memberPrice: 19, retailPrice: 24 },
+      { name: "Proline", benefit: "Skin Health", description: "Essential for collagen production.", memberPrice: 19, retailPrice: 24 },
+      { name: "Taurine", benefit: "Heart Health", description: "Amino acid that supports cardiovascular health.", memberPrice: 19, retailPrice: 24 },
+      { name: "Toradol", benefit: "Anti-Inflammatory", description: "Relieves discomfort from headaches and migraines.", memberPrice: 19, retailPrice: 24 },
+      { name: "Zinc", benefit: "Immune Support", description: "Boosts sleep quality, immunity and metabolic function.", memberPrice: 19, retailPrice: 24 },
+      { name: "Zofran", benefit: "Anti-Nausea", description: "Reduces feelings of nausea and may prevent vomiting.", memberPrice: 19, retailPrice: 24 }
+    ],
+    premium: [
+      { name: "ALA (Alpha-Lipoic Acid)", benefit: "Weight Management", description: "A potent antioxidant that may help manage weight.", memberPrice: 38, retailPrice: 48 },
+      { name: "Trace Elements", benefit: "Recharge", description: "Helps recharge and maximize natural defenses (Zinc, Copper, Selenium & Manganese).", memberPrice: 38, retailPrice: 48 },
+      { name: "Extra 500 mL Hydration", benefit: "Hydration", description: "Assists recent dehydration with additional support.", memberPrice: 38, retailPrice: 48 }
+    ]
+  },
+  imShots: {
+    signature: [
+      { name: "Amino Blend", benefit: "Performance", description: "Supports the function of healthy joints and muscles.", memberPrice: 27, retailPrice: 42 },
+      { name: "B12", benefit: "Energy", description: "Aids in energy production and red blood cell formation.", memberPrice: 27, retailPrice: 42 },
+      { name: "B Complex", benefit: "Energy, Stress Reliever", description: "Increases energy and reduces stress.", memberPrice: 27, retailPrice: 42 },
+      { name: "Biotin", benefit: "Metabolism", description: "Supports metabolic health and helps stabilize blood sugar.", memberPrice: 27, retailPrice: 42 },
+      { name: "Vitamin D3", benefit: "Bone Health", description: "Helps the body absorb and retain calcium.", memberPrice: 27, retailPrice: 42 },
+      { name: "L-Carnitine", benefit: "Fat Burner", description: "Helps support optimal body composition.", memberPrice: 27, retailPrice: 42 },
+      { name: "Toradol", benefit: "Anti-Inflammatory", description: "Relieves discomfort from headaches and migraines.", memberPrice: 27, retailPrice: 42 },
+      { name: "Zofran", benefit: "Anti-Nausea", description: "Reduces feelings of nausea and may prevent vomiting.", memberPrice: 27, retailPrice: 42 },
+      { name: "CoQ10", benefit: "Heart Health", description: "Supports cardiovascular health and blood sugar regulation.", memberPrice: 27, retailPrice: 42 },
+      { name: "Lipo", benefit: "Metabolism", description: "Helps boost the body's metabolic power.", memberPrice: 27, retailPrice: 42 },
+      { name: "Tri-Immune Blend", benefit: "Immune Support", description: "Helps build resilience; supports the body's immune response.", memberPrice: 27, retailPrice: 42 }
+    ],
+    premium: [
+      { name: "B12 + B Complex", benefit: "Energy & Mood", description: "Improves energy, mood and response to stress.", memberPrice: 35, retailPrice: 50 },
+      { name: "Lipo + B12", benefit: "Energy & Metabolism", description: "Improves energy levels and supports metabolic health.", memberPrice: 35, retailPrice: 50 }
+    ]
+  }
+};
 
 // Services with UNIQUE images - NO DUPLICATES
 export const services = [
@@ -230,7 +300,7 @@ export const services = [
     benefits: ["Reduce inflammation and pain", "Boost mood and energy", "Speed athletic recovery", "Improve sleep quality", "Enhance immune function"],
     whoItsFor: ["Athletes and weekend warriors", "People with chronic pain", "Anyone recovering from injury", "Those seeking mood and energy boost"],
     whoItsNotFor: ["Pregnant women", "People with severe hypertension", "Those with cold sensitivity"],
-    pricing: "1 Credit per session | Included in memberships",
+    pricing: "Member $27 | Retail $42",
     icon: Zap,
     image: "/images/service_07_Woman_wearing_protective_robe,.webp",
     category: "Recovery",
@@ -262,7 +332,7 @@ export const services = [
     benefits: ["Deep detoxification", "Improve cardiovascular health", "Reduce muscle soreness", "Boost immune function", "Promote relaxation and sleep", "Support skin health"],
     whoItsFor: ["Anyone seeking detox", "People with muscle soreness", "Those with stress or anxiety", "Anyone wanting better sleep", "Athletes in recovery"],
     whoItsNotFor: ["Pregnant women", "People with fever or acute illness", "Those with certain heart conditions"],
-    pricing: "1 Credit per session | Included in memberships",
+    pricing: "Member $27 | Retail $42",
     icon: Heart,
     image: "/images/service_09_Woman_relaxing_in_an_infrared_.webp",
     category: "Wellness",
@@ -294,7 +364,7 @@ export const services = [
     benefits: ["Boost cellular energy (ATP)", "Reduce inflammation", "Improve skin health and collagen", "Enhance athletic recovery", "Support cognitive function", "Promote wound healing"],
     whoItsFor: ["Athletes seeking recovery", "Anyone with inflammation", "People wanting skin rejuvenation", "Those seeking cognitive boost", "Anyone with joint pain"],
     whoItsNotFor: ["People taking light-sensitive medications", "Those with certain eye conditions"],
-    pricing: "1 Credit per session | Included in memberships",
+    pricing: "Member $27 | Retail $42",
     icon: Zap,
     image: "/images/service_08_Woman_with_her_hands_above_her.webp",
     category: "Wellness",
@@ -326,7 +396,7 @@ export const services = [
     benefits: ["Accelerate athletic recovery", "Reduce muscle soreness", "Improve circulation", "Flush metabolic waste", "Reduce swelling", "Enhance performance"],
     whoItsFor: ["Athletes and active people", "Anyone with muscle soreness", "People with poor circulation", "Those recovering from injury", "Weekend warriors"],
     whoItsNotFor: ["People with blood clots", "Those with severe edema", "Pregnant women"],
-    pricing: "1 Credit per session | Included in memberships",
+    pricing: "Member $27 | Retail $42",
     icon: Heart,
     image: "/images/service_10_A_man_wearing_Normatec_compres.webp",
     category: "Recovery",
@@ -358,7 +428,7 @@ export const services = [
     benefits: ["100% nutrient absorption", "Immediate energy boost", "Enhanced immune function", "Improved hydration", "Faster recovery", "Better cognitive function"],
     whoItsFor: ["Anyone seeking energy boost", "Athletes in recovery", "People with nutrient deficiencies", "Those fighting illness", "Anyone wanting optimization"],
     whoItsNotFor: ["People with certain kidney conditions", "Those with needle phobia (though we can help)"],
-    pricing: "4 Credits per IV Drip (with 2 Signature Nutrients) | Included in memberships",
+    pricing: "Starting at Member $144 | Retail $181",
     icon: Heart,
     image: "/images/service_11_Young_couple_relaxing_while_en.webp",
     category: "Optimization",
@@ -390,7 +460,7 @@ export const services = [
     benefits: ["Restore cellular energy", "Support DNA repair", "Enhance cognitive function", "Improve athletic performance", "Support addiction recovery", "Promote longevity"],
     whoItsFor: ["Anyone over 40", "Athletes seeking performance", "People with cognitive concerns", "Those seeking longevity", "Anyone in recovery"],
     whoItsNotFor: ["Pregnant women", "People with certain medical conditions"],
-    pricing: "Premium service | 4+ sessions recommended | Included in memberships with credits",
+    pricing: "500 mg | $440 | $550 || 750 mg | $530 | $670 || 125 mg Add-On | $110 | $138 || 125 mg IM | $115 | $144",
     icon: Brain,
     image: "/images/service_12_Smiling_woman_receiving_a_NAD+.webp",
     category: "Longevity",
@@ -414,8 +484,44 @@ export const services = [
     ]
   },
   {
+    id: "niagen-nr-iv",
+    title: "Niagen (NR) IV Drips",
+    shortDesc: "Superior NAD+ precursor therapy with 75% faster infusion and fewer side effects than traditional NAD+.",
+    fullDesc: "Niagen (NR) is a pharmaceutical-grade precursor to NAD+ that provides superior cellular energy and longevity benefits. Unlike traditional NAD+ therapy, Niagen (NR) is naturally present in the body, resulting in faster infusion times (30-45 minutes), fewer adverse effects, and more efficient NAD+ production at the cellular level.",
+    whatToExpect: "A nurse will insert an IV catheter and take your vital signs. You'll relax in a comfortable chair for 30-45 minutes while the Niagen (NR) infuses. Many people enjoy reading, working, or listening to podcasts. After your session, you can enjoy a complimentary cleansing IV infusion to support recovery and immunity.",
+    benefits: ["Improved cellular and metabolic health", "Enhanced cellular energy to combat fatigue", "Reduced oxidative stress for faster recovery", "Decreased inflammation for healthier aging", "Boosted cognitive function", "75% faster than traditional NAD+ therapy"],
+    whoItsFor: ["Anyone seeking NAD+ benefits", "People wanting faster infusion times", "Those sensitive to NAD+ side effects", "Athletes seeking recovery", "Anyone over 40 seeking longevity"],
+    whoItsNotFor: ["Pregnant women", "People with certain medical conditions"],
+    pricing: "500 mg | $690 | $860 || 1000 mg | $1,380 | $1,720 || 125 mg Add-On | $173 | $215 || 125 mg IM | $205 | $245",
+    icon: Zap,
+    image: "/images/service_12_Smiling_woman_receiving_a_NAD+.webp",
+    category: "Longevity",
+    faqs: [
+      {
+        q: "How is Niagen (NR) different from NAD+?",
+        a: "Niagen (NR) is a natural precursor to NAD+ that converts naturally in your cells. It provides 20% higher NAD+ levels at the 3-hour mark compared to baseline, with fewer adverse effects like headaches and nausea. The infusion is also 75% faster (30-45 minutes vs 60-90 minutes)."
+      },
+      {
+        q: "Is Niagen (NR) safe?",
+        a: "Yes. Niagen is a pharmaceutical-grade, patented form of nicotinamide riboside (NR). It's naturally present in foods and the body, making it well-tolerated with minimal side effects. All infusions are administered by licensed nurses."
+      },
+      {
+        q: "What are the benefits of Niagen (NR)?",
+        a: "Benefits include improved cellular energy, enhanced metabolism, reduced oxidative stress, decreased inflammation, boosted cognitive function, and support for athletic recovery and longevity. Results typically compound over multiple sessions."
+      },
+      {
+        q: "How often should I do Niagen (NR) therapy?",
+        a: "We recommend up to 4,000mg within 28 days for optimal results. This could be 1-4 sessions depending on your goals. Many clients do weekly sessions initially, then transition to monthly maintenance."
+      },
+      {
+        q: "When will I feel results?",
+        a: "Some people feel increased energy and mental clarity during or immediately after the infusion. Most notice significant improvements in energy, focus, and recovery within 24-48 hours. Benefits compound with consistent sessions."
+      }
+    ]
+  },
+  {
     id: "trt",
-    title: "Testosterone Replacement Therapy (TRT)",
+    title: "Testosterone Replacement (TRT)",
     shortDesc: "Medically-supervised hormone optimization for men seeking vitality and performance.",
     fullDesc: "TRT is a medically-supervised treatment that restores testosterone to optimal levels for men with deficiency. Our doctors customize protocols based on individual labs and goals.",
     whatToExpect: "Initial consultation with labs. Weekly or bi-weekly injections (self-administered at home). Regular monitoring and adjustments. Comprehensive support throughout.",
@@ -447,14 +553,14 @@ export const services = [
   },
   {
     id: "im-shots",
-    title: "IM Shots (Intramuscular Injections)",
+    title: "IM Shots",
     shortDesc: "Quick nutrient injections for targeted wellness benefits.",
     fullDesc: "IM shots deliver concentrated nutrients directly into muscle tissue for rapid absorption and targeted benefits. Popular options include B12, Vitamin D, Glutathione, and more.",
     whatToExpect: "Quick injection (30 seconds). Minimal discomfort. Immediate absorption. You're done in minutes.",
     benefits: ["Rapid nutrient delivery", "Energy boost (B12)", "Immune support (Vitamin D)", "Detoxification (Glutathione)", "Quick and convenient", "Affordable"],
     whoItsFor: ["Anyone seeking quick boost", "People with B12 deficiency", "Those wanting immune support", "Athletes seeking recovery", "Busy professionals"],
     whoItsNotFor: ["People with needle phobia", "Those with certain allergies"],
-    pricing: "Starting at $30 per shot | Included in memberships",
+    pricing: "Starting at $30 per shot",
     icon: Zap,
     image: "/images/service_14_NAD+_IM_Shot_vials.webp",
     category: "Optimization",
@@ -487,7 +593,7 @@ export const services = [
     benefits: ["Remove clogged pores", "Reduce wrinkles and fine lines", "Improve skin firmness", "Hydrate deeply", "Brighten complexion", "Reduce hyperpigmentation"],
     whoItsFor: ["Anyone with dull skin", "People with clogged pores", "Those with fine lines", "Anyone seeking glow", "All skin types"],
     whoItsNotFor: ["Those with active acne", "People with severe rosacea"],
-    pricing: "Starting at $150 per treatment | 30% off with membership",
+    pricing: "Member $150-$280 | Retail $190-$340",
     icon: Smile,
     image: "/images/service_17_Relaxed_woman_receiving_a_Hydr.webp",
     category: "Skin Health",
@@ -519,9 +625,9 @@ export const services = [
     benefits: ["Reduce signs of aging", "Tighten and firm skin", "Increase blood flow", "Stimulate collagen", "Improve skin texture", "Non-invasive alternative to surgery"],
     whoItsFor: ["Anyone over 30", "People seeking anti-aging", "Those with loose skin", "Anyone wanting natural lift", "People avoiding surgery"],
     whoItsNotFor: ["Pregnant women", "Those with certain implants"],
-    pricing: "Starting at $200 per treatment | 30% off with membership",
+    pricing: "Member $180 | Retail $220",
     icon: Smile,
-    image: "/images/service_18_Woman_receiving_Neveskin™_Faci.webp",
+    image: "/images/service_18_neveskin_facial.webp",
     category: "Skin Health",
     faqs: [
       {
@@ -551,9 +657,9 @@ export const services = [
     benefits: ["Reduce cellulite appearance", "Improve skin texture", "Tighten loose skin", "Enhance body contours", "Non-invasive body sculpting"],
     whoItsFor: ["Anyone with cellulite", "People seeking body contouring", "Those wanting skin tightening", "Anyone avoiding surgery"],
     whoItsNotFor: ["Pregnant women", "Those with certain implants"],
-    pricing: "Starting at $250 per treatment | 30% off with membership",
+    pricing: "Member $280 | Retail $340",
     icon: Smile,
-    image: "/images/service_19_Woman_receiving_Neveskin™_Shap.webp",
+    image: "/images/service_19_neveskin_shape.webp",
     category: "Skin Health",
     faqs: [
       {
@@ -583,9 +689,9 @@ export const services = [
     benefits: ["Enhance muscle tone", "Improve skin texture", "Create sculpted appearance", "Tighten loose skin", "Non-invasive body sculpting"],
     whoItsFor: ["Athletes seeking definition", "People wanting body sculpting", "Those seeking skin tightening", "Anyone avoiding surgery"],
     whoItsNotFor: ["Pregnant women", "Those with certain implants"],
-    pricing: "Starting at $250 per treatment | 30% off with membership",
+    pricing: "Member $280 | Retail $340",
     icon: Smile,
-    image: "/images/service_20_Person_receiving_Neveskin™_Ton.webp",
+    image: "/images/service_20_neveskin_tone.webp",
     category: "Skin Health",
     faqs: [
       {
@@ -605,90 +711,336 @@ export const services = [
         a: "Yes. Schedule 1-2 weeks before for best appearance."
       }
     ]
+  },
+  {
+    id: "mild-hyperbaric-oxygen",
+    title: "Hyperbaric Oxygen Therapy",
+    shortDesc: "60-90 minute therapy session to support wound healing, inflammation, immunity and sleep.",
+    fullDesc: "Mild Hyperbaric Oxygen Therapy (mHBOT) is a modern medical therapy that helps enhance total well-being. It's ideal for individuals looking to speed up recovery, enhance cognitive function and reduce inflammation.",
+    whatToExpect: "A relaxing, non-invasive session where you breathe enhanced oxygen in a pressurized chamber. You can sit up and work or lie down and relax. Most clients report feeling more relaxed and rested immediately after.",
+    benefits: ["Optimized sleep", "Repaired muscles", "Increased cognitive clarity", "Decreased athletic recovery time", "Increased energy"],
+    whoItsFor: ["Athletes seeking faster recovery", "People with sleep issues", "Those recovering from injury or illness", "Anyone wanting cognitive enhancement", "Individuals seeking improved immunity"],
+    whoItsNotFor: ["People with uncontrolled fever", "Those with severe claustrophobia", "Certain respiratory conditions"],
+    pricing: "Member $75 | Retail $105",
+    icon: Heart,
+    image: "/images/service_34_Smiling_woman_sitting_inside_a.webp",
+    category: "Recovery & Wellness",
+    faqs: [
+      {
+        q: "How long do the effects last?",
+        a: "Results vary by individual. Many clients report immediate benefits like relaxation and improved sleep. For optimal long-term results, we recommend 20-40 maintenance sessions."
+      },
+      {
+        q: "How will I feel during the session?",
+        a: "Most clients find it relaxing and comfortable. You may feel slight ear popping during pressurization, similar to an airplane. You can work, read, or rest."
+      },
+      {
+        q: "What should I do to prepare?",
+        a: "Arrive early to complete a medical waiver. You'll have your vitals checked and a TeleMed consultation with a medical professional. Wear comfortable clothing and avoid caffeine."
+      },
+      {
+        q: "How often should I use it?",
+        a: "We recommend 1-2 sessions daily with at least 4 hours between sessions. A minimum of 10 sessions is recommended to achieve results."
+      }
+    ]
+  },
+  {
+    id: "biomarker-assessments",
+    title: "Biomarker Assessments",
+    shortDesc: "Discover deficiencies and genetic markers that may indicate inefficiencies needing attention.",
+    fullDesc: "Biomarker Assessments help identify deficiencies and genetic markers that may indicate inefficiencies or faults in your health. This comprehensive testing provides actionable insights for personalized wellness optimization.",
+    whatToExpect: "A simple blood draw and consultation. Results are analyzed by medical professionals who provide personalized recommendations based on your unique biomarker profile.",
+    benefits: ["Decreased symptoms from imbalances, such as fatigue", "Enhanced immunity with antioxidants", "Improved nourishment", "Boosted energy", "Optimized overall well-being"],
+    whoItsFor: ["Anyone seeking health optimization", "People with unexplained fatigue", "Those wanting preventative health insights", "Athletes seeking performance optimization", "Anyone over 40 seeking longevity"],
+    whoItsNotFor: ["Those with needle phobia"],
+    pricing: "Premium Service | Consultation required",
+    icon: Brain,
+    image: "/images/service_11_Young_couple_relaxing_while_en.webp",
+    category: "Medical Services",
+    faqs: [
+      {
+        q: "What biomarkers are tested?",
+        a: "We test comprehensive panels including metabolic markers, immune function, nutrient levels, hormonal balance, and genetic markers relevant to your health goals."
+      },
+      {
+        q: "How long until I get results?",
+        a: "Results typically available within 3-5 business days. A medical professional will review and discuss personalized recommendations."
+      },
+      {
+        q: "What happens after testing?",
+        a: "You will receive a detailed report with personalized recommendations for therapies, supplements, and lifestyle changes to optimize your health."
+      },
+      {
+        q: "How often should I test?",
+        a: "Initial baseline testing recommended. Follow-up testing every 3-6 months to track progress and adjust protocols."
+      }
+    ]
+  },
+  {
+    id: "glp1-weight-loss",
+    title: "GLP-1 Weight Loss Programs",
+    shortDesc: "Experience safe, medicated weight loss with a customized treatment plan.",
+    fullDesc: "GLP-1 Weight Loss Programs provide medically-supervised, safe weight loss using FDA-approved medications. Our doctors customize treatment plans based on your unique health profile and weight loss goals.",
+    whatToExpect: "Initial medical consultation and labs. Weekly or bi-weekly injections (self-administered at home). Regular monitoring and adjustments. Comprehensive nutritional and lifestyle support throughout.",
+    benefits: ["Better regulate appetite", "Increased feelings of fullness", "Lose weight and retain muscle", "Sustainable long-term results", "Medically supervised safety", "Personalized treatment protocols"],
+    whoItsFor: ["People seeking sustainable weight loss", "Those with metabolic challenges", "Individuals with obesity or overweight", "Anyone wanting medically-supervised support", "People seeking lasting lifestyle change"],
+    whoItsNotFor: ["Pregnant or nursing women", "Those with certain medical conditions", "People unwilling to commit to lifestyle changes"],
+    pricing: "Consultation + labs required | Ongoing monthly cost | Membership credits do not apply",
+    icon: TrendingUp,
+    image: "/images/service_35_Smiling_woman_in_athletic_atti.webp",
+    category: "Weight Loss",
+    faqs: [
+      {
+        q: "Is GLP-1 therapy safe?",
+        a: "Yes, when medically supervised. We monitor labs regularly and adjust dosages. Our doctors have extensive GLP-1 experience and prioritize safety."
+      },
+      {
+        q: "How much weight can I lose?",
+        a: "Results vary by individual. Most people lose 10-15% of body weight over 6-12 months with consistent use and lifestyle changes."
+      },
+      {
+        q: "What are the side effects?",
+        a: "Common side effects are mild and temporary (nausea, reduced appetite). Most resolve within 1-2 weeks. We manage side effects proactively."
+      },
+      {
+        q: "Will I regain weight after stopping?",
+        a: "Long-term success requires commitment to lifestyle changes. We provide ongoing support and can adjust treatment protocols as needed."
+      }
+    ]
   }
 ];
 
 // Comparison Content
-export const comparisons = [
+
+// Comparison Content
+export const comparisonGuides = [
   {
-    id: "cryo-vs-coldplunge",
-    slug: "cryo-vs-coldplunge",
-    title: "Cryotherapy vs Cold Plunge",
-    description: "Which cold therapy is right for you?",
-    excerpt: "Which cold therapy is right for you?",
-    comparison: {
-      cryotherapy: {
-        pros: ["Extreme cold (-200°F to -300°F)", "Rapid results (2-3 min)", "No water immersion", "Whole body exposure", "Professional equipment"],
-        cons: ["More expensive", "Requires facility visit", "Intense sensation"]
+    id: "inflammation-recovery",
+    slug: "inflammation-recovery",
+    title: "Reduce Inflammation & Accelerate Recovery",
+    description: "Which therapy is right for your recovery goals?",
+    excerpt: "Combat inflammation and speed up recovery with the right therapy combination.",
+    cardImage: "/images/solution-recovery.jpg",
+    solutions: [
+      {
+        id: "cryotherapy",
+        name: "Cryotherapy",
+        description: "3 minutes of extreme cold exposure that triggers rapid anti-inflammatory response",
+        link: "/service/cryotherapy",
+        benefits: [
+          "Reduces inflammation and muscle soreness",
+          "Boosts mood and mental clarity",
+          "Accelerates muscle recovery between workouts",
+          "Improves circulation and athletic performance"
+        ]
       },
-      coldplunge: {
-        pros: ["Can do at home", "Lower cost", "Familiar sensation", "Customizable temperature"],
-        cons: ["Slower results", "Water immersion", "Requires discipline", "Less extreme cold"]
+      {
+        id: "redlight",
+        name: "Red Light Therapy",
+        description: "Stimulates cellular repair and reduces inflammation at the mitochondrial level",
+        link: "/service/red-light",
+        benefits: [
+          "Stimulates collagen production",
+          "Boosts cellular energy and ATP production",
+          "Improves skin health and appearance",
+          "Supports muscle recovery and repair"
+        ]
+      },
+      {
+        id: "iv-therapy",
+        name: "IV Therapy",
+        description: "Delivers anti-inflammatory compounds directly into your bloodstream",
+        link: "/service/iv-drip",
+        benefits: [
+          "100% nutrient absorption bypassing digestion",
+          "Rapid hydration and energy restoration",
+          "Customizable formulas for specific goals",
+          "Immediate results and sustained benefits"
+        ]
       }
-    },
-    recommendation: "For fastest results and athletic recovery, cryotherapy wins. For home convenience, cold plunges are effective but require consistency.",
-    image: "/images/service_07_Woman_wearing_protective_robe,.webp",
-    fullContent: "At Restore Hyper Wellness, we offer whole-body cryotherapy—a cutting-edge recovery technology that exposes your body to extreme cold (-200°F to -300°F) for just 2-3 minutes. This isn't your typical ice bath. Our cryotherapy chamber uses nitrogen vapor to rapidly cool your skin, triggering a cascade of physiological responses that accelerate recovery and reduce inflammation.\n\nWhen you step into our cryotherapy chamber, your body enters a state of controlled cold stress. Blood vessels constrict, pushing blood away from your extremities toward your core organs. Once you exit, vasodilation occurs—blood rushes back to your muscles, delivering oxygen and nutrients at an accelerated rate. This process reduces inflammation, decreases muscle soreness (DOMS), and speeds up recovery by 30-50% compared to passive rest.\n\nAthletes love cryotherapy because it works fast. A 3-minute session can reduce inflammation and soreness for 24-48 hours. You can do it between workouts, on rest days, or even before competition to reduce injury risk. The whole-body exposure means every muscle group benefits simultaneously.\n\nCold plunges, while effective, require you to immerse your entire body in ice-cold water (typically 50-60°F) for 5-15 minutes. The experience is intense and takes discipline to maintain regularly. You get similar benefits—reduced inflammation, improved circulation, enhanced recovery—but it takes longer and requires more mental toughness.\n\nThe key difference? Intensity and efficiency. Cryotherapy delivers extreme cold in minimal time, making it perfect for busy athletes and professionals. Cold plunges are more accessible for home use but require consistency and tolerance for prolonged cold exposure.\n\nAt Restore, our cryotherapy is administered by trained professionals in a controlled environment. You get the science-backed benefits without the hassle of maintaining an ice bath at home. Whether you're recovering from intense workouts, managing chronic inflammation, or optimizing athletic performance, our cryotherapy chamber delivers results fast."
+    ],
+    cta: "Reduce Inflammation & Accelerate Recovery",
+    image: "/images/solution-recovery.jpg"
   },
   {
-    id: "iv-vs-supplements",
-    slug: "iv-vs-supplements",
-    title: "IV Therapy vs Oral Supplements",
-    description: "Why IV therapy is 5-10x more effective",
-    excerpt: "Why IV therapy is 5-10x more effective",
-    comparison: {
-      iv: {
-        pros: ["100% absorption", "Immediate results", "Bypass digestive issues", "Customizable formulas", "Professional administration"],
-        cons: ["More expensive", "Requires facility visit", "Needle insertion"]
+    id: "sleep-detox",
+    slug: "sleep-detox",
+    title: "Sleep Better & Detoxify",
+    description: "Which therapy helps you rest and cleanse?",
+    excerpt: "Improve sleep quality and support your body's natural detoxification processes.",
+    cardImage: "/solution-sleep.jpg",
+    solutions: [
+      {
+        id: "infrared-sauna",
+        name: "Infrared Sauna",
+        description: "Deep heat triggers detoxification through sweat and promotes parasympathetic relaxation",
+        link: "/service/infrared-sauna",
+        benefits: [
+          "Deep detoxification through sweat",
+          "Improves sleep quality and duration",
+          "Enhances cardiovascular health",
+          "Reduces stress and promotes relaxation"
+        ]
       },
-      oral: {
-        pros: ["Convenient", "Lower cost", "No needles", "Easy to do at home"],
-        cons: ["Only 10-20% absorption", "Slow results", "Digestive issues", "Less effective"]
+      {
+        id: "redlight",
+        name: "Red Light Therapy",
+        description: "Supports circadian rhythm and melatonin production for deeper sleep",
+        link: "/service/red-light",
+        benefits: [
+          "Supports circadian rhythm regulation",
+          "Enhances melatonin production",
+          "Improves sleep quality and duration",
+          "Reduces blue light effects on sleep"
+        ]
       }
-    },
-    recommendation: "For rapid results and maximum absorption, IV therapy is superior. Oral supplements work but are less effective.",
-    image: "/images/service_11_Young_couple_relaxing_while_en.webp",
-    fullContent: "Here's the fundamental problem with oral supplements: your digestive system is a filter, not a delivery system. When you swallow a vitamin, mineral, or nutrient, it travels through your stomach and intestines where it's broken down and absorbed. But your body can only absorb 10-20% of what you consume. The rest is either metabolized inefficiently or eliminated as waste. IV therapy bypasses this entire process. At Restore Hyper Wellness, we deliver vitamins, minerals, amino acids, and specialized compounds directly into your bloodstream through intravenous infusion. This means 100% bioavailability. The science is compelling. A study published in the Journal of Alternative and Complementary Medicine found that IV nutrient therapy delivers 10-25 times higher concentrations of nutrients to tissues compared to oral supplementation. For energy, immune support, athletic recovery, and anti-aging benefits, this difference is transformative. Our IV therapy programs at Restore include customizable formulas designed for your specific goals. Whether you need an energy boost with high-dose vitamin C and B-complex vitamins, athletic recovery with amino acids and electrolytes, immune support with zinc and glutathione, or anti-aging with NAD+ and antioxidants, we can create the perfect infusion for you. Results are immediate. Many clients report feeling more energized, focused, and recovered within 30 minutes of completing their IV therapy session. Oral supplements take days or weeks to build up in your system. Oral supplements still have a place for daily maintenance and preventative health. But if you're serious about rapid recovery, peak performance, or addressing specific health challenges, IV therapy at Restore delivers results that oral supplements cannot match. You're ensuring your body actually uses the nutrients."
+    ],
+    cta: "Sleep Better & Detoxify",
+    image: "/solution-sleep.jpg"
   },
   {
-    id: "redlight-vs-sauna",
-    slug: "redlight-vs-sauna",
-    title: "Red Light Therapy vs Infrared Sauna",
-    description: "Both are powerful - here's the difference",
-    excerpt: "Both are powerful - here's the difference",
-    comparison: {
-      redlight: {
-        pros: ["Cellular energy boost", "Targeted treatment", "Quick sessions (15-20 min)", "No sweating", "Skin benefits"],
-        cons: ["Less detoxification", "Shorter sessions"]
+    id: "fatigue-brain-fog",
+    slug: "fatigue-brain-fog",
+    title: "Combat Fatigue & Brain Fog",
+    description: "Restore energy and mental clarity",
+    excerpt: "Boost energy and eliminate brain fog with proven cellular energy restoration.",
+    cardImage: "/solution-energy.jpg",
+    solutions: [
+      {
+        id: "nad-iv",
+        name: "NAD+ IV Therapy",
+        description: "Restores cellular energy at the mitochondrial level for rapid mental clarity and sustained energy",
+        link: "/service/nad-iv",
+        benefits: [
+          "Restores cellular energy at mitochondrial level",
+          "Supports DNA repair and longevity",
+          "Enhances mental clarity and focus",
+          "Improves athletic performance and recovery"
+        ]
       },
-      sauna: {
-        pros: ["Deep detoxification", "Longer relaxation (30-45 min)", "Cardiovascular benefits", "Muscle relaxation"],
-        cons: ["More time commitment", "Sweating", "Less cellular energy boost"]
+      {
+        id: "niagen",
+        name: "Niagen (NR)",
+        description: "Natural NAD+ precursor for daily energy support and cognitive enhancement",
+        link: "/service/niagen-nr-iv",
+        benefits: [
+          "Natural NAD+ precursor for daily support",
+          "Faster infusion with fewer side effects",
+          "Sustainable cellular energy production",
+          "Supports cognitive enhancement and vitality"
+        ]
       }
-    },
-    recommendation: "Use red light for energy and skin. Use sauna for detox and relaxation. Many people do both for comprehensive benefits.",
-    image: "/images/service_08_Woman_with_her_hands_above_her.webp",
-    fullContent: "Red light therapy and infrared sauna are both powerful wellness tools, but they work through completely different mechanisms. Red light therapy uses specific wavelengths of red and near-infrared light to stimulate mitochondrial function in your cells. When light photons penetrate your skin and reach the mitochondria, they energize the cytochrome c oxidase enzyme in the electron transport chain. This increases ATP cellular energy production by up to 40%. At Restore, our red light therapy beds deliver therapeutic wavelengths across your entire body in just 15-20 minutes. Clients experience improved energy, faster muscle recovery, enhanced skin appearance, better circulation, and reduced inflammation. Infrared sauna works differently. Our infrared sauna cabins use infrared heat to penetrate 1.5 inches below the skin surface, raising your core body temperature. This triggers several powerful responses: increased heart rate and circulation, profuse sweating which detoxifies through your largest organ, muscle relaxation, and parasympathetic nervous system activation. A 30-45 minute infrared sauna session at Restore can burn 200-600 calories, eliminate heavy metals and toxins through sweat, improve cardiovascular function, reduce muscle tension, and promote deep relaxation. So which should you choose? The answer is both. They are complementary. Use red light therapy for rapid cellular energy, athletic recovery, and skin health. Use infrared sauna for deep detoxification, cardiovascular conditioning, and stress relief. Many of our most committed members do both: 15 minutes of red light therapy followed by 30 minutes in the infrared sauna for a comprehensive recovery and wellness session. At Restore Hyper Wellness, we have invested in premium equipment for both therapies because we believe optimal wellness requires a multi-modal approach."
+    ],
+    cta: "Restore Energy & Mental Clarity",
+    image: "/solution-energy.jpg"
   },
   {
-    id: "nad-worth-it",
-    slug: "nad-worth-it",
-    title: "Is NAD+ IV Therapy Worth It?",
-    description: "Understanding the investment in cellular longevity",
-    excerpt: "Understanding the investment in cellular longevity",
-    comparison: {
-      benefits: {
-        pros: ["Rapid cellular energy", "Anti-aging support", "Cognitive enhancement", "Athletic performance", "Addiction recovery support"],
-        cons: ["Higher cost", "Requires multiple sessions", "Effects build over time"]
+    id: "skin-health-anti-aging",
+    slug: "skin-health-anti-aging",
+    title: "Restore Skin Health & Vitality",
+    description: "Which therapy supports your skin and anti-aging goals?",
+    excerpt: "Enhance skin appearance and support cellular anti-aging from the inside out.",
+    cardImage: "/solution-skin.jpg",
+    solutions: [
+      {
+        id: "redlight",
+        name: "Red Light Therapy",
+        description: "Stimulates collagen production and cellular repair for glowing, youthful skin",
+        link: "/service/red-light",
+        benefits: [
+          "Stimulates collagen production",
+          "Reduces fine lines and wrinkles",
+          "Improves skin texture and radiance",
+          "Supports cellular regeneration"
+        ]
       },
-      alternatives: {
-        pros: ["Lower cost", "Convenient", "Accessible"],
-        cons: ["Slower results", "Lower absorption", "Less dramatic effects"]
+      {
+        id: "iv-therapy",
+        name: "IV Therapy",
+        description: "Delivers hydration and antioxidants that support skin health and radiance",
+        link: "/service/iv-drip",
+        benefits: [
+          "Deep hydration from within",
+          "Delivers antioxidants and vitamins",
+          "Supports skin elasticity and glow",
+          "Promotes cellular renewal"
+        ]
       }
-    },
-    recommendation: "NAD+ IV is worth it if you're serious about longevity, performance, or cognitive enhancement. Start with 4-6 sessions to assess benefits.",
-    image: "/images/service_12_Smiling_woman_receiving_a_NAD+.webp",
-    fullContent: "NAD+ is a coenzyme found in every cell in your body. It is essential for energy production, DNA repair, cellular stress resistance, and longevity. But NAD+ levels decline by 50% between age 20 and 50, and continue dropping with age. This decline is linked to aging, cognitive decline, reduced athletic performance, and increased disease risk. NAD+ IV therapy at Restore Hyper Wellness delivers high-dose NAD+ directly into your bloodstream, bypassing the digestive system and achieving blood concentrations that oral supplements simply cannot match. Cellular Energy: NAD+ is a critical cofactor in the electron transport chain, the process that generates ATP. By restoring NAD+ levels, you are essentially upgrading your cellular power plant. Clients report feeling more energized, focused, and mentally sharp within hours of their NAD+ infusion. Cognitive Enhancement: NAD+ supports brain function and neuroplasticity. Studies show that elevated NAD+ improves memory, focus, and mental clarity. For professionals, students, and anyone seeking peak cognitive performance, NAD+ IV therapy delivers measurable results. Athletic Performance: Athletes use NAD+ to enhance recovery, reduce fatigue, and improve endurance. NAD+ supports mitochondrial function in muscle tissue, meaning faster recovery and better performance in your next workout. Anti-Aging at the Cellular Level: NAD+ activates sirtuins, proteins that regulate cellular aging and longevity. By restoring NAD+ levels, you are literally supporting your body's natural anti-aging mechanisms at the cellular level. Addiction Recovery Support: NAD+ IV therapy has shown promise in supporting recovery from substance abuse by restoring cellular function and reducing cravings. Many addiction specialists recommend NAD+ as part of a comprehensive recovery program. Is it worth the investment? That depends on your goals and timeline. If you are looking for marginal improvements, oral supplements might suffice. But if you are serious about peak performance, cognitive enhancement, athletic recovery, or anti-aging, if you want to feel and perform at your absolute best, NAD+ IV therapy delivers results that other modalities cannot match. We recommend starting with a series of 4-6 sessions to assess your individual response. Many clients then transition to monthly maintenance infusions. At Restore, we have worked with executives, athletes, and wellness-focused individuals who have made NAD+ IV therapy a cornerstone of their health optimization strategy. The investment pays dividends in energy, performance, and longevity."
+    ],
+    cta: "Restore Skin Health & Vitality",
+    image: "/solution-skin.jpg"
+  },
+  {
+    id: "athletic-performance",
+    slug: "athletic-performance",
+    title: "Enhance Performance & Recovery",
+    description: "Which therapy optimizes your athletic potential?",
+    excerpt: "Boost performance, accelerate recovery, and prevent injuries with targeted therapies.",
+    cardImage: "/solution-performance.jpg",
+    solutions: [
+      {
+        id: "iv-therapy",
+        name: "IV Therapy",
+        description: "Delivers amino acids, electrolytes, and nutrients for rapid recovery and performance enhancement",
+        link: "/service/iv-drip",
+        benefits: [
+          "Rapid amino acid delivery for muscle repair",
+          "Electrolyte replenishment and hydration",
+          "Enhanced oxygen delivery to muscles",
+          "Accelerated recovery between training sessions"
+        ]
+      },
+      {
+        id: "cryotherapy",
+        name: "Cryotherapy",
+        description: "Reduces inflammation and muscle soreness, accelerating recovery between workouts",
+        link: "/service/cryotherapy",
+        benefits: [
+          "Reduces inflammation and muscle soreness",
+          "Accelerates muscle recovery",
+          "Improves athletic performance",
+          "Enhances endurance and strength"
+        ]
+      }
+    ],
+    cta: "Enhance Performance & Recovery",
+    image: "/solution-performance.jpg"
+  },
+  {
+    id: "stress-relief",
+    slug: "stress-relief",
+    title: "Melt Stress & Find Calm",
+    description: "Which therapy helps you relax and recover?",
+    excerpt: "Activate your parasympathetic nervous system and experience deep stress relief.",
+    cardImage: "/solution-calm.jpg",
+    solutions: [
+      {
+        id: "infrared-sauna",
+        name: "Infrared Sauna",
+        description: "Deep heat relaxation that melts tension and activates your body's relaxation response",
+        link: "/service/infrared-sauna",
+        benefits: [
+          "Deep heat relaxation and tension relief",
+          "Activates parasympathetic nervous system",
+          "Reduces cortisol and stress hormones",
+          "Promotes deep relaxation and calm"
+        ]
+      },
+      {
+        id: "hyperbaric",
+        name: "Hyperbaric Oxygen Therapy",
+        description: "Increases oxygen delivery to reduce stress hormones and promote deep relaxation",
+        link: "/service/mild-hyperbaric-oxygen",
+        benefits: [
+          "Increases oxygen delivery to cells",
+          "Reduces stress hormones and anxiety",
+          "Promotes deep relaxation and calm",
+          "Enhances cognitive function and clarity"
+        ]
+      }
+    ],
+    cta: "Melt Stress & Find Calm",
+    image: "/solution-calm.jpg"
   }
 ];
 
@@ -703,7 +1055,7 @@ export const blogPosts = [
     date: "2025-12-15",
     author: "Dr. Sarah Chen",
     category: "Athletic Recovery",
-    image: "/images/cryotherapy-session.jpg",
+    image: "/images/location-hero-studio.webp",
     tags: ["Marathon", "Recovery", "Columbus", "Athletic Performance"]
   },
   {
@@ -729,5 +1081,77 @@ export const blogPosts = [
     category: "Seasonal Wellness",
     image: "/images/sauna-official.jpg",
     tags: ["Winter", "Seasonal Affective Disorder", "Columbus", "Mental Health"]
-  }
+  },
+  {
+    id: "guide-to-wellness-dublin",
+    slug: "guide-to-wellness-dublin",
+    title: "Your Guide to Wellness in Dublin: Bridge Park and Beyond",
+    excerpt: "Discover the best wellness spots in Dublin, OH, from walking trails to advanced recovery.",
+    content: "Dublin, Ohio has transformed into a premier wellness destination. With the development of Bridge Park, the expansion of the Scioto Mile, and a community focused on health, there's never been a better time to focus on your well-being in Dublin.\n\n## Start with Movement at Bridge Park\n\nThe pedestrian bridge connecting Historic Dublin to Bridge Park isn't just an architectural marvel—it's the perfect starting point for your wellness journey. A morning walk or run along the Scioto River provides fresh air, river views, and a connection to nature that lowers cortisol and boosts mood.\n\n## Fuel Your Body\n\nAfter your movement, Dublin offers incredible healthy dining options. From the fresh bowls at North Market Bridge Park to the farm-to-table options in Historic Dublin, you can fuel your body with nutrient-dense whole foods.\n\n## Optimize Your Recovery\n\nMovement and nutrition are the foundation, but recovery is the accelerator. That's where Restore Hyper Wellness comes in. Located just minutes from Bridge Park at 6780 Longshore St, our Dublin studio offers advanced recovery modalities used by professional athletes.\n\nOne of our most popular treatments for active Dublin residents is **Whole Body Cryotherapy**. In just 3 minutes, you can reduce inflammation, boost your mood, and accelerate muscle recovery.\n\n[Learn more about Cryotherapy in Dublin near Bridge Park](/cryotherapy-dublin)\n\n## The Dublin Wellness Community\n\nWhat makes Dublin special is the community. Whether you're joining a run club at Fleet Feet, taking a yoga class on the green, or recovering at Restore, you're surrounded by people who value health and longevity. Join us and elevate your wellness journey today.",
+    date: "2026-01-02",
+    author: "Restore Team",
+    category: "Local Guide",
+    image: "/images/location-hero-studio.webp",
+    tags: ["Dublin", "Bridge Park", "Wellness Guide", "Local"]
+  },
+  {
+    id: "why-upper-arlington-residents-choose-restore",
+    slug: "why-upper-arlington-residents-choose-restore",
+    title: "Why Upper Arlington Residents Choose Restore",
+    excerpt: "Upper Arlington residents prioritize health and wellness. Discover why Upper Arlington's health-conscious community chooses Restore for science-backed recovery and longevity.",
+    content: "Upper Arlington residents are serious about their health and wellness. Known for its tree-lined streets, excellent schools, and health-conscious community, Upper Arlington attracts people who prioritize longevity, fitness, and science-backed wellness. They invest in their health, their fitness, and their future. Restore Hyper Wellness embodies that same commitment to excellence and wellness.\n\n## Kingsdale Center: Your Neighborhood Wellness Hub\n\nNestled in the heart of Kingsdale Center, Restore is where Upper Arlington residents have always looked for premium services. Our location at 3094 Kingsdale Center puts world-class recovery within walking distance of your community. No need to venture downtown or across the city—your recovery destination is right here in Upper Arlington.\n\nConvenient. Accessible. Neighborhood-centered.\n\n## Upper Arlington Values: Science, Health, and Longevity\n\nUpper Arlington residents don't chase wellness trends—they invest in proven science. They understand that recovery isn't a luxury; it's a foundation for living well. Our medical-grade therapies align perfectly with the Upper Arlington philosophy:\n\n- Cryotherapy for athletes training at Scioto Country Club or local running clubs\n- Compression therapy for professionals managing demanding careers\n- IV therapy for busy parents optimizing energy and immunity\n- Red light therapy for those prioritizing skin health and cellular vitality\n- Infrared sauna for stress relief and detoxification in a peaceful setting\n- NAD+ IV therapy for those serious about cellular longevity\n\nUpper Arlington residents understand that investing in recovery today means enjoying life more fully tomorrow.\n\n## Built for Upper Arlington's Refined Lifestyle\n\nOur Upper Arlington location respects your schedule and your standards. We have designed our hours around Upper Arlington's rhythm—early morning sessions before work, lunch-hour resets, and afternoon appointments that fit seamlessly into your day. Our studio reflects the same attention to detail and quality you expect from every aspect of your life.\n\nHours: Tuesday-Friday 10am-6pm | Saturday 10am-5pm | Sunday 11am-4pm | Closed Mondays\n\nFirst-time visitors receive a complimentary consultation to ensure you find the perfect therapy for your goals.\n\n## A Community of Upper Arlington Wellness Leaders\n\nWhen you choose Restore Upper Arlington, you're joining a community of health-conscious neighbors who have made recovery non-negotiable. Our members include:\n\n- Local athletes training for marathons, triathlons, and competitive events\n- Executives and professionals managing high-stress careers\n- Parents modeling wellness for their families\n- Fitness enthusiasts accelerating recovery between workouts\n- Wellness pioneers exploring science-backed longevity therapies\n\nYou will recognize faces from your neighborhood. You will build relationships with our knowledgeable staff. You will become part of an Upper Arlington wellness community.\n\n## The Upper Arlington Advantage: Three Locations, One Membership\n\nWork in Easton? Have family in Dublin? With Restore's nationwide membership access, you can visit any of our three Columbus locations—or any Restore studio across the country. Your membership works everywhere, because your wellness journey doesn't stop at neighborhood boundaries.\n\n## Ready to Experience Upper Arlington's Premier Recovery Destination?\n\nVisit Restore Hyper Wellness - Upper Arlington at 3094 Kingsdale Center, Upper Arlington, OH 43221. Call 614-745-0966 to book your first session. First-time visitors receive a complimentary consultation.",
+    date: "2026-01-04",
+    author: "Restore Team",
+    category: "Local Guide",
+    image: "/images/upper-arlington-lifestyle.webp",
+    tags: ["Upper Arlington", "Kingsdale Center", "Wellness Guide", "Local", "Recovery"]
+  },
+  {
+    id: "dublin-longevity-2026",
+    slug: "dublin-longevity-2026",
+    title: "2026: The Year of Longevity for Dublin Residents - Make This Your Turning Point",
+    excerpt: "New Year resolutions fade by February. But longevity isn't a resolution—it's a commitment. Here's how Dublin residents are building a foundation for extraordinary health in 2026.",
+    content: "January 1st arrives with the same promise every year: this is the year you'll get healthier, stronger, more energized. You'll hit the gym, eat better, sleep more. And by mid-February, most resolutions have faded into memory. But what if 2026 was different? What if instead of chasing a New Year resolution, you committed to something bigger: longevity—the science of living longer, stronger, and with more vitality than you thought possible?\n\nDublin residents are uniquely positioned to make 2026 their longevity turning point. Here's why, and how to start.\n\n## The Longevity Mindset: Beyond New Year Resolutions\n\nResolutions are short-term fixes. Longevity is a long-term investment.\n\nA resolution might be: I'll work out 5 days a week.\n\nLongevity is: I'm building a life where movement, recovery, and cellular health compound over decades.\n\nThe difference isn't just semantics—it's transformational. When you shift from resolution-thinking to longevity-thinking, you stop looking for quick fixes. Instead, you invest in systems that work for you year after year.\n\n## Why Dublin Is the Perfect Place to Start Your Longevity Journey\n\nDublin has something most communities don't: a culture of health and intentionality.\n\nBridge Park isn't just a development—it's a symbol of Dublin's commitment to creating spaces where people move, connect, and thrive. The Scioto Mile offers daily opportunities for outdoor activity. The community values wellness, fitness, and continuous improvement.\n\nYou're surrounded by people who care about their health. That community energy is powerful. It makes longevity feel less like a solo struggle and more like a shared commitment.\n\n## The Three Pillars of Longevity (And How to Build Them in 2026)\n\n### Pillar 1: Movement\n\nLongevity starts with movement. Not extreme training—consistent, joyful movement.\n\nDublin offers incredible options: morning runs along the Scioto Mile, yoga classes on the green, walking trails through Historic Dublin, cycling around Bridge Park. The key is consistency, not intensity.\n\n**Your 2026 commitment:** Find a movement practice you enjoy and do it 3-4 times per week. Not because you have to—because you want to.\n\n### Pillar 2: Recovery\n\nHere's what most people miss: recovery is where the magic happens.\n\nYou don't get stronger during your workout—you get stronger during recovery. You don't improve your health during your run—you improve it while your body repairs itself. Yet most people neglect recovery entirely.\n\nScience-backed recovery therapies accelerate this process. When you combine movement with strategic recovery, you compound your results.\n\nThat's why Restore Hyper Wellness exists. Located at 6780 Longshore St in Dublin, just minutes from Bridge Park, we offer therapies specifically designed for longevity:\n\n- **Cryotherapy** reduces inflammation, boosts mood, accelerates muscle recovery\n- **Infrared Sauna** detoxifies, improves cardiovascular health, enhances sleep quality\n- **Red Light Therapy** boosts cellular energy, improves skin health, supports recovery\n- **Compression Therapy** flushes metabolic waste, accelerates recovery, improves circulation\n- **NAD+ IV Therapy** restores cellular energy, supports longevity at the mitochondrial level\n- **IV Therapy** optimizes hydration, energy, and immunity\n\nThese aren't luxury treatments—they're tools for longevity.\n\n**Your 2026 commitment:** Add one recovery therapy to your routine. Start with cryotherapy or infrared sauna once per week. Track how you feel. Most people notice improvements in sleep, energy, and recovery within 2-3 weeks.\n\n### Pillar 3: Cellular Optimization\n\nLongevity isn't just about what you do—it's about optimizing what happens inside your cells.\n\nYour cells are aging. That's not pessimism—that's biology. But the rate at which they age is largely within your control. Factors like sleep, stress, nutrition, movement, and recovery all impact cellular aging.\n\nAdvanced therapies like NAD+ IV therapy directly support cellular energy production. Red light therapy boosts mitochondrial function. Infrared sauna triggers cellular repair mechanisms. Together, these create a foundation for cellular longevity.\n\n**Your 2026 commitment:** Explore one cellular optimization therapy. NAD+ IV therapy is particularly powerful for anyone serious about longevity. Many of our Dublin members do quarterly NAD+ sessions to maintain peak cellular function.\n\n## The Dublin Longevity Community\n\nHere's what makes this real: you won't be doing this alone.\n\nWhen you commit to longevity in 2026, you're joining a community of Dublin residents who have made the same choice. You'll see familiar faces at Bridge Park. You'll recognize neighbors at Restore. You'll be part of a movement of people building extraordinary health together.\n\nThat community energy compounds your results. It keeps you accountable. It makes longevity feel achievable—because you're surrounded by people achieving it.\n\n## Your 2026 Longevity Blueprint\n\nHere's how to make 2026 your turning point:\n\n**Month 1 (January):** Establish your movement practice. Pick one activity you enjoy and commit to 3-4 sessions per week.\n\n**Month 2 (February):** Add one recovery therapy. Try cryotherapy or infrared sauna. Notice how it impacts your sleep, energy, and recovery.\n\n**Month 3 (March):** Optimize your nutrition and sleep. These are the foundation. Everything else builds on them.\n\n**Month 4+ (April onward):** Explore advanced therapies like NAD+ IV. Build relationships with our team. Become part of the Dublin longevity community.\n\nThis isn't a resolution that fades by February. This is a system that compounds over 12 months, 12 years, and the rest of your life.\n\n## The Longevity Promise\n\nWhen you commit to longevity in 2026, you're not just committing to this year. You're committing to a version of yourself at 50, 60, 70, and beyond who has more energy, better health, and a deeper capacity to enjoy life.\n\nThat's not a New Year resolution. That's a legacy.\n\n## Ready to Experience Dublin's Premier Longevity Destination?\n\nVisit Restore Hyper Wellness - Dublin at 6780 Longshore St, Dublin, OH 43017. Call 614-944-9041 to book your complimentary consultation. Our team will help you design a longevity plan tailored to your goals.\n\nFirst-time visitors receive a complimentary session to experience the power of recovery therapy.\n\n**Make 2026 the year you stopped chasing resolutions and started building longevity.",
+    date: "2026-01-06",
+    author: "Restore Team",
+    category: "Longevity",
+    image: "/images/dublin-fitness-energy.jpg",
+    tags: ["Dublin", "Longevity", "New Year", "Wellness", "2026", "Recovery", "Health"]
+  },
+  {
+    id: "westerville-wellness-professionals-2026",
+    slug: "westerville-wellness-professionals-2026",
+    title: "Lunch-Hour Recovery: How Westerville Professionals Are Reclaiming Their Wellness",
+    excerpt: "Between meetings, emails, and deadlines, wellness feels impossible. But what if recovery took just 30 minutes? Discover how Westerville professionals are transforming their health during lunch breaks.",
+    content: "You know the feeling. It's 11:45 AM. You've been in back-to-back meetings since 8 AM. Your shoulders are tight. Your energy is crashing. You have 30 minutes before the next call. Most people grab a coffee and a sandwich. But Westerville professionals are doing something different—they're recovering.\n\nLocated at Easton, just minutes from Westerville's business district, Restore Hyper Wellness has become the lunch-hour destination for professionals who refuse to sacrifice wellness for productivity. In 30 minutes, you can reset your nervous system, boost your energy, and return to work sharper than you left.\n\n## The Westerville Professional's Dilemma\n\nWesterville attracts high-achieving professionals. Entrepreneurs. Executives. Business owners. People who care deeply about their careers—and increasingly, about their health.\n\nBut here's the problem: traditional wellness requires time. Gym sessions take an hour. Yoga classes are scheduled. Therapy appointments need to be booked weeks in advance.\n\nFor busy professionals, this creates a choice: prioritize work or prioritize wellness. Most choose work.\n\nBut what if wellness didn't require choosing? What if you could recover during your existing break time?\n\n## The 30-Minute Recovery Revolution\n\nThis is where Restore changes everything.\n\nCryotherapy: 3 minutes of extreme cold exposure that reduces inflammation, boosts mood, and accelerates recovery. You step out energized.\n\nInfrared Sauna: 30 minutes of deep heat that detoxifies, improves cardiovascular health, and melts stress. You leave relaxed and rejuvenated.\n\nCompression Therapy: 30 minutes of rhythmic compression that flushes metabolic waste and accelerates recovery. Perfect for professionals who sit all day.\n\nRed Light Therapy: 20 minutes of cellular energy boost. Improves focus, reduces brain fog, enhances mood.\n\nIV Therapy: 30-45 minutes of optimized hydration, energy, and immunity. The ultimate lunch-hour reset.\n\nEach therapy is designed to fit into your schedule—not the other way around.\n\n## Why Westerville Professionals Are Choosing Recovery\n\nWesterville's business community understands something fundamental: your health is your competitive advantage.\n\nYou can't perform at your best when you're exhausted, inflamed, and stressed. Recovery isn't a luxury—it's a business tool.\n\nWhen you add one recovery session to your weekly routine, you notice:\n\n- Better focus in afternoon meetings\n- Reduced stress and anxiety\n- Faster recovery from workouts\n- Improved sleep quality\n- More energy throughout the day\n- Better decision-making\n\nThese aren't small benefits. These are the differences between good performance and exceptional performance.\n\n## The Easton Advantage\n\nLocated at Easton, Restore is perfectly positioned for Westerville professionals. You're already at Easton for shopping, dining, or business meetings. Adding a 30-minute recovery session is seamless.\n\nWalk in. Recover. Walk out. Back to work.\n\nNo commute. No excuses. No friction.\n\nHours: Monday-Friday 10am-7pm | Saturday 10am-5pm | Sunday 11am-4pm\n\nFirst-time visitors receive a complimentary consultation to find the perfect 30-minute recovery therapy for your lifestyle.\n\n## The Westerville Wellness Community\n\nWhen you choose Restore, you're joining a community of Westerville professionals who have made recovery non-negotiable. You'll recognize colleagues from your industry. You'll build relationships with our team. You'll become part of a movement of professionals who refuse to sacrifice wellness for success.\n\nThat community energy is powerful. It keeps you accountable. It makes wellness feel achievable—because you're surrounded by people achieving it.\n\n## Your Lunch-Hour Recovery Blueprint\n\nStart small. Pick one therapy. Try it once per week during your lunch break.\n\nWeek 1: Experience your first recovery session. Notice how you feel.\n\nWeek 2-4: Repeat weekly. Track your energy, focus, and sleep quality.\n\nMonth 2+: Add a second session per week. Experiment with different therapies. Build your ideal recovery routine.\n\nWithin 30 days, most professionals notice significant improvements in energy, focus, and overall wellness.\n\n## Ready to Reclaim Your Lunch Hour?\n\nVisit Restore Hyper Wellness - Easton at 6780 Longshore St, Columbus, OH 43235 (Easton location). Call 614-944-9041 to book your complimentary consultation.\n\nFirst-time visitors receive a complimentary 30-minute session to experience the power of recovery during your lunch break.\n\nMake 2026 the year you stopped sacrificing wellness for productivity—and discovered you don't have to choose.",
+    date: "2026-01-06",
+    author: "Restore Team",
+    category: "Local Guide",
+    image: "/images/westerville-professional-wellness.webp",
+    tags: ["Westerville", "Professional Wellness", "Lunch Break", "Recovery", "Easton", "Productivity"]
+  },
+  {
+    id: "new-albany-cellular-longevity-2026",
+    slug: "new-albany-cellular-longevity-2026",
+    title: "The New Albany Standard: Cellular Longevity for Discerning Professionals",
+    excerpt: "New Albany residents demand excellence in everything—from architecture to healthcare. Discover how cutting-edge cellular optimization therapies are redefining longevity for the area's most health-conscious residents.",
+    content: "New Albany represents a particular standard. Excellence in design. Precision in execution. Commitment to the finest details. The residents who choose New Albany don't settle for ordinary—in their homes, their careers, or their health.\n\nThey understand something that most people miss: longevity isn't about living longer. It's about living better. It's about maintaining peak performance, cognitive clarity, and vitality for decades to come.\n\nFor New Albany's most discerning residents, that means moving beyond traditional wellness into cellular optimization—science-backed therapies that work at the mitochondrial level to slow aging and enhance performance.\n\n## The New Albany Advantage: Access to Cutting-Edge Longevity Science\n\nNew Albany residents have always had access to the best. The best schools. The best architecture. The best healthcare. Now, they have access to the best longevity science.\n\nLocated at Easton, just minutes from New Albany, Restore Hyper Wellness offers therapies specifically designed for cellular optimization—the frontier of longevity science.\n\nThese aren't trendy wellness treatments. These are medical-grade therapies backed by peer-reviewed research and used by elite athletes, executives, and longevity pioneers worldwide.\n\n## The Four Pillars of Cellular Longevity\n\n### Pillar 1: Mitochondrial Energy (NAD+ IV Therapy)\n\nYour mitochondria are the power plants of your cells. As you age, mitochondrial function declines—leading to fatigue, cognitive decline, and accelerated aging.\n\nNAD+ is the critical coenzyme that powers mitochondrial energy production. NAD+ IV therapy directly restores cellular energy at the source.\n\nResults: Enhanced mental clarity, increased energy, improved athletic performance, and cellular-level anti-aging.\n\nNew Albany residents pursuing serious longevity typically do quarterly NAD+ sessions to maintain peak cellular function.\n\n### Pillar 2: Cellular Repair (Red Light Therapy)\n\nRed light penetrates to the mitochondrial level, stimulating cellular repair mechanisms and boosting energy production.\n\nUnlike other therapies, red light therapy works at the cellular level—triggering your body's own repair systems.\n\nResults: Improved skin health, enhanced recovery, better cognitive function, and cellular regeneration.\n\n### Pillar 3: Inflammation Management (Cryotherapy)\n\nChronic inflammation is the root cause of most age-related diseases. Cryotherapy triggers your body's anti-inflammatory response.\n\nThree minutes of extreme cold exposure activates your parasympathetic nervous system, reduces systemic inflammation, and enhances recovery.\n\nResults: Reduced inflammation markers, faster recovery, improved mood, and better sleep.\n\n### Pillar 4: Detoxification & Cardiovascular Health (Infrared Sauna)\n\nInfrared sauna triggers deep detoxification at the cellular level while improving cardiovascular function.\n\nUnlike traditional saunas, infrared penetrates tissue deeply, triggering sweat at lower temperatures and activating cellular repair mechanisms.\n\nResults: Enhanced detoxification, improved cardiovascular health, better sleep, and stress reduction.\n\n## The New Albany Longevity Protocol\n\nNew Albany residents serious about cellular longevity typically follow this protocol:\n\n**Monthly Foundation:**\n- 1x NAD+ IV therapy (cellular energy restoration)\n- 2x Infrared sauna sessions (detoxification & cardiovascular health)\n- 2x Cryotherapy sessions (inflammation management)\n- 2x Red light therapy sessions (cellular repair)\n\nThis protocol addresses all four pillars of cellular longevity, creating a comprehensive system for maintaining peak health and performance.\n\n**Quarterly Deep Optimization:**\n- Additional NAD+ IV therapy to maintain mitochondrial function\n- Advanced testing and personalized protocol adjustments\n\n## Why New Albany Residents Choose Cellular Optimization\n\nNew Albany attracts high-achieving professionals, entrepreneurs, and executives. These are people who understand the value of strategic investment.\n\nThey invest in their education. Their careers. Their homes. Their families.\n\nCellular optimization is simply the logical extension of that philosophy—investing in the cellular foundation that makes everything else possible.\n\nWhen your cells are optimized, everything improves:\n- Mental clarity and cognitive performance\n- Physical energy and athletic capability\n- Sleep quality and recovery\n- Skin health and appearance\n- Mood and emotional resilience\n- Long-term health and longevity\n\n## The Easton Location: Premium Wellness for New Albany\n\nLocated at Easton, Restore offers New Albany residents convenient access to world-class longevity therapies. Our studio reflects the same attention to detail and quality you expect from every aspect of your life.\n\nHours: Monday-Friday 10am-7pm | Saturday 10am-5pm | Sunday 11am-4pm\n\nFirst-time visitors receive a complimentary cellular optimization consultation to design a personalized longevity protocol.\n\n## Your Cellular Longevity Blueprint\n\n**Month 1:** Start with foundational therapies. Experience NAD+ IV therapy, infrared sauna, and cryotherapy. Establish baseline health markers.\n\n**Month 2-3:** Build your monthly protocol. Add red light therapy. Repeat your favorite therapies weekly. Notice improvements in energy, sleep, and mental clarity.\n\n**Month 4+:** Optimize and refine. Adjust your protocol based on results. Consider advanced testing. Become part of New Albany's cellular longevity community.\n\nMost New Albany residents notice significant improvements in energy, mental clarity, and overall vitality within 60 days.\n\n## Ready to Invest in Your Cellular Future?\n\nVisit Restore Hyper Wellness - Easton at 6780 Longshore St, Columbus, OH 43235. Call 614-944-9041 to book your complimentary cellular optimization consultation.\n\nOur team will help you design a personalized longevity protocol tailored to your goals and lifestyle.\n\nFirst-time visitors receive a complimentary session to experience the power of cellular optimization.\n\nMake 2026 the year you invested in your cellular foundation—and discovered what peak health truly feels like.",
+    date: "2026-01-08",
+    author: "Restore Team",
+    category: "Longevity",
+    image: "/images/new-albany-cellular-optimization.jpg",
+    tags: ["New Albany", "Cellular Longevity", "NAD+ Therapy", "Premium Wellness", "Easton", "Anti-Aging"]
+  },
+  {
+    id: "gahanna-family-wellness-2026",
+    slug: "gahanna-family-wellness-2026",
+    title: "Building Healthy Families: How Gahanna Residents Are Prioritizing Wellness for Everyone",
+    excerpt: "Wellness isn't just for athletes or executives. Gahanna families are discovering how recovery therapies benefit everyone—from busy parents to active kids to aging grandparents. Learn how to build a healthier family in 2026.",
+    content: "Gahanna is a family community. Parents juggling work and kids. Athletes training for the next season. Grandparents staying active and engaged. People of all ages and backgrounds committed to living well together.\n\nBut wellness in a family context looks different than individual wellness. You're not just optimizing yourself—you're building health for your entire household.\n\nThat's why Gahanna families are discovering Restore Hyper Wellness. Located at Easton, just minutes away, Restore offers therapies that benefit everyone—from stressed-out parents to young athletes to active seniors.\n\n## Wellness for Every Stage of Life\n\n### For Busy Parents\n\nParenting is demanding. Work deadlines. Kids' schedules. Household responsibilities. By the end of the day, you're exhausted.\n\nBut your kids need you present and energized. Your partner needs you engaged. Your work needs your best thinking.\n\nThat's where recovery comes in. A 30-minute infrared sauna session or compression therapy session gives you the reset you need to show up fully for your family.\n\nMany Gahanna parents do a weekly recovery session—not as a luxury, but as essential maintenance for being the best version of themselves.\n\n### For Young Athletes\n\nGahanna has a strong youth sports culture. Soccer. Basketball. Lacrosse. Swimming. Cross country. Kids pushing themselves hard.\n\nRecovery is where athletes get stronger. Yet most young athletes neglect recovery entirely, leading to overuse injuries and burnout.\n\nCryotherapy and compression therapy are game-changers for young athletes. They reduce inflammation, accelerate recovery, and help prevent injuries.\n\nMany Gahanna families add one recovery session per week during their child's competitive season—it's the difference between good performance and peak performance.\n\n### For Active Adults\n\nGahanna attracts active adults who run, cycle, hike, and train. People who care about fitness and health.\n\nBut activity without recovery is just accumulating damage. Strategic recovery accelerates results and prevents injury.\n\nRed light therapy, cryotherapy, and compression therapy are the tools that separate casual fitness enthusiasts from people who stay healthy and strong for decades.\n\n### For Aging Grandparents\n\nGrandparents want to be active and engaged with their grandchildren. But aging brings challenges—joint pain, reduced mobility, slower recovery.\n\nInfrared sauna improves circulation and reduces pain. Compression therapy enhances mobility. Red light therapy supports cellular health.\n\nMany Gahanna grandparents use recovery therapies to maintain the mobility and vitality they need to enjoy their grandchildren fully.\n\n## The Family Wellness Advantage\n\nWhen one family member starts using recovery therapies, others notice. They see the energy. The improved mood. The better sleep. The faster recovery from workouts.\n\nThen they want to experience it too.\n\nBefore long, the entire family is invested in recovery—each person using it for their own goals, but together creating a culture of wellness in the household.\n\nThis is powerful. Kids grow up understanding that wellness is normal. Parents model healthy habits. Grandparents stay active and engaged.\n\nYou're not just improving individual health—you're building a family culture of wellness.\n\n## Affordable Family Wellness\n\nOne concern families have: isn't this expensive?\n\nNot when you think about it strategically. A single recovery session costs less than a family dinner out. When you consider the benefits—better health, fewer injuries, improved mood, better sleep—it's one of the best investments you can make.\n\nMany Gahanna families start with one session per week and adjust based on their budget and goals.\n\n## The Gahanna Community Wellness Movement\n\nWhen you choose Restore, you're joining a community of Gahanna families who have made wellness a priority. You'll see neighbors at the studio. You'll hear stories of improved health and vitality. You'll become part of a movement of families building healthier lives together.\n\nThat community energy matters. It keeps you accountable. It makes wellness feel achievable—because you're surrounded by families achieving it.\n\n## Your Family Wellness Blueprint\n\n**Month 1:** Start with one family member. Let them experience recovery and share their results.\n\n**Month 2:** Add a second family member. Experiment with different therapies based on individual goals.\n\n**Month 3:** Build your family routine. Maybe it's one session per week per person. Maybe it's two. Find what works for your family.\n\n**Month 4+:** Refine and optimize. Notice improvements in family energy, mood, and overall health. Celebrate the wellness culture you're building.\n\nWithin 60 days, most families notice significant improvements in energy, sleep quality, and overall wellness.\n\n## Ready to Build a Healthier Family?\n\nVisit Restore Hyper Wellness - Easton at 6780 Longshore St, Columbus, OH 43235. Call 614-944-9041 to book your family's first session.\n\nOur team will help you find the right therapies for each family member's goals.\n\nFirst-time visitors receive a complimentary consultation to explore which therapies are right for your family.\n\nMake 2026 the year your family committed to wellness together—and discovered what it feels like to thrive as a unit.",
+    date: "2026-01-10",
+    author: "Restore Team",
+    category: "Local Guide",
+    image: "/images/gahanna-family-wellness.jpg",
+    tags: ["Gahanna", "Family Wellness", "Youth Athletes", "Active Living", "Community Health", "Recovery"]
+  },
 ];
