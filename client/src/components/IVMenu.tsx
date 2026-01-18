@@ -114,6 +114,9 @@ export default function IVMenu() {
                         <p className="text-lg font-bold text-slate-900">${drip.retailPrice}</p>
                       </div>
                     </div>
+                    {(drip as any).sessionTime && (
+                      <p className="text-xs text-slate-600 font-medium mt-2">{(drip as any).sessionTime}</p>
+                    )}
                   </div>
                 </div>
               </Card>

@@ -249,4 +249,11 @@
 
 - [x] Update Dublin phone number to 614-553-7207
 - [x] Remove champagne and chocolate reference from blog post
+- [x] Save checkpoint and publish (checkpoint 4340cad5)
+
+## Current Sprint: Add NAD and Niagen NR Pricing to IV Menu
+
+- [x] Add NAD+ IV drips with 4 dosage options to ivMenu.drips (500mg, 750mg, 125mg Add-On, 125mg IM)
+- [x] Add Niagen (NR) IV drips with 4 dosage options to ivMenu.drips (500mg, 1000mg, 125mg Add-On, 125mg IM)
+- [x] Update IVMenu component to display dosage options for premium drips (added sessionTime display)
 - [ ] Save checkpoint and publish
