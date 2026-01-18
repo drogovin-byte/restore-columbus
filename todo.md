@@ -263,4 +263,12 @@
 - [x] Create comparison guide content and data structure (detailed comparison with side-by-side table)
 - [x] Build comparison page component with hero section, detailed comparison table, and CTA
 - [x] Integrate into routing and navigation (added /nad-vs-niagen route and link from Pricing page)
+- [x] Save checkpoint and publish (checkpoint 12c92e8d)
+
+## Current Sprint: Update NAD+ vs Niagen Comparison Page
+
+- [x] Add key benefits section with rapid results, comfortable/safe, and efficient treatment highlights
+- [x] Add detailed comparison table with all attributes (precursor, anti-aging, natural sources, side effects)
+- [x] Add NAD+ and Niagen plan pricing sections with loading and maintenance plans
+- [x] Add hero section with three key benefit cards and comprehensive comparison
 - [ ] Save checkpoint and publish
