@@ -243,4 +243,10 @@
 ## Current Sprint: Update Valentine's Hero Image
 
 - [x] Replace hero image with couple in infrared sauna (intimate infrared sauna scene with romantic lighting)
+- [x] Save checkpoint and publish (checkpoint a24bf43e)
+
+## Current Sprint: Valentine's Blog Corrections
+
+- [x] Update Dublin phone number to 614-553-7207
+- [x] Remove champagne and chocolate reference from blog post
 - [ ] Save checkpoint and publish
