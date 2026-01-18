@@ -505,6 +505,19 @@ export default function Pricing() {
               </div>
             </Card>
           </div>
+
+          {/* Comparison Guide CTA */}
+          <div className="mt-16 pt-16 border-t-2 border-slate-700">
+            <div className="bg-gradient-to-r from-purple-900 to-indigo-900 rounded-2xl p-8 md:p-12 text-white text-center space-y-6">
+              <h3 className="text-3xl font-bold">Not Sure Which is Right for You?</h3>
+              <p className="text-lg text-white/90 max-w-2xl mx-auto">
+                Read our detailed comparison guide to understand the differences between NAD+ and Niagen (NR) therapy and choose the perfect option for your wellness goals.
+              </p>
+              <Button asChild size="lg" className="bg-white text-purple-900 hover:bg-white/90 font-bold text-lg h-12 px-8 rounded-full shadow-lg transition-all hover:scale-105">
+                <Link href="/nad-vs-niagen">Read Comparison Guide</Link>
+              </Button>
+            </div>
+          </div>
         </div>
       </section>
 

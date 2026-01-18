@@ -256,4 +256,11 @@
 - [x] Add NAD+ IV drips with 4 dosage options to ivMenu.drips (500mg, 750mg, 125mg Add-On, 125mg IM)
 - [x] Add Niagen (NR) IV drips with 4 dosage options to ivMenu.drips (500mg, 1000mg, 125mg Add-On, 125mg IM)
 - [x] Update IVMenu component to display dosage options for premium drips (added sessionTime display)
+- [x] Save checkpoint and publish (checkpoint 349eac8a)
+
+## Current Sprint: NAD+ vs Niagen NR Comparison Guide
+
+- [x] Create comparison guide content and data structure (detailed comparison with side-by-side table)
+- [x] Build comparison page component with hero section, detailed comparison table, and CTA
+- [x] Integrate into routing and navigation (added /nad-vs-niagen route and link from Pricing page)
 - [ ] Save checkpoint and publish
