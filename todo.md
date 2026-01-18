@@ -232,4 +232,10 @@
 - [x] Write Valentine's Day blog content featuring wellness experiences for couples
 - [x] Add blog post to data.ts
 - [x] Integrate into blog page (blog automatically displays all posts from data.ts)
+- [x] Save checkpoint and publish (checkpoint 39af83a5)
+
+## Current Sprint: Valentine's Blog Post Fixes
+
+- [x] Update phone numbers in Valentine's blog post to match location page (Easton: 614-944-9041, Dublin: 614-944-9041, Upper Arlington: 614-745-0966)
+- [x] Generate hero image for Valentine's blog post (romantic spa scene with couple)
 - [ ] Save checkpoint and publish
