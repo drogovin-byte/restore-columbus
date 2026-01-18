@@ -238,4 +238,9 @@
 
 - [x] Update phone numbers in Valentine's blog post to match location page (Easton: 614-944-9041, Dublin: 614-944-9041, Upper Arlington: 614-745-0966)
 - [x] Generate hero image for Valentine's blog post (romantic spa scene with couple)
+- [x] Save checkpoint and publish (checkpoint 0dccce9a)
+
+## Current Sprint: Update Valentine's Hero Image
+
+- [x] Replace hero image with couple in infrared sauna (intimate infrared sauna scene with romantic lighting)
 - [ ] Save checkpoint and publish
