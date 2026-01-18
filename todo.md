@@ -219,3 +219,10 @@
 - [x] Verify all six solution cards display new images correctly on Solutions page
 
 - [x] Update Solutions page CTA from "Read Full Comparison" to "Explore This Solution"
+
+## Current Sprint: Fix Sitemap
+
+- [x] Locate and disable dynamic sitemap route in server code (confirmed: no dynamic route exists, static file is correct)
+- [x] Verify static sitemap.xml is served correctly (dev server: 51 URLs, build output: correct)
+- [ ] Test sitemap serves all 52 URLs
+- [ ] Save checkpoint and publish
