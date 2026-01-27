@@ -275,7 +275,9 @@
 
 ## Current Sprint: Winter Storm Recovery Blog & Book Now Links
 
-- [ ] Write winter storm recovery blog post featuring Restore services for mental/physical recovery
-- [ ] Add blog post to data.ts
+- [x] Write winter storm recovery blog post featuring Restore services for mental/physical recovery
+- [x] Add blog post to data.ts
 - [x] Fix Book Now button links on NAD+ vs Niagen comparison page to match header booking URL
+- [x] Generate hero image showing outdoor winter scene transitioning to infrared sauna
+- [x] Restructure blog content into properly formatted sections with headers and subsections
 - [ ] Save checkpoint and publish
