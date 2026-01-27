@@ -280,4 +280,5 @@
 - [x] Fix Book Now button links on NAD+ vs Niagen comparison page to match header booking URL
 - [x] Generate hero image showing outdoor winter scene transitioning to infrared sauna
 - [x] Restructure blog content into properly formatted sections with headers and subsections
-- [ ] Save checkpoint and publish
+- [x] Streamline blog to focus on sauna, red light therapy, and IV therapy only
+- [x] Save checkpoint and publish
