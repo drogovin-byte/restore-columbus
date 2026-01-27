@@ -272,3 +272,10 @@
 - [x] Add NAD+ and Niagen plan pricing sections with loading and maintenance plans
 - [x] Add hero section with three key benefit cards and comprehensive comparison
 - [ ] Save checkpoint and publish
+
+## Current Sprint: Winter Storm Recovery Blog & Book Now Links
+
+- [ ] Write winter storm recovery blog post featuring Restore services for mental/physical recovery
+- [ ] Add blog post to data.ts
+- [x] Fix Book Now button links on NAD+ vs Niagen comparison page to match header booking URL
+- [ ] Save checkpoint and publish

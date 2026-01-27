@@ -249,7 +249,7 @@ export default function NADNiagenComparison() {
                     <p className="text-sm text-slate-600"><span className="font-semibold">Value:</span> $825</p>
                   </div>
                   <Button asChild className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold h-10 rounded-lg">
-                    <Link href="/pricing">Book Now</Link>
+                    <a href="https://www.restore.com/book-now" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors">Book Now</a>
                   </Button>
                 </CardContent>
               </Card>
@@ -265,7 +265,7 @@ export default function NADNiagenComparison() {
                     <p className="text-sm text-slate-600"><span className="font-semibold">Value:</span> $550</p>
                   </div>
                   <Button asChild className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold h-10 rounded-lg">
-                    <Link href="/pricing">Book Now</Link>
+                    <a href="https://www.restore.com/book-now" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors">Book Now</a>
                   </Button>
                 </CardContent>
               </Card>
@@ -281,7 +281,7 @@ export default function NADNiagenComparison() {
                     <p className="text-sm text-slate-600"><span className="font-semibold">Value:</span> $1,005</p>
                   </div>
                   <Button asChild className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold h-10 rounded-lg">
-                    <Link href="/pricing">Book Now</Link>
+                    <a href="https://www.restore.com/book-now" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors">Book Now</a>
                   </Button>
                 </CardContent>
               </Card>
@@ -297,7 +297,7 @@ export default function NADNiagenComparison() {
                     <p className="text-sm text-slate-600"><span className="font-semibold">Value:</span> $670</p>
                   </div>
                   <Button asChild className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold h-10 rounded-lg">
-                    <Link href="/pricing">Book Now</Link>
+                    <a href="https://www.restore.com/book-now" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors">Book Now</a>
                   </Button>
                 </CardContent>
               </Card>
@@ -323,7 +323,7 @@ export default function NADNiagenComparison() {
                     <p className="text-sm text-slate-600"><span className="font-semibold">Value:</span> $860</p>
                   </div>
                   <Button asChild className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold h-10 rounded-lg">
-                    <Link href="/pricing">Book Now</Link>
+                    <a href="https://www.restore.com/book-now" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors">Book Now</a>
                   </Button>
                 </CardContent>
               </Card>
@@ -339,7 +339,7 @@ export default function NADNiagenComparison() {
                     <p className="text-sm text-slate-600"><span className="font-semibold">Value:</span> $1,720</p>
                   </div>
                   <Button asChild className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold h-10 rounded-lg">
-                    <Link href="/pricing">Book Now</Link>
+                    <a href="https://www.restore.com/book-now" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors">Book Now</a>
                   </Button>
                 </CardContent>
               </Card>
@@ -361,7 +361,7 @@ export default function NADNiagenComparison() {
               Choose NAD+ for immediate results or Niagen (NR) for superior comfort and longer-lasting effects. Both therapies are designed to help you turn back the clock with science.
             </p>
             <Button asChild size="lg" className="bg-white text-blue-700 hover:bg-white/90 font-bold text-lg h-12 px-8 rounded-full shadow-lg transition-all hover:scale-105">
-              <Link href="/pricing">View All Plans & Pricing</Link>
+              <a href="https://www.restore.com/book-now" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors">Book Your Plan Now</a>
             </Button>
           </div>
         </section>
