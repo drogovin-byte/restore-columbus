@@ -34,7 +34,8 @@ async function startServer() {
   app.use(express.json({ limit: "50mb" }));
   app.use(express.urlencoded({ limit: "50mb", extended: true }));
   // OAuth callback under /api/oauth/callback
-  registerOAuthRoutes(app);
+  // Disabled for Railway deployment - OAuth not available without Manus credentials
+  // registerOAuthRoutes(app);
   // tRPC API
   app.use(
     "/api/trpc",
