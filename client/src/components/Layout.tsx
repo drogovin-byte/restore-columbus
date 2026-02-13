@@ -56,7 +56,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       >
         <div className="container flex h-14 items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
-            <img src="/images/restore-logo-transparent.png" alt="Restore Hyper Wellness" className="h-10 md:h-12 w-auto" />
+            <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663273219915/XkMqMJcbWlosWPrs.png" alt="Restore Hyper Wellness" className="h-10 md:h-12 w-auto" />
           </Link>
 
           {/* Desktop Nav */}

@@ -59,7 +59,7 @@ export default function Science() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center md:flex-row-reverse">
           <div className="order-2 md:order-1 relative aspect-square rounded-2xl overflow-hidden">
              <img 
-              src="/images/red-light-therapy.jpg" 
+              src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663273219915/EfuCvLphBgbmHkur.jpg" 
               alt="Cellular Health" 
               className="w-full h-full object-cover"
             />

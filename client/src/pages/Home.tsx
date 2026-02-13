@@ -23,7 +23,7 @@ export default function Home() {
           "@context": "https://schema.org",
           "@type": "LocalBusiness",
           "name": "Restore Hyper Wellness Columbus",
-          "image": "https://restore-columbus.manus.space/images/hero-wellness-columbus.jpg",
+          "image": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663273219915/KRQPZRscKLxTsuog.jpg",
           "telephone": "614-944-9041",
           "address": {
             "@type": "PostalAddress",
@@ -46,7 +46,7 @@ export default function Home() {
       <section className="relative h-[600px] md:h-[700px] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="/hero-wellness-columbus.jpg" 
+            src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663273219915/KRQPZRscKLxTsuog.jpg" 
             alt="Restore Hyper Wellness Columbus Studio" 
             className="w-full h-full object-cover"
           />

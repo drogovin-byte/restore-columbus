@@ -11,7 +11,7 @@ export const locations = [
     phone: "614-944-9041",
     hours: "Mon-Fri: 10am-7pm | Sat: 9am-5pm | Sun: 11am-4pm",
     mapUrl: "https://goo.gl/maps/easton",
-    image: "/images/location-hero-studio.webp",
+    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663273219915/oVGToovuDFadmmVC.webp",
     averageRating: 4.9,
     totalReviews: 650,
     specialServices: ["Hyperbaric Oxygen Therapy", "Neveskin Shape, Tone, Facials", "Medical Weight Loss GLP-1", "Hydrafacial"],
@@ -35,7 +35,7 @@ export const locations = [
     hours: "Mon-Fri: 10am-7pm | Sat: 9am-5pm | Sun: 11am-4pm",
     mapUrl: "https://goo.gl/maps/dublin",
     specialServices: ["Hyperbaric Oxygen Therapy", "Neveskin Shape, Tone, Facials", "Medical Weight Loss GLP-1", "Hydrafacial"],
-    image: "/images/location-hero-studio.webp",
+    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663273219915/oVGToovuDFadmmVC.webp",
     averageRating: 4.9,
     totalReviews: 271,
     reviews: [
@@ -58,7 +58,7 @@ export const locations = [
     hours: "Monday: Closed | Tues-Fri: 10am-6pm | Sat: 10am-5pm | Sun: 11am-4pm",
     mapUrl: "https://goo.gl/maps/ua",
     specialServices: ["Hyperbaric Oxygen Therapy", "Neveskin Shape, Tone, Facials", "Medical Weight Loss GLP-1"],
-    image: "/images/location-hero-studio.webp",
+    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663273219915/oVGToovuDFadmmVC.webp",
     averageRating: 5.0,
     totalReviews: 79,
     reviews: [
@@ -82,7 +82,7 @@ export const problemStates = [
     problem: "You're running on empty. Whether it's work stress, poor sleep, or lifestyle demands, you're exhausted and struggling to keep up.",
     solution: "Our energy-restoration therapies replenish cellular function and optimize your nervous system.",
     recommendedServices: ["iv-drip", "nad-iv", "red-light", "infrared-sauna"],
-    image: "/images/hero-wellness-columbus.jpg"
+    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663273219915/KRQPZRscKLxTsuog.jpg"
   },
   {
     id: "athletic-recovery",
@@ -92,7 +92,7 @@ export const problemStates = [
     problem: "You train hard but recover slow. Soreness, inflammation, and fatigue are limiting your performance and progress.",
     solution: "Our recovery-focused therapies reduce inflammation, accelerate muscle repair, and optimize your training window.",
     recommendedServices: ["cryotherapy", "compression", "infrared-sauna", "mhbot"],
-    image: "/images/cryotherapy-session.jpg"
+    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663273219915/SRkyAQPbvfJRZZgM.jpg"
   },
   {
     id: "pain-inflammation",
@@ -122,7 +122,7 @@ export const problemStates = [
     problem: "Your energy, libido, and muscle mass are declining. You want to optimize your hormones and feel like yourself again.",
     solution: "Our men's health protocols include TRT, performance optimization, and recovery-focused therapies.",
     recommendedServices: ["trt", "nad-iv", "cryotherapy", "compression"],
-    image: "/images/iv-drip-lounge.jpg"
+    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663273219915/oKofoJMdftfMCjZM.jpg"
   },
   {
     id: "womens-wellness",
@@ -828,7 +828,7 @@ export const comparisonGuides = [
     title: "Reduce Inflammation & Accelerate Recovery",
     description: "Which therapy is right for your recovery goals?",
     excerpt: "Combat inflammation and speed up recovery with the right therapy combination.",
-    cardImage: "/images/solution-recovery.jpg",
+    cardImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663273219915/PIeXanNgzIAotZXj.jpg",
     solutions: [
       {
         id: "cryotherapy",
@@ -868,7 +868,7 @@ export const comparisonGuides = [
       }
     ],
     cta: "Reduce Inflammation & Accelerate Recovery",
-    image: "/images/solution-recovery.jpg"
+    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663273219915/PIeXanNgzIAotZXj.jpg"
   },
   {
     id: "sleep-detox",
@@ -876,7 +876,7 @@ export const comparisonGuides = [
     title: "Sleep Better & Detoxify",
     description: "Which therapy helps you rest and cleanse?",
     excerpt: "Improve sleep quality and support your body's natural detoxification processes.",
-    cardImage: "/solution-sleep.jpg",
+    cardImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663273219915/TUAhWTIKCdrQtdic.jpg",
     solutions: [
       {
         id: "infrared-sauna",
@@ -904,7 +904,7 @@ export const comparisonGuides = [
       }
     ],
     cta: "Sleep Better & Detoxify",
-    image: "/solution-sleep.jpg"
+    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663273219915/TUAhWTIKCdrQtdic.jpg"
   },
   {
     id: "fatigue-brain-fog",
@@ -1063,7 +1063,7 @@ export const blogPosts = [
     date: "2025-12-15",
     author: "Dr. Sarah Chen",
     category: "Athletic Recovery",
-    image: "/images/location-hero-studio.webp",
+    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663273219915/oVGToovuDFadmmVC.webp",
     tags: ["Marathon", "Recovery", "Columbus", "Athletic Performance"]
   },
   {
@@ -1075,7 +1075,7 @@ export const blogPosts = [
     date: "2025-11-01",
     author: "Dr. James Wilson",
     category: "Wellness",
-    image: "/images/red-light-therapy.jpg",
+    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663273219915/EfuCvLphBgbmHkur.jpg",
     tags: ["Buckeyes", "Energy", "Wellness", "Columbus"]
   },
   {
@@ -1099,7 +1099,7 @@ export const blogPosts = [
     date: "2026-01-02",
     author: "Restore Team",
     category: "Local Guide",
-    image: "/images/location-hero-studio.webp",
+    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663273219915/oVGToovuDFadmmVC.webp",
     tags: ["Dublin", "Bridge Park", "Wellness Guide", "Local"]
   },
   {
