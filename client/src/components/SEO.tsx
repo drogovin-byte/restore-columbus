@@ -15,7 +15,7 @@ export default function SEO({
   canonical, 
   schema,
   type = "website",
-  image = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663273219915/KRQPZRscKLxTsuog.jpg"
+  image = "https://restore-columbus.manus.space/images/hero-wellness-columbus.jpg"
 }: SEOProps) {
   useEffect(() => {
     // Update Title

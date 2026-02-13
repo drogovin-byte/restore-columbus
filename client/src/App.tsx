@@ -30,7 +30,6 @@ import AdminDashboard from "./pages/AdminDashboard";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import NADNiagenComparison from "./pages/NADNiagenComparison";
-import Anniversary from "./pages/Anniversary";
 import Layout from "./components/Layout";
 
 function Router() {
@@ -55,7 +54,6 @@ function Router() {
       <Route path={"memberships"} component={Memberships} />
       <Route path={"pricing"} component={Pricing} />
       <Route path={"nad-vs-niagen"} component={NADNiagenComparison} />
-      <Route path={"anniversary"} component={Anniversary} />
       <Route path={"contact"} component={Contact} />
       <Route path="/membership-signup" component={MembershipSignup} />
       <Route path="/membership/:id" component={MembershipSignup} />
